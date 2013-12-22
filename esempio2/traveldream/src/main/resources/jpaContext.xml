@@ -35,16 +35,13 @@
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory"/>
 	</bean>
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-               destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/traveldream" />
-        <property name="username" value="traveldream" />
-        <property name="password" value="traveldream" />
-        <property name="initialSize" value="8" />
-        <property name="maxActive" value="12" />
+        <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean" >
+            <property name="jndiName" value="jdbc_traveldream-db" />
+            <property name="lookupOnStartup" value="false"/>
+            <property name="cache" value="true"/>
+            <property name="proxyInterface" value="javax.sql.DataSource"/>
         </bean>
+        
 	
-
 
 </beans>
