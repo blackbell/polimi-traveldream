@@ -16,5 +16,5 @@ import javax.ejb.Local;
 @Local
 public interface UtenteServiceLocal {
     
-    public String registrazione( Utente utente );
+    public Utente registrazione( Utente utente );
 }

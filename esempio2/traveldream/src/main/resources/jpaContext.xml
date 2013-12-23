@@ -13,8 +13,6 @@
         <tx:annotation-driven transaction-manager="transactionManager"/>
         <jpa:repositories entity-manager-factory-ref="entityManagerFactory" base-package="it.polimi.traveldream.data"/>
         
-	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
-	
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="punit"/>
 		<property name="dataSource" ref="dataSource" />
@@ -41,7 +39,6 @@
             <property name="cache" value="true"/>
             <property name="proxyInterface" value="javax.sql.DataSource"/>
         </bean>
-        
 	
 
 </beans>

@@ -13,7 +13,8 @@
     <mvc:annotation-driven/>
     	
     <context:component-scan base-package="it.polimi.traveldream"/>
-    
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
     <tx:annotation-driven/>
     
     	

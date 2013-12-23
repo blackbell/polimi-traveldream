@@ -30,8 +30,10 @@ public class UtenteController {
     
     
     @RequestMapping(value = "registrazione")
-    public @ResponseBody String registrazione() {
-        return bean.registrazione( new Utente("leo", "culo"));
+    public @ResponseBody Utente registrazione() {
+        Utente utente = new Utente("leo", "culo");
+        utente.setStato("abilitato");
+        return bean.registrazione( utente );
     }
 
     
