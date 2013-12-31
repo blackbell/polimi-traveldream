@@ -27,7 +27,7 @@ public class UtenteController {
     @RequestMapping(value = "registrazione")
     public @ResponseBody Utente registrazione() {
         Utente utente = new Utente("leo", "culo");
-        utente.setStato("abilitato");
+        utente.setAbilitato(Boolean.TRUE);
         return bean.registrazione( utente);
     }    
 
