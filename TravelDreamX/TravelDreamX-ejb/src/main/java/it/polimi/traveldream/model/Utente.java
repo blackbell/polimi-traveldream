@@ -8,6 +8,7 @@ package it.polimi.traveldream.model;
 
 import java.io.Serializable;
 import java.util.Collection;
+import javax.enterprise.inject.Default;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -50,10 +51,6 @@ public class Utente implements Serializable {
     private Boolean abilitato;
     @Column(name = "livello")
     private Boolean livello;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUtente")
-    private Collection<Pagamento> pagamentoCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "proprietario")
-    private Collection<Pacchetto> pacchettoCollection;
 
     public Utente() {
     }
@@ -99,22 +96,7 @@ public class Utente implements Serializable {
         this.livello = livello;
     }
 
-    public Collection<Pagamento> getPagamentoCollection() {
-        return pagamentoCollection;
-    }
-
-    public void setPagamentoCollection(Collection<Pagamento> pagamentoCollection) {
-        this.pagamentoCollection = pagamentoCollection;
-    }
-
-    public Collection<Pacchetto> getPacchettoCollection() {
-        return pacchettoCollection;
-    }
-
-    public void setPacchettoCollection(Collection<Pacchetto> pacchettoCollection) {
-        this.pacchettoCollection = pacchettoCollection;
-    }
-
+   
     @Override
     public int hashCode() {
         int hash = 0;
