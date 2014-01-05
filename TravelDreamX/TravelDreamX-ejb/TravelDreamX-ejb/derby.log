@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+Sun Jan 05 15:00:28 CET 2014:
+Avvio della versione di Derby The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): istanza a816c00e-0143-62b4-6ee3-000001ce2140
+su directory database C:\Users\Dario\AppData\Local\Temp\gfembed8568549526228048309tmp\lib\databases\embedded_default  con caricatore classi sun.misc.Launcher$AppClassLoader@47a5f7d3 
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_45-b18
+user.dir=C:\Users\Dario\PoliMI Netbeans\TravelDreamX\TravelDreamX-ejb
+derby.system.home=null
+Programma di caricamento classe database avviato - derby.database.classpath=''

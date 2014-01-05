@@ -77,7 +77,7 @@ public class UtenteServiceTest {
         Utente utente = null;
         EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
         UtenteServiceLocal instance = (UtenteServiceLocal)container.getContext().lookup("java:global/classes/UtenteService");
-        Utente expResult = null;
+        Utente expResult = null;    
         Utente result = instance.registrazione(utente);
         assertEquals(expResult, result);
         container.close();
