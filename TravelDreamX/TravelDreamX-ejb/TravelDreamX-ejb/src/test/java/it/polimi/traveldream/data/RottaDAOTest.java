@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package it.polimi.traveldream.test;
+package it.polimi.traveldream.data;
 
+import it.polimi.traveldream.data.DAOUnitTest;
 import it.polimi.traveldream.data.RottaDAO;
 import it.polimi.traveldream.model.Rotta;
 import org.junit.After;
@@ -23,9 +24,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  *
  * @author Dario
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:test-appContext.xml"})
-public class RottaDAOTest {
+public class RottaDAOTest extends DAOUnitTest {
     
     public RottaDAOTest() {
         
@@ -47,11 +46,6 @@ public class RottaDAOTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
     @Test
     public void emptyTest(){}
     
