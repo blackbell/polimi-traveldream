@@ -12,10 +12,14 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -37,10 +41,10 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 @Table(name = "pacchetti")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Pacchetti.findAll", query = "SELECT p FROM Pacchetti p"),
-    @NamedQuery(name = "Pacchetti.findByIdPacchetto", query = "SELECT p FROM Pacchetti p WHERE p.idPacchetto = :idPacchetto"),
-    @NamedQuery(name = "Pacchetti.findByDataOraCreazione", query = "SELECT p FROM Pacchetti p WHERE p.dataOraCreazione = :dataOraCreazione"),
-    @NamedQuery(name = "Pacchetti.findByTipo", query = "SELECT p FROM Pacchetti p WHERE p.tipo = :tipo")})
+    @NamedQuery(name = "Pacchetto.findAll", query = "SELECT p FROM Pacchetto p"),
+    @NamedQuery(name = "Pacchetto.findByIdPacchetto", query = "SELECT p FROM Pacchetto p WHERE p.idPacchetto = :idPacchetto"),
+    @NamedQuery(name = "Pacchetto.findByDataOraCreazione", query = "SELECT p FROM Pacchetto p WHERE p.dataOraCreazione = :dataOraCreazione"),
+    @NamedQuery(name = "Pacchetto.findByTipo", query = "SELECT p FROM Pacchetto p WHERE p.tipo = :tipo")})
 public class Pacchetto implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -140,7 +144,7 @@ public class Pacchetto implements Serializable {
 
     @Override
     public String toString() {
-        return "it.polimi.traveldream.model.Pacchetti[ idPacchetto=" + idPacchetto + " ]";
+        return "it.polimi.traveldream.model.Pacchetto[ idPacchetto=" + idPacchetto + " ]";
     }
     
 }

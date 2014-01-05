@@ -31,12 +31,12 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 @Table(name = "musei")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Musei.findAll", query = "SELECT m FROM Musei m"),
-    @NamedQuery(name = "Musei.findByIdMuseo", query = "SELECT m FROM Musei m WHERE m.idMuseo = :idMuseo"),
-    @NamedQuery(name = "Musei.findByNome", query = "SELECT m FROM Musei m WHERE m.nome = :nome"),
-    @NamedQuery(name = "Musei.findByCitta", query = "SELECT m FROM Musei m WHERE m.citta = :citta"),
-    @NamedQuery(name = "Musei.findByDescrizione", query = "SELECT m FROM Musei m WHERE m.descrizione = :descrizione"),
-    @NamedQuery(name = "Musei.findByUrlFoto", query = "SELECT m FROM Musei m WHERE m.urlFoto = :urlFoto")})
+    @NamedQuery(name = "Museo.findAll", query = "SELECT m FROM Museo m"),
+    @NamedQuery(name = "Museo.findByIdMuseo", query = "SELECT m FROM Museo m WHERE m.idMuseo = :idMuseo"),
+    @NamedQuery(name = "Museo.findByNome", query = "SELECT m FROM Museo m WHERE m.nome = :nome"),
+    @NamedQuery(name = "Museo.findByCitta", query = "SELECT m FROM Museo m WHERE m.citta = :citta"),
+    @NamedQuery(name = "Museo.findByDescrizione", query = "SELECT m FROM Museo m WHERE m.descrizione = :descrizione"),
+    @NamedQuery(name = "Museo.findByUrlFoto", query = "SELECT m FROM Museo m WHERE m.urlFoto = :urlFoto")})
 public class Museo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -154,7 +154,7 @@ public class Museo implements Serializable {
 
     @Override
     public String toString() {
-        return "it.polimi.traveldream.model.Musei[ idMuseo=" + idMuseo + " ]";
+        return "it.polimi.traveldream.model.Museo[ idMuseo=" + idMuseo + " ]";
     }
     
 }

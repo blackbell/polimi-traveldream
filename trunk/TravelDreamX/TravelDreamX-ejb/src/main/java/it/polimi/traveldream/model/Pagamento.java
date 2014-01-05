@@ -33,9 +33,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "pagamenti")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Pagamenti.findAll", query = "SELECT p FROM Pagamenti p"),
-    @NamedQuery(name = "Pagamenti.findByIdPagamento", query = "SELECT p FROM Pagamenti p WHERE p.idPagamento = :idPagamento"),
-    @NamedQuery(name = "Pagamenti.findByDataOraPagamento", query = "SELECT p FROM Pagamenti p WHERE p.dataOraPagamento = :dataOraPagamento")})
+    @NamedQuery(name = "Pagamento.findAll", query = "SELECT p FROM Pagamento p"),
+    @NamedQuery(name = "Pagamento.findByIdPagamento", query = "SELECT p FROM Pagamento p WHERE p.idPagamento = :idPagamento"),
+    @NamedQuery(name = "Pagamento.findByDataOraPagamento", query = "SELECT p FROM Pagamento p WHERE p.dataOraPagamento = :dataOraPagamento")})
 public class Pagamento implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -49,7 +49,7 @@ public class Pagamento implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataOraPagamento;
     @JoinColumns({
-        @JoinColumn(name = "idVoce", referencedColumnName = "idVoce"),
+        @JoinColumn(name = "idVoce", referencedColumnName = "idVoce", insertable = false, updatable = false),//),
         @JoinColumn(name = "idPagamento", referencedColumnName = "idPacchetto", insertable = false, updatable = false)})
     @ManyToOne(optional = false)
     private Composizione composizione;
@@ -123,7 +123,7 @@ public class Pagamento implements Serializable {
 
     @Override
     public String toString() {
-        return "it.polimi.traveldream.model.Pagamenti[ idPagamento=" + idPagamento + " ]";
+        return "it.polimi.traveldream.model.Pagamento[ idPagamento=" + idPagamento + " ]";
     }
     
 }

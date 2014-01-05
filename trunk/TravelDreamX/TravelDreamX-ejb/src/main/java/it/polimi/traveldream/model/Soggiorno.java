@@ -12,6 +12,7 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,22 +35,22 @@ import org.codehaus.jackson.annotate.JsonIgnore;
  * @author Dario
  */
 @Entity
+@DiscriminatorValue("1")
 @Table(name = "soggiorni")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Soggiorni.findAll", query = "SELECT s FROM Soggiorni s"),
-    @NamedQuery(name = "Soggiorni.findByIdSoggiorno", query = "SELECT s FROM Soggiorni s WHERE s.idSoggiorno = :idSoggiorno"),
-    @NamedQuery(name = "Soggiorni.findByGiornoInizio", query = "SELECT s FROM Soggiorni s WHERE s.giornoInizio = :giornoInizio"),
-    @NamedQuery(name = "Soggiorni.findByGiornoFine", query = "SELECT s FROM Soggiorni s WHERE s.giornoFine = :giornoFine"),
-    @NamedQuery(name = "Soggiorni.findByNumeroPersone", query = "SELECT s FROM Soggiorni s WHERE s.numeroPersone = :numeroPersone"),
-    @NamedQuery(name = "Soggiorni.findByCosto", query = "SELECT s FROM Soggiorni s WHERE s.costo = :costo")})
-public class Soggiorno implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Id
+    @NamedQuery(name = "Soggiorno.findAll", query = "SELECT s FROM Soggiorno s"),
+    @NamedQuery(name = "Soggiorno.findByIdSoggiorno", query = "SELECT s FROM Soggiorno s WHERE s.idSoggiorno = :idSoggiorno"),
+    @NamedQuery(name = "Soggiorno.findByGiornoInizio", query = "SELECT s FROM Soggiorno s WHERE s.giornoInizio = :giornoInizio"),
+    @NamedQuery(name = "Soggiorno.findByGiornoFine", query = "SELECT s FROM Soggiorno s WHERE s.giornoFine = :giornoFine"),
+    @NamedQuery(name = "Soggiorno.findByNumeroPersone", query = "SELECT s FROM Soggiorno s WHERE s.numeroPersone = :numeroPersone"),
+    @NamedQuery(name = "Soggiorno.findByCosto", query = "SELECT s FROM Soggiorno s WHERE s.costo = :costo")})
+public class Soggiorno extends Voce implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idSoggiorno")
     private Integer idSoggiorno;
+    private static final long serialVersionUID = 1L;
     @Basic(optional = false)
     @NotNull
     @Column(name = "giornoInizio")
@@ -71,8 +72,6 @@ public class Soggiorno implements Serializable {
     @JoinColumn(name = "idAlbergo", referencedColumnName = "idAlbergo")
     @ManyToOne(optional = false)
     private Albergo idAlbergo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idRelativo2")
-    private Collection<Voce> vociCollection;
 
     public Soggiorno() {
     }
@@ -137,16 +136,6 @@ public class Soggiorno implements Serializable {
         this.idAlbergo = idAlbergo;
     }
 
-    @XmlTransient
-    @JsonIgnore
-    public Collection<Voce> getVociCollection() {
-        return vociCollection;
-    }
-
-    public void setVociCollection(Collection<Voce> vociCollection) {
-        this.vociCollection = vociCollection;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -169,7 +158,7 @@ public class Soggiorno implements Serializable {
 
     @Override
     public String toString() {
-        return "it.polimi.traveldream.model.Soggiorni[ idSoggiorno=" + idSoggiorno + " ]";
+        return "it.polimi.traveldream.model.Soggiorno[ idSoggiorno=" + idSoggiorno + " ]";
     }
     
 }

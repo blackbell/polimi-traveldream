@@ -7,44 +7,40 @@
 package it.polimi.traveldream.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
  * @author Dario
  */
-@Entity
+@Entity(name = "Volo")
+@DiscriminatorValue("3")
 @Table(name = "voli")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Voli.findAll", query = "SELECT v FROM Voli v"),
-    @NamedQuery(name = "Voli.findByIdVolo", query = "SELECT v FROM Voli v WHERE v.idVolo = :idVolo"),
-    @NamedQuery(name = "Voli.findByDataOra", query = "SELECT v FROM Voli v WHERE v.dataOra = :dataOra"),
-    @NamedQuery(name = "Voli.findByNumPasseggeri", query = "SELECT v FROM Voli v WHERE v.numPasseggeri = :numPasseggeri"),
-    @NamedQuery(name = "Voli.findByCosto", query = "SELECT v FROM Voli v WHERE v.costo = :costo")})
-public class Volo implements Serializable {
+    @NamedQuery(name = "Volo.findAll", query = "SELECT v FROM Volo v"),
+    @NamedQuery(name = "Volo.findByIdVolo", query = "SELECT v FROM Volo v WHERE v.idVolo = :idVolo"),
+    @NamedQuery(name = "Volo.findByDataOra", query = "SELECT v FROM Volo v WHERE v.dataOra = :dataOra"),
+    @NamedQuery(name = "Volo.findByNumPasseggeri", query = "SELECT v FROM Volo v WHERE v.numPasseggeri = :numPasseggeri"),
+    @NamedQuery(name = "Volo.findByCosto", query = "SELECT v FROM Volo v WHERE v.costo = :costo")})
+public class Volo extends Voce implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
+    //@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idVolo")
@@ -62,8 +58,6 @@ public class Volo implements Serializable {
     @NotNull
     @Column(name = "costo")
     private float costo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idRelativo1")
-    private Collection<Voce> vociCollection;
     @JoinColumn(name = "idRotta", referencedColumnName = "idRotta")
     @ManyToOne(optional = false)
     private Rotta idRotta;
@@ -114,16 +108,6 @@ public class Volo implements Serializable {
         this.costo = costo;
     }
 
-    @XmlTransient
-    @JsonIgnore
-    public Collection<Voce> getVociCollection() {
-        return vociCollection;
-    }
-
-    public void setVociCollection(Collection<Voce> vociCollection) {
-        this.vociCollection = vociCollection;
-    }
-
     public Rotta getIdRotta() {
         return idRotta;
     }
@@ -154,7 +138,7 @@ public class Volo implements Serializable {
 
     @Override
     public String toString() {
-        return "it.polimi.traveldream.model.Voli[ idVolo=" + idVolo + " ]";
+        return "it.polimi.traveldream.model.Volo[ idVolo=" + idVolo + " ]";
     }
     
 }

@@ -11,10 +11,14 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -33,13 +37,16 @@ import org.codehaus.jackson.annotate.JsonIgnore;
  */
 @Entity
 @Table(name = "voci")
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name="Tipo", discriminatorType = DiscriminatorType.INTEGER)
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Voci.findAll", query = "SELECT v FROM Voci v"),
-    @NamedQuery(name = "Voci.findByIdVoce", query = "SELECT v FROM Voci v WHERE v.idVoce = :idVoce"),
-    @NamedQuery(name = "Voci.findByTipo", query = "SELECT v FROM Voci v WHERE v.tipo = :tipo")})
+    @NamedQuery(name = "Voce.findAll", query = "SELECT v FROM Voce v"),
+    @NamedQuery(name = "Voce.findByIdVoce", query = "SELECT v FROM Voce v WHERE v.idVoce = :idVoce"),
+    @NamedQuery(name = "Voce.findByTipo", query = "SELECT v FROM Voce v WHERE v.tipo = :tipo")})
 public class Voce implements Serializable {
-    private static final long serialVersionUID = 1L;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "voci")
+    private Collection<Composizione> composizioneCollection;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -50,17 +57,6 @@ public class Voce implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "tipo")
     private String tipo;
-    @JoinColumn(name = "idRelativo", referencedColumnName = "idVisita")
-    @ManyToOne(optional = false)
-    private Visita idRelativo;
-    @JoinColumn(name = "idRelativo", referencedColumnName = "idVolo")
-    @ManyToOne(optional = false)
-    private Volo idRelativo1;
-    @JoinColumn(name = "idRelativo", referencedColumnName = "idSoggiorno")
-    @ManyToOne(optional = false)
-    private Soggiorno idRelativo2;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "voci")
-    private Collection<Composizione> composizioneCollection;
 
     public Voce() {
     }
@@ -90,40 +86,6 @@ public class Voce implements Serializable {
         this.tipo = tipo;
     }
 
-    public Visita getIdRelativo() {
-        return idRelativo;
-    }
-
-    public void setIdRelativo(Visita idRelativo) {
-        this.idRelativo = idRelativo;
-    }
-
-    public Volo getIdRelativo1() {
-        return idRelativo1;
-    }
-
-    public void setIdRelativo1(Volo idRelativo1) {
-        this.idRelativo1 = idRelativo1;
-    }
-
-    public Soggiorno getIdRelativo2() {
-        return idRelativo2;
-    }
-
-    public void setIdRelativo2(Soggiorno idRelativo2) {
-        this.idRelativo2 = idRelativo2;
-    }
-
-    @XmlTransient
-    @JsonIgnore
-    public Collection<Composizione> getComposizioneCollection() {
-        return composizioneCollection;
-    }
-
-    public void setComposizioneCollection(Collection<Composizione> composizioneCollection) {
-        this.composizioneCollection = composizioneCollection;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -146,7 +108,17 @@ public class Voce implements Serializable {
 
     @Override
     public String toString() {
-        return "it.polimi.traveldream.model.Voci[ idVoce=" + idVoce + " ]";
+        return "it.polimi.traveldream.model.Voce[ idVoce=" + idVoce + " ]";
+    }
+
+    @XmlTransient
+    @JsonIgnore
+    public Collection<Composizione> getComposizioneCollection() {
+        return composizioneCollection;
+    }
+
+    public void setComposizioneCollection(Collection<Composizione> composizioneCollection) {
+        this.composizioneCollection = composizioneCollection;
     }
     
 }

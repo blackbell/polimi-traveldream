@@ -12,6 +12,7 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,17 +35,18 @@ import org.codehaus.jackson.annotate.JsonIgnore;
  * @author Dario
  */
 @Entity
+@DiscriminatorValue("2")
 @Table(name = "visite")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Visite.findAll", query = "SELECT v FROM Visite v"),
-    @NamedQuery(name = "Visite.findByIdVisita", query = "SELECT v FROM Visite v WHERE v.idVisita = :idVisita"),
-    @NamedQuery(name = "Visite.findByDataOra", query = "SELECT v FROM Visite v WHERE v.dataOra = :dataOra"),
-    @NamedQuery(name = "Visite.findByNumeroPersone", query = "SELECT v FROM Visite v WHERE v.numeroPersone = :numeroPersone"),
-    @NamedQuery(name = "Visite.findByCosto", query = "SELECT v FROM Visite v WHERE v.costo = :costo")})
-public class Visita implements Serializable {
+    @NamedQuery(name = "Visita.findAll", query = "SELECT v FROM Visita v"),
+    @NamedQuery(name = "Visita.findByIdVisita", query = "SELECT v FROM Visita v WHERE v.idVisita = :idVisita"),
+    @NamedQuery(name = "Visita.findByDataOra", query = "SELECT v FROM Visita v WHERE v.dataOra = :dataOra"),
+    @NamedQuery(name = "Visita.findByNumeroPersone", query = "SELECT v FROM Visita v WHERE v.numeroPersone = :numeroPersone"),
+    @NamedQuery(name = "Visita.findByCosto", query = "SELECT v FROM Visita v WHERE v.costo = :costo")})
+public class Visita extends Voce implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
+    //@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idVisita")
@@ -65,8 +67,6 @@ public class Visita implements Serializable {
     @JoinColumn(name = "idMuseo", referencedColumnName = "idMuseo")
     @ManyToOne(optional = false)
     private Museo idMuseo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idRelativo")
-    private Collection<Voce> vociCollection;
 
     public Visita() {
     }
@@ -122,16 +122,6 @@ public class Visita implements Serializable {
         this.idMuseo = idMuseo;
     }
 
-    @XmlTransient
-    @JsonIgnore
-    public Collection<Voce> getVociCollection() {
-        return vociCollection;
-    }
-
-    public void setVociCollection(Collection<Voce> vociCollection) {
-        this.vociCollection = vociCollection;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -154,7 +144,7 @@ public class Visita implements Serializable {
 
     @Override
     public String toString() {
-        return "it.polimi.traveldream.model.Visite[ idVisita=" + idVisita + " ]";
+        return "it.polimi.traveldream.model.Visita[ idVisita=" + idVisita + " ]";
     }
     
 }
