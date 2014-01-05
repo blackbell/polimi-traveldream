@@ -81,14 +81,10 @@
             <version>3.2.3.RELEASE</version>
         </dependency>
         <dependency>
-            <groupId>org.glassfish.embedded</groupId>
-            <artifactId>maven-embedded-glassfish-plugin</artifactId>
-            <version>4.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.glassfish.main.extras</groupId>
-            <artifactId>glassfish-embedded-all</artifactId>
+            <artifactId>glassfish-embedded-static-shell</artifactId>
             <version>4.0</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
