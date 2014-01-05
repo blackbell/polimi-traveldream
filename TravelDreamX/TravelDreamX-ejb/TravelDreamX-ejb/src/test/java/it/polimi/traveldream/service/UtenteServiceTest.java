@@ -6,6 +6,7 @@
 
 package it.polimi.traveldream.service;
 
+import javax.ejb.EJB;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -22,9 +23,9 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Dario
  */
-@RunWith(SpringJUnit4ClassRunner.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
 //@TransactionConfiguration
-@ContextConfiguration(locations = {"/test-applicationContext.xml"})
+//@ContextConfiguration(locations = {"/test-applicationContext.xml"})
 //@Transactional
 public class UtenteServiceTest {
     
@@ -47,9 +48,11 @@ public class UtenteServiceTest {
     public void tearDown() {
     }
 
-    @Autowired
+    @EJB
     UtenteService utenteService;
     
     @Test
     public void emptyTest(){}
+    
+    
 }
