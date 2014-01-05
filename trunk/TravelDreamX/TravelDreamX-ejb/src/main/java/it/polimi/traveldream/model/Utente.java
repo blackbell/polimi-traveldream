@@ -26,7 +26,7 @@ import javax.validation.constraints.Size;
  * @author rh0x
  */
 @Entity
-@Table(name = "UTENTI")
+@Table(name = "utenti")
 @NamedQueries({
     @NamedQuery(name = "Utente.findAll", query = "SELECT u FROM Utente u"),
     @NamedQuery(name = "Utente.findByEmail", query = "SELECT u FROM Utente u WHERE u.email = :email"),
@@ -50,7 +50,7 @@ public class Utente implements Serializable {
     @Column(name = "abilitato")
     private Boolean abilitato;
     @Column(name = "livello")
-    private Boolean livello;
+    private Integer livello;
 
     public Utente() {
     }
@@ -88,11 +88,11 @@ public class Utente implements Serializable {
         this.abilitato = abilitato;
     }
 
-    public Boolean getLivello() {
+    public Integer getLivello() {
         return livello;
     }
 
-    public void setLivello(Boolean livello) {
+    public void setLivello(Integer livello) {
         this.livello = livello;
     }
 
