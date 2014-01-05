@@ -37,7 +37,7 @@ public class VoloDAOTest extends DAOUnitTest{
         volo.setIdRotta(new Rotta(1));
         volo.setNumPasseggeri(3);
         volo.setCosto(120.7f);
-        volo.setTipo("3");
+//        volo.setTipo("3");
         Volo volo2 = voceDAO.save(volo);
         assertEquals("The retrieved user is not as expected!", volo2, volo);
     }

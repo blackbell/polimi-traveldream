@@ -43,7 +43,8 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 @NamedQueries({
     @NamedQuery(name = "Voce.findAll", query = "SELECT v FROM Voce v"),
     @NamedQuery(name = "Voce.findByIdVoce", query = "SELECT v FROM Voce v WHERE v.idVoce = :idVoce"),
-    @NamedQuery(name = "Voce.findByTipo", query = "SELECT v FROM Voce v WHERE v.tipo = :tipo")})
+//    @NamedQuery(name = "Voce.findByTipo", query = "SELECT v FROM Voce v WHERE v.tipo = :tipo")
+    })
 public class Voce implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "voci")
     private Collection<Composizione> composizioneCollection;
@@ -52,11 +53,6 @@ public class Voce implements Serializable {
     @Basic(optional = false)
     @Column(name = "idVoce")
     private Integer idVoce;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "tipo")
-    private String tipo;
 
     public Voce() {
     }
@@ -67,7 +63,6 @@ public class Voce implements Serializable {
 
     public Voce(Integer idVoce, String tipo) {
         this.idVoce = idVoce;
-        this.tipo = tipo;
     }
 
     public Integer getIdVoce() {
@@ -76,14 +71,6 @@ public class Voce implements Serializable {
 
     public void setIdVoce(Integer idVoce) {
         this.idVoce = idVoce;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
     @Override
