@@ -32,15 +32,15 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 @Table(name = "rotte")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Rotte.findAll", query = "SELECT r FROM Rotte r"),
-    @NamedQuery(name = "Rotte.findByIdRotta", query = "SELECT r FROM Rotte r WHERE r.idRotta = :idRotta"),
-    @NamedQuery(name = "Rotte.findByAeroportoPartenza", query = "SELECT r FROM Rotte r WHERE r.aeroportoPartenza = :aeroportoPartenza"),
-    @NamedQuery(name = "Rotte.findByCitt\u00e0Partenza", query = "SELECT r FROM Rotte r WHERE r.citt\u00e0Partenza = :citt\u00e0Partenza"),
-    @NamedQuery(name = "Rotte.findByNazionePartenza", query = "SELECT r FROM Rotte r WHERE r.nazionePartenza = :nazionePartenza"),
-    @NamedQuery(name = "Rotte.findByAeroportoArrivo", query = "SELECT r FROM Rotte r WHERE r.aeroportoArrivo = :aeroportoArrivo"),
-    @NamedQuery(name = "Rotte.findByCitt\u00e0Arrivo", query = "SELECT r FROM Rotte r WHERE r.citt\u00e0Arrivo = :citt\u00e0Arrivo"),
-    @NamedQuery(name = "Rotte.findByNazioneArrivo", query = "SELECT r FROM Rotte r WHERE r.nazioneArrivo = :nazioneArrivo"),
-    @NamedQuery(name = "Rotte.findByCompagniaAerea", query = "SELECT r FROM Rotte r WHERE r.compagniaAerea = :compagniaAerea")})
+    @NamedQuery(name = "Rotta.findAll", query = "SELECT r FROM Rotta r"),
+    @NamedQuery(name = "Rotta.findByIdRotta", query = "SELECT r FROM Rotta r WHERE r.idRotta = :idRotta"),
+    @NamedQuery(name = "Rotta.findByAeroportoPartenza", query = "SELECT r FROM Rotta r WHERE r.aeroportoPartenza = :aeroportoPartenza"),
+    @NamedQuery(name = "Rotta.findByCitt\u00e0Partenza", query = "SELECT r FROM Rotta r WHERE r.citt\u00e0Partenza = :citt\u00e0Partenza"),
+    @NamedQuery(name = "Rotta.findByNazionePartenza", query = "SELECT r FROM Rotta r WHERE r.nazionePartenza = :nazionePartenza"),
+    @NamedQuery(name = "Rotta.findByAeroportoArrivo", query = "SELECT r FROM Rotta r WHERE r.aeroportoArrivo = :aeroportoArrivo"),
+    @NamedQuery(name = "Rotta.findByCitt\u00e0Arrivo", query = "SELECT r FROM Rotta r WHERE r.citt\u00e0Arrivo = :citt\u00e0Arrivo"),
+    @NamedQuery(name = "Rotta.findByNazioneArrivo", query = "SELECT r FROM Rotta r WHERE r.nazioneArrivo = :nazioneArrivo"),
+    @NamedQuery(name = "Rotta.findByCompagniaAerea", query = "SELECT r FROM Rotta r WHERE r.compagniaAerea = :compagniaAerea")})
 public class Rotta implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -175,7 +175,7 @@ public class Rotta implements Serializable {
 
     @Override
     public String toString() {
-        return "it.polimi.traveldream.model.Rotte[ idRotta=" + idRotta + " ]";
+        return "it.polimi.traveldream.model.Rotta[ idRotta=" + idRotta + " ]";
     }
     
 }

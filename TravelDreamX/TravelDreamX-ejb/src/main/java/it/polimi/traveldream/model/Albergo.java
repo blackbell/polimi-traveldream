@@ -33,12 +33,12 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 @Table(name = "alberghi")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Alberghi.findAll", query = "SELECT a FROM Alberghi a"),
-    @NamedQuery(name = "Alberghi.findByIdAlbergo", query = "SELECT a FROM Alberghi a WHERE a.idAlbergo = :idAlbergo"),
-    @NamedQuery(name = "Alberghi.findByNome", query = "SELECT a FROM Alberghi a WHERE a.nome = :nome"),
-    @NamedQuery(name = "Alberghi.findByCitta", query = "SELECT a FROM Alberghi a WHERE a.citta = :citta"),
-    @NamedQuery(name = "Alberghi.findByStelle", query = "SELECT a FROM Alberghi a WHERE a.stelle = :stelle"),
-    @NamedQuery(name = "Alberghi.findByUrlFoto", query = "SELECT a FROM Alberghi a WHERE a.urlFoto = :urlFoto")})
+    @NamedQuery(name = "Albergo.findAll", query = "SELECT a FROM Albergo a"),
+    @NamedQuery(name = "Albergo.findByIdAlbergo", query = "SELECT a FROM Albergo a WHERE a.idAlbergo = :idAlbergo"),
+    @NamedQuery(name = "Albergo.findByNome", query = "SELECT a FROM Albergo a WHERE a.nome = :nome"),
+    @NamedQuery(name = "Albergo.findByCitta", query = "SELECT a FROM Albergo a WHERE a.citta = :citta"),
+    @NamedQuery(name = "Albergo.findByStelle", query = "SELECT a FROM Albergo a WHERE a.stelle = :stelle"),
+    @NamedQuery(name = "Albergo.findByUrlFoto", query = "SELECT a FROM Albergo a WHERE a.urlFoto = :urlFoto")})
 public class Albergo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -155,7 +155,7 @@ public class Albergo implements Serializable {
 
     @Override
     public String toString() {
-        return "it.polimi.traveldream.model.Alberghi[ idAlbergo=" + idAlbergo + " ]";
+        return "it.polimi.traveldream.model.Albergo[ idAlbergo=" + idAlbergo + " ]";
     }
     
 }
