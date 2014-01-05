@@ -35,7 +35,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
  * @author Dario
  */
 @Entity
-@DiscriminatorValue("2")
+@DiscriminatorValue("visita")
 @Table(name = "visite")
 @XmlRootElement
 @NamedQueries({

@@ -19,29 +19,38 @@ public class VoloDAOTest extends DAOUnitTest{
     private VoceDAO voceDAO;
     
     public VoloDAOTest() {
+        
     }
     
     @Test
-    public void emptyTest(){}
-    
-    @Test
-    public void wiringVoloDAO(){
-        assertNotNull("Cannot inject rottaDAO!", voceDAO);
+    public void wiringVoceDAO(){
+        assertNotNull("Cannot inject voceDAO!", voceDAO);
     }
         
     @Test
     public void saveVolo(){
-        assertNotNull("Cannot inject rottaDAO!", voceDAO);
+        Rotta r = addRotta();
+        assertNotNull("Cannot inject voceDAO!", voceDAO);
         Volo volo = new Volo();
         volo.setDataOra(new Date());
-        volo.setIdRotta(new Rotta(1));
+        volo.setIdRotta(r);
         volo.setNumPasseggeri(3);
         volo.setCosto(120.7f);
 //        volo.setTipo("3");
         Volo volo2 = voceDAO.save(volo);
-        assertEquals("The retrieved user is not as expected!", volo2, volo);
+        assertEquals("The retrieved flight is not as expected!", volo2, volo);
     }
 
+    @Autowired
+    RottaDAO rottaDAO;
+    private Rotta addRotta(){
+        Rotta rotta = new Rotta();
+        rotta.setCittàPartenza("Pistoia");
+        rotta.setCittàArrivo("Milano");
+        Rotta rotta2 = rottaDAO.saveAndFlush(rotta);
+        return rotta2;
+    }
+    
     public void setVoceDAO(VoceDAO voceDAO) {
         this.voceDAO = voceDAO;
     }

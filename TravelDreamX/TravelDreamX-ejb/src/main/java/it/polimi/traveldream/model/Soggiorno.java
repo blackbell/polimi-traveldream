@@ -35,7 +35,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
  * @author Dario
  */
 @Entity
-@DiscriminatorValue("1")
+@DiscriminatorValue("soggiorno")
 @Table(name = "soggiorni")
 @XmlRootElement
 @NamedQueries({
@@ -46,8 +46,8 @@ import org.codehaus.jackson.annotate.JsonIgnore;
     @NamedQuery(name = "Soggiorno.findByNumeroPersone", query = "SELECT s FROM Soggiorno s WHERE s.numeroPersone = :numeroPersone"),
     @NamedQuery(name = "Soggiorno.findByCosto", query = "SELECT s FROM Soggiorno s WHERE s.costo = :costo")})
 public class Soggiorno extends Voce implements Serializable {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = true)
     @Column(name = "idSoggiorno")
     private Integer idSoggiorno;
     private static final long serialVersionUID = 1L;
