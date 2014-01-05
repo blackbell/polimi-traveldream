@@ -65,7 +65,7 @@ public class RottaDAOTest {
     @Test
     public void emptyTest(){}
     
-    //@Autowired
+    @Autowired
     RottaDAO rottaDAO;
     
     @Test
