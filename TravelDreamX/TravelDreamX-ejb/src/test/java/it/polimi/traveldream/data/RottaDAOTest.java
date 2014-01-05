@@ -45,9 +45,6 @@ public class RottaDAOTest extends DAOUnitTest {
     @After
     public void tearDown() {
     }
-
-    @Test
-    public void emptyTest(){}
     
     @Autowired
     public RottaDAO rottaDAO;
@@ -58,14 +55,14 @@ public class RottaDAOTest extends DAOUnitTest {
 
     @Test
     public void wiringRottaDAO(){
-        assertNotNull(rottaDAO);
+        assertNotNull("Cannot inject utenteDAO!",rottaDAO);
     }
     
     
     @Test
     public void retrieveRotta(){
-        assertNotNull(rottaDAO);
+        assertNotNull("Cannot inject rottaDAO!",rottaDAO);
         Rotta rotta = rottaDAO.findOne(1);
-        assertNotNull(rotta);
+        assertNotNull("Cannot retrieve route with ID=1!", rotta);
     }
 }
