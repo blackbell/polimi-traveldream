@@ -24,7 +24,7 @@
 		<property name="jpaPropertyMap">
 			<map>
 				<entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
-				<entry key="hibernate.hbm2ddl.auto" value="create" />
+				<entry key="hibernate.hbm2ddl.auto" value="none" />
 				<entry key="hibernate.format_sql" value="true" />
 			</map>
 		</property>
@@ -33,12 +33,11 @@
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory"/>
 	</bean>
-        <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean" >
-            <property name="jndiName" value="jdbc/TravelDreamX" />
-            <property name="lookupOnStartup" value="false"/>
-            <property name="cache" value="true"/>
-            <property name="proxyInterface" value="javax.sql.DataSource"/>
-        </bean>
-	
+        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/TravelDreamXdb" />
+        <property name="username" value="TravelDreamXdbu" />
+        <property name="password" value="TravelDreamXdbpsw" />
+	</bean>
 
 </beans>

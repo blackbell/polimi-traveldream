@@ -24,23 +24,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @author Dario
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"/test-applicationContext.xml"})
+@ContextConfiguration(locations = {"classpath:test-appContext.xml"})
 public class RottaDAOTest {
     
     public RottaDAOTest() {
         
     }
 
-    public void setRottaDAO(RottaDAO rottaDAO) {
-        this.rottaDAO = rottaDAO;
-    }
-
-    public RottaDAO getRottaDAO() {
-        return rottaDAO;
-    }
-    
-    
-    
     @BeforeClass
     public static void setUpClass() {
     }
@@ -66,22 +56,17 @@ public class RottaDAOTest {
     public void emptyTest(){}
     
     @Autowired
-    RottaDAO rottaDAO;
+    public RottaDAO rottaDAO;
     
+    public void setRottaDAO(RottaDAO rottaDAO) {
+        this.rottaDAO = rottaDAO;
+    }
+
     @Test
     public void wiringRottaDAO(){
         assertNotNull(rottaDAO);
     }
     
-    @Autowired
-    private message.Message message;
-    
-    @Test
-    public void messageTest(){
-        assertNotNull(message);
-        System.out.println(message.getMsg());
-        assertEquals(message.getMsg(), "Spring is fun.");
-    }
     
     @Test
     public void retrieveRotta(){
