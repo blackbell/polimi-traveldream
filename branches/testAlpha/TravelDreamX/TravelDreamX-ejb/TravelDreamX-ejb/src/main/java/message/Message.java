@@ -6,12 +6,21 @@
 
 package message;
 
+import org.springframework.stereotype.Component;
+
 /**
  *
  * @author Dario
  */
+@Component
 public class Message {
     private String msg;
+
+    public Message() {
+        msg = "Spring is fun.";
+    }
+    
+    
 
     public String getMsg() {
         return msg;
