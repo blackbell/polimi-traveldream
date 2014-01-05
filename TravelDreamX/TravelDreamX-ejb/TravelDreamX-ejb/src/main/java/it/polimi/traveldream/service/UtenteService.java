@@ -34,7 +34,6 @@ public class UtenteService implements UtenteServiceLocal {
     @Override
     public Utente registrazione(Utente utente) {
         return utenteDAO.saveAndFlush(utente);
-        
     }
     
     
