@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Dario
  */
 @Entity(name = "Volo")
-@DiscriminatorValue("3")
+@DiscriminatorValue("volo")
 @Table(name = "voli")
 @XmlRootElement
 @NamedQueries({
@@ -41,8 +41,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Volo extends Voce implements Serializable {
     private static final long serialVersionUID = 1L;
     //@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Basic(optional = false)
+    @Basic(optional = true)
     @Column(name = "idVolo")
     private Integer idVolo;
     @Basic(optional = false)

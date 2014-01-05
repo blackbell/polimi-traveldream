@@ -15,6 +15,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -55,11 +56,20 @@ public class RottaDAOTest extends DAOUnitTest {
 
     @Test
     public void wiringRottaDAO(){
-        assertNotNull("Cannot inject utenteDAO!",rottaDAO);
+        assertNotNull("Cannot inject rottaDAO!",rottaDAO);
     }
     
-    
     @Test
+    public void saveRotta(){
+        assertNotNull("Cannot inject rottaDAO!",rottaDAO);
+        Rotta rotta = new Rotta();
+        rotta.setCittàPartenza("Pistoia");
+        rotta.setCittàArrivo("Milano");
+        Rotta rotta2 = rottaDAO.saveAndFlush(rotta);
+        assertNotNull(rotta2);
+    }
+    
+    @Test @Ignore
     public void retrieveRotta(){
         assertNotNull("Cannot inject rottaDAO!",rottaDAO);
         Rotta rotta = rottaDAO.findOne(1);

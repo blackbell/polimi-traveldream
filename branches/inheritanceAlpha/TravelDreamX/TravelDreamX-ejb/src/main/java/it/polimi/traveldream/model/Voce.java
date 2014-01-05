@@ -38,7 +38,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 @Entity
 @Table(name = "voci")
 @Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="Tipo", discriminatorType = DiscriminatorType.INTEGER)
+@DiscriminatorColumn(name="Tipo", discriminatorType = DiscriminatorType.STRING)
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Voce.findAll", query = "SELECT v FROM Voce v"),
