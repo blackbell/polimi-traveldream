@@ -28,7 +28,18 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class RottaDAOTest {
     
     public RottaDAOTest() {
+        
     }
+
+    public void setRottaDAO(RottaDAO rottaDAO) {
+        this.rottaDAO = rottaDAO;
+    }
+
+    public RottaDAO getRottaDAO() {
+        return rottaDAO;
+    }
+    
+    
     
     @BeforeClass
     public static void setUpClass() {
@@ -54,7 +65,7 @@ public class RottaDAOTest {
     @Test
     public void emptyTest(){}
     
-    @Autowired
+    //@Autowired
     RottaDAO rottaDAO;
     
     @Test
@@ -62,8 +73,19 @@ public class RottaDAOTest {
         assertNotNull(rottaDAO);
     }
     
+    @Autowired
+    private message.Message message;
+    
+    @Test
+    public void messageTest(){
+        assertNotNull(message);
+        System.out.println(message.getMsg());
+        assertEquals(message.getMsg(), "Spring is fun.");
+    }
+    
     @Test
     public void retrieveRotta(){
+        assertNotNull(rottaDAO);
         Rotta rotta = rottaDAO.findOne(1);
         assertNotNull(rotta);
     }
