@@ -1,23 +1,19 @@
-package it.polimi.traveldream.test;
+package it.polimi.traveldream.data;
 
+import it.polimi.traveldream.data.DAOUnitTest;
 import it.polimi.traveldream.data.VoceDAO;
 import it.polimi.traveldream.model.Rotta;
 import it.polimi.traveldream.model.Volo;
 import java.util.Date;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  *
  * @author rh0x
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:test-appContext.xml"})
-public class VoloDAOTest {
+public class VoloDAOTest extends DAOUnitTest{
     
     @Autowired
     private VoceDAO voceDAO;
@@ -32,25 +28,21 @@ public class VoloDAOTest {
     public void wiringVoloDAO(){
         assertNotNull(voceDAO);
     }
-    
-    
+        
     @Test
     public void saveVolo(){
         assertNotNull(voceDAO);
         Volo volo = new Volo();
-        volo.setDataOra( new Date());
+        volo.setDataOra(new Date());
         volo.setIdRotta(new Rotta(1));
         volo.setNumPasseggeri(3);
         volo.setCosto(120.7f);
         volo.setTipo("3");
         Volo volo2 = voceDAO.save(volo);
-        assertNotNull( volo2);
+        assertNotNull(volo2);
     }
 
     public void setVoceDAO(VoceDAO voceDAO) {
         this.voceDAO = voceDAO;
     }
-    
-    
-    
 }

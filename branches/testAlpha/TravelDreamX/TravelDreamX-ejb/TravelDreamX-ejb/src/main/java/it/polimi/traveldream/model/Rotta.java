@@ -51,7 +51,7 @@ public class Rotta implements Serializable {
     @Size(max = 60)
     @Column(name = "aeroportoPartenza")
     private String aeroportoPartenza;
-    @Size(max = 45)
+    @Size(max = 60)
     @Column(name = "citt\u00e0Partenza")
     private String cittàPartenza;
     @Size(max = 45)
@@ -60,7 +60,7 @@ public class Rotta implements Serializable {
     @Size(max = 60)
     @Column(name = "aeroportoArrivo")
     private String aeroportoArrivo;
-    @Size(max = 45)
+    @Size(max = 60)
     @Column(name = "citt\u00e0Arrivo")
     private String cittàArrivo;
     @Size(max = 45)
