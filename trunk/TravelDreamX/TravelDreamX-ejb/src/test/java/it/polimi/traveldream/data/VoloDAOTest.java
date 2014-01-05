@@ -26,12 +26,12 @@ public class VoloDAOTest extends DAOUnitTest{
     
     @Test
     public void wiringVoloDAO(){
-        assertNotNull(voceDAO);
+        assertNotNull("Cannot inject rottaDAO!", voceDAO);
     }
         
     @Test
     public void saveVolo(){
-        assertNotNull(voceDAO);
+        assertNotNull("Cannot inject rottaDAO!", voceDAO);
         Volo volo = new Volo();
         volo.setDataOra(new Date());
         volo.setIdRotta(new Rotta(1));
@@ -39,7 +39,7 @@ public class VoloDAOTest extends DAOUnitTest{
         volo.setCosto(120.7f);
         volo.setTipo("3");
         Volo volo2 = voceDAO.save(volo);
-        assertNotNull(volo2);
+        assertEquals("The retrieved user is not as expected!", volo2, volo);
     }
 
     public void setVoceDAO(VoceDAO voceDAO) {

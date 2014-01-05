@@ -18,7 +18,7 @@ import org.junit.runners.Suite;
  * @author Dario
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({})
+@Suite.SuiteClasses({RottaDAOTest.class, UtenteDAOTest.class, VoloDAOTest.class})
 public class DAOTestSuite {
 
     @BeforeClass
