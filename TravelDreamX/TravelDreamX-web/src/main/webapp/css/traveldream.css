@@ -1,0 +1,16 @@
+.pointer {
+    cursor: pointer;
+}
+input.ng-invalid {
+    border: 1px solid yellow;
+}
+input.ng-valid {
+    border: 1px solid green;
+}
+.label{
+    display: inline-flex;
+    margin-bottom: 4px;
+}
+.glyphicon {
+    margin-left: 3px;
+}

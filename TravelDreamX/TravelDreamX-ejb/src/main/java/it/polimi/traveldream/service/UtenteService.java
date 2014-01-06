@@ -28,12 +28,19 @@ public class UtenteService implements UtenteServiceLocal {
         this.utenteDAO = utenteDAO;
     }
     
-    
+    public boolean isPresent(Utente utente) {
+        Utente utenteDaCercare = utenteDAO.findOne(utente.getEmail());
+        return utenteDaCercare != null; 
+    }
 
     @Transactional
     @Override
     public Utente registrazione(Utente utente) {
-        return utenteDAO.saveAndFlush(utente);
+        
+        if(utenteDAO.findOne(utente.getEmail()) == null )
+            return utenteDAO.saveAndFlush(utente);
+        else 
+            return null;
         
     }
     
