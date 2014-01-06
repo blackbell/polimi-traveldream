@@ -36,12 +36,14 @@ public class UtenteService implements UtenteServiceLocal {
     @Transactional
     @Override
     public Utente registrazione(Utente utente) {
-        
-        if(utenteDAO.findOne(utente.getEmail()) == null )
+        try{
+            if(isPresent(utente))
+                return null;
             return utenteDAO.saveAndFlush(utente);
-        else 
+        }catch(Exception ex){
+            System.err.println("UtenteService:Exception " + ex.getMessage());
             return null;
-        
+        }
     }
     
     
