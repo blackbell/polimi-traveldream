@@ -66,10 +66,21 @@ public class AlbergoDAOTest extends DAOUnitTest {
         assertNotNull(a2);
     }
     
-    @Test @Ignore
+    @Test 
     public void retrieveAlbergo(){
+        Albergo a = addHotel();
         assertNotNull("Cannot inject albergoDAO!",albergoDAO);
-        Albergo albergo = albergoDAO.findOne(1);
-        assertNotNull("Cannot retrieve albergo with ID=1!", albergo);
+        Albergo albergo = albergoDAO.findOne(a.getIdAlbergo());
+        assertNotNull("Cannot retrieve albergo with ID=" + a.getIdAlbergo() + "!", albergo);
+    }
+    
+    private Albergo addHotel(){
+        Albergo albergo = new Albergo();
+        albergo.setNome("HOTEL PIPPO");
+        albergo.setCitta("Milano");
+        albergo.setStelle(3);
+        albergo.setUrlFoto("/");
+        Albergo a2 = albergoDAO.saveAndFlush(albergo);
+        return a2;
     }
 }

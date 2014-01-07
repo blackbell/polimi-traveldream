@@ -4,12 +4,12 @@
     <parent>
     <artifactId>TravelDreamX</artifactId>
     <groupId>it.polimi</groupId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
   </parent>
 
     <groupId>it.polimi</groupId>
     <artifactId>TravelDreamX-ejb</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>ejb</packaging>
 
     <name>TravelDreamX-ejb</name>
@@ -81,15 +81,15 @@
             <version>3.2.3.RELEASE</version>
         </dependency>
         <dependency>
-            <groupId>org.glassfish.main.extras</groupId>
-            <artifactId>glassfish-embedded-static-shell</artifactId>
-            <version>4.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.25</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.main.extras</groupId>
+            <artifactId>glassfish-embedded-all</artifactId>
+            <version>4.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

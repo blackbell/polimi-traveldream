@@ -69,10 +69,19 @@ public class RottaDAOTest extends DAOUnitTest {
         assertNotNull(rotta2);
     }
     
-    @Test @Ignore
+    @Test
     public void retrieveRotta(){
+        Rotta r = addRotta();
         assertNotNull("Cannot inject rottaDAO!",rottaDAO);
-        Rotta rotta = rottaDAO.findOne(1);
-        assertNotNull("Cannot retrieve route with ID=1!", rotta);
+        Rotta rotta = rottaDAO.findOne(r.getIdRotta());
+        assertNotNull("Cannot retrieve route with ID=" + r.getIdRotta() + "!", rotta);
+    }
+    
+    private Rotta addRotta(){
+        Rotta rotta = new Rotta();
+        rotta.setCittàPartenza("Pistoia");
+        rotta.setCittàArrivo("Milano");
+        Rotta rotta2 = rottaDAO.saveAndFlush(rotta);
+        return rotta2;
     }
 }
