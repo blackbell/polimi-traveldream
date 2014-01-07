@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html ng-app="travelDreamApp">
 
     <head>
-        <title>TODO supply a title</title>
+        <title>TravelDream</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -30,7 +25,9 @@ and open the template in the editor.
         <script type="text/javascript" src="js/services/registrazione-service.js"></script>
 
     </head>
-    <body>
+    <body ng-cloak>
+        <!-- Import: MENU -->
+        <div name="menu" ng-include="menu.html"></div>
         <div class="container">
             <div class="row">
                     <a href="#/registrazione">REGISTRAZIONE</a>
