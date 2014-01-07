@@ -4,10 +4,10 @@ var travelDreamApp = angular.module('travelDreamApp', ['ngRoute','ui.bootstrap']
         .config(function($routeProvider) {
             $routeProvider.
                 when('/registrazione', {
-                    templateUrl: 'htmlFragments/registrazione.html',
+                    templateUrl: 'templates/registrazione.html',
                     controller: 'registrazioneController'
                  }). 
                  otherwise({
-                    redirectTo: '/registrazione'       
+                    redirectTo: '/'       
                 });      
     });

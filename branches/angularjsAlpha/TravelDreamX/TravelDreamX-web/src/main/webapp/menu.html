@@ -1,4 +1,30 @@
-<div ng-controller='loginController'>
+<script id="loginPopover.html" type="text/ng-template" >
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 popoverLogin-content">
+            <form name ='formRegistrazione'ng-init="inizializzaUtente()">
+                <input name="email" type="text" class="form-control" ng-model="utente.email" ng-required="true" ng-pattern='/^([_a-z0-9-])+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/' placeholder="Inserisci la tua email"></input>
+                <br/>
+                <input name="pwd" type="password" class="form-control" ng-model="utente.password" ng-required="true" ng-pattern="/^.{5,15}$/" placeholder="Inserisci la tua password"></input>
+                <br/>
+                <div class="row">
+                    <div class="col-lg-2">
+                        <button class="btn btn-close" onclick="$('#loginbutton').click();">
+                            Chiudi
+                        </button>
+                    </div>
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-7">
+                        <button class="btn btn-block btn-info" ng-click="login(utente, formRegistrazione)" >Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</script>
+<div>
     <nav class="navbar navbar-default" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -8,7 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="#">TravelDream</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -36,17 +62,11 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
+                <li class="dropdown" ng-controller="loginController">
+                    <a href="#" id="loginbutton" popover-template="loginPopover.html" popover-title="Autenticazione:" popover-placement="bottom" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
                 </li>
+                <li><a href="#/registrazione">Registrati</a></li>
+                <li><a></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
