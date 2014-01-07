@@ -14,3 +14,8 @@ input.ng-valid {
 .glyphicon {
     margin-left: 3px;
 }
+.popoverLogin-content {
+    padding: 9px 0px;
+    margin-left: 3px;
+    padding-right: 55px;
+}

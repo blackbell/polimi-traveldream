@@ -21,17 +21,20 @@
         
         <!--app-->
         <script type="text/javascript" src="js/appMain.js"></script>  
-        <script type="text/javascript" src="js/controllers/registrazione-controller.js"></script> 
+        <script type="text/javascript" src="js/popover-extension.js"></script>
+        <!-- controllers -->
+        <script type="text/javascript" src="js/controllers/registrazione-controller.js"></script>
+        <script type="text/javascript" src="js/controllers/login-controller.js"></script>
+       <!-- services -->
         <script type="text/javascript" src="js/services/registrazione-service.js"></script>
 
     </head>
     <body ng-cloak>
-        <!-- Import: MENU -->
-        <div name="menu" ng-include="menu.html"></div>
+        <!-- Include: MENU -->
+        <div name="menu" ng-include="'menu.html'"></div>
+
         <div class="container">
             <div class="row">
-                    <a href="#/registrazione">REGISTRAZIONE</a>
-
                     <div ng-view> </div>
 
             </div>
