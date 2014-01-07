@@ -4,12 +4,12 @@
     <parent>
     <artifactId>TravelDreamX</artifactId>
     <groupId>it.polimi</groupId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
   </parent>
 
     <groupId>it.polimi</groupId>
     <artifactId>TravelDreamX-ejb</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>ejb</packaging>
 
     <name>TravelDreamX-ejb</name>

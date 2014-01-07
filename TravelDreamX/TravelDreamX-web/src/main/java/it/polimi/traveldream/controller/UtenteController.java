@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class UtenteController {
    
-    @EJB(mappedName = "java:global/TravelDreamX-ear/TravelDreamX-web-1.0-SNAPSHOT/UtenteService")
+    @EJB(mappedName = "java:global/TravelDreamX-ear/TravelDreamX-web-1.0/UtenteService")
     private UtenteServiceLocal bean;
 
     public void setBean(UtenteServiceLocal bean) {
