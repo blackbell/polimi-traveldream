@@ -9,6 +9,7 @@ package it.polimi.traveldream.service;
 import it.polimi.traveldream.data.UtenteDAO;
 import it.polimi.traveldream.model.Utente;
 import javax.ejb.embeddable.EJBContainer;
+import org.glassfish.internal.embedded.Server;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
