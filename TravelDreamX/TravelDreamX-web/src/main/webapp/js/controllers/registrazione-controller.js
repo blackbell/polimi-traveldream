@@ -16,10 +16,12 @@ travelDreamApp.controller('registrazioneController', function($scope, $location,
             registrazioneService.registrazione(utente,function(esito){
                 if(esito.result){
                     //$location.path(result.newUrl);
-                    toastr.success("l'utente " + utente.email + " puo' ora loggarsi."," Registrazione avvenuta con successo");
+                    toastr.success("l'utente " + utente.email + " puo' ora loggarsi.","Registrazione avvenuta con successo");
                 }else
-                    toastr.error("l'utente " + utente.email + " e' gia' presente."," Registrazione fallita");
+                    toastr.error("l'utente " + utente.email + " e' gia' presente.","Registrazione fallita");
             });
+        } else {
+            toastr.error("Compila tutti i campi richiesti nel modo corretto.","ERRORE");
         }
     };
     
