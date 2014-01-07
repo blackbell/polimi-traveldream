@@ -1,12 +1,11 @@
 package it.polimi.traveldream.data;
 
-import it.polimi.traveldream.data.DAOUnitTest;
-import it.polimi.traveldream.data.VoceDAO;
 import it.polimi.traveldream.model.Rotta;
 import it.polimi.traveldream.model.Volo;
 import java.util.Date;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -17,10 +16,8 @@ public class VoloDAOTest extends DAOUnitTest{
     
     @Autowired
     private VoceDAO voceDAO;
-    
-    public VoloDAOTest() {
-        
-    }
+    @Autowired
+    private RottaDAO rottaDAO;
     
     @Test
     public void wiringVoceDAO(){
@@ -39,9 +36,24 @@ public class VoloDAOTest extends DAOUnitTest{
         Volo volo2 = voceDAO.save(volo);
         assertEquals("The retrieved flight is not as expected!", volo2, volo);
     }
-
-    @Autowired
-    RottaDAO rottaDAO;
+    
+    @Test
+    public void retrieveVolo(){
+        
+    }
+    
+    private Volo addVolo(){
+        Rotta r = addRotta();
+        Volo volo = new Volo();
+        volo.setDataOra(new Date());
+        volo.setIdRotta(r);
+        volo.setNumPasseggeri(3);
+        volo.setCosto(120.7f);
+        Volo volo2 = voceDAO.save(volo);
+        return volo2;
+    }
+    
+    
     private Rotta addRotta(){
         Rotta rotta = new Rotta();
         rotta.setCittàPartenza("Pistoia");

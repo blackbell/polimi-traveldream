@@ -7,13 +7,8 @@
 package it.polimi.traveldream.data;
 
 import it.polimi.traveldream.model.Albergo;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import org.junit.Ignore;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -21,26 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author Dario
  */
 public class AlbergoDAOTest extends DAOUnitTest {
-    
-    public AlbergoDAOTest() {
-        
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
     
     @Autowired
     public AlbergoDAO albergoDAO;
