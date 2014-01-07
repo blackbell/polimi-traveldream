@@ -8,7 +8,10 @@ package it.polimi.traveldream.service;
 
 import it.polimi.traveldream.data.UtenteDAO;
 import it.polimi.traveldream.model.Utente;
+import static it.polimi.traveldream.service.EJBServiceTestSuite.container;
 import javax.ejb.embeddable.EJBContainer;
+import javax.naming.NamingException;
+import org.glassfish.internal.embedded.Server;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -21,70 +24,32 @@ import org.junit.Ignore;
  *
  * @author Dario
  */
-@Ignore
 public class UtenteServiceTest {
     
-    public UtenteServiceTest() {
-    }
-    
     @BeforeClass
-    public static void setUpClass() {
+    public static void pippo(){
+        EJBServiceTestSuite.setUp();
     }
     
     @AfterClass
-    public static void tearDownClass() {
+    public static void tearDown(){
+        EJBServiceTestSuite.tearDown();
     }
     
-    @Before
-    public void setUp() {
+    private String jdniName = "java:global/classes/UtenteService";
+    
+    @Test
+    public void testRetrievingService() throws NamingException{
+       UtenteServiceLocal instance = (UtenteServiceLocal)container.getContext().lookup(jdniName);
+       assertNotNull("Cannot retrieve service class!", instance);
     }
     
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of getUtenteDAO method, of class UtenteService.
-     */
     @Test
-    public void testGetUtenteDAO() throws Exception {
-        System.out.println("getUtenteDAO");
-        UtenteService instance = new UtenteService();
-        UtenteDAO expResult = null;
-        UtenteDAO result = instance.getUtenteDAO();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testRegistrazione() throws NamingException{
+       UtenteServiceLocal instance = (UtenteServiceLocal)container.getContext().lookup(jdniName);
+       assertNotNull("Cannot retrieve service class!", instance);
+       Utente utente = new Utente("testUser@testDomain.polimi.it", "testPsw");
+       Utente result = instance.registrazione(utente);
+       assertEquals(utente, result);
     }
-
-    /**
-     * Test of setUtenteDAO method, of class UtenteService.
-     */
-    @Test
-    public void testSetUtenteDAO() throws Exception {
-        System.out.println("setUtenteDAO");
-        UtenteDAO utenteDAO = null;
-        UtenteService instance = new UtenteService();
-        instance.setUtenteDAO(utenteDAO);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of registrazione method, of class UtenteService.
-     */
-    @Test
-    public void testRegistrazione() throws Exception {
-        System.out.println("registrazione");
-        Utente utente = null;
-        EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        UtenteServiceLocal instance = (UtenteServiceLocal)container.getContext().lookup("java:global/classes/UtenteService");
-        Utente expResult = null;    
-        Utente result = instance.registrazione(utente);
-        assertEquals(expResult, result);
-        container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }
