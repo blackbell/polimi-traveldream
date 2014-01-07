@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package it.polimi.traveldream.model;
 
 import java.io.Serializable;
@@ -12,14 +6,10 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -60,7 +50,7 @@ public class Pacchetto implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "tipo")
-    private boolean tipo;
+    private TipoPacchetto tipo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pacchetti")
     private Collection<Composizione> composizioneCollection;
     @JoinColumn(name = "proprietario", referencedColumnName = "email")
@@ -74,7 +64,7 @@ public class Pacchetto implements Serializable {
         this.idPacchetto = idPacchetto;
     }
 
-    public Pacchetto(Integer idPacchetto, Date dataOraCreazione, boolean tipo) {
+    public Pacchetto(Integer idPacchetto, Date dataOraCreazione, TipoPacchetto tipo) {
         this.idPacchetto = idPacchetto;
         this.dataOraCreazione = dataOraCreazione;
         this.tipo = tipo;
@@ -96,11 +86,11 @@ public class Pacchetto implements Serializable {
         this.dataOraCreazione = dataOraCreazione;
     }
 
-    public boolean getTipo() {
+    public TipoPacchetto getTipo() {
         return tipo;
     }
 
-    public void setTipo(boolean tipo) {
+    public void setTipo(TipoPacchetto tipo) {
         this.tipo = tipo;
     }
 

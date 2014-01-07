@@ -6,46 +6,16 @@
 
 package it.polimi.traveldream.data;
 
-import it.polimi.traveldream.data.DAOUnitTest;
-import it.polimi.traveldream.data.RottaDAO;
 import it.polimi.traveldream.model.Rotta;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import org.junit.Ignore;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  *
  * @author Dario
  */
 public class RottaDAOTest extends DAOUnitTest {
-    
-    public RottaDAOTest() {
-        
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
     
     @Autowired
     public RottaDAO rottaDAO;
