@@ -1,4 +1,4 @@
-<script id="loginPopover.html" type="text/ng-template" >
+<script id="loginPopover.html" type="text/ng-template">
 <div class="container">
     <div class="row">
         <div class="col-lg-3 popoverLogin-content">
@@ -9,7 +9,7 @@
                 <br/>
                 <div class="row">
                     <div class="col-lg-2">
-                        <button class="btn btn-close" onclick="$('#loginbutton').click();">
+                        <button class="btn btn-close" ng-click="close()">
                             Chiudi
                         </button>
                     </div>
@@ -62,8 +62,8 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown" ng-controller="loginController">
-                    <a href="#" id="loginbutton" popover-template="loginPopover.html" popover-title="Autenticazione:" popover-placement="bottom" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
+                <li class="dropdown" >
+                    <a ng-controller="loginController" popover-template="loginPopover.html"  popover-placement="bottom" id="loginbutton" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
                 </li>
                 <li><a href="#/registrazione">Registrati</a></li>
                 <li><a></a></li>
