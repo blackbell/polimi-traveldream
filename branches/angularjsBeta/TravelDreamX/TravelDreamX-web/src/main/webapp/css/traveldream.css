@@ -7,15 +7,23 @@ input.ng-invalid {
 input.ng-valid {
     border: 1px solid green;
 }
-.label{
-    display: inline-flex;
-    margin-bottom: 4px;
-}
+
 .glyphicon {
     margin-left: 3px;
 }
-.popoverLogin-content {
-    padding: 9px 0px;
-    margin-left: 3px;
-    padding-right: 55px;
+.btn-registrazione {
+    width: 296px;
 }
+.btn-login{
+    width: 221px !important;
+}
+.modal-header {
+    margin-right: 10px;
+}    
+.fade {
+   -webkit-transition: opacity 0.01s linear;
+      -moz-transition: opacity 0.01s linear;
+       -ms-transition: opacity 0.01s linear;
+        -o-transition: opacity 0.01s linear;
+           transition: opacity 0.01s linear;
+ }
