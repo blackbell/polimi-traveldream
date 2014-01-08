@@ -1,10 +1,11 @@
 'use strict';
 
-var travelDreamApp = angular.module('travelDreamApp', ['ngRoute','ui.bootstrap'])
+var travelDreamApp = angular.module('travelDreamApp', ['ngRoute','$strap.directives'])
         .config(function($routeProvider) {
             $routeProvider.
+            //eliminare REGISTRAZIONE
                 when('/registrazione', {
-                    templateUrl: 'templates/registrazione.html',
+                    templateUrl: 'templates/modal/registrazione.html',
                     controller: 'registrazioneController'
                  }). 
                  otherwise({
