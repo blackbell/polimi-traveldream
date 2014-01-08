@@ -13,7 +13,10 @@ import it.polimi.traveldream.model.Soggiorno;
 import it.polimi.traveldream.model.TipoPacchetto;
 import it.polimi.traveldream.model.Utente;
 import it.polimi.traveldream.model.Volo;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +61,13 @@ public class ComposizioneDAOTest extends DAOUnitTest{
         Soggiorno s = addSoggiorno();
         Composizione cVolo = new Composizione(pv.getIdPacchetto(), v.getIdVoce());
         Composizione cSoggiorno = new Composizione(pv.getIdPacchetto(), s.getIdVoce());
+        composizioneDAO.save(cVolo);
+        composizioneDAO.save(cSoggiorno);
+        List<Composizione> pbsExpected = new ArrayList<>();
+        pbsExpected.add(cVolo);
+        pbsExpected.add(cSoggiorno);
+        List<Composizione> pbs = composizioneDAO.findByIdPacchetto(pv.getIdPacchetto());
+        assertEquals(pbs, pbsExpected);
     }
     
     public Pacchetto addPacchetto(){

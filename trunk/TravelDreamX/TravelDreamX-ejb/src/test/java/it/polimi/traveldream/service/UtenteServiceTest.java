@@ -1,24 +1,17 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Politecnico di Milano, Software Engineering 2 (autumn semester)
+ * proj codename: TravelDreamX
  */
 
 package it.polimi.traveldream.service;
 
-import it.polimi.traveldream.data.UtenteDAO;
 import it.polimi.traveldream.model.Utente;
 import static it.polimi.traveldream.service.EJBServiceTestSuite.container;
-import javax.ejb.embeddable.EJBContainer;
 import javax.naming.NamingException;
-import org.glassfish.internal.embedded.Server;
-import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
 
 /**
  *
@@ -26,9 +19,13 @@ import org.junit.Ignore;
  */
 public class UtenteServiceTest {
     
+    private static final String jdniName = "java:global/classes/UtenteService";
+    static UtenteServiceLocal service = null;
+    
     @BeforeClass
-    public static void pippo(){
+    public static void setUp() throws NamingException{
         EJBServiceTestSuite.setUp();
+        service = (UtenteServiceLocal)container.getContext().lookup(jdniName);
     }
     
     @AfterClass
@@ -36,20 +33,18 @@ public class UtenteServiceTest {
         EJBServiceTestSuite.tearDown();
     }
     
-    private String jdniName = "java:global/classes/UtenteService";
-    
     @Test
-    public void testRetrievingService() throws NamingException{
-       UtenteServiceLocal instance = (UtenteServiceLocal)container.getContext().lookup(jdniName);
-       assertNotNull("Cannot retrieve service class!", instance);
+    public void testRetrievingService(){
+       assertNotNull("Cannot retrieve service class!", service);
     }
     
     @Test
-    public void testRegistrazione() throws NamingException{
-       UtenteServiceLocal instance = (UtenteServiceLocal)container.getContext().lookup(jdniName);
-       assertNotNull("Cannot retrieve service class!", instance);
+    public void testRegistrazione() {
        Utente utente = new Utente("testUser@testDomain.polimi.it", "testPsw");
-       Utente result = instance.registrazione(utente);
-       assertEquals(utente, result);
+       Utente result = service.registrazione(utente);
+       assertEquals(utente.getEmail(), result.getEmail());
+       assertEquals(utente.getPassword(), result.getPassword());
+       assertEquals(utente.getAbilitato(), result.getAbilitato());
+       assertEquals(utente.getLivello(), result.getAbilitato());
     }
 }

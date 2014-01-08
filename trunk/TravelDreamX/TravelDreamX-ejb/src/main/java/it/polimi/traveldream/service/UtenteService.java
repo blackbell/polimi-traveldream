@@ -36,6 +36,11 @@ public class UtenteService implements UtenteServiceLocal {
         return utenteDAO.saveAndFlush(utente);
         
     }
+
+    @Override
+    public Utente login(Utente u) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     
