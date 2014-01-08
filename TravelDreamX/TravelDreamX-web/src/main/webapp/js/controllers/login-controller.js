@@ -3,14 +3,17 @@
 travelDreamApp.controller('loginController', function($scope, $route, registrazioneService) {
 
     $scope.inizializzaUtente = function() {
-
+        
         $scope.utente = {
             
         };
 
     };
 
-
+    $scope.close = function(){
+        //$('#loginbutton').click();
+    };
+    
     $scope.login = function(utente, form) {
         if(form.$valid){
             registrazioneService.registrazione(utente,function(esito){
@@ -21,8 +24,10 @@ travelDreamApp.controller('loginController', function($scope, $route, registrazi
                     toastr.error("l'utente " + utente.email + " e' gia' presente.","Registrazione fallita");
             });
         } else {
-            toastr.error("Compila tutti i campi richiesti nel modo corretto.","ERRORE");
+            alert('error');
             $route.reload();
+            //toastr.error("Compila tutti i campi richiesti nel modo corretto.","ERRORE");
+            
         }
     };
     
