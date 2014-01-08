@@ -7,6 +7,7 @@ public class Esito {
     public static final String USER_ALREADY_EXISTNG = "USER_ALREADY_EXISTING";
     public static final String USER_SIGNIN_SUCCESSFUL = "USER_SIGNIN_SUCCESSFUL";
     public static final String EXCEPTION_RAISED = "EXCEPTION_RAISED";
+    public static final String USER_LOGOUT_SUCCESS = "USER_LOGOUT_SUCCESS";
     private boolean result;
     private String message;
     private String newUrl;
@@ -45,6 +46,11 @@ public class Esito {
 
     public void setReturnedObj(Object returnedObj) {
         this.returnedObj = returnedObj;
+    }
+
+    @Override
+    public String toString() {
+        return "{'result': '" + result + "', 'message':'" + message +  "', 'returnedObj':'" + returnedObj +  "'}";
     }
     
     

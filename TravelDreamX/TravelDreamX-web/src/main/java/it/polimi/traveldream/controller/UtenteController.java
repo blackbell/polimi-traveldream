@@ -46,20 +46,21 @@ public class UtenteController {
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public @ResponseBody Esito login(@RequestBody Utente utente, HttpServletRequest req) {
+        System.out.println("login() -> utente: " + utente);
         Esito e = new Esito();
         {
-            Utente u = (Utente)req.getAttribute("TDX_CurrentUser");
+            Utente u = (Utente)req.getSession().getAttribute("TDX_CurrentUser");
             if (u != null)
                 utente = u;
             else
-                utente = utenteService.login(u);
+                utente = utenteService.login(utente);
         }
         try{
             if (utente == null){
                 e.setResult(false);
                 e.setMessage(Esito.USER_NOT_FOUND);
                 e.setReturnedObj(null);
-            }else if (utente.getAbilitato()){
+            }else if (!utente.getAbilitato()){
                 e.setResult(false);
                 e.setMessage(Esito.USER_NOT_AUTHORIZED);
                 e.setReturnedObj(null);
@@ -68,6 +69,30 @@ public class UtenteController {
                 e.setMessage(Esito.USER_LOGIN_SUCCESS);
                 e.setReturnedObj(utente);
                 req.getSession().setAttribute("TDX_CurrentUser", utente);
+            }
+        }catch(Exception ex){
+            e.setResult(false);
+            e.setMessage(Esito.EXCEPTION_RAISED);
+            e.setReturnedObj(ex.getMessage());            
+        }
+        System.out.println("login() -> e:" + e);
+        return e;
+    }
+    
+    @RequestMapping(value = "logout", method = RequestMethod.POST)
+    public @ResponseBody Esito logout(HttpServletRequest req) {
+        Esito e = new Esito();
+        Utente utente = (Utente)req.getSession().getAttribute("TDX_CurrentUser");
+        try{
+            if (utente == null){
+                e.setResult(false);
+                e.setMessage(Esito.USER_NOT_FOUND);
+                e.setReturnedObj(null);
+            }else {
+                e.setResult(true);
+                e.setMessage(Esito.USER_LOGOUT_SUCCESS);
+                e.setReturnedObj(null);
+                req.getSession().removeAttribute("TDX_CurrentUser");
             }
         }catch(Exception ex){
             e.setResult(false);

@@ -42,11 +42,12 @@ public class UtenteService implements UtenteServiceLocal {
     }
 
     @Transactional
+    @Override
     public Utente login(Utente u) {
+        System.out.println("login() -> u: " + u);
+        System.out.println("login() -> u.getEmail(): " + u.getEmail());
+        System.out.println("login() -> utenteDAO:" + utenteDAO);
         Utente ret = utenteDAO.findOne(u.getEmail());
         return ret;
-    }
-    
-    
-    
+    }   
 }
