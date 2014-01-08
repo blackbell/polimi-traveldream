@@ -7,8 +7,13 @@
 package it.polimi.traveldream.data;
 
 import it.polimi.traveldream.model.Albergo;
-import static org.junit.Assert.assertNotNull;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.Ignore;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -16,6 +21,26 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author Dario
  */
 public class AlbergoDAOTest extends DAOUnitTest {
+    
+    public AlbergoDAOTest() {
+        
+    }
+
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
     
     @Autowired
     public AlbergoDAO albergoDAO;
@@ -41,21 +66,10 @@ public class AlbergoDAOTest extends DAOUnitTest {
         assertNotNull(a2);
     }
     
-    @Test 
+    @Test @Ignore
     public void retrieveAlbergo(){
-        Albergo a = addHotel();
         assertNotNull("Cannot inject albergoDAO!",albergoDAO);
-        Albergo albergo = albergoDAO.findOne(a.getIdAlbergo());
-        assertNotNull("Cannot retrieve albergo with ID=" + a.getIdAlbergo() + "!", albergo);
-    }
-    
-    private Albergo addHotel(){
-        Albergo albergo = new Albergo();
-        albergo.setNome("HOTEL PIPPO");
-        albergo.setCitta("Milano");
-        albergo.setStelle(3);
-        albergo.setUrlFoto("/");
-        Albergo a2 = albergoDAO.saveAndFlush(albergo);
-        return a2;
+        Albergo albergo = albergoDAO.findOne(1);
+        assertNotNull("Cannot retrieve albergo with ID=1!", albergo);
     }
 }

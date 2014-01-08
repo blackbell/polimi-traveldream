@@ -1,6 +1,7 @@
 /*
- * Politecnico di Milano, Software Engineering 2 (autumn semester)
- * proj codename: TravelDreamX
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 
 package it.polimi.traveldream.data;
@@ -17,12 +18,7 @@ import org.junit.runners.Suite;
  * @author Dario
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({RottaDAOTest.class,
-                     AlbergoDAOTest.class,
-                     UtenteDAOTest.class, 
-                     VoloDAOTest.class,
-                     SoggiornoDAOTest.class
-})
+@Suite.SuiteClasses({RottaDAOTest.class, UtenteDAOTest.class, VoloDAOTest.class})
 public class DAOTestSuite {
 
     @BeforeClass
