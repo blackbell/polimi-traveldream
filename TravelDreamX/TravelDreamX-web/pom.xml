@@ -4,12 +4,12 @@
     <parent>
     <artifactId>TravelDreamX</artifactId>
     <groupId>it.polimi</groupId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
   </parent>
 
     <groupId>it.polimi</groupId>
     <artifactId>TravelDreamX-web</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>TravelDreamX-web</name>

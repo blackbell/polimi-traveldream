@@ -6,16 +6,46 @@
 
 package it.polimi.traveldream.data;
 
+import it.polimi.traveldream.data.DAOUnitTest;
+import it.polimi.traveldream.data.RottaDAO;
 import it.polimi.traveldream.model.Rotta;
-import static org.junit.Assert.assertNotNull;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.Ignore;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  *
  * @author Dario
  */
 public class RottaDAOTest extends DAOUnitTest {
+    
+    public RottaDAOTest() {
+        
+    }
+
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
     
     @Autowired
     public RottaDAO rottaDAO;
@@ -39,19 +69,10 @@ public class RottaDAOTest extends DAOUnitTest {
         assertNotNull(rotta2);
     }
     
-    @Test
+    @Test @Ignore
     public void retrieveRotta(){
-        Rotta r = addRotta();
         assertNotNull("Cannot inject rottaDAO!",rottaDAO);
-        Rotta rotta = rottaDAO.findOne(r.getIdRotta());
-        assertNotNull("Cannot retrieve route with ID=" + r.getIdRotta() + "!", rotta);
-    }
-    
-    private Rotta addRotta(){
-        Rotta rotta = new Rotta();
-        rotta.setCittàPartenza("Pistoia");
-        rotta.setCittàArrivo("Milano");
-        Rotta rotta2 = rottaDAO.saveAndFlush(rotta);
-        return rotta2;
+        Rotta rotta = rottaDAO.findOne(1);
+        assertNotNull("Cannot retrieve route with ID=1!", rotta);
     }
 }
