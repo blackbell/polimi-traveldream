@@ -1,13 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Politecnico di Milano, Software Engineering 2 (autumn semester)
+ * proj codename: TravelDreamX
  */
+
 package it.polimi.traveldream.data;
 
 import it.polimi.traveldream.model.Albergo;
 import it.polimi.traveldream.model.Rotta;
 import it.polimi.traveldream.model.Soggiorno;
+import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.model.Volo;
 import java.util.Date;
 import org.junit.After;
@@ -86,6 +87,16 @@ public class VoceDAOTest extends DAOUnitTest{
         Albergo a2 = albergoDAO.saveAndFlush(albergo);
         return a2;
     }
+
+    @Test
+    public void checkToRetrieveTheRightObjectType(){
+        assertNotNull("Cannot inject voceDAO!", voceDAO);
+        Rotta r = addRotta();
+        Volo volo = addVolo();
+        Voce v = voceDAO.findOne(volo.getIdVoce());        
+        assertTrue("The retrieved object is not instance of Volo", v instanceof Volo);
+        assertTrue("The retrieved object is instance of Soggiorno", ! (v instanceof Soggiorno));
+    }
     
     @Autowired
     RottaDAO rottaDAO;
@@ -95,5 +106,16 @@ public class VoceDAOTest extends DAOUnitTest{
         rotta.setCittàArrivo("Milano");
         Rotta rotta2 = rottaDAO.saveAndFlush(rotta);
         return rotta2;
+    }
+    
+    private Volo addVolo(){
+        Rotta r = addRotta();
+        Volo volo = new Volo();
+        volo.setDataOra(new Date());
+        volo.setIdRotta(r);
+        volo.setNumPasseggeri(3);
+        volo.setCosto(120.7f);
+        Volo volo2 = voceDAO.save(volo);
+        return volo2;
     }
 }
