@@ -1,0 +1,29 @@
+.pointer {
+    cursor: pointer;
+}
+input.ng-invalid {
+    border: 1px solid yellow;
+}
+input.ng-valid {
+    border: 1px solid green;
+}
+
+.glyphicon {
+    margin-left: 3px;
+}
+.btn-registrazione {
+    width: 296px;
+}
+.btn-login{
+    width: 221px !important;
+}
+.modal-header {
+    margin-right: 10px;
+}    
+.fade {
+   -webkit-transition: opacity 0.01s linear;
+      -moz-transition: opacity 0.01s linear;
+       -ms-transition: opacity 0.01s linear;
+        -o-transition: opacity 0.01s linear;
+           transition: opacity 0.01s linear;
+ }

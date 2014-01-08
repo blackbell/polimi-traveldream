@@ -1,0 +1,14 @@
+<div ng-controller="menuController">
+    <ul class="nav nav-pills">
+        <li><a class="brand" href="#">TravelDream</a></li>
+        
+        <li class="pull-right"><a>&nbsp;</a></li>
+        <li class="pull-right"><a href="#"  bs-modal="'templates/modal/registrazione.html'">Registrati</a></li>
+        <li class="dropdown pull-right pointer">
+            <a class="dropdown-toggle" data-toggle="dropdown" bs-popover="'templates/popover/login.html'" data-placement="bottom" data-title="<b align='left'>Modifica l'immagine dell'offerta</b><button class='close' ng-click='hide()' aria-hidden='true' style='right: 0px;'>×</button>"data-unique="1">Login <b class="caret"></b></a>
+        </li>      
+        <li class="pull-right"><a href="#">Invita un amico</a></li>
+        <li class="pull-right"><a href="#">Componi viaggio</a></li>
+        <li ng-class="{active: getActive('/'), 'pull-right': prova}"><a href="#">Proposte viaggio</a></li>
+    </ul>
+</div>
