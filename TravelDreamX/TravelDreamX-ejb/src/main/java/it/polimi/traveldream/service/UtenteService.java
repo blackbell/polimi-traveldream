@@ -28,18 +28,23 @@ public class UtenteService implements UtenteServiceLocal {
         this.utenteDAO = utenteDAO;
     }
     
-    
+    public boolean isPresent(Utente utente) {
+        Utente utenteDaCercare = utenteDAO.findOne(utente.getEmail());
+        return utenteDaCercare != null; 
+    }
 
     @Transactional
     @Override
     public Utente registrazione(Utente utente) {
+        if(isPresent(utente))
+            return null;
         return utenteDAO.saveAndFlush(utente);
-        
     }
 
-    @Override
+    @Transactional
     public Utente login(Utente u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Utente ret = utenteDAO.findOne(u.getEmail());
+        return ret;
     }
     
     
