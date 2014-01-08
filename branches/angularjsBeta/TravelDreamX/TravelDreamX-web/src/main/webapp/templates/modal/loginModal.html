@@ -1,0 +1,23 @@
+<div class="container" ng-controller="loginController">
+    <div class="row">
+        <div class="col-lg-3">
+            <form name ='formRegistrazione'ng-init="inizializzaUtente()">
+                <input name="email" type="text" class="form-control" ng-model="utente.email" ng-required="true" ng-pattern='/^([_a-z0-9-])+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/' placeholder="Inserisci la tua email"></input>
+                <br/>
+                <input name="pwd" type="password" class="form-control" ng-model="utente.password" ng-required="true" ng-pattern="/^.{5,15}$/" placeholder="Inserisci la tua password"></input>
+                <br/>
+                <div class="row">
+                    <div class="col-lg-2">
+                        <button class="btn btn-close" ng-click="close()">
+                            Chiudi
+                        </button>
+                    </div>
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-7">
+                        <button class="btn btn-block btn-info" ng-click="login(utente, formRegistrazione)" >Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
