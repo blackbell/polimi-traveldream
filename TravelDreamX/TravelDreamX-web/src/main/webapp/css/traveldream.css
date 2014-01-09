@@ -27,3 +27,10 @@ input.ng-valid {
         -o-transition: opacity 0.01s linear;
            transition: opacity 0.01s linear;
  }
+ .vocePV {
+  list-style: none;
+  *zoom: 1;
+}
+[class*="span"] {
+    margin-left: 00px;
+  }
