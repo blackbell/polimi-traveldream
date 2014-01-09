@@ -1,12 +1,13 @@
 <div ng-controller="menuController">
     <ul class="nav nav-pills">
-        <li><a class="brand" href="#">TravelDream</a></li>
+        <li><a class="brand" href="#"><h1>TravelDream</h1></a></li>
         
         <li class="pull-right"><a>&nbsp;</a></li>
         <li class="pull-right pointer"><a bs-modal="'templates/modal/registrazione.html'">Registrati</a></li>
         <li class="dropdown pull-right pointer">
-            <a class="dropdown-toggle" data-toggle="dropdown" bs-popover="'templates/popover/login.html'" data-placement="bottom" data-title="<b align='left'>Modifica l'immagine dell'offerta</b><button class='close' ng-click='hide()' aria-hidden='true' style='right: 0px;'>×</button>"data-unique="1">Login <b class="caret"></b></a>
-        </li>      
+            <a class="dropdown-toggle" data-toggle="dropdown" bs-popover="'templates/popover/login.html'" data-placement="bottom" data-title="<button class='close' ng-click='hide()' aria-hidden='true' style='right: 0px;'>×</button><br/>"data-unique="1">Login <b class="caret"></b></a>
+        </li>    
+        <li class="pull-right"><a>&nbsp;</a></li><li class="pull-right"><a>&nbsp;</a></li><li class="pull-right"><a>&nbsp;</a></li>
         <li ng-class="{active: getActive('/invita'), 'pull-right': pullRight}"><a href="#">Invita un amico</a></li>
         <li ng-class="{active: getActive('/composizionePV'), 'pull-right': pullRight}"><a href="#/composizionePV">Componi viaggio</a></li>
         <li ng-class="{active: getActive('/'), 'pull-right': pullRight}"><a href="#">Proposte viaggio</a></li>
