@@ -1,1 +1,6 @@
-<p class="lead">Voci</p>
+<p class="lead">Voci:</p>
+<div class="container" ng-init="getPVdaRootScope()">
+    <div class="row" ng-repeat="voce in PV.composizioneCollection">
+        <div class="span3"><img src="img/{{voce.tipo}}.png"/></div>
+    </div>
+</div>
