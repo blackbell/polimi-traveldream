@@ -11,17 +11,37 @@
 <div class="row"  ng-repeat="composizione in PV.composizioneCollection">
     <br>
 
-    <ul class="voce-item voce-item-btn pointer" ng-click="seleziona(composizione.voce.tipo)">
+    <ul ng-class="{'voce-item-btn-selected': isSelezionato($index), 'voce-item':true, 'voce-item-btn':true, 'pointer':true}" ng-click="seleziona(composizione.voce.tipo, $index)">
         <button class='close voce-close' ng-click='eliminaVoce($index)' aria-hidden='true' >×</button><br/>
         <li class="span1 voce-item-col">
             <img ng-src="img/{{composizione.voce.tipo}}.png" width="80"/>
         </li>
-        <li class="span2 voce-item-col" ng-if="!isScelto(composizione.voce)">
+        <li ng-class="{'span2': true, 'voce-item-col': true}" ng-if="!isCompleta(composizione.voce)">
             <text class="voce-item-left" >Scegli {{composizione.voce.tipo}} </text><i class="voce-item-right icon-chevron-right"></i>
         </li>
         <li class="span2 voce-item-col" ng-if="isVolo(composizione.voce)">
             <p class="voce-item-left" > 
                 {{composizione.voce.rotta.cittaPartenza}} - {{composizione.voce.rotta.cittaArrivo}}
+                <br/>
+                {{composizione.voce.dataOra}}
+                <br/>
+                €{{composizione.voce.costo}} 
+            </p>
+            <i class="voce-item-right icon-chevron-right"></i>
+        </li>
+        <li class="span2 voce-item-col" ng-if="isSoggiorno(composizione.voce)">
+            <p class="voce-item-left" > 
+                {{composizione.voce.albergo.nome}} - {{composizione.voce.albergo.citta}} - {{composizione.voce.albergo.stelle}}
+                <br/>
+                {{composizione.voce.giornoInizio}} - {{composizione.voce.giornoFine}}
+                <br/>
+                €{{composizione.voce.costo}} 
+            </p>
+            <i class="voce-item-right icon-chevron-right"></i>
+        </li>
+        <li class="span2 voce-item-col" ng-if="isVisita(composizione.voce)">
+            <p class="voce-item-left" > 
+                {{composizione.voce.museo.nome}} - {{composizione.voce.museo.citta}}
                 <br/>
                 {{composizione.voce.dataOra}}
                 <br/>

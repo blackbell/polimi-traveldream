@@ -47,24 +47,14 @@ input.ng-valid {
     border: #b9b9b9 1px solid;
 }
 .voce-item-btn:hover{
-    background-color: rgba(20, 155, 223, 0.48);
+    color: #008dff;
     border: rgba(20, 155, 223, 0.48) 1px solid;
+    background-color: rgba(20, 155, 223, 0);
 }
 .voce-item-btn-selected {
-    display: inline-block;
-    *display: inline;
-    padding: 4px 12px;
-    margin-bottom: 0;
-    *margin-left: .3em;
-    font-size: 14px;
-    line-height: 20px;
-    color: #333333;
-    text-align: center;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-    vertical-align: middle;
-    cursor: pointer;
-    background-color: rgba(20, 155, 223, 0.48);
-    border: rgba(20, 155, 223, 0.48) 1px solid;
+    background-color: rgba(20, 155, 223, 0.48) !important;
+    border: rgba(20, 155, 223, 0.48) 1px solid !important;
+    color: #333333 !important;
 }
 .voce-item-col {
     margin-left: 0px;
@@ -92,4 +82,10 @@ input.ng-valid {
 }
 li{
     text-align: left;
+}
+.voce-consultazione {
+    display: inline-block;
+    padding: 4px 12px;
+    list-style: none;
+    margin-top: 15px;
 }
