@@ -38,8 +38,10 @@ import org.codehaus.jackson.annotate.JsonIgnore;
     @NamedQuery(name = "Albergo.findByNome", query = "SELECT a FROM Albergo a WHERE a.nome = :nome"),
     @NamedQuery(name = "Albergo.findByCitta", query = "SELECT a FROM Albergo a WHERE a.citta = :citta"),
     @NamedQuery(name = "Albergo.findByStelle", query = "SELECT a FROM Albergo a WHERE a.stelle = :stelle"),
-    @NamedQuery(name = "Albergo.findByUrlFoto", query = "SELECT a FROM Albergo a WHERE a.urlFoto = :urlFoto")})
-public class Albergo implements Serializable {
+    @NamedQuery(name = "Albergo.findByUrlFoto", query = "SELECT a FROM Albergo a WHERE a.urlFoto = :urlFoto"),
+    @NamedQuery(name = "Albergo.findByParams", query = "SELECT a FROM Albergo a WHERE a.nome LIKE :nome and a.citta LIKE :citta and (:stelle IS NULL OR a.stelle = :stelle )"),
+})
+public class Albergo extends EDB implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,7 +61,7 @@ public class Albergo implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "stelle")
-    private int stelle;
+    private Integer stelle;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 150)
@@ -107,11 +109,11 @@ public class Albergo implements Serializable {
         this.citta = citta;
     }
 
-    public int getStelle() {
+    public Integer getStelle() {
         return stelle;
     }
 
-    public void setStelle(int stelle) {
+    public void setStelle(Integer stelle) {
         this.stelle = stelle;
     }
 

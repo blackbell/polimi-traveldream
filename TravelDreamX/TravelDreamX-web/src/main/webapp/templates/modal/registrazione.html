@@ -1,4 +1,4 @@
-<div class="container" ng-controller="registrazioneController">
+<div class="container" ng-controller="autenticazioneController">
     <div class="row">
         <div class="span6">
             <div class="modal-header" align="center">
@@ -18,9 +18,12 @@
                         <label class="label label-success pointer" ng-hide='formRegistrazione.pwd.$invalid' ng-click='checkPwd(formRegistrazione.pwd)'>ok <span class="glyphicon glyphicon-info-sign"></span></label>
                         <br/>
                     </div>
-                    <legend/>
+                    <div class="row" ng-show="waiting">
+                        Aspetta... &nbsp;&nbsp;<img src="img/loading.gif" width="20"/>
+                        <br/><br/>
+                    </div>
                     <div class="row">
-                        <button class="btn btn-info btn-registrazione" ng-click="registrazione(utente, formRegistrazione)" >&nbsp;&nbsp;Registrati&nbsp;&nbsp;</button>
+                        <button class="btn btn-info btn-registrazione" ng-click="registrazione(utente, formRegistrazione)" >Registrati</button>
                     </div>
                 </form> 
             </div>

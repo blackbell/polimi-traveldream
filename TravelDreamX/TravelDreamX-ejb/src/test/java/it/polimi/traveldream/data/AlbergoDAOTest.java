@@ -8,6 +8,7 @@ package it.polimi.traveldream.data;
 
 import it.polimi.traveldream.model.Albergo;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -47,6 +48,13 @@ public class AlbergoDAOTest extends DAOUnitTest {
         assertNotNull("Cannot inject albergoDAO!",albergoDAO);
         Albergo albergo = albergoDAO.findOne(a.getIdAlbergo());
         assertNotNull("Cannot retrieve albergo with ID=" + a.getIdAlbergo() + "!", albergo);
+    }
+    
+    @Test
+    public void retrieveAlbergoByParams(){
+        Albergo a = addHotel();
+        assertNotNull("Cannot inject albergoDAO!",albergoDAO);
+        assertTrue(albergoDAO.findByParams(a.getNome(), a.getCitta(), 3).contains(a));
     }
     
     private Albergo addHotel(){

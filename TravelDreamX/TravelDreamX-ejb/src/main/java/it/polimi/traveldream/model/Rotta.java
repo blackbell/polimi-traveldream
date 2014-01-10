@@ -40,8 +40,16 @@ import org.codehaus.jackson.annotate.JsonIgnore;
     @NamedQuery(name = "Rotta.findByAeroportoArrivo", query = "SELECT r FROM Rotta r WHERE r.aeroportoArrivo = :aeroportoArrivo"),
     @NamedQuery(name = "Rotta.findByCitt\u00e0Arrivo", query = "SELECT r FROM Rotta r WHERE r.citt\u00e0Arrivo = :citt\u00e0Arrivo"),
     @NamedQuery(name = "Rotta.findByNazioneArrivo", query = "SELECT r FROM Rotta r WHERE r.nazioneArrivo = :nazioneArrivo"),
-    @NamedQuery(name = "Rotta.findByCompagniaAerea", query = "SELECT r FROM Rotta r WHERE r.compagniaAerea = :compagniaAerea")})
-public class Rotta implements Serializable {
+    @NamedQuery(name = "Rotta.findByCompagniaAerea", query = "SELECT r FROM Rotta r WHERE r.compagniaAerea = :compagniaAerea"),
+    @NamedQuery(name = "Rotta.findByParams", query = "SELECT r FROM Rotta r WHERE r.aeroportoPartenza LIKE :aeroportoPartenza AND "
+                                                    + "r.aeroportoArrivo LIKE :aeroportoArrivo AND "
+                                                    + "r.compagniaAerea LIKE :compagniaAerea AND "
+                                                    + "r.citt\u00e0Partenza LIKE :cittàPartenza AND "
+                                                    + "r.nazionePartenza LIKE :nazionePartenza AND "
+                                                    + "r.citt\u00e0Arrivo LIKE :cittàArrivo AND "
+                                                    + "r.nazioneArrivo LIKE :nazioneArrivo")
+})
+public class Rotta extends EDB implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,24 +57,31 @@ public class Rotta implements Serializable {
     @Column(name = "idRotta")
     private Integer idRotta;
     @Size(max = 60)
+    @Basic(optional = false)
     @Column(name = "aeroportoPartenza")
     private String aeroportoPartenza;
     @Size(max = 60)
+    @Basic(optional = false)
     @Column(name = "citt\u00e0Partenza")
     private String cittàPartenza;
     @Size(max = 45)
+    @Basic(optional = false)
     @Column(name = "nazionePartenza")
     private String nazionePartenza;
     @Size(max = 60)
+    @Basic(optional = false)
     @Column(name = "aeroportoArrivo")
     private String aeroportoArrivo;
     @Size(max = 60)
+    @Basic(optional = false)
     @Column(name = "citt\u00e0Arrivo")
     private String cittàArrivo;
     @Size(max = 45)
+    @Basic(optional = false)
     @Column(name = "nazioneArrivo")
     private String nazioneArrivo;
     @Size(max = 45)
+    @Basic(optional = false)
     @Column(name = "compagniaAerea")
     private String compagniaAerea;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idRotta")

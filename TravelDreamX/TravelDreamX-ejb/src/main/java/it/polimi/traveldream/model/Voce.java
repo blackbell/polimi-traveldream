@@ -41,7 +41,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 //    @NamedQuery(name = "Voce.findByTipo", query = "SELECT v FROM Voce v WHERE v.tipo = :tipo")
     })
 public class Voce implements Serializable {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "voci")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "voce")
     private Collection<Composizione> composizioneCollection;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

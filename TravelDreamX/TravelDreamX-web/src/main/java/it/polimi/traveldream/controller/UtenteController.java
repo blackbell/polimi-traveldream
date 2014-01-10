@@ -26,6 +26,7 @@ public class UtenteController {
     public @ResponseBody Esito registrazione(@RequestBody Utente utente) {
         Esito e = new Esito();
         try{
+            utente.setAbilitato(true);
             utente = utenteService.registrazione( utente );
             if (utente == null){
                 e.setResult(false);
@@ -73,7 +74,7 @@ public class UtenteController {
         }catch(Exception ex){
             e.setResult(false);
             e.setMessage(Esito.EXCEPTION_RAISED);
-            e.setReturnedObj(ex.getMessage());            
+            e.setReturnedObj(ex.getCause());            
         }
         System.out.println("login() -> e:" + e);
         return e;

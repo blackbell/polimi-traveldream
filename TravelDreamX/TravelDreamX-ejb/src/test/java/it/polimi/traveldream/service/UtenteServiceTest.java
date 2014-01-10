@@ -24,17 +24,20 @@ public class UtenteServiceTest {
     private static final String jdniName = "java:global/classes/UtenteService";
     static UtenteServiceLocal service = null;
     static Random rnd;
+    private static boolean testSuite = false;
+
     
     @BeforeClass
     public static void setUp() throws NamingException{
-        EJBServiceTestSuite.setUp();
+        if (container != null) testSuite = true;
+        else EJBServiceTestSuite.setUp();
         service = (UtenteServiceLocal)container.getContext().lookup(jdniName);
         rnd = new Random(new Date().getTime());
     }
     
     @AfterClass
     public static void tearDown(){
-        EJBServiceTestSuite.tearDown();
+        if (!testSuite) EJBServiceTestSuite.tearDown();
     }
     
     @Test
