@@ -21,20 +21,58 @@ input.ng-valid {
     margin-right: 10px;
 }    
 .fade {
-   -webkit-transition: opacity 0.01s linear;
-      -moz-transition: opacity 0.01s linear;
-       -ms-transition: opacity 0.01s linear;
-        -o-transition: opacity 0.01s linear;
-           transition: opacity 0.01s linear;
- }
- .vocePV {
-  list-style: none;
-  *zoom: 1;
+    -webkit-transition: opacity 0.01s linear;
+    -moz-transition: opacity 0.01s linear;
+    -ms-transition: opacity 0.01s linear;
+    -o-transition: opacity 0.01s linear;
+    transition: opacity 0.01s linear;
 }
-[class*="span"] {
-    margin-left: 00px;
+.voce-item {
+    list-style: none;
+    *zoom: 1;
 }
-.left {
-    text-align: left;
+.voce-item-btn {
+    display: inline-block;
+    *display: inline;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    *margin-left: .3em;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+    cursor: pointer;
+    border: 2px solid #149bdf;
+}
+.voce-item-btn:hover{
+    background-color: rgba(20, 155, 223, 0.48);
+}
+.voce-item-col {
+    margin-left: 0px;
+}
+.voce-item-left {
+    float: left;
     margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.voce-item-right {
+    float: right;
+    margin-right: 0%;
+    margin-top: 10%; 
+}
+.close{
+    opacity: 0.5;
+}
+.close:hover {
+    opacity: 1;
+}
+.voce-close {
+    float: left;
+    opacity: 0.5;
+}
+li{
+    text-align: left;
 }

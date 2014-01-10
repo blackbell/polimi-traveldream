@@ -6,6 +6,8 @@
 
 package it.polimi.traveldream.service;
 
+import it.polimi.traveldream.model.Pacchetto;
+import it.polimi.traveldream.model.Voce;
 import javax.ejb.Local;
 
 /**
@@ -15,4 +17,5 @@ import javax.ejb.Local;
 @Local
 public interface PVServiceLocal {
     
+    public Pacchetto addPBtoPV(Voce pb, Pacchetto pv);
 }

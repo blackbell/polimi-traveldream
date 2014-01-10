@@ -4,24 +4,25 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import org.codehaus.jackson.annotate.JsonIgnore;
+
 
 /**
  *
@@ -51,8 +52,15 @@ public class Pacchetto implements Serializable {
     @NotNull
     @Column(name = "tipo")
     private TipoPacchetto tipo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pacchetti")
-    private Collection<Composizione> composizioneCollection;
+    
+    @ManyToMany(fetch = FetchType.LAZY)//, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "composizione", joinColumns = {
+        @JoinColumn(name = "idPacchetto", nullable = false, updatable = false) 
+    },inverseJoinColumns = {
+        @JoinColumn(name = "idVoce", nullable = false, updatable = false)
+    })
+    private Collection<Voce> voci;
+    
     @JoinColumn(name = "proprietario", referencedColumnName = "email")
     @ManyToOne(optional = false)
     private Utente proprietario;
@@ -94,16 +102,6 @@ public class Pacchetto implements Serializable {
         this.tipo = tipo;
     }
 
-    @XmlTransient
-    @JsonIgnore
-    public Collection<Composizione> getComposizioneCollection() {
-        return composizioneCollection;
-    }
-
-    public void setComposizioneCollection(Collection<Composizione> composizioneCollection) {
-        this.composizioneCollection = composizioneCollection;
-    }
-
     public Utente getProprietario() {
         return proprietario;
     }
@@ -112,6 +110,14 @@ public class Pacchetto implements Serializable {
         this.proprietario = proprietario;
     }
 
+    public Collection<Voce> getVoci() {
+        return voci;
+    }
+
+    public void setVoci(Collection<Voce> voci) {
+        this.voci = voci;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
