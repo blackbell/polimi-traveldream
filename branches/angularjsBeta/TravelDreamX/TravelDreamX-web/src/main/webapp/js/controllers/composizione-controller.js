@@ -32,6 +32,13 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope)
             ]
         };
     };
+    $scope.isSelezionato = function (tipo){
+        return $scope.selezionato === tipo;
+    };
+    $scope.seleziona = function (tipo){
+        $scope.selezionato = tipo;
+    };
+    
     $scope.isScelto = function(voce) {
         //console.log(voce.tipo + " " + (typeof voce.costo !== 'undefined') + " costo " + voce.costo);
         return (typeof voce.costo !== 'undefined');
@@ -41,6 +48,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope)
     };
 
     $scope.eliminaVoce = function(indice) {
+        $scope.selezionato = 'nonSelezionato';
         if (indice > -1) {
             $scope.PV.composizioneCollection.splice(indice, 1);
         }
