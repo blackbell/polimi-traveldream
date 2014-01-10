@@ -7,6 +7,8 @@
 package it.polimi.traveldream.service;
 
 import it.polimi.traveldream.data.PVDAO;
+import it.polimi.traveldream.model.Pacchetto;
+import it.polimi.traveldream.model.Voce;
 import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +24,13 @@ public class PVService implements PVServiceLocal {
 
     @Autowired
     PVDAO pvDAO;
+
+    @Override
+    public Pacchetto addPBtoPV(Voce pb, Pacchetto pv) {
+        pv.getVoci().add(pb);
+        return pvDAO.saveAndFlush(pv);
+    }
+    
+    
+    
 }
