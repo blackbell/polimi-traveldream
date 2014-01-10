@@ -1,4 +1,22 @@
 <p class="lead">Scegli:</p>
-<div class="row" ng-if="isSelezionato('volo')">VOLO</div>
-<div class="row" ng-if="isSelezionato('soggiorno')">SOGGIORNO</div>
-<div class="row" ng-if="isSelezionato('visita')">VISITA</div>
+<div class="row" ng-if="isSelezionato('volo')">
+    <ul class="voce-consultazione">
+        <li>
+            <ng-include src="'templates/include/consultazioneVoli.html'"></ng-include>
+        </li>
+    </ul>
+</div>
+<div class="row" ng-if="isSelezionato('soggiorno')">
+    <ul class="voce-consultazione">
+        <li>
+            <ng-include src="'templates/include/consultazioneSoggiorni.html'"></ng-include>
+        </li>
+    </ul>
+</div>
+<div class="row" ng-if="isSelezionato('visita')">
+    <ul class="voce-consultazione">
+        <li>
+            <ng-include src="'templates/include/consultazioneVisite.html'"></ng-include>
+        </li>
+    </ul>
+</div>
