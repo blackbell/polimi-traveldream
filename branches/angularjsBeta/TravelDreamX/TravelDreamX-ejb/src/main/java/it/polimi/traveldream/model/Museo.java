@@ -37,7 +37,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
     @NamedQuery(name = "Museo.findByCitta", query = "SELECT m FROM Museo m WHERE m.citta = :citta"),
     @NamedQuery(name = "Museo.findByDescrizione", query = "SELECT m FROM Museo m WHERE m.descrizione = :descrizione"),
     @NamedQuery(name = "Museo.findByUrlFoto", query = "SELECT m FROM Museo m WHERE m.urlFoto = :urlFoto")})
-public class Museo implements Serializable {
+public class Museo extends EDB implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -64,7 +64,7 @@ public class Museo implements Serializable {
     @Size(min = 1, max = 150)
     @Column(name = "urlFoto")
     private String urlFoto;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMuseo")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "museo")
     private Collection<Visita> visiteCollection;
 
     public Museo() {

@@ -6,46 +6,19 @@
 
 package it.polimi.traveldream.data;
 
-import it.polimi.traveldream.data.DAOUnitTest;
-import it.polimi.traveldream.data.RottaDAO;
+import it.polimi.traveldream.model.EDB;
 import it.polimi.traveldream.model.Rotta;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import java.util.List;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import org.junit.Ignore;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  *
  * @author Dario
  */
 public class RottaDAOTest extends DAOUnitTest {
-    
-    public RottaDAOTest() {
-        
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
     
     @Autowired
     public RottaDAO rottaDAO;
@@ -63,16 +36,49 @@ public class RottaDAOTest extends DAOUnitTest {
     public void saveRotta(){
         assertNotNull("Cannot inject rottaDAO!",rottaDAO);
         Rotta rotta = new Rotta();
-        rotta.setCittàPartenza("Pistoia");
-        rotta.setCittàArrivo("Milano");
+        rotta.setAeroportoPartenza("San Giorgio International Airport");
+        rotta.setAeroportoArrivo("Malpensa");
+        rotta.setNazionePartenza("Italia");
+        rotta.setNazioneArrivo("Italia");
+        rotta.setCompagniaAerea("PoliMI airways");
+        rotta.setCittaPartenza("Pistoia");
+        rotta.setCittaArrivo("Milano");
         Rotta rotta2 = rottaDAO.saveAndFlush(rotta);
         assertNotNull(rotta2);
     }
     
-    @Test @Ignore
+    @Test
     public void retrieveRotta(){
+        Rotta r = addRotta();
         assertNotNull("Cannot inject rottaDAO!",rottaDAO);
-        Rotta rotta = rottaDAO.findOne(1);
-        assertNotNull("Cannot retrieve route with ID=1!", rotta);
+        Rotta rotta = rottaDAO.findOne(r.getIdRotta());
+        assertNotNull("Cannot retrieve route with ID=" + r.getIdRotta() + "!", rotta);
+    }
+    
+    @Test
+    public void retrieveRottaByParams(){
+        Rotta r = addRotta();
+        assertNotNull("Cannot inject rottaDAO!",rottaDAO);
+        List<EDB> rotte = rottaDAO.findByParams(r.getAeroportoPartenza(), 
+                                            r.getAeroportoArrivo(), 
+                                            r.getCittaPartenza(), 
+                                            r.getCittaArrivo(),
+                                            r.getNazionePartenza(), 
+                                            r.getNazioneArrivo(),
+                                            r.getCompagniaAerea());
+        assertTrue(rotte.contains(r));
+    }
+    
+    private Rotta addRotta(){
+        Rotta rotta = new Rotta();
+        rotta.setAeroportoPartenza("San Giorgio International Airport");
+        rotta.setAeroportoArrivo("Malpensa");
+        rotta.setNazionePartenza("Italia");
+        rotta.setNazioneArrivo("Italia");
+        rotta.setCompagniaAerea("PoliMI airways");
+        rotta.setCittaPartenza("Pistoia");
+        rotta.setCittaArrivo("Milano");
+        Rotta rotta2 = rottaDAO.saveAndFlush(rotta);
+        return rotta2;
     }
 }
