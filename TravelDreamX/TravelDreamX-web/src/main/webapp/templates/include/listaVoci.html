@@ -11,7 +11,7 @@
 <div class="row"  ng-repeat="composizione in PV.composizioneCollection">
     <br>
 
-    <ul class="voce-item voce-item-btn pointer">
+    <ul class="voce-item voce-item-btn pointer" ng-click="seleziona(composizione.voce.tipo)">
         <button class='close voce-close' ng-click='eliminaVoce($index)' aria-hidden='true' >×</button><br/>
         <li class="span1 voce-item-col">
             <img ng-src="img/{{composizione.voce.tipo}}.png" width="80"/>
