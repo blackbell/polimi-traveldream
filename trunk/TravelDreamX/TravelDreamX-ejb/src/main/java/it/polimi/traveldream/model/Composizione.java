@@ -40,7 +40,7 @@ public class Composizione implements Serializable {
     private Pacchetto pacchetti;
     @JoinColumn(name = "idVoce", referencedColumnName = "idVoce", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    private Voce voci;
+    private Voce voce;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "composizione")
     private Collection<Pagamento> pagamentiCollection;
 
@@ -71,12 +71,12 @@ public class Composizione implements Serializable {
         this.pacchetti = pacchetti;
     }
 
-    public Voce getVoci() {
-        return voci;
+    public Voce getVoce() {
+        return voce;
     }
 
-    public void setVoci(Voce voci) {
-        this.voci = voci;
+    public void setVoce(Voce voce) {
+        this.voce = voce;
     }
 
     @XmlTransient

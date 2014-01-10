@@ -5,9 +5,6 @@
  */
 package it.polimi.traveldream.service;
 
-import it.polimi.traveldream.data.RottaDAOTest;
-import it.polimi.traveldream.data.UtenteDAOTest;
-import it.polimi.traveldream.data.VoloDAOTest;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +20,7 @@ import org.junit.runners.Suite;
  * @author Dario
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({EJBServiceTest.class, UtenteServiceTest.class})
+@Suite.SuiteClasses({EJBServiceTest.class, UtenteServiceTest.class, EDBServiceTest.class})
 public class EJBServiceTestSuite {
 
     protected static EJBContainer container;
@@ -32,7 +29,7 @@ public class EJBServiceTestSuite {
     public static void setUp() {
         if (container == null){
             System.out.println("Setting up the EJBServiceTestSuite. Creating the EJB Container...");
-            Map<String, Object> myMap = new HashMap<String, Object>();
+            Map<String, Object> myMap = new HashMap<>();
             myMap.put("org.glassfish.ejb.embedded.glassfish.installation.root", "./src/test/glassfish");
             myMap.put(EJBContainer.MODULES, new File("target/classes/"));
             container = javax.ejb.embeddable.EJBContainer.createEJBContainer(myMap);

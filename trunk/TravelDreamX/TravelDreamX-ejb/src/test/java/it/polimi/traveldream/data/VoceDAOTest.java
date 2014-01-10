@@ -102,6 +102,11 @@ public class VoceDAOTest extends DAOUnitTest{
     RottaDAO rottaDAO;
     private Rotta addRotta(){
         Rotta rotta = new Rotta();
+        rotta.setAeroportoPartenza("San Giorgio International Airport");
+        rotta.setAeroportoArrivo("Malpensa");
+        rotta.setNazionePartenza("Italia");
+        rotta.setNazioneArrivo("Italia");
+        rotta.setCompagniaAerea("PoliMI airways");
         rotta.setCittàPartenza("Pistoia");
         rotta.setCittàArrivo("Milano");
         Rotta rotta2 = rottaDAO.saveAndFlush(rotta);

@@ -18,13 +18,15 @@ import org.junit.BeforeClass;
  */
 public class EJBServiceTest {
    
+    private static boolean testSuite = false;
     @BeforeClass
     public static void setUp(){
-        EJBServiceTestSuite.setUp();
+        if (container != null) testSuite = true;
+        else EJBServiceTestSuite.setUp();
     }
     @AfterClass
     public static void tearDown(){
-        EJBServiceTestSuite.tearDown();
+        if (!testSuite) EJBServiceTestSuite.tearDown();
     }
 
     @Test
