@@ -67,7 +67,7 @@ public class Albergo extends EDB implements Serializable {
     @Size(min = 1, max = 150)
     @Column(name = "urlFoto")
     private String urlFoto;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAlbergo")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "albergo")
     private Collection<Soggiorno> soggiorniCollection;
 
     public Albergo() {

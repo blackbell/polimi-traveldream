@@ -66,7 +66,7 @@ public class Visita extends Voce implements Serializable {
     private float costo;
     @JoinColumn(name = "idMuseo", referencedColumnName = "idMuseo")
     @ManyToOne(optional = false)
-    private Museo idMuseo;
+    private Museo museo;
 
     public Visita() {
     }
@@ -114,12 +114,12 @@ public class Visita extends Voce implements Serializable {
         this.costo = costo;
     }
 
-    public Museo getIdMuseo() {
-        return idMuseo;
+    public Museo getMuseo() {
+        return museo;
     }
 
-    public void setIdMuseo(Museo idMuseo) {
-        this.idMuseo = idMuseo;
+    public void setMuseo(Museo museo) {
+        this.museo = museo;
     }
 
     @Override

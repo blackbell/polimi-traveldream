@@ -64,7 +64,7 @@ public class Museo extends EDB implements Serializable {
     @Size(min = 1, max = 150)
     @Column(name = "urlFoto")
     private String urlFoto;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMuseo")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "museo")
     private Collection<Visita> visiteCollection;
 
     public Museo() {

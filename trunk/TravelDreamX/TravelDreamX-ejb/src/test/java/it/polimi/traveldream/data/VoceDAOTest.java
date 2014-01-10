@@ -57,7 +57,7 @@ public class VoceDAOTest extends DAOUnitTest{
         Albergo a2 = addHotel();
         assertNotNull("Cannot inject voceDAO!", voceDAO);
         Soggiorno s = new Soggiorno();
-        s.setIdAlbergo(a2);
+        s.setAlbergo(a2);
         s.setCosto(200f);
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date());
@@ -65,7 +65,7 @@ public class VoceDAOTest extends DAOUnitTest{
         Rotta r = addRotta();
         Volo volo = new Volo();
         volo.setDataOra(new Date());
-        volo.setIdRotta(r);
+        volo.setRotta(r);
         volo.setNumPasseggeri(3);
         volo.setCosto(120.7f);
         voceDAO.save(volo);
@@ -107,8 +107,8 @@ public class VoceDAOTest extends DAOUnitTest{
         rotta.setNazionePartenza("Italia");
         rotta.setNazioneArrivo("Italia");
         rotta.setCompagniaAerea("PoliMI airways");
-        rotta.setCittàPartenza("Pistoia");
-        rotta.setCittàArrivo("Milano");
+        rotta.setCittaPartenza("Pistoia");
+        rotta.setCittaArrivo("Milano");
         Rotta rotta2 = rottaDAO.saveAndFlush(rotta);
         return rotta2;
     }
@@ -117,7 +117,7 @@ public class VoceDAOTest extends DAOUnitTest{
         Rotta r = addRotta();
         Volo volo = new Volo();
         volo.setDataOra(new Date());
-        volo.setIdRotta(r);
+        volo.setRotta(r);
         volo.setNumPasseggeri(3);
         volo.setCosto(120.7f);
         Volo volo2 = voceDAO.save(volo);

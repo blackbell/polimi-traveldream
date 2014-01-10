@@ -41,8 +41,8 @@ public class RottaDAOTest extends DAOUnitTest {
         rotta.setNazionePartenza("Italia");
         rotta.setNazioneArrivo("Italia");
         rotta.setCompagniaAerea("PoliMI airways");
-        rotta.setCittàPartenza("Pistoia");
-        rotta.setCittàArrivo("Milano");
+        rotta.setCittaPartenza("Pistoia");
+        rotta.setCittaArrivo("Milano");
         Rotta rotta2 = rottaDAO.saveAndFlush(rotta);
         assertNotNull(rotta2);
     }
@@ -61,8 +61,8 @@ public class RottaDAOTest extends DAOUnitTest {
         assertNotNull("Cannot inject rottaDAO!",rottaDAO);
         List<EDB> rotte = rottaDAO.findByParams(r.getAeroportoPartenza(), 
                                             r.getAeroportoArrivo(), 
-                                            r.getCittàPartenza(), 
-                                            r.getCittàArrivo(),
+                                            r.getCittaPartenza(), 
+                                            r.getCittaArrivo(),
                                             r.getNazionePartenza(), 
                                             r.getNazioneArrivo(),
                                             r.getCompagniaAerea());
@@ -76,8 +76,8 @@ public class RottaDAOTest extends DAOUnitTest {
         rotta.setNazionePartenza("Italia");
         rotta.setNazioneArrivo("Italia");
         rotta.setCompagniaAerea("PoliMI airways");
-        rotta.setCittàPartenza("Pistoia");
-        rotta.setCittàArrivo("Milano");
+        rotta.setCittaPartenza("Pistoia");
+        rotta.setCittaArrivo("Milano");
         Rotta rotta2 = rottaDAO.saveAndFlush(rotta);
         return rotta2;
     }

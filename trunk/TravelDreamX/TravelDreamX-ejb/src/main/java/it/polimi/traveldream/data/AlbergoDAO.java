@@ -14,10 +14,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AlbergoDAO extends JpaRepository<Albergo, Integer>{
     
-    public List<EDB> findByParams(
+    /*public List<EDB> findByParams(
                                             @Param("nome") String nome,
-                                            @Param("città") String città
-                                          );
+                                            @Param("citta") String città
+                                          );*/
     public List<EDB> findByParams(
                                             @Param("nome") String nome,
                                             @Param("citta") String città,
