@@ -16,8 +16,8 @@ public interface RottaDAO extends JpaRepository<Rotta, Integer>{
 
     public List<EDB> findByParams(@Param("aeroportoPartenza") String aeroportoPartenza, 
                                   @Param("aeroportoArrivo") String aeroportoArrivo, 
-                                  @Param("cittàPartenza") String cittàPartenza, 
-                                  @Param("cittàArrivo") String cittàArrivo, 
+                                  @Param("cittaPartenza") String cittàPartenza, 
+                                  @Param("cittaArrivo") String cittàArrivo, 
                                   @Param("nazionePartenza") String nazionePartenza, 
                                   @Param("nazioneArrivo") String nazioneArrivo, 
                                   @Param("compagniaAerea") String compagniaAerea);

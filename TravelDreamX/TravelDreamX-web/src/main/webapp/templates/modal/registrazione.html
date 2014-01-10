@@ -3,25 +3,29 @@
         <div class="span6">
             <div class="modal-header" align="center">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 id="myModalLabel">Dati necessari alla registrazione</h3>
+                <br/><p class="lead">Dati necessari alla registrazione</p>
             </div>
             <div class="modal-body" align="center">
                 <form class="modal-form" name ='formRegistrazione'>
+                    <br/>
                     <div class="row">
                         <input name="email" type="text" class="form-control" ng-model="utente.email" ng-required="true" ng-pattern='/^([_a-z0-9-])+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/' placeholder="Inserisci la tua email"/>
                         <label class="label label-warning pointer" ng-show='formRegistrazione.email.$invalid' ng-click='checkEmail(formRegistrazione.email)'>non valido  <span class="glyphicon glyphicon-info-sign"></span></label>
                         <label class="label label-success pointer" ng-hide='formRegistrazione.email.$invalid' ng-click='checkEmail(formRegistrazione.email)'>ok <span class="glyphicon glyphicon-info-sign"></span></label>
                     </div>
+                    
                     <div class="row">
                         <input name="pwd" type="password" class="form-control" ng-model="utente.password" ng-required="true" ng-pattern="/^.{5,15}$/" placeholder="Inserisci la tua password"/>
                         <label class="label label-warning pointer" ng-show='formRegistrazione.pwd.$invalid' ng-click='checkPwd(formRegistrazione.pwd)'>non valido <span class="glyphicon glyphicon-info-sign"></span></label>
                         <label class="label label-success pointer" ng-hide='formRegistrazione.pwd.$invalid' ng-click='checkPwd(formRegistrazione.pwd)'>ok <span class="glyphicon glyphicon-info-sign"></span></label>
                         <br/>
                     </div>
+                    <br/>
                     <div class="row" ng-show="waiting">
                         Aspetta... &nbsp;&nbsp;<img src="img/loading.gif" width="20"/>
                         <br/><br/>
                     </div>
+                    <legend></legend>
                     <div class="row">
                         <button class="btn btn-info btn-registrazione" ng-click="registrazione(utente, formRegistrazione)" >Registrati</button>
                     </div>

@@ -34,7 +34,7 @@ public class SoggiornoDAOTest extends DAOUnitTest{
         Albergo a2 = addHotel();
         assertNotNull("Cannot inject voceDAO!", voceDAO);
         Soggiorno s = new Soggiorno();
-        s.setIdAlbergo(a2);
+        s.setAlbergo(a2);
         s.setCosto(200f);
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date());
@@ -47,7 +47,7 @@ public class SoggiornoDAOTest extends DAOUnitTest{
     public Soggiorno addSoggiorno(){
         Albergo a2 = addHotel();
         Soggiorno s = new Soggiorno();
-        s.setIdAlbergo(a2);
+        s.setAlbergo(a2);
         s.setCosto(200f);
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date());

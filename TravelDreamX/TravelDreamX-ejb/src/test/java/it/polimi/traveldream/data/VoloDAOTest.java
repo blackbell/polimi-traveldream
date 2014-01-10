@@ -33,7 +33,7 @@ public class VoloDAOTest extends DAOUnitTest{
         assertNotNull("Cannot inject voceDAO!", voceDAO);
         Volo volo = new Volo();
         volo.setDataOra(new Date());
-        volo.setIdRotta(r);
+        volo.setRotta(r);
         volo.setNumPasseggeri(3);
         volo.setCosto(120.7f);
         Volo volo2 = voceDAO.save(volo);
@@ -49,7 +49,7 @@ public class VoloDAOTest extends DAOUnitTest{
         assertTrue("The retrieved object is not instance of Volo", v instanceof Volo);
         assertTrue("The retrieved object is not instance of Volo", ! (v instanceof Soggiorno));
         assertEquals("The retrieved flight is not as expected!", volo2.getDataOra(), volo.getDataOra());
-        assertEquals("The retrieved flight is not as expected!", volo2.getIdRotta(), volo.getIdRotta());
+        assertEquals("The retrieved flight is not as expected!", volo2.getRotta(), volo.getRotta());
         assertEquals("The retrieved flight is not as expected!", volo2.getNumPasseggeri(), volo.getNumPasseggeri());
         assertTrue("The retrieved flight is not as expected!", volo2.getCosto() == volo.getCosto());
     }
@@ -58,7 +58,7 @@ public class VoloDAOTest extends DAOUnitTest{
         Rotta r = addRotta();
         Volo volo = new Volo();
         volo.setDataOra(new Date());
-        volo.setIdRotta(r);
+        volo.setRotta(r);
         volo.setNumPasseggeri(3);
         volo.setCosto(120.7f);
         Volo volo2 = voceDAO.save(volo);
@@ -73,8 +73,8 @@ public class VoloDAOTest extends DAOUnitTest{
         rotta.setNazionePartenza("Italia");
         rotta.setNazioneArrivo("Italia");
         rotta.setCompagniaAerea("PoliMI airways");
-        rotta.setCittàPartenza("Pistoia");
-        rotta.setCittàArrivo("Milano");
+        rotta.setCittaPartenza("Pistoia");
+        rotta.setCittaArrivo("Milano");
         Rotta rotta2 = rottaDAO.saveAndFlush(rotta);
         return rotta2;
     }

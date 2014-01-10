@@ -126,8 +126,8 @@ public class EDBServiceTest {
         Rotta r = new Rotta();
         r.setAeroportoPartenza("Prato Chinese Airport");
         r.setAeroportoArrivo("Pechino International Airport");
-        r.setCittàPartenza("Prato");
-        r.setCittàArrivo("Pechino");
+        r.setCittaPartenza("Prato");
+        r.setCittaArrivo("Pechino");
         r.setNazionePartenza("Italia");
         r.setNazioneArrivo("China");
         r.setCompagniaAerea("Volapiano");
@@ -150,8 +150,8 @@ public class EDBServiceTest {
         Rotta r = new Rotta();
         r.setAeroportoPartenza("Prato Chinese Airport");
         r.setAeroportoArrivo("Pechino International Airport");
-        r.setCittàPartenza("Prato");
-        r.setCittàArrivo("Pechino");
+        r.setCittaPartenza("Prato");
+        r.setCittaArrivo("Pechino");
         r.setNazionePartenza("Italia");
         r.setNazioneArrivo("China");
         r.setCompagniaAerea("Volapiano");
@@ -159,7 +159,7 @@ public class EDBServiceTest {
         
         ParametriRicercaEDB p = new ParametriRicercaEDB();
         p.setTipo(TipoEDB.Rotta);
-        p.setCittàPartenza(r.getCittàPartenza());
+        p.setCittàPartenza(r.getCittaPartenza());
         
         List<EDB> list = service.trovaEntità(p);
         for(EDB l : list){
@@ -174,8 +174,8 @@ public class EDBServiceTest {
         Rotta r = new Rotta();
         r.setAeroportoPartenza("Prato Chinese Airport");
         r.setAeroportoArrivo("Pechino International Airport");
-        r.setCittàPartenza("Prato");
-        r.setCittàArrivo("Pechino");
+        r.setCittaPartenza("Prato");
+        r.setCittaArrivo("Pechino");
         r.setNazionePartenza("Italia");
         r.setNazioneArrivo("China");
         r.setCompagniaAerea("Volapiano");
@@ -183,7 +183,7 @@ public class EDBServiceTest {
         
         ParametriRicercaEDB p = new ParametriRicercaEDB();
         p.setTipo(TipoEDB.Rotta);
-        p.setCittàArrivo(r.getCittàArrivo());
+        p.setCittàArrivo(r.getCittaArrivo());
         
         List<EDB> list = service.trovaEntità(p);
         for(EDB l : list){
@@ -198,8 +198,8 @@ public class EDBServiceTest {
         Rotta r = new Rotta();
         r.setAeroportoPartenza("Prato Chinese Airport");
         r.setAeroportoArrivo("Pechino International Airport");
-        r.setCittàPartenza("Prato");
-        r.setCittàArrivo("Pechino");
+        r.setCittaPartenza("Prato");
+        r.setCittaArrivo("Pechino");
         r.setNazionePartenza("Italia");
         r.setNazioneArrivo("China");
         r.setCompagniaAerea("Volapiano");
@@ -222,8 +222,8 @@ public class EDBServiceTest {
         Rotta r = new Rotta();
         r.setAeroportoPartenza("Prato Chinese Airport");
         r.setAeroportoArrivo("Pechino International Airport");
-        r.setCittàPartenza("Prato");
-        r.setCittàArrivo("Pechino");
+        r.setCittaPartenza("Prato");
+        r.setCittaArrivo("Pechino");
         r.setNazionePartenza("Italia");
         r.setNazioneArrivo("China");
         r.setCompagniaAerea("Volapiano");
@@ -246,8 +246,8 @@ public class EDBServiceTest {
         Rotta r = new Rotta();
         r.setAeroportoPartenza("Prato Chinese Airport");
         r.setAeroportoArrivo("Pechino International Airport");
-        r.setCittàPartenza("Prato");
-        r.setCittàArrivo("Pechino");
+        r.setCittaPartenza("Prato");
+        r.setCittaArrivo("Pechino");
         r.setNazionePartenza("Italia");
         r.setNazioneArrivo("China");
         r.setCompagniaAerea("Volapiano");
@@ -270,8 +270,8 @@ public class EDBServiceTest {
         Rotta r = new Rotta();
         r.setAeroportoPartenza("Prato Chinese Airport");
         r.setAeroportoArrivo("Pechino International Airport");
-        r.setCittàPartenza("Prato");
-        r.setCittàArrivo("Pechino");
+        r.setCittaPartenza("Prato");
+        r.setCittaArrivo("Pechino");
         r.setNazionePartenza("Italia");
         r.setNazioneArrivo("China");
         r.setCompagniaAerea("Volapiano");
