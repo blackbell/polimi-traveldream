@@ -1,0 +1,8 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Politecnico di Milano, Software Engineering 2 (autumn semester)
+${licensePrefix}proj codename: TravelDreamX
+<#if licenseLast??>
+${licenseLast}
+</#if>

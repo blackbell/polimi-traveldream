@@ -61,7 +61,7 @@ public class Volo extends Voce implements Serializable {
     private float costo;
     @JoinColumn(name = "idRotta", referencedColumnName = "idRotta")
     @ManyToOne(optional = false)
-    private Rotta idRotta;
+    private Rotta rotta;
 
     public Volo() {
     }
@@ -109,12 +109,12 @@ public class Volo extends Voce implements Serializable {
         this.costo = costo;
     }
 
-    public Rotta getIdRotta() {
-        return idRotta;
+    public Rotta getRotta() {
+        return rotta;
     }
 
-    public void setIdRotta(Rotta idRotta) {
-        this.idRotta = idRotta;
+    public void setRotta(Rotta rotta) {
+        this.rotta = rotta;
     }
 
     @Override

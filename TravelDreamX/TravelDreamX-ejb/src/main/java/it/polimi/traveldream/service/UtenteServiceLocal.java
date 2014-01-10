@@ -9,6 +9,6 @@ import javax.ejb.Local;
  */
 @Local
 public interface UtenteServiceLocal {
-    
-    public Utente registrazione( Utente utente );
+    public Utente registrazione(Utente utente);
+    public Utente login(Utente u);
 }

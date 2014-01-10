@@ -15,7 +15,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -48,11 +47,11 @@ public class Pagamento implements Serializable {
     @Column(name = "data_ora_pagamento")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataOraPagamento;
-    @JoinColumns({
+    /*@JoinColumns({
         @JoinColumn(name = "idVoce", referencedColumnName = "idVoce", insertable = false, updatable = false),//),
         @JoinColumn(name = "idPagamento", referencedColumnName = "idPacchetto", insertable = false, updatable = false)})
     @ManyToOne(optional = false)
-    private Composizione composizione;
+    */private Voce voce;
     @JoinColumn(name = "idUtente", referencedColumnName = "email")
     @ManyToOne(optional = false)
     private Utente idUtente;
@@ -85,12 +84,12 @@ public class Pagamento implements Serializable {
         this.dataOraPagamento = dataOraPagamento;
     }
 
-    public Composizione getComposizione() {
-        return composizione;
+    public Voce getVoce() {
+        return voce;
     }
 
-    public void setComposizione(Composizione composizione) {
-        this.composizione = composizione;
+    public void setVoce(Voce voce) {
+        this.voce = voce;
     }
 
     public Utente getIdUtente() {

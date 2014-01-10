@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Politecnico di Milano, Software Engineering 2 (autumn semester)
+ * proj codename: TravelDreamX
  */
 
 package it.polimi.traveldream.model;
@@ -9,27 +8,21 @@ package it.polimi.traveldream.model;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -38,7 +31,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 @Entity
 @Table(name = "voci")
 @Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="Tipo", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name="tipo", discriminatorType = DiscriminatorType.STRING)
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Voce.findAll", query = "SELECT v FROM Voce v"),
@@ -46,14 +39,23 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 //    @NamedQuery(name = "Voce.findByTipo", query = "SELECT v FROM Voce v WHERE v.tipo = :tipo")
     })
 public class Voce implements Serializable {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "voci")
-    private Collection<Composizione> composizioneCollection;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idVoce")
     private Integer idVoce;
+    
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "voci")
+    private Collection<Pacchetto> pacchetti;
 
+    public Collection<Pacchetto> getPacchetti() {
+        return pacchetti;
+    }
+
+    public void setPacchetti(Collection<Pacchetto> pacchetti) {
+        this.pacchetti = pacchetti;
+    }
+    
     public Voce() {
     }
 
@@ -96,16 +98,5 @@ public class Voce implements Serializable {
     @Override
     public String toString() {
         return "it.polimi.traveldream.model.Voce[ idVoce=" + idVoce + " ]";
-    }
-
-    @XmlTransient
-    @JsonIgnore
-    public Collection<Composizione> getComposizioneCollection() {
-        return composizioneCollection;
-    }
-
-    public void setComposizioneCollection(Collection<Composizione> composizioneCollection) {
-        this.composizioneCollection = composizioneCollection;
-    }
-    
+    } 
 }

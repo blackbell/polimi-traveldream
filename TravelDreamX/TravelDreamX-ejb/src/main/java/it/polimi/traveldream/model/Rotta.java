@@ -35,13 +35,21 @@ import org.codehaus.jackson.annotate.JsonIgnore;
     @NamedQuery(name = "Rotta.findAll", query = "SELECT r FROM Rotta r"),
     @NamedQuery(name = "Rotta.findByIdRotta", query = "SELECT r FROM Rotta r WHERE r.idRotta = :idRotta"),
     @NamedQuery(name = "Rotta.findByAeroportoPartenza", query = "SELECT r FROM Rotta r WHERE r.aeroportoPartenza = :aeroportoPartenza"),
-    @NamedQuery(name = "Rotta.findByCitt\u00e0Partenza", query = "SELECT r FROM Rotta r WHERE r.citt\u00e0Partenza = :citt\u00e0Partenza"),
+    @NamedQuery(name = "Rotta.findByCittaPartenza", query = "SELECT r FROM Rotta r WHERE r.cittaPartenza = :cittaPartenza"),
     @NamedQuery(name = "Rotta.findByNazionePartenza", query = "SELECT r FROM Rotta r WHERE r.nazionePartenza = :nazionePartenza"),
     @NamedQuery(name = "Rotta.findByAeroportoArrivo", query = "SELECT r FROM Rotta r WHERE r.aeroportoArrivo = :aeroportoArrivo"),
-    @NamedQuery(name = "Rotta.findByCitt\u00e0Arrivo", query = "SELECT r FROM Rotta r WHERE r.citt\u00e0Arrivo = :citt\u00e0Arrivo"),
+    @NamedQuery(name = "Rotta.findByCittaArrivo", query = "SELECT r FROM Rotta r WHERE r.cittaArrivo = :cittaArrivo"),
     @NamedQuery(name = "Rotta.findByNazioneArrivo", query = "SELECT r FROM Rotta r WHERE r.nazioneArrivo = :nazioneArrivo"),
-    @NamedQuery(name = "Rotta.findByCompagniaAerea", query = "SELECT r FROM Rotta r WHERE r.compagniaAerea = :compagniaAerea")})
-public class Rotta implements Serializable {
+    @NamedQuery(name = "Rotta.findByCompagniaAerea", query = "SELECT r FROM Rotta r WHERE r.compagniaAerea = :compagniaAerea"),
+    @NamedQuery(name = "Rotta.findByParams", query = "SELECT r FROM Rotta r WHERE r.aeroportoPartenza LIKE :aeroportoPartenza AND "
+                                                    + "r.aeroportoArrivo LIKE :aeroportoArrivo AND "
+                                                    + "r.compagniaAerea LIKE :compagniaAerea AND "
+                                                    + "r.cittaPartenza LIKE :cittaPartenza AND "
+                                                    + "r.nazionePartenza LIKE :nazionePartenza AND "
+                                                    + "r.cittaArrivo LIKE :cittaArrivo AND "
+                                                    + "r.nazioneArrivo LIKE :nazioneArrivo")
+})
+public class Rotta extends EDB implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,27 +57,34 @@ public class Rotta implements Serializable {
     @Column(name = "idRotta")
     private Integer idRotta;
     @Size(max = 60)
+    @Basic(optional = false)
     @Column(name = "aeroportoPartenza")
     private String aeroportoPartenza;
     @Size(max = 60)
-    @Column(name = "citt\u00e0Partenza")
-    private String cittàPartenza;
+    @Basic(optional = false)
+    @Column(name = "cittaPartenza")
+    private String cittaPartenza;
     @Size(max = 45)
+    @Basic(optional = false)
     @Column(name = "nazionePartenza")
     private String nazionePartenza;
     @Size(max = 60)
+    @Basic(optional = false)
     @Column(name = "aeroportoArrivo")
     private String aeroportoArrivo;
     @Size(max = 60)
-    @Column(name = "citt\u00e0Arrivo")
-    private String cittàArrivo;
+    @Basic(optional = false)
+    @Column(name = "cittaArrivo")
+    private String cittaArrivo;
     @Size(max = 45)
+    @Basic(optional = false)
     @Column(name = "nazioneArrivo")
     private String nazioneArrivo;
     @Size(max = 45)
+    @Basic(optional = false)
     @Column(name = "compagniaAerea")
     private String compagniaAerea;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idRotta")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rotta")
     private Collection<Volo> voliCollection;
 
     public Rotta() {
@@ -95,12 +110,12 @@ public class Rotta implements Serializable {
         this.aeroportoPartenza = aeroportoPartenza;
     }
 
-    public String getCittàPartenza() {
-        return cittàPartenza;
+    public String getCittaPartenza() {
+        return cittaPartenza;
     }
 
-    public void setCittàPartenza(String cittàPartenza) {
-        this.cittàPartenza = cittàPartenza;
+    public void setCittaPartenza(String cittaPartenza) {
+        this.cittaPartenza = cittaPartenza;
     }
 
     public String getNazionePartenza() {
@@ -119,12 +134,12 @@ public class Rotta implements Serializable {
         this.aeroportoArrivo = aeroportoArrivo;
     }
 
-    public String getCittàArrivo() {
-        return cittàArrivo;
+    public String getCittaArrivo() {
+        return cittaArrivo;
     }
 
-    public void setCittàArrivo(String cittàArrivo) {
-        this.cittàArrivo = cittàArrivo;
+    public void setCittaArrivo(String cittaArrivo) {
+        this.cittaArrivo = cittaArrivo;
     }
 
     public String getNazioneArrivo() {

@@ -1,90 +1,96 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Politecnico di Milano, Software Engineering 2 (autumn semester)
+ * proj codename: TravelDreamX
  */
 
 package it.polimi.traveldream.service;
 
-import it.polimi.traveldream.data.UtenteDAO;
 import it.polimi.traveldream.model.Utente;
-import javax.ejb.embeddable.EJBContainer;
-import org.junit.After;
+import static it.polimi.traveldream.service.EJBServiceTestSuite.container;
+import java.util.Date;
+import java.util.Random;
+import javax.naming.NamingException;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
 
 /**
  *
  * @author Dario
  */
-@Ignore
 public class UtenteServiceTest {
     
-    public UtenteServiceTest() {
-    }
+    private static final String jdniName = "java:global/classes/UtenteService";
+    static UtenteServiceLocal service = null;
+    static Random rnd;
+    private static boolean testSuite = false;
+
     
     @BeforeClass
-    public static void setUpClass() {
+    public static void setUp() throws NamingException{
+        if (container != null) testSuite = true;
+        else EJBServiceTestSuite.setUp();
+        service = (UtenteServiceLocal)container.getContext().lookup(jdniName);
+        rnd = new Random(new Date().getTime());
     }
     
     @AfterClass
-    public static void tearDownClass() {
+    public static void tearDown(){
+        if (!testSuite) EJBServiceTestSuite.tearDown();
     }
     
-    @Before
-    public void setUp() {
+    @Test
+    public void testRetrievingService(){
+       assertNotNull("Cannot retrieve service class!", service);
     }
     
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of getUtenteDAO method, of class UtenteService.
-     */
     @Test
-    public void testGetUtenteDAO() throws Exception {
-        System.out.println("getUtenteDAO");
-        UtenteService instance = new UtenteService();
-        UtenteDAO expResult = null;
-        UtenteDAO result = instance.getUtenteDAO();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setUtenteDAO method, of class UtenteService.
-     */
-    @Test
-    public void testSetUtenteDAO() throws Exception {
-        System.out.println("setUtenteDAO");
-        UtenteDAO utenteDAO = null;
-        UtenteService instance = new UtenteService();
-        instance.setUtenteDAO(utenteDAO);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of registrazione method, of class UtenteService.
-     */
-    @Test
-    public void testRegistrazione() throws Exception {
-        System.out.println("registrazione");
-        Utente utente = null;
-        EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-        UtenteServiceLocal instance = (UtenteServiceLocal)container.getContext().lookup("java:global/classes/UtenteService");
-        Utente expResult = null;    
-        Utente result = instance.registrazione(utente);
-        assertEquals(expResult, result);
-        container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testSignInSuccessful() {
+       Utente utente = new Utente("testUserSIS" + rnd.nextInt() +  "@testDomain.polimi.it", "testPsw");
+       Utente result = service.registrazione(utente);
+       assertNotNull(result);
+       assertEquals(utente.getEmail(), result.getEmail());
+       assertEquals(utente.getPassword(), result.getPassword());
+       assertEquals(utente.getAbilitato(), result.getAbilitato());
+       assertEquals(utente.getLivello(), result.getAbilitato());
     }
     
+    @Test
+    public void testSignInUnsuccessful(){
+        Utente u = new Utente("testUserSIU" + rnd.nextInt() +  "@testDomain.polimi.it", "testPsw");
+        Utente u2 = service.registrazione(u);
+        Utente u3 = service.registrazione(u);
+        assertNotNull(u2);
+        assertNull(u3);
+    }
+    
+    @Test
+    public void testLoginSuccessful(){
+        Utente utente = new Utente("testUserLS" + rnd.nextInt() +  "@testDomain.polimi.it", "testPsw");
+        utente.setAbilitato(true);
+        service.registrazione(utente);
+        
+        Utente u2 = service.login(utente);
+        assertNotNull(u2);
+        assertTrue(u2.getAbilitato());
+    }
+    
+    @Test
+    public void testLoginNotAuth(){
+        Utente utente = new Utente("testUserLNA" + rnd.nextInt() +  "@testDomain.polimi.it", "testPsw");
+        utente.setAbilitato(false);
+        service.registrazione(utente);
+        
+        Utente u2 = service.login(utente);
+        assertNotNull(u2);
+        assertTrue(!u2.getAbilitato());
+    }
+    
+    @Test
+    public void testLoginUserNotExisting(){
+        Utente utente = new Utente("testUserLUNE" + rnd.nextInt() +  "@testDomain.polimi.it", "testPsw");
+        Utente u2 = service.login(utente);
+        assertNull(u2);
+    }
 }
