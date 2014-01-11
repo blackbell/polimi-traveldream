@@ -62,12 +62,14 @@ public class VoceDAOTest extends DAOUnitTest{
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date());
         s.setNumeroPersone(2);
+        s.setAbilitato(true);
         Rotta r = addRotta();
         Volo volo = new Volo();
         volo.setDataOra(new Date());
         volo.setRotta(r);
         volo.setNumPasseggeri(3);
         volo.setCosto(120.7f);
+        volo.setAbilitato(true);
         voceDAO.save(volo);
         voceDAO.saveAndFlush(s);
         Volo volo2 = (Volo) voceDAO.findOne(volo.getIdVoce().intValue());
@@ -120,6 +122,7 @@ public class VoceDAOTest extends DAOUnitTest{
         volo.setRotta(r);
         volo.setNumPasseggeri(3);
         volo.setCosto(120.7f);
+        volo.setAbilitato(true);
         Volo volo2 = voceDAO.save(volo);
         return volo2;
     }

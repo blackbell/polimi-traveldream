@@ -17,6 +17,7 @@ import javax.naming.NamingException;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -289,32 +290,32 @@ public class EDBServiceTest {
         assertTrue(list.contains(r));
     }
     
-    @Test
+    @Test @Ignore
     public void testSalvaRotta() {
 
     }
     
-    @Test
+    @Test @Ignore
     public void testSalvaAlbergo() {
 
     }
 
-    @Test
+    @Test @Ignore
     public void testSalvaMuseo() {
 
     }
 
-    @Test
+    @Test @Ignore
     public void testRetrieveRottaByID() {
         
     }
 
-    @Test
+    @Test @Ignore
     public void testRetrieveAlbergoByID() {
        
     }
 
-    @Test
+    @Test @Ignore
     public void testRetrieveMuseoByID() {
 
     }

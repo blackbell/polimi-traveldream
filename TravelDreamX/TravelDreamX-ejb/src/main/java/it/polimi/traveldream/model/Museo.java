@@ -36,7 +36,8 @@ import org.codehaus.jackson.annotate.JsonIgnore;
     @NamedQuery(name = "Museo.findByNome", query = "SELECT m FROM Museo m WHERE m.nome = :nome"),
     @NamedQuery(name = "Museo.findByCitta", query = "SELECT m FROM Museo m WHERE m.citta = :citta"),
     @NamedQuery(name = "Museo.findByDescrizione", query = "SELECT m FROM Museo m WHERE m.descrizione = :descrizione"),
-    @NamedQuery(name = "Museo.findByUrlFoto", query = "SELECT m FROM Museo m WHERE m.urlFoto = :urlFoto")})
+    @NamedQuery(name = "Museo.findByUrlFoto", query = "SELECT m FROM Museo m WHERE m.urlFoto = :urlFoto"),
+    @NamedQuery(name = "Museo.findByParams", query = "SELECT m FROM Museo m WHERE m.nome LIKE :nome AND m.citta LIKE :citta")})
 public class Museo extends EDB implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
