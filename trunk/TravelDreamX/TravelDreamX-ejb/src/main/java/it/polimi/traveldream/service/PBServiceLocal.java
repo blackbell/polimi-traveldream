@@ -5,6 +5,7 @@
 
 package it.polimi.traveldream.service;
 
+import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.model.Volo;
 import javax.ejb.Local;
 
@@ -14,6 +15,8 @@ import javax.ejb.Local;
  */
 @Local
 public interface PBServiceLocal {
+    public Voce trovaPB(ParametriRicercaPB params);
+    
     public Volo saveVolo(Volo v);
     public Volo getVoloByID(int id);
 }

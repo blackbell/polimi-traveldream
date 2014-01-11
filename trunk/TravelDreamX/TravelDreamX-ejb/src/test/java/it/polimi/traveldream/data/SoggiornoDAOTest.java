@@ -39,6 +39,7 @@ public class SoggiornoDAOTest extends DAOUnitTest{
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date());
         s.setNumeroPersone(2);
+        s.setAbilitato(true);
         Soggiorno s2 = voceDAO.save(s);
         assertEquals("The retrieved stay is not as expected!", s2, s);
     }
@@ -52,6 +53,7 @@ public class SoggiornoDAOTest extends DAOUnitTest{
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date());
         s.setNumeroPersone(2);
+        s.setAbilitato(false);
         Soggiorno s2 = voceDAO.save(s);
         return s2;
     }

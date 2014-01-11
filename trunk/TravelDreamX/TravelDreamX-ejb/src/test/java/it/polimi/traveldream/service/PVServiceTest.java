@@ -18,6 +18,7 @@ import java.util.Random;
 import javax.naming.NamingException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -26,14 +27,14 @@ import org.junit.Test;
  */
 public class PVServiceTest {
     private static final String PVServiceJdniName = "java:global/classes/PVService";
-    static final String utenteServiceJdniName = "java:global/classes/UtenteService";
-    static final String pbServiceJdniName = "java:global/classes/PBService";
-    static final String edbServiceJdniName = "java:global/classes/EDBService";
-    static PVServiceLocal pvService = null;
-    static UtenteServiceLocal utenteService = null;
-    static PBServiceLocal pbService = null;
-    static EDBServiceLocal edbService = null;
-    static Random rnd;
+    private static final String utenteServiceJdniName = "java:global/classes/UtenteService";
+    private static final String pbServiceJdniName = "java:global/classes/PBService";
+    private static final String edbServiceJdniName = "java:global/classes/EDBService";
+    private static PVServiceLocal pvService = null;
+    private static UtenteServiceLocal utenteService = null;
+    private static PBServiceLocal pbService = null;
+    private static EDBServiceLocal edbService = null;
+    private static Random rnd;
     private static boolean testSuite = false;
     
     @BeforeClass
@@ -69,6 +70,7 @@ public class PVServiceTest {
         v.setRotta(r);
         v.setDataOra(new Date());
         v.setNumPasseggeri(3);
+        v.setAbilitato(true);
         v = pbService.saveVolo(v);
         v = pbService.getVoloByID(v.getIdVoce());
         
@@ -81,5 +83,65 @@ public class PVServiceTest {
         p.setTipo(TipoPacchetto.PREDEFINITO);
         p.setVoci(new ArrayList<Voce>());
         pvService.addPBtoPV(v, p);
+    }
+    
+    @Test @Ignore
+    public void testAddVoloESoggiornoToPV(){
+        
+    }
+    
+    @Test @Ignore
+    public void testAddVoloESoggiornoEVisitaToPV(){
+        
+    }
+    
+    @Test @Ignore
+    public void testAddVoloEVisitaToPV(){
+        
+    }
+    
+    @Test @Ignore
+    public void testAddSoggiornoToPV(){
+        
+    }
+    
+    @Test @Ignore
+    public void testAddVisitaToPV(){
+        
+    }
+    
+    @Test @Ignore
+    public void testAddVoloDisabilitatoESoggiornoToPV(){
+        
+    }
+    
+    @Test @Ignore
+    public void testAddVoloESoggiornoDisabilitatoToPV(){
+        
+    }
+    
+    @Test @Ignore
+    public void testAddVoloESoggiornoEVisitaDiabilitataToPV(){
+        
+    }
+    
+    @Test @Ignore
+    public void testAddVoloEVisitaDisabilitataToPV(){
+        
+    }
+    
+    @Test @Ignore
+    public void testAddVoloDisasbilitatoEVisitaToPV(){
+        
+    }
+    
+    @Test @Ignore
+    public void testAddSoggiornoDisabilitatoToPV(){
+        
+    }
+    
+    @Test @Ignore
+    public void testAddVisitaDisabilitataToPV(){
+        
     }
 }
