@@ -5,47 +5,48 @@
         <button class="btn" ng-click="creaVoce('soggiorno')"><img src="img/soggiorno.png" width="15"/></button>
         <button class="btn" ng-click="creaVoce('visita')"><img src="img/visita.png" width="15"/></button>
     </div>
-
-
 </div>
-<div class="row"  ng-repeat="composizione in PV.composizioneCollection">
+<div class="row alerts">
+  <div class="span3 alert fade" ng-repeat="alert in alerts" bs-alert="alert"></div>
+</div>
+<div class="row"  ng-repeat="voce in PV.voci">
     <br>
 
-    <ul ng-class="{'voce-item-btn-selected': isSelezionato($index), 'voce-item':true, 'voce-item-btn':true, 'pointer':true}" ng-click="seleziona(composizione.voce.tipo, $index)">
+    <ul ng-class="{'voce-item-btn-selected': isSelezionato($index), 'voce-item':true, 'voce-item-btn':true, 'pointer':true}" ng-click="seleziona(voce.tipo, $index)">
         <button class='close voce-close' ng-click='eliminaVoce($index)' aria-hidden='true' >×</button><br/>
         <li class="span1 voce-item-col">
-            <img ng-src="img/{{composizione.voce.tipo}}.png" width="80"/>
+            <img ng-src="img/{{voce.tipo}}.png" width="80"/>
         </li>
-        <li ng-class="{'span2': true, 'voce-item-col': true}" ng-if="!isCompleta(composizione.voce)">
-            <text class="voce-item-left" >Scegli {{composizione.voce.tipo}} </text><i class="voce-item-right icon-chevron-right"></i>
+        <li ng-class="{'span2': true, 'voce-item-col': true}" ng-if="!isCompleta(voce)">
+            <text class="voce-item-left" >Scegli {{voce.tipo}} </text><i class="voce-item-right icon-chevron-right"></i>
         </li>
-        <li class="span2 voce-item-col" ng-if="isVolo(composizione.voce)">
+        <li class="span2 voce-item-col" ng-if="isVolo(voce)">
             <p class="voce-item-left" > 
-                {{composizione.voce.rotta.cittaPartenza}} - {{composizione.voce.rotta.cittaArrivo}}
+                {{voce.rotta.cittaPartenza}} - {{voce.rotta.cittaArrivo}}
                 <br/>
-                {{composizione.voce.dataOra}}
+                {{voce.dataOra}}
                 <br/>
-                €{{composizione.voce.costo}} 
+                €{{voce.costo}} 
             </p>
             <i class="voce-item-right icon-chevron-right"></i>
         </li>
-        <li class="span2 voce-item-col" ng-if="isSoggiorno(composizione.voce)">
+        <li class="span2 voce-item-col" ng-if="isSoggiorno(voce)">
             <p class="voce-item-left" > 
-                {{composizione.voce.albergo.nome}} - {{composizione.voce.albergo.citta}} - {{composizione.voce.albergo.stelle}}
+                {{voce.albergo.nome}} - {{voce.albergo.citta}} - {{voce.albergo.stelle}}
                 <br/>
-                {{composizione.voce.giornoInizio}} - {{composizione.voce.giornoFine}}
+                {{voce.giornoInizio}} - {{voce.giornoFine}}
                 <br/>
-                €{{composizione.voce.costo}} 
+                €{{voce.costo}} 
             </p>
             <i class="voce-item-right icon-chevron-right"></i>
         </li>
-        <li class="span2 voce-item-col" ng-if="isVisita(composizione.voce)">
+        <li class="span2 voce-item-col" ng-if="isVisita(voce)">
             <p class="voce-item-left" > 
-                {{composizione.voce.museo.nome}} - {{composizione.voce.museo.citta}}
+                {{voce.museo.nome}} - {{voce.museo.citta}}
                 <br/>
-                {{composizione.voce.dataOra}}
+                {{voce.dataOra}}
                 <br/>
-                €{{composizione.voce.costo}} 
+                €{{voce.costo}} 
             </p>
             <i class="voce-item-right icon-chevron-right"></i>
         </li>

@@ -83,9 +83,15 @@ input.ng-valid {
 li{
     text-align: left;
 }
+ul{
+    margin: 0 0 10px 31px;
+}
 .voce-consultazione {
     display: inline-block;
     padding: 4px 12px;
     list-style: none;
     margin-top: 15px;
+}
+.form-horizontal .control-label {
+    text-align: left;
 }

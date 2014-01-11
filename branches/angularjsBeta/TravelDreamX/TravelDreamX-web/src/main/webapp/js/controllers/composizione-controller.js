@@ -3,7 +3,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope)
     //****************************
     //***** Inizializzazione *****
     //****************************        
-
+    $scope.alerts = [];
     $scope.getPVdaRootScope = function() {
         $scope.PV = $rootScope.PV;
         if (typeof $scope.PV === 'undefined') {
@@ -13,30 +13,26 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope)
     };
     var inizializzaPV = function() {
         $scope.PV = {
-            composizioneCollection: [
+            voci: [
                 {
-                    voce: {
-                        tipo: 'volo',
-                        costo: 1000.99,
-                        dataOra: '22-feb-2014 10:25',
-                        rotta: {
-                            cittaPartenza: 'Milano',
-                            cittaArrivo: 'Amsterdam'
-                        }
+                    tipo: 'volo',
+                    costo: 1000.99,
+                    dataOra: '22-feb-2014 10:25',
+                    rotta: {
+                        cittaPartenza: 'Milano',
+                        cittaArrivo: 'Amsterdam'
                     }
                 },
-                {voce: {
-                        tipo: 'soggiorno'
-                    }
+                {
+                    tipo: 'soggiorno'
                 },
-                {voce: {
-                        tipo: 'visita'
-                    }
+                {
+                    tipo: 'visita'
                 }
             ]
         };
     };
-    
+
     //**********************************       
     //***** Lista voci - SELEZIONE *****
     //**********************************       
@@ -83,19 +79,23 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope)
     $scope.eliminaVoce = function(indice) {
         $scope.deseleziona(indice);
         if (indice > -1) {
-            $scope.PV.composizioneCollection.splice(indice, 1);
+            $scope.PV.voci.splice(indice, 1);
         }
     };
 
     $scope.creaVoce = function(tipo) {
-        var composizione = {
-            voce: {
-                tipo: tipo
-            }
+        var voce = {
+            tipo: tipo
         };
-
-        $scope.PV.composizioneCollection.push(composizione);
-        console.log($scope.PV.composizioneCollection);
+        var alert = {
+            "type": "success",
+            "title": "",
+            "tipo": tipo,
+            "content": "Hai aggiunto una voce di tipo {{alert.tipo}}."
+        };
+        $scope.alerts.push(alert);
+        $scope.PV.voci.push(voce);
+        console.log($scope.PV.voci);
     };
 
 
