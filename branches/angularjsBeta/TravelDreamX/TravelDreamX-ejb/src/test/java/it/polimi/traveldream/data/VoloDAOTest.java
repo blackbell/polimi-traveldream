@@ -36,6 +36,7 @@ public class VoloDAOTest extends DAOUnitTest{
         volo.setRotta(r);
         volo.setNumPasseggeri(3);
         volo.setCosto(120.7f);
+        volo.setAbilitato(false);
         Volo volo2 = voceDAO.save(volo);
         assertNotNull("Cannot save flight!",volo2);
     }
@@ -61,6 +62,7 @@ public class VoloDAOTest extends DAOUnitTest{
         volo.setRotta(r);
         volo.setNumPasseggeri(3);
         volo.setCosto(120.7f);
+        volo.setAbilitato(true);
         Volo volo2 = voceDAO.save(volo);
         return volo2;
     }

@@ -6,6 +6,7 @@
 package it.polimi.traveldream.service;
 
 import it.polimi.traveldream.data.VoceDAO;
+import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.model.Volo;
 import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;
@@ -31,6 +32,11 @@ public class PBService implements PBServiceLocal{
     @Override
     public Volo getVoloByID(int id) {
         return (Volo)voceDAO.findOne(id);
+    }
+
+    @Override
+    public Voce trovaPB(ParametriRicercaPB params) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
     

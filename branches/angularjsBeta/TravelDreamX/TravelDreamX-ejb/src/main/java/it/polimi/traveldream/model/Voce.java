@@ -45,6 +45,19 @@ public class Voce implements Serializable {
     @Column(name = "idVoce")
     private Integer idVoce;
     
+    @Basic(optional = false)
+    @Column(name = "abilitato")
+    private Boolean abilitato;
+
+    
+    public Boolean isAbilitato() {
+        return abilitato;
+    }
+
+    public void setAbilitato(Boolean abilitato) {
+        this.abilitato = abilitato;
+    }
+    
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "voci")
     private Collection<Pacchetto> pacchetti;
 

@@ -9,6 +9,6 @@ package it.polimi.traveldream.service;
  *
  * @author Dario
  */
-public interface ParametriRicercaPB {
+public class ParametriRicercaPB {
     
 }
