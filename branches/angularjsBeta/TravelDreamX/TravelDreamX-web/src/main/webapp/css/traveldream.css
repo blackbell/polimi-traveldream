@@ -1,10 +1,25 @@
 .pointer {
     cursor: pointer;
 }
-input.ng-invalid {
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover,
+.nav-pills > .active > a:focus {
+    background-color: rgba(20, 155, 223, 0.84);
+}
+.alert .close {
+    right: -71px;
+}
+.alert {
+    padding: 8px 82px 8px 14px;
+    margin-bottom: 0px;
+}
+a {
+    color: rgba(20, 155, 223, 0.84);
+}
+input-login-registr.ng-invalid {
     border: 1px solid yellow;
 }
-input.ng-valid {
+input-login-registr.ng-valid {
     border: 1px solid green;
 }
 
@@ -92,6 +107,7 @@ ul{
     list-style: none;
     margin-top: 15px;
 }
-.form-horizontal .control-label {
-    text-align: left;
+.datepicker{
+    position: absolute;
+    z-index: 2000;
 }

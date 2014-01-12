@@ -9,13 +9,13 @@
                 <form class="modal-form" name ='formRegistrazione'>
                     <br/>
                     <div class="row">
-                        <input name="email" type="text" class="form-control" ng-model="utente.email" ng-required="true" ng-pattern='/^([_a-z0-9-])+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/' placeholder="Inserisci la tua email"/>
+                        <input name="email" type="text" class="form-control input-login-registr" ng-model="utente.email" ng-required="true" ng-pattern='/^([_a-z0-9-])+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/' placeholder="Inserisci la tua email"/>
                         <label class="label label-warning pointer" ng-show='formRegistrazione.email.$invalid' ng-click='checkEmail(formRegistrazione.email)'>non valido  <span class="glyphicon glyphicon-info-sign"></span></label>
                         <label class="label label-success pointer" ng-hide='formRegistrazione.email.$invalid' ng-click='checkEmail(formRegistrazione.email)'>ok <span class="glyphicon glyphicon-info-sign"></span></label>
                     </div>
                     
                     <div class="row">
-                        <input name="pwd" type="password" class="form-control" ng-model="utente.password" ng-required="true" ng-pattern="/^.{5,15}$/" placeholder="Inserisci la tua password"/>
+                        <input name="pwd" type="password" class="form-control input-login-registr" ng-model="utente.password" ng-required="true" ng-pattern="/^.{5,15}$/" placeholder="Inserisci la tua password"/>
                         <label class="label label-warning pointer" ng-show='formRegistrazione.pwd.$invalid' ng-click='checkPwd(formRegistrazione.pwd)'>non valido <span class="glyphicon glyphicon-info-sign"></span></label>
                         <label class="label label-success pointer" ng-hide='formRegistrazione.pwd.$invalid' ng-click='checkPwd(formRegistrazione.pwd)'>ok <span class="glyphicon glyphicon-info-sign"></span></label>
                         <br/>
