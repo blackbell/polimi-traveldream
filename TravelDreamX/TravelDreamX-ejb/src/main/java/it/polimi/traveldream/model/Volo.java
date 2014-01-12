@@ -12,8 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -39,6 +37,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Volo.findByNumPasseggeri", query = "SELECT v FROM Volo v WHERE v.numPasseggeri = :numPasseggeri"),
     @NamedQuery(name = "Volo.findByCosto", query = "SELECT v FROM Volo v WHERE v.costo = :costo")})
 public class Volo extends Voce implements Serializable {
+    private final String tipo = "Volo";
+    
     private static final long serialVersionUID = 1L;
     //@Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -79,6 +79,10 @@ public class Volo extends Voce implements Serializable {
 
     public Integer getIdVolo() {
         return idVolo;
+    }
+
+    public String getTipo() {
+        return tipo;
     }
 
     public void setIdVolo(Integer idVolo) {
