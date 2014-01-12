@@ -43,7 +43,7 @@ travelDreamApp.controller('autenticazioneController', function($scope, $location
    
     $scope.logout = function (){
         delete( $scope.utente );
-        toastr.success("Logout effettuato.", "Arrivederci!");
+        toastr.success("Logout effettuato. DA SISTEMARE", "Arrivederci!");
     };
     
     $scope.checkEmail = function(formEmail){
