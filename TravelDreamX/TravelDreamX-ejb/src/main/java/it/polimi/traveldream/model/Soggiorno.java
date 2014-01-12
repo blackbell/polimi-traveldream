@@ -7,28 +7,20 @@
 package it.polimi.traveldream.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -46,6 +38,8 @@ import org.codehaus.jackson.annotate.JsonIgnore;
     @NamedQuery(name = "Soggiorno.findByNumeroPersone", query = "SELECT s FROM Soggiorno s WHERE s.numeroPersone = :numeroPersone"),
     @NamedQuery(name = "Soggiorno.findByCosto", query = "SELECT s FROM Soggiorno s WHERE s.costo = :costo")})
 public class Soggiorno extends Voce implements Serializable {
+    private final String tipo = "Soggiorno";
+
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = true)
     @Column(name = "idSoggiorno")
@@ -102,6 +96,10 @@ public class Soggiorno extends Voce implements Serializable {
 
     public void setGiornoInizio(Date giornoInizio) {
         this.giornoInizio = giornoInizio;
+    }
+	
+	public String getTipo() {
+        return tipo;
     }
 
     public Date getGiornoFine() {
