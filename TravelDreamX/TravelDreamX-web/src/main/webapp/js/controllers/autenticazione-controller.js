@@ -4,15 +4,6 @@ travelDreamApp.controller('autenticazioneController', function($scope, $location
 
     $scope.waiting = false;
     
-    $scope.inizializzaUtente = function() {
-
-        $scope.utente = {
-            
-        };
-
-    };
-
-
     $scope.registrazione = function(utente, form) {
         if(form.$valid){
             $scope.waiting = true;
@@ -38,8 +29,9 @@ travelDreamApp.controller('autenticazioneController', function($scope, $location
                 console.log("Esito login: " + JSON.stringify(esito));
                 if(esito.result){
                     //$location.path(result.newUrl);
+                    //$scope.dismiss();
+                    $scope.utente = esito.returnedObj;
                     toastr.success("l'utente " + utente.email + " è ora loggato","Login avvenuto con successo");
-                    $scope.dismiss();
                 }else
                     toastr.error("Email " + utente.email + " o password " + utente.password + " errati.","Login fallito");
                 $scope.waiting = false ;
@@ -49,6 +41,10 @@ travelDreamApp.controller('autenticazioneController', function($scope, $location
         }
     };
    
+    $scope.logout = function (){
+        delete( $scope.utente );
+        toastr.success("Logout effettuato.", "Arrivederci!");
+    };
     
     $scope.checkEmail = function(formEmail){
         if(formEmail.$valid){
@@ -63,6 +59,9 @@ travelDreamApp.controller('autenticazioneController', function($scope, $location
         } else {
             toastr.warning("La password deve avere lunghezza compresa tra 5 e 15 caratteri","Attenzione:");
         };
+    };
+    $scope.isLogged = function (){
+        return typeof $scope.utente !== 'undefined';
     };
 });
 

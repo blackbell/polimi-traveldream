@@ -1,11 +1,21 @@
 <div ng-controller="menuController">
-    <ul class="nav nav-pills">
+    <ul class="nav nav-pills" ng-controller="autenticazioneController">
         <li><a class="brand" href="#"><h1>TravelDream</h1></a></li>
-        
+
         <li class="pull-right"><a>&nbsp;</a></li>
         <li class="pull-right pointer"><a bs-modal="'templates/modal/registrazione.html'">Registrati</a></li>
-        <li class="dropdown pull-right pointer">
+        <li class="dropdown pull-right pointer"  ng-if="!isLogged()">
             <a class="dropdown-toggle" data-toggle="dropdown" bs-popover="'templates/popover/login.html'" data-placement="bottom" data-title="<button class='close' ng-click='hide()' aria-hidden='true' style='right: 0px;'>×</button><br/>"data-unique="1">Login <b class="caret"></b></a>
+        </li>
+        <li class="dropdown pull-right pointer" ng-if="isLogged()">
+            <a class="dropdown-toggle" id="drop4" role="button" data-toggle="dropdown" href="#">{{utente.email}} <b class="caret"></b></a>
+            <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation" ng-click="logout()"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
+            </ul>              
         </li>    
         <li class="pull-right"><a>&nbsp;</a></li><li class="pull-right"><a>&nbsp;</a></li><li class="pull-right"><a>&nbsp;</a></li>
         <li ng-class="{active: getActive('/invita'), 'pull-right': pullRight}"><a href="#">Invita un amico</a></li>
