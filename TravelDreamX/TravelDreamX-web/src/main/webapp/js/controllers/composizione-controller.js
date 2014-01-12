@@ -1,5 +1,5 @@
 'use strict';
-travelDreamApp.controller('composizioneController', function($scope, $rootScope) {
+travelDreamApp.controller('composizioneController', function($scope, $rootScope, searchService) {
     //****************************
     //***** Inizializzazione *****
     //****************************        
@@ -15,19 +15,19 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope)
         $scope.PV = {
             voci: [
                 {
-                    tipo: 'volo',
-                    costo: 1000.99,
-                    dataOra: '22-feb-2014 10:25',
-                    rotta: {
-                        cittaPartenza: 'Milano',
-                        cittaArrivo: 'Amsterdam'
-                    }
+                    tipo: 'Volo'
+//                    costo: 1000.99,
+//                    dataOra: '22-feb-2014 10:25',
+//                    rotta: {
+//                        cittaPartenza: 'Milano',
+//                        cittaArrivo: 'Amsterdam'
+//                    }
                 },
                 {
-                    tipo: 'soggiorno'
+                    tipo: 'Soggiorno'
                 },
                 {
-                    tipo: 'visita'
+                    tipo: 'Visita'
                 }
             ]
         };
@@ -39,19 +39,19 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope)
 
     $scope.isSelezionato = function(data) {
         if (typeof data === 'number')
-            return $scope.indice === data;
+            return $scope.indiceSelezionato === data;
         else
-            return $scope.selezionato === data;
+            return $scope.tipoVoceSelezionata === data;
     };
     $scope.seleziona = function(tipo, indice) {
-        $scope.selezionato = tipo;
-        $scope.indice = indice;
+        $scope.tipoVoceSelezionata = tipo;
+        $scope.indiceSelezionato = indice;
     };
 
     $scope.deseleziona = function(indice) {
-        if (indice === $scope.indice) {
-            $scope.selezionato = 'nonSelezionato';
-            $scope.indice = -1;
+        if (indice === $scope.indiceSelezionato) {
+            $scope.tipoVoceSelezionata = 'nonSelezionato';
+            $scope.indiceSelezionato = -1;
         }
     };
 
@@ -61,24 +61,31 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope)
     };
 
     $scope.isVolo = function(voce) {
-        return (($scope.isCompleta(voce)) && (voce.tipo === 'volo'));
+        return (($scope.isCompleta(voce)) && (voce.tipo === 'Volo'));
     };
 
     $scope.isSoggiorno = function(voce) {
-        return (($scope.isCompleta(voce)) && (voce.tipo === 'soggiorno'));
+        return (($scope.isCompleta(voce)) && (voce.tipo === 'Soggiorno'));
     };
 
     $scope.isVisita = function(voce) {
-        return (($scope.isCompleta(voce)) && (voce.tipo === 'visita'));
+        return (($scope.isCompleta(voce)) && (voce.tipo === 'Visita'));
     };
 
-    //*********************************        
-    //***** Lista voci - GESTIONE *****
-    //*********************************        
+    //**************************************        
+    //***** Lista voci - GESTIONE VOCI *****
+    //**************************************        
 
     $scope.eliminaVoce = function(indice) {
-        $scope.deseleziona(indice);
         if (indice > -1) {
+            var alert = {
+                "type": "warning",
+                "title": "",
+                "tipo": $scope.PV.voci[indice].tipo,
+                "content": "Hai eliminato una voce di tipo {{alert.tipo}}."
+            };
+            $scope.alerts.push(alert);
+            $scope.deseleziona(indice);
             $scope.PV.voci.splice(indice, 1);
         }
     };
@@ -91,12 +98,58 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope)
             "type": "success",
             "title": "",
             "tipo": tipo,
-            "content": "Hai aggiunto una voce di tipo {{alert.tipo}}."
+            "content": "Hai aggiunto la voce: {{alert.tipo}}."
         };
         $scope.alerts.push(alert);
         $scope.PV.voci.push(voce);
         console.log($scope.PV.voci);
     };
 
+    //***** RICERCA *****
+    $scope.trovaPB = function() {
+        searchService.trovaPB( function (esito){
+            if (esito.result) {
+            $scope.voli = esito.returnedObj;
+        } else
+            toastr.error(esito.message, "ERRORE:");
+        });
+    };
 
+    $scope.aggiungiPBaPV = function(PB) {
+        $scope.PV.voci[$scope.indiceSelezionato] = PB;
+        toastr.success( $scope.PV.voci[$scope.indiceSelezionato].tipo + ' aggiunto al pacchetto viaggio.');
+        console.log($scope.PV.voci);
+    };
+    
+    $scope.numStelle = 3;
+    $scope.getNumStelle = function(num) {
+        $scope.numStelleVuote = 5 - num;
+        return new Array(num);   
+    };
+    $scope.aumentaStelle = function (indice){
+        $scope.numStelle = $scope.numStelle +indice +1;
+        console.log($scope.numStelle);
+        console.log($scope.numStelleVuote);
+    };
+    $scope.diminuisciStelle = function (indice){
+        $scope.numStelle = indice +1;
+        console.log($scope.numStelle);
+        console.log($scope.numStelleVuote);
+    };
+    
+    $scope.initRicercaVolo = function() {
+        $scope.ricercaParams = {
+            tipo: $scope.tipoVoceSelezionata,
+            rotta: {aeroportoPartenza: '',
+                cittaPartenza: '',
+                nazionePartenza: '',
+                aeroportoArrivo: '',
+                cittaArrivo: '',
+                nazioneArrivo: '',
+                compagniaAerea: ''
+            },
+            costo: 0,
+            dataOra: ''
+        };
+    };
 });

@@ -1,1 +1,78 @@
-SOGGIORNo
+<div class="well">
+    <div class="row">
+        <div class="span3">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label">
+                        Nazione
+                    </label>
+                    <div class="controls">    
+                        <input type="text" class="span2"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        Dal giorno
+                    </label>
+                    <div class="controls">    
+                        <div class="input-append">
+                            <input class="span2" type="text" ng-model="datepickerDal.date" data-date-format="dd/mm/yyyy" bs-datepicker>
+                            <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="span3">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label">
+                        Città
+                    </label>
+                    <div class="controls">    
+                        <input type="text" class="span2"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        Al giorno
+                    </label>
+                    <div class="controls">    
+                        <div class="input-append">
+                            <input class="span2" type="text" ng-model="datepickerAl.date" data-date-format="dd/mm/yyyy" bs-datepicker>
+                            <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="span3">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label">
+                        Stelle
+                    </label>
+                    <div class="controls">   
+                        <i ng-click="diminuisciStelle($index)" class="icon-star pointer" ng-repeat="i in getNumStelle(numStelle) track by $index"></i>
+                        <i ng-click="aumentaStelle($index)" class="icon-star-empty pointer" ng-repeat="i in getNumStelle(numStelleVuote) track by $index"></i>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        Prezzo
+                    </label>
+                    <div class="controls">    
+                        <div class="input-append">
+                            <input class="span2" type="number">
+                            <span class="btn add-on">€</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row"><div class="span6 offset1"><button class="btn btn-block btn-primary" ng-init="trovaPB()" ng-click="trovaPB()">Cerca</button></div></div>
+</div>
+<div class="row">
+    <div class="span9"></div>
+</div>

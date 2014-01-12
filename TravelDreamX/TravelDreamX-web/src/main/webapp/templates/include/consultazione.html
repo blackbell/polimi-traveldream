@@ -1,5 +1,5 @@
-<p class="lead" ng-if="isSelezionato('volo')">Cerca un volo</p>
-<div class="row" ng-if="isSelezionato('volo')">
+<p class="lead" ng-if="isSelezionato('Volo')">Cerca un volo</p>
+<div class="row" ng-if="isSelezionato('Volo')" ng-init="initRicercaVolo()">
     <ul class="voce-consultazione">
         <li>
 
@@ -8,8 +8,8 @@
     </ul>
 </div>
 
-<p class="lead" ng-if="isSelezionato('soggiorno')">Cerca un soggiorno</p>
-<div class="row" ng-if="isSelezionato('soggiorno')">
+<p class="lead" ng-if="isSelezionato('Soggiorno')">Cerca un soggiorno</p>
+<div class="row" ng-if="isSelezionato('Soggiorno')">
     <ul class="voce-consultazione">
         <li>
         <ng-include src="'templates/include/consultazioneSoggiorni.html'"></ng-include>
@@ -17,8 +17,8 @@
     </ul>
 </div>
 
-<p class="lead" ng-if="isSelezionato('visita')">Cerca una visita</p>
-<div class="row" ng-if="isSelezionato('visita')">
+<p class="lead" ng-if="isSelezionato('Visita')">Cerca una visita</p>
+<div class="row" ng-if="isSelezionato('Visita')">
     <ul class="voce-consultazione">
         <li>
         <ng-include src="'templates/include/consultazioneVisite.html'"></ng-include>

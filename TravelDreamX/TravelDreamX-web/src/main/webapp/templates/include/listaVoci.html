@@ -1,17 +1,16 @@
 <div class="row ">
     <p class="span1 lead" ng-init="getPVdaRootScope()">Voci: </p>
     <div class="span1 btn-group">
-        <button class="btn" ng-click="creaVoce('volo')"><img src="img/volo.png" width="15"/></button>
-        <button class="btn" ng-click="creaVoce('soggiorno')"><img src="img/soggiorno.png" width="15"/></button>
-        <button class="btn" ng-click="creaVoce('visita')"><img src="img/visita.png" width="15"/></button>
+        <button class="btn" ng-click="creaVoce('Volo')"><img src="img/Volo.png" width="15"/></button>
+        <button class="btn" ng-click="creaVoce('Soggiorno')"><img src="img/Soggiorno.png" width="15"/></button>
+        <button class="btn" ng-click="creaVoce('Visita')"><img src="img/Visita.png" width="15"/></button>
     </div>
 </div>
 <div class="row alerts">
-  <div class="span3 alert fade" ng-repeat="alert in alerts" bs-alert="alert"></div>
+  <div class="span2 alert fade" ng-repeat="alert in alerts" bs-alert="alert"></div>
 </div>
-<div class="row"  ng-repeat="voce in PV.voci">
+<div class="row" ng-repeat="voce in PV.voci">
     <br>
-
     <ul ng-class="{'voce-item-btn-selected': isSelezionato($index), 'voce-item':true, 'voce-item-btn':true, 'pointer':true}" ng-click="seleziona(voce.tipo, $index)">
         <button class='close voce-close' ng-click='eliminaVoce($index)' aria-hidden='true' >×</button><br/>
         <li class="span1 voce-item-col">
@@ -24,7 +23,7 @@
             <p class="voce-item-left" > 
                 {{voce.rotta.cittaPartenza}} - {{voce.rotta.cittaArrivo}}
                 <br/>
-                {{voce.dataOra}}
+                {{voce.dataOra | date:'dd/MM/yyyy hh:mm'}}
                 <br/>
                 €{{voce.costo}} 
             </p>
