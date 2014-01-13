@@ -1,0 +1,63 @@
+<div class="well">
+    <div class="row">
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Città partenza
+                </label>
+                <input type="text" class="span2"/>
+                <label class="control-label">
+                    Città arrivo
+                </label>
+                <input type="text" class="span2"/>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Giorno
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="text" ng-model="datepicker.date" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
+                </div>
+                <label class="control-label">
+                    Prezzo
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="number">
+                    <span class="btn add-on">€</span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row"><div class="span8"><button class="btn btn-block btn-primary" ng-init="trovaPB()" ng-click="trovaPB()">Cerca</button></div></div>
+</div>
+<div class="row">
+    <div class="span9">
+        <br/>
+        <table class="table table-condensed table-hover table-striped">
+            <legend>Risultati</legend>
+            <thead>
+                <tr>
+                    <th>Partenza</th>
+                    <th>Arrivo</th>
+                    <th>Compagnia aerea</th>
+                    <th>Data-Ora</th>
+                    <th>Costo</th>
+                    <th>Aggiungi <br/> al pacchetto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="volo in voli">
+                    <td>{{volo.rotta.aeroportoPartenza}} <br/> {{volo.rotta.cittaPartenza}} ({{volo.rotta.nazionePartenza}}) </td>
+                    <td>{{volo.rotta.aeroportoArrivo}} <br/> {{volo.rotta.cittaArrivo}} ({{volo.rotta.nazioneArrivo}}) </td>
+                    <td>{{volo.rotta.compagniaAerea}}</td>
+                    <td>{{volo.dataOra| date:'dd/MM/yyyy hh:mm'}}</td>
+                    <td>{{volo.costo}}</td>
+                    <td><button class="btn btn-mini" ng-click="aggiungiPBaPV(volo)"><i class="icon-plus-sign"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
