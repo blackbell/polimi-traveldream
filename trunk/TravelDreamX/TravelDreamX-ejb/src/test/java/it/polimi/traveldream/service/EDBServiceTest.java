@@ -16,6 +16,7 @@ import java.util.Random;
 import javax.naming.NamingException;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -305,9 +306,26 @@ public class EDBServiceTest {
 
     }
 
-    @Test @Ignore
+    @Test 
     public void testRetrieveRottaByID() {
+        Rotta r = new Rotta();
+        r.setAeroportoPartenza("San Giorgio International Airport");
+        r.setAeroportoArrivo("Malpensa");
+        r.setNazionePartenza("Italia");
+        r.setNazioneArrivo("Italia");
+        r.setCompagniaAerea("PoliMI airways");
+        r.setCittaPartenza("Pistoia");
+        r.setCittaArrivo("Milano");
+        r = service.salvaRotta(r);
         
+        Rotta r2 = service.retrieveRottaByID(r.getIdRotta());
+        assertEquals(r.getAeroportoPartenza(), r2.getAeroportoPartenza());
+        assertEquals(r.getAeroportoArrivo(), r2.getAeroportoArrivo());
+        assertEquals(r.getCittaPartenza(), r2.getCittaPartenza());
+        assertEquals(r.getCittaArrivo(), r2.getCittaArrivo());
+        assertEquals(r.getNazionePartenza(), r2.getNazionePartenza());
+        assertEquals(r.getNazioneArrivo(), r2.getNazioneArrivo());
+        assertEquals(r.getCompagniaAerea(), r2.getCompagniaAerea());
     }
 
     @Test @Ignore

@@ -6,7 +6,14 @@
 
 package it.polimi.traveldream.service;
 
+import it.polimi.traveldream.model.Rotta;
+import it.polimi.traveldream.model.TipoPB;
+import it.polimi.traveldream.model.Voce;
+import it.polimi.traveldream.model.Volo;
 import static it.polimi.traveldream.service.EJBServiceTestSuite.container;
+import static org.junit.Assert.assertTrue;
+import java.util.Date;
+import java.util.List;
 import java.util.Random;
 import javax.naming.NamingException;
 import org.junit.AfterClass;
@@ -39,6 +46,38 @@ public class PBServiceTest {
         if (!testSuite) EJBServiceTestSuite.tearDown();
     }
 
+    @Test
+    public void testRetrieveVoloByParams(){
+        System.out.println("testRetrieveVoloByParams()");
+        Rotta r = new Rotta();
+        r.setAeroportoPartenza("Breda Air Deposit");
+        r.setAeroportoArrivo("Atlandide");
+        r.setNazionePartenza("Italia");
+        r.setNazioneArrivo("Mondo sottomarino");
+        r.setCompagniaAerea("Mille bolle blu");
+        r.setCittaPartenza("Pistoia");
+        r.setCittaArrivo("Atlantide");
+        edbService.salvaRotta(r);
+        
+        Volo v = new Volo();
+        v.setDataOra(new Date());
+        v.setRotta(r);
+        v.setNumPasseggeri(3);
+        v.setCosto(120.7f);
+        v.setAbilitato(false);
+        pbService.saveVolo(v);
+        
+        ParametriRicercaPB params = new ParametriRicercaPB();
+        params.setTipo(TipoPB.Volo);
+        params.setRotta(r);
+        params.setData(v.getDataOra());
+        params.setNumPasseggeri(v.getNumPasseggeri());
+//        params.setCosto(v.getCosto());
+        
+        List<Voce> pbs = pbService.trovaPB(params);
+        assertTrue(pbs.contains(v));
+    }
+    
     @Test @Ignore
     public void testRetrieveVoloByID(){
         
@@ -54,14 +93,62 @@ public class PBServiceTest {
         
     }
     
-    @Test @Ignore
+    @Test
     public void testRetrieveVoloByRotta(){
+        System.out.println("testRetrieveVoloByRotta()");
+        Rotta r = new Rotta();
+        r.setAeroportoPartenza("Breda Air Deposit");
+        r.setAeroportoArrivo("Atlandide");
+        r.setNazionePartenza("Italia");
+        r.setNazioneArrivo("Mondo sottomarino");
+        r.setCompagniaAerea("Mille bolle blu");
+        r.setCittaPartenza("Pistoia");
+        r.setCittaArrivo("Atlantide");
+        edbService.salvaRotta(r);
         
+        Volo v = new Volo();
+        v.setDataOra(new Date());
+        v.setRotta(r);
+        v.setNumPasseggeri(3);
+        v.setCosto(120.7f);
+        v.setAbilitato(false);
+        pbService.saveVolo(v);
+        
+        ParametriRicercaPB params = new ParametriRicercaPB();
+        params.setTipo(TipoPB.Volo);
+        params.setRotta(r);
+        
+        List<Voce> pbs = pbService.trovaPB(params);
+        assertTrue(pbs.contains(v));
     }
     
-    @Test @Ignore
+    @Test 
     public void testRetrieveVoloByDataOra(){
+        System.out.println("testRetrieveVoloByDataOra()");
+        Rotta r = new Rotta();
+        r.setAeroportoPartenza("Breda Air Deposit");
+        r.setAeroportoArrivo("Atlandide");
+        r.setNazionePartenza("Italia");
+        r.setNazioneArrivo("Mondo sottomarino");
+        r.setCompagniaAerea("Mille bolle blu");
+        r.setCittaPartenza("Pistoia");
+        r.setCittaArrivo("Atlantide");
+        edbService.salvaRotta(r);
         
+        Volo v = new Volo();
+        v.setDataOra(new Date());
+        v.setRotta(r);
+        v.setNumPasseggeri(3);
+        v.setCosto(120.7f);
+        v.setAbilitato(false);
+        pbService.saveVolo(v);
+        
+        ParametriRicercaPB params = new ParametriRicercaPB();
+        params.setTipo(TipoPB.Volo);
+        params.setData(v.getDataOra());
+        
+        List<Voce> pbs = pbService.trovaPB(params);
+        assertTrue(pbs.contains(v));
     }
     
     @Test @Ignore

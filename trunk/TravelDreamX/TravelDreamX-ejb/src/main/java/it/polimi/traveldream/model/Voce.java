@@ -46,6 +46,10 @@ public class Voce implements Serializable {
     private Integer idVoce;
     
     @Basic(optional = false)
+    @Column(name = "tipo")
+    private String tipo;
+    
+    @Basic(optional = false)
     @Column(name = "abilitato")
     private Boolean abilitato;
 
@@ -63,6 +67,14 @@ public class Voce implements Serializable {
 
     public Collection<Pacchetto> getPacchetti() {
         return pacchetti;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+    
+    protected void setTipo(String tipo){
+        this.tipo = tipo;
     }
 
     public void setPacchetti(Collection<Pacchetto> pacchetti) {

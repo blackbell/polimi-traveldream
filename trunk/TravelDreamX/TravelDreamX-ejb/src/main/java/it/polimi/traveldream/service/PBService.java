@@ -5,12 +5,12 @@
 
 package it.polimi.traveldream.service;
 
+import it.polimi.traveldream.data.RottaDAO;
 import it.polimi.traveldream.data.VoceDAO;
-import it.polimi.traveldream.model.Rotta;
 import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.model.Volo;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Collection;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;
@@ -26,6 +26,10 @@ import org.springframework.ejb.interceptor.SpringBeanAutowiringInterceptor;
 public class PBService implements PBServiceLocal{
 
     @Autowired
+    private RottaDAO rottaDAO;
+
+    
+    @Autowired
     private VoceDAO voceDAO;
     
     @Override
@@ -40,25 +44,24 @@ public class PBService implements PBServiceLocal{
 
     @Override
     public List<Voce> trovaPB(ParametriRicercaPB params) {
+        System.out.println("PBService.trovaPB");
         List<Voce> ret = null;
         switch(params.getTipo()){
             case Volo:
+                System.out.println("PBService.trovaPB -> params.tipo = volo");
+                System.out.println("PBService.trovaPB -> params.rotta :" + params.getRotta());
+                System.out.println("PBService.trovaPB -> params.data :" + params.getData());
+                System.out.println("PBService.trovaPB -> params.costo :" + params.getCosto());
+                Collection<Volo> voli = null;
+//                voli = voceDAO.findByParams(params.getRotta(), params.getData(), params.getCosto(), params.getNumPasseggeri());
+                voli = voceDAO.findByParams(params.getRotta(), params.getData(), params.getNumPasseggeri());
+                System.out.println("PBService.trovaPB -> voli.size: " + voli.size());
                 ret = new ArrayList<>();
-                Rotta rotta = new Rotta();
-                rotta.setAeroportoPartenza("San Giorgio International Airport");
-                rotta.setAeroportoArrivo("Malpensa");
-                rotta.setNazionePartenza("Italia");
-                rotta.setNazioneArrivo("Italia");
-                rotta.setCompagniaAerea("PoliMI airways");
-                rotta.setCittaPartenza("Pistoia");
-                rotta.setCittaArrivo("Milano");
-                Volo volo = new Volo();
-                volo.setDataOra(new Date());
-                volo.setRotta(rotta);
-                volo.setNumPasseggeri(3);
-                volo.setCosto(120.7f);
-                volo.setAbilitato(true);
-                ret.add(volo);
+                for(Volo v : voli){
+                    ret.add(v);
+                    System.out.println("PBService.trovaPB -> v: " + v);
+                }
+                
                 break;
             default:
                 break;
@@ -67,5 +70,11 @@ public class PBService implements PBServiceLocal{
         
     }
     
-    
+    public RottaDAO getRottaDAO() {
+        return rottaDAO;
+    }
+
+    public void setRottaDAO(RottaDAO rottaDAO) {
+        this.rottaDAO = rottaDAO;
+    }
 }
