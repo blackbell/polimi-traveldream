@@ -1,0 +1,14 @@
+<div class="thumbnail">
+    <img ng-src="{{soggiorno.albergo.urlFoto}}"/>
+    <div class="caption">
+        <div class="row intestazione">
+            <strong class="span2 zero-margin-left pull-left">{{soggiorno.albergo.nome}}</strong>
+            <i class="icon-star-empty pull-right" ng-repeat="n in []| range:(5 - soggiorno.albergo.stelle)"></i>
+            <i class="icon-star pull-right" ng-repeat="n in []| range:soggiorno.albergo.stelle"></i>
+        </div>
+        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        <p><a href="#" class="btn btn-primary">Action</a> <a href="#" class="btn">Action</a></p>
+    </div>
+</div>
+
+

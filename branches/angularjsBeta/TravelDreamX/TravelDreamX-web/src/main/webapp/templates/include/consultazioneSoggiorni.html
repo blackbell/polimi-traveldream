@@ -1,78 +1,76 @@
 <div class="well">
     <div class="row">
-        <div class="span3">
-            <form class="form-horizontal">
-                <div class="control-group">
-                    <label class="control-label">
-                        Nazione
-                    </label>
-                    <div class="controls">    
-                        <input type="text" class="span2"/>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">
-                        Dal giorno
-                    </label>
-                    <div class="controls">    
-                        <div class="input-append">
-                            <input class="span2" type="text" ng-model="datepickerDal.date" data-date-format="dd/mm/yyyy" bs-datepicker>
-                            <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
-                        </div>
-                    </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Nazione
+                </label>
+                <input type="text" class="span2"/>
+                <label class="control-label">
+                    Dal giorno
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="text" ng-model="datepickerDal.date" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
                 </div>
             </form>
         </div>
-        <div class="span3">
-            <form class="form-horizontal">
-                <div class="control-group">
-                    <label class="control-label">
-                        Città
-                    </label>
-                    <div class="controls">    
-                        <input type="text" class="span2"/>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">
-                        Al giorno
-                    </label>
-                    <div class="controls">    
-                        <div class="input-append">
-                            <input class="span2" type="text" ng-model="datepickerAl.date" data-date-format="dd/mm/yyyy" bs-datepicker>
-                            <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
-                        </div>
-                    </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Città
+                </label>
+                <input type="text" class="span2"/>
+                <label class="control-label">
+                    Al giorno
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="text" ng-model="datepickerAl.date" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
                 </div>
             </form>
         </div>
-        <div class="span3">
-            <form class="form-horizontal">
-                <div class="control-group">
-                    <label class="control-label">
-                        Stelle
-                    </label>
-                    <div class="controls">   
-                        <i ng-click="diminuisciStelle($index)" class="icon-star pointer" ng-repeat="i in getNumStelle(numStelle) track by $index"></i>
-                        <i ng-click="aumentaStelle($index)" class="icon-star-empty pointer" ng-repeat="i in getNumStelle(numStelleVuote) track by $index"></i>
-                    </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Nome albergo
+                </label>
+                <input type="text" class="span2"/>
+                <label class="control-label">
+                    Stelle
+                </label>
+                <i ng-click="aumentaStelle($index)" class="icon-star-empty pointer" ng-repeat="i in getNumStelle(numStelleVuote) track by $index"></i>
+                <i ng-click="diminuisciStelle($index)" class="icon-star pointer" ng-repeat="i in getNumStelle(numStelle) track by $index"></i>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Prezzo
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="number">
+                    <span class="btn add-on">€</span>
                 </div>
-                <div class="control-group">
-                    <label class="control-label">
-                        Prezzo
-                    </label>
-                    <div class="controls">    
-                        <div class="input-append">
-                            <input class="span2" type="number">
-                            <span class="btn add-on">€</span>
-                        </div>
-                    </div>
+                <label class="control-label">
+                    Prezzo
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="number">
+                    <span class="btn add-on">€</span>
                 </div>
             </form>
         </div>
     </div>
-    <div class="row"><div class="span6 offset1"><button class="btn btn-block btn-primary" ng-init="trovaPB()" ng-click="trovaPB()">Cerca</button></div></div>
+    <div class="row"><div class="span8"><button class="btn btn-block btn-primary" ng-init="trovaPB()" ng-click="trovaPB()">Cerca</button></div></div>
 </div>
 <div class="row">
-    <div class="span9"></div>
+    <div class="span9">
+        <legend>Risultati</legend>
+        <ul class="thumbnails">
+            <li class="span3" ng-repeat="soggiorno in soggiorni">
+            <soggiorno soggiorno="soggiorno"/>
+            </li>
+        </ul>
+    </div>
 </div>
