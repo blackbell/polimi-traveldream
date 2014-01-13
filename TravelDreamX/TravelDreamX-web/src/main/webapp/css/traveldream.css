@@ -111,3 +111,17 @@ ul{
     position: absolute;
     z-index: 2000;
 }
+.zero-margin-left{
+    margin-left: 0px !important;
+    margin-right: -6px !important;
+}
+.intestazione{
+    background-color: rgba(20, 155, 223, 0.48);
+    margin-left: -13px;
+    margin-right: -13px;
+    border: rgba(20, 155, 223, 0.48) 1px solid !important;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}

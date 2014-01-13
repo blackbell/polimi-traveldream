@@ -136,20 +136,57 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         console.log($scope.numStelle);
         console.log($scope.numStelleVuote);
     };
-    
-    $scope.initRicercaVolo = function() {
-        $scope.ricercaParams = {
-            tipo: $scope.tipoVoceSelezionata,
-            rotta: {aeroportoPartenza: '',
-                cittaPartenza: '',
-                nazionePartenza: '',
-                aeroportoArrivo: '',
-                cittaArrivo: '',
-                nazioneArrivo: '',
-                compagniaAerea: ''
-            },
-            costo: 0,
-            dataOra: ''
-        };
-    };
+    $scope.soggiorni = [
+        { 
+            costo: 100.00,
+            giornoInizio: new Date(),
+            giornoFine: new Date(),
+            numeroPersone: 2,
+            albergo: {
+                nome: 'Ciccio',
+                citta: 'Meda',
+                stelle: 3,
+                urlFoto: 'img/Soggiorno.png'
+            }
+        },
+        { 
+            costo: 200.00,
+            giornoInizio: new Date(),
+            giornoFine: new Date(),
+            numeroPersone: 2,
+            albergo: {
+                nome: 'Puccio',
+                citta: 'Pistoia',
+                stelle: 5,
+                urlFoto: 'img/Soggiorno.png'
+            }
+        },
+        { 
+            costo: 300.00,
+            giornoInizio: new Date(),
+            giornoFine: new Date(),
+            numeroPersone: 2,
+            albergo: {
+                nome: 'Ciccione Barabbazzo Hotel casinas',
+                citta: 'Vernasca',
+                stelle: 4,
+                urlFoto: 'img/Soggiorno.png'
+            }
+        }
+    ];
+//    $scope.initRicercaVolo = function() {
+//        $scope.ricercaParams = {
+//            tipo: $scope.tipoVoceSelezionata,
+//            rotta: {aeroportoPartenza: '',
+//                cittaPartenza: '',
+//                nazionePartenza: '',
+//                aeroportoArrivo: '',
+//                cittaArrivo: '',
+//                nazioneArrivo: '',
+//                compagniaAerea: ''
+//            },
+//            costo: 0,
+//            dataOra: ''
+//        };
+//    };
 });
