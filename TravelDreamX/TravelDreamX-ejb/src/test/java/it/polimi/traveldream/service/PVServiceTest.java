@@ -66,7 +66,7 @@ public class PVServiceTest {
         r = edbService.salvaRotta(r);
         
         Volo v = new Volo();
-        v.setCosto(100);
+        v.setCosto(100f);
         v.setRotta(r);
         v.setDataOra(new Date());
         v.setNumPasseggeri(3);

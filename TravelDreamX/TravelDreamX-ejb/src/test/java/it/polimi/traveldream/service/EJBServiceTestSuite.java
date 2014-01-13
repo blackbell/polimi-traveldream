@@ -20,7 +20,12 @@ import org.junit.runners.Suite;
  * @author Dario
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({EJBServiceTest.class, UtenteServiceTest.class, EDBServiceTest.class})
+@Suite.SuiteClasses({EJBServiceTest.class, 
+                    UtenteServiceTest.class, 
+                    EDBServiceTest.class,
+                    PBServiceTest.class,
+                    PVServiceTest.class,
+})
 public class EJBServiceTestSuite {
 
     protected static EJBContainer container;

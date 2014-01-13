@@ -5,7 +5,9 @@
 
 package it.polimi.traveldream.data;
 
-import org.junit.Ignore;
+import it.polimi.traveldream.model.Museo;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -26,23 +28,45 @@ public class MuseoDAOTest extends DAOUnitTest {
         this.museoDAO = museoDAO;
     }
     
-    @Test @Ignore
+    @Test
     public void retrieveMuseo(){
-        
-    }
-    
-    @Test @Ignore
-    public void retrieveMuseoByParams(){
-        
-    }
-    
-    @Test @Ignore
-    public void saveMuseo(){
-        
+        Museo m = new Museo();
+        m.setDescrizione("Il Museo Marino Marini attualmente è sede sia del Centro di Documentazione, inaugurato il 23 giugno 1979 nelle sale del Palazzo Comunale di Pistoia, che della Fondazione Marino Marini costituita a Pistoia in data 29 Novembre 1983 e riconosciuta con decreto prefettizio in data 27 Agosto 1985.");
+        m.setUrlFoto("http://www.fondazionemarinomarini.it/immagini/museo/museo-min.jpg");
+        m.setNome("Museo Marino Marini");
+        m.setCitta("Pistoia");
+        museoDAO.saveAndFlush(m);
+        assertNotNull("Cannot inject museoDAO!",museoDAO);
+        Museo m2 = museoDAO.findOne(m.getIdMuseo());
+        assertNotNull("Cannot retrieve museo with ID=" + m.getIdMuseo() + "!", m2);    
     }
     
     @Test
-    public void wiringMuseoDAO(){
-        
+    public void retrieveMuseoByParams(){
+        Museo m = new Museo();
+        m.setDescrizione("Il Museo Marino Marini attualmente è sede sia del Centro di Documentazione, inaugurato il 23 giugno 1979 nelle sale del Palazzo Comunale di Pistoia, che della Fondazione Marino Marini costituita a Pistoia in data 29 Novembre 1983 e riconosciuta con decreto prefettizio in data 27 Agosto 1985.");
+        m.setUrlFoto("http://www.fondazionemarinomarini.it/immagini/museo/museo-min.jpg");
+        m.setNome("Museo Marino Marini");
+        m.setCitta("Pistoia");
+        museoDAO.saveAndFlush(m);
+        assertNotNull("Cannot inject museoDAO!",museoDAO);
+        assertTrue(museoDAO.findByParams(m.getNome(), m.getCitta()).contains(m));
+    }
+    
+    @Test
+    public void saveMuseo(){
+        assertNotNull("Cannot inject museoDAO!",museoDAO);
+        Museo m = new Museo();
+        m.setDescrizione("Il Museo Marino Marini attualmente è sede sia del Centro di Documentazione, inaugurato il 23 giugno 1979 nelle sale del Palazzo Comunale di Pistoia, che della Fondazione Marino Marini costituita a Pistoia in data 29 Novembre 1983 e riconosciuta con decreto prefettizio in data 27 Agosto 1985.");
+        m.setUrlFoto("http://www.fondazionemarinomarini.it/immagini/museo/museo-min.jpg");
+        m.setNome("Museo Marino Marini");
+        m.setCitta("Pistoia");
+        Museo m2 = museoDAO.saveAndFlush(m);
+        assertNotNull(m2);
+    }
+    
+    @Test
+    public void wiringMuseoDAO(){   
+        assertNotNull("Cannot inject museoDAO!",museoDAO);
     }
 }

@@ -32,25 +32,37 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Volo.findAll", query = "SELECT v FROM Volo v"),
-    @NamedQuery(name = "Volo.findByIdVolo", query = "SELECT v FROM Volo v WHERE v.idVolo = :idVolo"),
+    @NamedQuery(name = "Volo.findByRotta", query = "SELECT v FROM Volo v WHERE v.rotta = :rotta"),
     @NamedQuery(name = "Volo.findByDataOra", query = "SELECT v FROM Volo v WHERE v.dataOra = :dataOra"),
     @NamedQuery(name = "Volo.findByNumPasseggeri", query = "SELECT v FROM Volo v WHERE v.numPasseggeri = :numPasseggeri"),
-    @NamedQuery(name = "Volo.findByCosto", query = "SELECT v FROM Volo v WHERE v.costo = :costo")})
+    @NamedQuery(name = "Volo.findByCosto", query = "SELECT v FROM Volo v WHERE v.costo = :costo"),
+    @NamedQuery(name = "Volo.findByParams", query = "SELECT v FROM Volo v WHERE "
+                                                    + "(:rotta IS NULL OR v.rotta = :rotta) AND "
+                                                    + "(:numPasseggeri IS NULL OR v.numPasseggeri = :numPasseggeri) AND "
+                                                    + "(:dataOra IS NULL OR v.dataOra > :dataOra) "
+                                                    //+ "(:costo IS NULL OR v.costo = :costo) AND "
+                                                    /*+ "(:dataOra IS NULL OR "
+                                                        + "(FUNC('YEAR',v.dataOra) = FUNC('YEAR',:dataOra) AND "
+                                                        + "FUNC('MONTH',v.dataOra) = FUNC('MONTH',:dataOra) AND "
+                                                        + "FUNC('DAY',v.dataOra) = FUNC('DAY',:dataOra))) "
+                                                    */
+//                                                    + "(:giorno IS NULL OR "
+//                                                        + "(YEAR(v.giorno) = YEAR(:giorno) AND "
+//                                                        + "MONTH(v.giorno) = MONTH(:giorno) AND "
+//                                                        + "DAY(v.giorno) = DAY(:giorno))) "
+                                                    + "")
+})
+
 public class Volo extends Voce implements Serializable {
-    private final String tipo = "Volo";
-    
+  
     private static final long serialVersionUID = 1L;
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Basic(optional = false)
-    @Basic(optional = true)
-    @Column(name = "idVolo")
-    private Integer idVolo;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "dataOra")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataOra;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "numPasseggeri")
@@ -58,35 +70,20 @@ public class Volo extends Voce implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "costo")
-    private float costo;
+    private Float costo;
     @JoinColumn(name = "idRotta", referencedColumnName = "idRotta")
     @ManyToOne(optional = false)
     private Rotta rotta;
 
     public Volo() {
+        this.setTipo("Volo");
     }
 
-    public Volo(Integer idVolo) {
-        this.idVolo = idVolo;
-    }
-
-    public Volo(Integer idVolo, Date dataOra, int numPasseggeri, float costo) {
-        this.idVolo = idVolo;
+    public Volo(Date dataOra, int numPasseggeri, float costo) {
+        this();
         this.dataOra = dataOra;
         this.numPasseggeri = numPasseggeri;
         this.costo = costo;
-    }
-
-    public Integer getIdVolo() {
-        return idVolo;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setIdVolo(Integer idVolo) {
-        this.idVolo = idVolo;
     }
 
     public Date getDataOra() {
@@ -105,11 +102,11 @@ public class Volo extends Voce implements Serializable {
         this.numPasseggeri = numPasseggeri;
     }
 
-    public float getCosto() {
+    public Float getCosto() {
         return costo;
     }
 
-    public void setCosto(float costo) {
+    public void setCosto(Float costo) {
         this.costo = costo;
     }
 
@@ -124,7 +121,7 @@ public class Volo extends Voce implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idVolo != null ? idVolo.hashCode() : 0);
+        hash += (getIdVoce() != null ? getIdVoce().hashCode() : 0);
         return hash;
     }
 
@@ -135,7 +132,7 @@ public class Volo extends Voce implements Serializable {
             return false;
         }
         Volo other = (Volo) object;
-        if ((this.idVolo == null && other.idVolo != null) || (this.idVolo != null && !this.idVolo.equals(other.idVolo))) {
+        if ((this.getIdVoce() == null && other.getIdVoce() != null) || (this.getIdVoce() != null && !this.getIdVoce().equals(other.getIdVoce()))) {
             return false;
         }
         return true;
@@ -143,7 +140,7 @@ public class Volo extends Voce implements Serializable {
 
     @Override
     public String toString() {
-        return "it.polimi.traveldream.model.Volo[ idVolo=" + idVolo + " ]";
+        return "it.polimi.traveldream.model.Volo[ idVoce = " + getIdVoce() + " ]";
     }
     
 }
