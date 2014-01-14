@@ -24,6 +24,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
                 }
             ]
         };
+        $rootScope.indiceSelezionato = -1;
     };
 
     $scope.getVociPV = function (){
@@ -48,7 +49,9 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         if (indice === $scope.indiceSelezionato) {
             $scope.tipoVoceSelezionata = 'nonSelezionato';
             $rootScope.indiceSelezionato = -1;
-        }
+        } else {
+            $rootScope.indiceSelezionato -= 1;
+        };
     };
 
     $scope.isCompleta = function(voce) {
@@ -96,8 +99,13 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
             "tipo": tipo,
             "content": "Hai aggiunto la voce: {{alert.tipo}}."
         };
+        var aggiungiInTesta = function (voce){
+            $rootScope.PV.voci.unshift(voce);
+            if( $rootScope.indiceSelezionato !== -1 )
+                $rootScope.indiceSelezionato += 1;
+        };
         $scope.alerts.push(alert);
-        $rootScope.PV.voci.push(voce);
+        aggiungiInTesta(voce);
         console.log($rootScope.PV.voci);
     };
 
