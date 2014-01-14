@@ -7,5 +7,6 @@ travelDreamApp.controller('pbModalController', function($scope, $rootScope) {
     
     $scope.aggiungiPBaPV = function (PB){
         $rootScope.aggiungiPBaPV(PB);
+        $scope.dismiss();
     };
 });

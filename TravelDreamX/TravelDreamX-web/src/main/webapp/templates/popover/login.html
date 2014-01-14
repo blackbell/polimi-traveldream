@@ -6,6 +6,11 @@
                     <br/>
                     <input class="input-login-registr" name="pwd" type="password" ng-model="utente.password" ng-required="true" ng-pattern="/^.{5,15}$/" placeholder="Inserisci la tua password"></input>
                     <br/>
+                    <div class="row" ng-show="waiting">
+                        Aspetta... &nbsp;&nbsp;<img src="img/loading.gif" width="20"/>
+                        <br/><br/>
+                    </div>
+                    
                     <button class="btn btn-info btn-login" ng-click="login(utente, formRegistrazione)" >Effettua l'accesso</button>
             </form>
         </div>
