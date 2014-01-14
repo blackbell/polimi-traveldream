@@ -12,6 +12,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -41,8 +43,8 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 public class Museo extends EDB implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "idMuseo")
     private Integer idMuseo;
     @Basic(optional = false)
@@ -57,12 +59,12 @@ public class Museo extends EDB implements Serializable {
     private String citta;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 250)
+    @Size(min = 1, max = 4096)
     @Column(name = "descrizione")
     private String descrizione;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 150)
+    @Size(min = 1, max = 2048)
     @Column(name = "urlFoto")
     private String urlFoto;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "museo")

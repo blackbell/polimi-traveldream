@@ -32,18 +32,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Soggiorno.findAll", query = "SELECT s FROM Soggiorno s"),
-    @NamedQuery(name = "Soggiorno.findByIdSoggiorno", query = "SELECT s FROM Soggiorno s WHERE s.idSoggiorno = :idSoggiorno"),
     @NamedQuery(name = "Soggiorno.findByGiornoInizio", query = "SELECT s FROM Soggiorno s WHERE s.giornoInizio = :giornoInizio"),
     @NamedQuery(name = "Soggiorno.findByGiornoFine", query = "SELECT s FROM Soggiorno s WHERE s.giornoFine = :giornoFine"),
     @NamedQuery(name = "Soggiorno.findByNumeroPersone", query = "SELECT s FROM Soggiorno s WHERE s.numeroPersone = :numeroPersone"),
     @NamedQuery(name = "Soggiorno.findByCosto", query = "SELECT s FROM Soggiorno s WHERE s.costo = :costo")})
 public class Soggiorno extends Voce implements Serializable {
-    private final String tipo = "Soggiorno";
 
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = true)
-    @Column(name = "idSoggiorno")
-    private Integer idSoggiorno;
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
     @NotNull
@@ -68,26 +62,15 @@ public class Soggiorno extends Voce implements Serializable {
     private Albergo albergo;
 
     public Soggiorno() {
+        this.setTipo("Soggiorno");
     }
 
-    public Soggiorno(Integer idSoggiorno) {
-        this.idSoggiorno = idSoggiorno;
-    }
-
-    public Soggiorno(Integer idSoggiorno, Date giornoInizio, Date giornoFine, int numeroPersone, float costo) {
-        this.idSoggiorno = idSoggiorno;
+    public Soggiorno(Date giornoInizio, Date giornoFine, int numeroPersone, float costo) {
+        this();
         this.giornoInizio = giornoInizio;
         this.giornoFine = giornoFine;
         this.numeroPersone = numeroPersone;
         this.costo = costo;
-    }
-
-    public Integer getIdSoggiorno() {
-        return idSoggiorno;
-    }
-
-    public void setIdSoggiorno(Integer idSoggiorno) {
-        this.idSoggiorno = idSoggiorno;
     }
 
     public Date getGiornoInizio() {
@@ -98,10 +81,6 @@ public class Soggiorno extends Voce implements Serializable {
         this.giornoInizio = giornoInizio;
     }
 	
-	public String getTipo() {
-        return tipo;
-    }
-
     public Date getGiornoFine() {
         return giornoFine;
     }
@@ -137,7 +116,7 @@ public class Soggiorno extends Voce implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idSoggiorno != null ? idSoggiorno.hashCode() : 0);
+        hash += (getIdVoce() != null ? getIdVoce().hashCode() : 0);
         return hash;
     }
 
@@ -148,7 +127,7 @@ public class Soggiorno extends Voce implements Serializable {
             return false;
         }
         Soggiorno other = (Soggiorno) object;
-        if ((this.idSoggiorno == null && other.idSoggiorno != null) || (this.idSoggiorno != null && !this.idSoggiorno.equals(other.idSoggiorno))) {
+        if ((this.getIdVoce() == null && other.getIdVoce() != null) || (this.getIdVoce() != null && !this.getIdVoce().equals(other.getIdVoce()))) {
             return false;
         }
         return true;
@@ -156,7 +135,7 @@ public class Soggiorno extends Voce implements Serializable {
 
     @Override
     public String toString() {
-        return "it.polimi.traveldream.model.Soggiorno[ idSoggiorno=" + idSoggiorno + " ]";
+        return "it.polimi.traveldream.model.Soggiorno[ idVoce = " + getIdVoce() + " ]";
     }
     
 }

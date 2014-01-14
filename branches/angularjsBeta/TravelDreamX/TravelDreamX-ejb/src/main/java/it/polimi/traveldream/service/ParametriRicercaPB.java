@@ -5,6 +5,7 @@
 
 package it.polimi.traveldream.service;
 
+import it.polimi.traveldream.model.Rotta;
 import it.polimi.traveldream.model.TipoPB;
 import java.util.Date;
 
@@ -14,10 +15,36 @@ import java.util.Date;
  */
 public class ParametriRicercaPB {
     private TipoPB tipo;
-    private Integer idRotta;
+    private Rotta rotta;
+    private Float costo;
+    private Integer numPasseggeri;
     private Integer idAlbergo;
     private Integer idMuseo;
     private Date data;
+    
+    public Rotta getRotta() {
+        return rotta;
+    }
+
+    public void setRotta(Rotta rotta) {
+        this.rotta = rotta;
+    }
+
+    public Float getCosto() {
+        return costo;
+    }
+
+    public void setCosto(Float costo) {
+        this.costo = costo;
+    }
+
+    public Integer getNumPasseggeri() {
+        return numPasseggeri;
+    }
+
+    public void setNumPasseggeri(Integer numPasseggeri) {
+        this.numPasseggeri = numPasseggeri;
+    }
 
     public TipoPB getTipo() {
         return tipo;
@@ -25,14 +52,6 @@ public class ParametriRicercaPB {
 
     public void setTipo(TipoPB tipo) {
         this.tipo = tipo;
-    }
-
-    public Integer getIdRotta() {
-        return idRotta;
-    }
-
-    public void setIdRotta(Integer idRotta) {
-        this.idRotta = idRotta;
     }
 
     public Integer getIdAlbergo() {
@@ -56,7 +75,9 @@ public class ParametriRicercaPB {
     }
 
     public void setData(Date data) {
-        this.data = data;
+        long time = data.getTime();
+        time = ((int)time / (60*60*24))*(60*60*24);
+        this.data = new Date(time);
     }
     
     

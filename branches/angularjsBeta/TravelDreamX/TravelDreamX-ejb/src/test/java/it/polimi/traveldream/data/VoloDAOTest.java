@@ -47,6 +47,8 @@ public class VoloDAOTest extends DAOUnitTest{
         Volo volo = addVolo();
         Voce v = voceDAO.findOne(volo.getIdVoce());
         Volo volo2 = (Volo)volo;
+        System.out.println("VoloDAOTest.retrieveVolo() -> volo.dataOra : " + volo.getDataOra() + " millis: " + volo.getDataOra().getTime());
+        System.out.println("VoloDAOTest.retrieveVolo() -> volo2.dataOra : " + volo2.getDataOra() + " millis: " + volo2.getDataOra().getTime());
         assertTrue("The retrieved object is not instance of Volo", v instanceof Volo);
         assertTrue("The retrieved object is not instance of Volo", ! (v instanceof Soggiorno));
         assertEquals("The retrieved flight is not as expected!", volo2.getDataOra(), volo.getDataOra());
