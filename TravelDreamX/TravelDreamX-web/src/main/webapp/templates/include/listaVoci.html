@@ -9,43 +9,45 @@
 <div class="row alerts">
   <div class="span2 alert fade" ng-repeat="alert in alerts" bs-alert="alert"></div>
 </div>
-<div class="row" ng-repeat="voce in PV.voci">
+<div class="row" ng-repeat="voce in getVociPV()">
     <br>
-    <ul ng-class="{'voce-item-btn-selected': isSelezionato($index), 'voce-item':true, 'voce-item-btn':true, 'pointer':true}" ng-click="seleziona(voce.tipo, $index)">
+    <ul ng-class="{'voce-item-btn-selected': isSelezionato($index), 'voce-item':true, 'voce-item-btn':true,'span3':true, 'pointer':true}" ng-click="seleziona(voce.tipo, $index)">
         <button class='close voce-close' ng-click='eliminaVoce($index)' aria-hidden='true' >×</button><br/>
-        <li class="span1 voce-item-col">
-            <img ng-src="img/{{voce.tipo}}.png" width="80"/>
+        <li class="pull-left voce-item-col">
+            <img ng-src="img/{{voce.tipo}}.png" class="voce-lista-img"/>
         </li>
-        <li ng-class="{'span2': true, 'voce-item-col': true}" ng-if="!isCompleta(voce)">
+        <li ng-class="{'pull-right': true, 'voce-item-col': true}" ng-if="!isCompleta(voce)">
             <text class="voce-item-left" >Scegli {{voce.tipo}} </text><i class="voce-item-right icon-chevron-right"></i>
         </li>
-        <li class="span2 voce-item-col" ng-if="isVolo(voce)">
+        <li class="pull-right voce-item-col" ng-if="isVolo(voce)">
             <p class="voce-item-left" > 
                 {{voce.rotta.cittaPartenza}} - {{voce.rotta.cittaArrivo}}
                 <br/>
                 {{voce.dataOra | date:'dd/MM/yyyy hh:mm'}}
                 <br/>
-                €{{voce.costo}} 
+                &euro;{{voce.costo}} 
             </p>
             <i class="voce-item-right icon-chevron-right"></i>
         </li>
-        <li class="span2 voce-item-col" ng-if="isSoggiorno(voce)">
+        <li class="pull-right voce-item-col" ng-if="isSoggiorno(voce)">
             <p class="voce-item-left" > 
-                {{voce.albergo.nome}} - {{voce.albergo.citta}} - {{voce.albergo.stelle}}
+                {{voce.albergo.nome}} - {{voce.albergo.citta}} - {{voce.albergo.stelle}} <i class="icon-star"/>
                 <br/>
-                {{voce.giornoInizio}} - {{voce.giornoFine}}
+                Dal {{voce.giornoInizio | date:'dd/MM/yyyy'}}
                 <br/>
-                €{{voce.costo}} 
+                Al {{voce.giornoFine | date:'dd/MM/yyyy'}}
+                <br/>
+                &euro;{{voce.costo}} 
             </p>
             <i class="voce-item-right icon-chevron-right"></i>
         </li>
-        <li class="span2 voce-item-col" ng-if="isVisita(voce)">
+        <li class="pull-right voce-item-col" ng-if="isVisita(voce)">
             <p class="voce-item-left" > 
                 {{voce.museo.nome}} - {{voce.museo.citta}}
                 <br/>
                 {{voce.dataOra}}
                 <br/>
-                €{{voce.costo}} 
+                &euro;{{voce.costo}} 
             </p>
             <i class="voce-item-right icon-chevron-right"></i>
         </li>
