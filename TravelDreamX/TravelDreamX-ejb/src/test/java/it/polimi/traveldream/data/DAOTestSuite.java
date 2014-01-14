@@ -19,9 +19,13 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({RottaDAOTest.class,
                      AlbergoDAOTest.class,
+                     MuseoDAOTest.class,
                      UtenteDAOTest.class, 
+                     VoceDAOTest.class,
                      VoloDAOTest.class,
-                     SoggiornoDAOTest.class
+                     VisitaDAOTest.class,
+                     SoggiornoDAOTest.class,
+                     PVDAOTest.class,
 })
 public class DAOTestSuite {
 

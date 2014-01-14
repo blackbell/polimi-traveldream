@@ -12,8 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -34,19 +32,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Visita.findAll", query = "SELECT v FROM Visita v"),
-    @NamedQuery(name = "Visita.findByIdVisita", query = "SELECT v FROM Visita v WHERE v.idVisita = :idVisita"),
     @NamedQuery(name = "Visita.findByDataOra", query = "SELECT v FROM Visita v WHERE v.dataOra = :dataOra"),
     @NamedQuery(name = "Visita.findByNumeroPersone", query = "SELECT v FROM Visita v WHERE v.numeroPersone = :numeroPersone"),
     @NamedQuery(name = "Visita.findByCosto", query = "SELECT v FROM Visita v WHERE v.costo = :costo")})
 public class Visita extends Voce implements Serializable {
-    private final String tipo = "Visita";
-    
+   
     private static final long serialVersionUID = 1L;
-    //@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "idVisita")
-    private Integer idVisita;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "dataOra")
@@ -65,25 +57,14 @@ public class Visita extends Voce implements Serializable {
     private Museo museo;
 
     public Visita() {
+        this.setTipo("Visita");
     }
-
-    public Visita(Integer idVisita) {
-        this.idVisita = idVisita;
-    }
-
-    public Visita(Integer idVisita, Date dataOra, int numeroPersone, float costo) {
-        this.idVisita = idVisita;
+    
+    public Visita(Date dataOra, int numeroPersone, float costo) {
+        this();
         this.dataOra = dataOra;
         this.numeroPersone = numeroPersone;
         this.costo = costo;
-    }
-
-    public Integer getIdVisita() {
-        return idVisita;
-    }
-
-    public void setIdVisita(Integer idVisita) {
-        this.idVisita = idVisita;
     }
 
     public Date getDataOra() {
@@ -92,10 +73,6 @@ public class Visita extends Voce implements Serializable {
 
     public void setDataOra(Date dataOra) {
         this.dataOra = dataOra;
-    }
-
-	public String getTipo() {
-        return tipo;
     }
 
     public int getNumeroPersone() {
@@ -125,7 +102,7 @@ public class Visita extends Voce implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idVisita != null ? idVisita.hashCode() : 0);
+        hash += (getIdVoce() != null ? getIdVoce().hashCode() : 0);
         return hash;
     }
 
@@ -136,7 +113,7 @@ public class Visita extends Voce implements Serializable {
             return false;
         }
         Visita other = (Visita) object;
-        if ((this.idVisita == null && other.idVisita != null) || (this.idVisita != null && !this.idVisita.equals(other.idVisita))) {
+        if ((this.getIdVoce() == null && other.getIdVoce() != null) || (this.getIdVoce() != null && !this.getIdVoce().equals(other.getIdVoce()))) {
             return false;
         }
         return true;
@@ -144,7 +121,7 @@ public class Visita extends Voce implements Serializable {
 
     @Override
     public String toString() {
-        return "it.polimi.traveldream.model.Visita[ idVisita=" + idVisita + " ]";
+        return "it.polimi.traveldream.model.Visita[ idVoce = " + getIdVoce() + " ]";
     }
     
 }

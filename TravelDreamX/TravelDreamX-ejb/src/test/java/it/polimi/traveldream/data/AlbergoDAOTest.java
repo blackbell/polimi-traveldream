@@ -52,6 +52,7 @@ public class AlbergoDAOTest extends DAOUnitTest {
     
     @Test
     public void retrieveAlbergoByParams(){
+        System.out.println("retrieveAlbergoByParams()");
         Albergo a = addHotel();
         assertNotNull("Cannot inject albergoDAO!",albergoDAO);
         assertTrue(albergoDAO.findByParams(a.getNome(), a.getCitta(), 3).contains(a));
