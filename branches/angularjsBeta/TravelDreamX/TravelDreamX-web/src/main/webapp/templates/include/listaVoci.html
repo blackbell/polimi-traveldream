@@ -6,17 +6,6 @@
         <button class="btn" ng-click="creaVoce('Visita')"><img src="img/Visita.png" width="15"/></button>
     </div>
 </div>
-<div class="row alerts">
-    <div class="span2 alert fade" ng-repeat="alert in alerts" bs-alert="alert"></div>
-</div>
-<div class="row">
-    <br/>
-    <ul class="span3 lista-voci-btn-group voce-item">
-        <li><button class="btn btn-large btn-block btn-success"><i class="icon-shopping-cart icon-white"></i>Acquista</button></li>
-        <li><button class="btn btn-small pull-left"><i class="icon-ok-sign"></i>Salva e condividi</button><button class="btn btn-small pull-right"><i class="icon-gift"></i>Crea GiftList</button></li>
-    </ul>
-    <br/>
-</div>
 <div class="row" ng-repeat="voce in getVociPV()">
     <br>
     <ul ng-class="{'voce-item-btn-selected': isSelezionato($index), 'voce-item':true, 'voce-item-btn':true,'span3':true, 'pointer':true}" ng-click="seleziona(voce.tipo, $index)">
@@ -25,7 +14,7 @@
             <img ng-src="img/{{voce.tipo}}.png" class="voce-lista-img"/>
         </li>
         <li ng-class="{'pull-right': true, 'voce-item-col': true}" ng-if="!isCompleta(voce)">
-            <text class="voce-item-left" >Scegli {{voce.tipo}} </text><i class="voce-item-right icon-chevron-right"></i>
+            <text class="voce-item-left" ><strong>Scegli {{voce.tipo}}</strong> </text><i class="voce-item-right icon-chevron-right"></i>
         </li>
         <li class="pull-right voce-item-col" ng-if="isVolo(voce)">
             <p class="voce-item-left" > 
