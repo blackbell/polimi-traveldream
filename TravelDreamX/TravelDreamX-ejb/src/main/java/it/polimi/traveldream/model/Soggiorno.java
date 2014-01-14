@@ -35,7 +35,14 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Soggiorno.findByGiornoInizio", query = "SELECT s FROM Soggiorno s WHERE s.giornoInizio = :giornoInizio"),
     @NamedQuery(name = "Soggiorno.findByGiornoFine", query = "SELECT s FROM Soggiorno s WHERE s.giornoFine = :giornoFine"),
     @NamedQuery(name = "Soggiorno.findByNumeroPersone", query = "SELECT s FROM Soggiorno s WHERE s.numeroPersone = :numeroPersone"),
-    @NamedQuery(name = "Soggiorno.findByCosto", query = "SELECT s FROM Soggiorno s WHERE s.costo = :costo")})
+    @NamedQuery(name = "Soggiorno.findByCosto", query = "SELECT s FROM Soggiorno s WHERE s.costo = :costo"),
+    @NamedQuery(name = "Soggiorno.findByParams", query = "SELECT s FROM Albergo a JOIN a.soggiorniCollection s WHERE "
+                                                    + "(:citta IS NULL OR a.citta = :citta) AND "
+                                                    + "(:albergo IS NULL OR s.albergo = :albergo) AND "
+                                                    + "(:numeroPersone IS NULL OR s.numeroPersone = :numeroPersone) AND "
+                                                    + "(:giornoInizio IS NULL OR s.giornoInizio > :giornoInizio) "
+                                                    + "")
+})
 public class Soggiorno extends Voce implements Serializable {
 
     private static final long serialVersionUID = 1L;

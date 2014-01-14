@@ -39,8 +39,8 @@
                 <label class="control-label">
                     Stelle
                 </label>
-                <i ng-click="aumentaStelle($index)" class="icon-star-empty pointer" ng-repeat="i in getNumStelle(numStelleVuote) track by $index"></i>
                 <i ng-click="diminuisciStelle($index)" class="icon-star pointer" ng-repeat="i in getNumStelle(numStelle) track by $index"></i>
+                <i ng-click="aumentaStelle($index)" class="icon-star-empty pointer" ng-repeat="i in getNumStelle(numStelleVuote) track by $index"></i>
             </form>
         </div>
         <div class="span2">
@@ -63,6 +63,10 @@
         </div>
     </div>
     <div class="row"><div class="span8"><button class="btn btn-block btn-primary" ng-init="trovaPB()" ng-click="trovaPB()">Cerca</button></div></div>
+</div>
+<div class="row" ng-show="waiting">
+                        Aspetta... &nbsp;&nbsp;<img src="img/loading.gif" width="20"/>
+                        <br/><br/>
 </div>
 <div class="row">
     <div class="span9">

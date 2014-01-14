@@ -1,4 +1,28 @@
-<p class="lead">Scegli:</p>
-<div class="row" ng-if="isSelezionato('volo')">VOLO</div>
-<div class="row" ng-if="isSelezionato('soggiorno')">SOGGIORNO</div>
-<div class="row" ng-if="isSelezionato('visita')">VISITA</div>
+<p class="lead" ng-if="!(isSelezionato('Volo')||isSelezionato('Soggiorno')||isSelezionato('Visita'))">Scegli una voce dall'elenco a sinistra</p>
+<p class="lead" ng-if="isSelezionato('Volo')">Cerca un volo</p>
+<div class="row" ng-if="isSelezionato('Volo')" ng-init="initRicercaVolo()">
+    <ul class="voce-consultazione">
+        <li>
+
+        <ng-include src="'templates/include/consultazioneVoli.html'"></ng-include>
+        </li>
+    </ul>
+</div>
+
+<p class="lead" ng-if="isSelezionato('Soggiorno')">Cerca un soggiorno</p>
+<div class="row" ng-if="isSelezionato('Soggiorno')">
+    <ul class="voce-consultazione">
+        <li>
+        <ng-include src="'templates/include/consultazioneSoggiorni.html'"></ng-include>
+        </li>
+    </ul>
+</div>
+
+<p class="lead" ng-if="isSelezionato('Visita')">Cerca una visita</p>
+<div class="row" ng-if="isSelezionato('Visita')">
+    <ul class="voce-consultazione">
+        <li>
+        <ng-include src="'templates/include/consultazioneVisite.html'"></ng-include>
+        </li>
+    </ul>
+</div>

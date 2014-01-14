@@ -1,33 +1,53 @@
 <div class="row ">
     <p class="span1 lead" ng-init="getPVdaRootScope()">Voci: </p>
     <div class="span1 btn-group">
-        <button class="btn" ng-click="creaVoce('volo')"><img src="img/volo.png" width="15"/></button>
-        <button class="btn" ng-click="creaVoce('soggiorno')"><img src="img/soggiorno.png" width="15"/></button>
-        <button class="btn" ng-click="creaVoce('visita')"><img src="img/visita.png" width="15"/></button>
+        <button class="btn" ng-click="creaVoce('Volo')"><img src="img/Volo.png" width="15"/></button>
+        <button class="btn" ng-click="creaVoce('Soggiorno')"><img src="img/Soggiorno.png" width="15"/></button>
+        <button class="btn" ng-click="creaVoce('Visita')"><img src="img/Visita.png" width="15"/></button>
     </div>
-
-
 </div>
-<div class="row"  ng-repeat="composizione in PV.composizioneCollection">
+<div class="row" ng-repeat="voce in getVociPV()">
     <br>
-
-    <ul class="voce-item voce-item-btn pointer" ng-click="seleziona(composizione.voce.tipo)">
+    <ul ng-class="{'voce-item-btn-selected': isSelezionato($index), 'voce-item':true, 'voce-item-btn':true,'span3':true, 'pointer':true}" ng-click="seleziona(voce.tipo, $index)">
         <button class='close voce-close' ng-click='eliminaVoce($index)' aria-hidden='true' >×</button><br/>
-        <li class="span1 voce-item-col">
-            <img ng-src="img/{{composizione.voce.tipo}}.png" width="80"/>
+        <li class="pull-left voce-item-col">
+            <img ng-src="img/{{voce.tipo}}.png" class="voce-lista-img"/>
         </li>
-        <li class="span2 voce-item-col" ng-if="!isScelto(composizione.voce)">
-            <text class="voce-item-left" >Scegli {{composizione.voce.tipo}} </text><i class="voce-item-right icon-chevron-right"></i>
+        <li ng-class="{'pull-right': true, 'voce-item-col': true}" ng-if="!isCompleta(voce)">
+            <text class="voce-item-left" ><strong>Scegli {{voce.tipo}}</strong> </text><i class="voce-item-right icon-chevron-right"></i>
         </li>
-        <li class="span2 voce-item-col" ng-if="isVolo(composizione.voce)">
+        <li class="pull-right voce-item-col" ng-if="isVolo(voce)">
             <p class="voce-item-left" > 
-                {{composizione.voce.rotta.cittaPartenza}} - {{composizione.voce.rotta.cittaArrivo}}
+                {{voce.rotta.cittaPartenza}} - {{voce.rotta.cittaArrivo}}
                 <br/>
-                {{composizione.voce.dataOra}}
+                {{voce.dataOra| date:'dd/MM/yyyy hh:mm'}}
                 <br/>
-                €{{composizione.voce.costo}} 
+                &euro;{{voce.costo}} 
+            </p>
+            <i class="voce-item-right icon-chevron-right"></i>
+        </li>
+        <li class="pull-right voce-item-col" ng-if="isSoggiorno(voce)">
+            <p class="voce-item-left" > 
+                {{voce.albergo.nome}} - {{voce.albergo.citta}} - {{voce.albergo.stelle}} <i class="icon-star"/>
+                <br/>
+                Dal {{voce.giornoInizio| date:'dd/MM/yyyy'}}
+                <br/>
+                Al {{voce.giornoFine| date:'dd/MM/yyyy'}}
+                <br/>
+                &euro;{{voce.costo}} 
+            </p>
+            <i class="voce-item-right icon-chevron-right"></i>
+        </li>
+        <li class="pull-right voce-item-col" ng-if="isVisita(voce)">
+            <p class="voce-item-left" > 
+                {{voce.museo.nome}} - {{voce.museo.citta}}
+                <br/>
+                {{voce.dataOra}}
+                <br/>
+                &euro;{{voce.costo}} 
             </p>
             <i class="voce-item-right icon-chevron-right"></i>
         </li>
     </ul>
 </div>
+
