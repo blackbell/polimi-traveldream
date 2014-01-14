@@ -40,16 +40,6 @@ import javax.xml.bind.annotation.XmlRootElement;
                                                     + "(:rotta IS NULL OR v.rotta = :rotta) AND "
                                                     + "(:numPasseggeri IS NULL OR v.numPasseggeri = :numPasseggeri) AND "
                                                     + "(:dataOra IS NULL OR v.dataOra > :dataOra) "
-                                                    //+ "(:costo IS NULL OR v.costo = :costo) AND "
-                                                    /*+ "(:dataOra IS NULL OR "
-                                                        + "(FUNC('YEAR',v.dataOra) = FUNC('YEAR',:dataOra) AND "
-                                                        + "FUNC('MONTH',v.dataOra) = FUNC('MONTH',:dataOra) AND "
-                                                        + "FUNC('DAY',v.dataOra) = FUNC('DAY',:dataOra))) "
-                                                    */
-//                                                    + "(:giorno IS NULL OR "
-//                                                        + "(YEAR(v.giorno) = YEAR(:giorno) AND "
-//                                                        + "MONTH(v.giorno) = MONTH(:giorno) AND "
-//                                                        + "DAY(v.giorno) = DAY(:giorno))) "
                                                     + "")
 })
 

@@ -23,6 +23,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -53,6 +54,9 @@ public class Voce implements Serializable {
     @Column(name = "abilitato")
     private Boolean abilitato;
 
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "voci")
+    @JsonIgnore
+    private Collection<Pacchetto> pacchetti;
     
     public Boolean isAbilitato() {
         return abilitato;
@@ -61,9 +65,6 @@ public class Voce implements Serializable {
     public void setAbilitato(Boolean abilitato) {
         this.abilitato = abilitato;
     }
-    
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "voci")
-    private Collection<Pacchetto> pacchetti;
 
     public Collection<Pacchetto> getPacchetti() {
         return pacchetti;
