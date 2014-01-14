@@ -62,8 +62,28 @@ input-login-registr.ng-valid {
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
     vertical-align: middle;
     cursor: pointer;
+    position: relative;
     border: #b9b9b9 1px solid;
 }
+.lista-voci-btn-group {
+    display: inline-block;
+    *display: inline;
+    margin-bottom: 0;
+    padding: 4px 12px;
+    *margin-left: .3em;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+    position: relative;
+    border: none;
+}
+button.btn.btn-large,
+input[type="submit"].btn.btn-large {
+    margin-bottom: 3px;
+ }
 .voce-item-btn:hover{
     color: #008dff;
     border: rgba(20, 155, 223, 0.48) 1px solid;
@@ -77,12 +97,23 @@ input-login-registr.ng-valid {
 .voce-item-col {
     margin-left: 0px;
 }
-.voce-item-left {
-    float: left;
-    margin-left: 10px;
-    margin-top: auto;
-    margin-bottom: auto;
-    max-width: 141px;
+@media (min-width: 1025px) {
+    .voce-item-left {
+        float: left;
+        margin-left: 10px;
+        margin-top: auto;
+        margin-bottom: auto;
+        max-width: 141px;
+    }
+}
+@media (max-width: 1024px) {
+    .voce-item-left {
+        float: left;
+        margin-left: 10px;
+        margin-top: -14px;
+        margin-bottom: auto;
+        max-width: 121px;
+    }
 }
 @media (min-width: 1025px) {
     .voce-item-right {
@@ -186,47 +217,47 @@ ul{
 .modal.span1{margin-left:-30px;width:60px;}
 
 @media (max-width:767px) {
-.modal.span12,
-.modal.span11,
-.modal.span10,
-.modal.span9,
-.modal.span8,
-.modal.span7,
-.modal.span6,
-.modal.span5,
-.modal.span4,
-.modal.span3,
-.modal.span2,
-.modal.span1
-{margin:0;width:auto;}
+    .modal.span12,
+    .modal.span11,
+    .modal.span10,
+    .modal.span9,
+    .modal.span8,
+    .modal.span7,
+    .modal.span6,
+    .modal.span5,
+    .modal.span4,
+    .modal.span3,
+    .modal.span2,
+    .modal.span1
+    {margin:0;width:auto;}
 }
 
 @media (min-width:768px) and (max-width:979px) {
-.modal.span12{margin-left:-362px;width:724px;}
-.modal.span11{margin-left:-331px;width:662px;}
-.modal.span10{margin-left:-300px;width:600px;}
-.modal.span9{margin-left:-269px;width:538px;}
-.modal.span8{margin-left:-238px;width:476px;}
-.modal.span7{margin-left:-207px;width:414px;}
-.modal.span6{margin-left:-176px;width:352px;}
-.modal.span5{margin-left:-145px;width:290px;}
-.modal.span4{margin-left:-114px;width:228px;}
-.modal.span3{margin-left:-83px;width:166px;}
-.modal.span2{margin-left:-52px;width:104px;}
-.modal.span1{margin-left:-21px;width:042px;}
+    .modal.span12{margin-left:-362px;width:724px;}
+    .modal.span11{margin-left:-331px;width:662px;}
+    .modal.span10{margin-left:-300px;width:600px;}
+    .modal.span9{margin-left:-269px;width:538px;}
+    .modal.span8{margin-left:-238px;width:476px;}
+    .modal.span7{margin-left:-207px;width:414px;}
+    .modal.span6{margin-left:-176px;width:352px;}
+    .modal.span5{margin-left:-145px;width:290px;}
+    .modal.span4{margin-left:-114px;width:228px;}
+    .modal.span3{margin-left:-83px;width:166px;}
+    .modal.span2{margin-left:-52px;width:104px;}
+    .modal.span1{margin-left:-21px;width:042px;}
 
 }
 @media (min-width:1200px) {
-.modal.span12{margin-left:-585px;width:1170px;}
-.modal.span11{margin-left:-535px;width:1070px;}
-.modal.span10{margin-left:-485px;width:970px;}
-.modal.span9{margin-left:-435px;width:870px;}
-.modal.span8{margin-left:-385px;width:770px;}
-.modal.span7{margin-left:-335px;width:670px;}
-.modal.span6{margin-left:-285px;width:570px;}
-.modal.span5{margin-left:-235px;width:470px;}
-.modal.span4{margin-left:-185px;width:370px;}
-.modal.span3{margin-left:-135px;width:270px;}
-.modal.span2{margin-left:-85px;width:170px;}
-.modal.span1{margin-left:-35px;width:70px;}
+    .modal.span12{margin-left:-585px;width:1170px;}
+    .modal.span11{margin-left:-535px;width:1070px;}
+    .modal.span10{margin-left:-485px;width:970px;}
+    .modal.span9{margin-left:-435px;width:870px;}
+    .modal.span8{margin-left:-385px;width:770px;}
+    .modal.span7{margin-left:-335px;width:670px;}
+    .modal.span6{margin-left:-285px;width:570px;}
+    .modal.span5{margin-left:-235px;width:470px;}
+    .modal.span4{margin-left:-185px;width:370px;}
+    .modal.span3{margin-left:-135px;width:270px;}
+    .modal.span2{margin-left:-85px;width:170px;}
+    .modal.span1{margin-left:-35px;width:70px;}
 }

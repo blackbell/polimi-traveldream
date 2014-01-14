@@ -7,7 +7,15 @@
     </div>
 </div>
 <div class="row alerts">
-  <div class="span2 alert fade" ng-repeat="alert in alerts" bs-alert="alert"></div>
+    <div class="span2 alert fade" ng-repeat="alert in alerts" bs-alert="alert"></div>
+</div>
+<div class="row">
+    <br/>
+    <ul class="span3 lista-voci-btn-group voce-item">
+        <li><button class="btn btn-large btn-block btn-success"><i class="icon-shopping-cart icon-white"></i>Acquista</button></li>
+        <li><button class="btn btn-small pull-left"><i class="icon-ok-sign"></i>Salva e condividi</button><button class="btn btn-small pull-right"><i class="icon-gift"></i>Crea GiftList</button></li>
+    </ul>
+    <br/>
 </div>
 <div class="row" ng-repeat="voce in getVociPV()">
     <br>
@@ -23,7 +31,7 @@
             <p class="voce-item-left" > 
                 {{voce.rotta.cittaPartenza}} - {{voce.rotta.cittaArrivo}}
                 <br/>
-                {{voce.dataOra | date:'dd/MM/yyyy hh:mm'}}
+                {{voce.dataOra| date:'dd/MM/yyyy hh:mm'}}
                 <br/>
                 &euro;{{voce.costo}} 
             </p>
@@ -33,9 +41,9 @@
             <p class="voce-item-left" > 
                 {{voce.albergo.nome}} - {{voce.albergo.citta}} - {{voce.albergo.stelle}} <i class="icon-star"/>
                 <br/>
-                Dal {{voce.giornoInizio | date:'dd/MM/yyyy'}}
+                Dal {{voce.giornoInizio| date:'dd/MM/yyyy'}}
                 <br/>
-                Al {{voce.giornoFine | date:'dd/MM/yyyy'}}
+                Al {{voce.giornoFine| date:'dd/MM/yyyy'}}
                 <br/>
                 &euro;{{voce.costo}} 
             </p>
@@ -53,3 +61,4 @@
         </li>
     </ul>
 </div>
+
