@@ -5,10 +5,10 @@
         <li class="pull-right"><a>&nbsp;</a></li>
         <li class="pull-right pointer"><a bs-modal="'templates/modal/registrazione.html'">Registrati</a></li>
         <li class="dropdown pull-right pointer"  ng-if="!isLogged()">
-            <a class="dropdown-toggle" data-toggle="dropdown" bs-popover="'templates/popover/login.html'" data-placement="bottom" data-title="<button class='close' ng-click='hide()' aria-hidden='true' style='right: 0px;'>×</button><br/>"data-unique="1">Login <b class="caret"></b></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" bs-popover="'templates/popover/login.html'" data-placement="bottom" data-title="<button class='close' ng-click='hide()' aria-hidden='true' style='right: 0px;'>×</button><p class='lead'>Accedi</p>"data-unique="1">Login <b class="caret"></b></a>
         </li>
         <li class="dropdown pull-right pointer" ng-if="isLogged()">
-            <a class="dropdown-toggle" id="drop4" role="button" data-toggle="dropdown" href="#">{{utente.email}} <b class="caret"></b></a>
+            <a class="dropdown-toggle" id="drop4" role="button" data-toggle="dropdown" href="#"><i class="icon-user"></i> {{utente.email}} <b class="caret"></b></a>
             <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>

@@ -57,7 +57,7 @@ public class GestioneOffertaController {
         Esito e = new Esito();
         try{
             ParametriRicercaPB params = new ParametriRicercaPB();
-            params.setTipo(TipoPB.Volo);
+            params.setTipo(TipoPB.Soggiorno);
             List<Voce> ret = pbService.trovaPB(params);
             e.setResult(true);
             e.setMessage(null);

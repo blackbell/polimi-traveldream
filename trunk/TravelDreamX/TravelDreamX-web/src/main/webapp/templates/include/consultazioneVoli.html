@@ -33,6 +33,10 @@
     </div>
     <div class="row"><div class="span8"><button class="btn btn-block btn-primary" ng-init="trovaPB()" ng-click="trovaPB()">Cerca</button></div></div>
 </div>
+<div class="row" ng-show="waiting">
+    Sto cercando... &nbsp;&nbsp;<img src="img/loading.gif" width="20"/>
+    <br/><br/>
+</div>
 <div class="row">
     <div class="span9">
         <br/>
@@ -55,7 +59,7 @@
                     <td>{{volo.rotta.compagniaAerea}}</td>
                     <td>{{volo.dataOra| date:'dd/MM/yyyy hh:mm'}}</td>
                     <td>{{volo.costo}}</td>
-                    <td><button class="btn btn-mini" ng-click="aggiungiPBaPV(volo)"><i class="icon-plus-sign"></i></button></td>
+                    <td><button class="btn btn-mini btn-success" ng-click="aggiungiPBaPV(volo)"><i class="icon-plus-sign icon-white"></i></button></td>
                 </tr>
             </tbody>
         </table>
