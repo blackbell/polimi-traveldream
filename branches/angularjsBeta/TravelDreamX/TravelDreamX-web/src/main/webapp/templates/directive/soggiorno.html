@@ -1,4 +1,4 @@
-<div class="thumbnail">
+<div class="thumbnail pointer" bs-modal="'templates/modal/dettaglioSoggiorno.html'">
     <img ng-src="{{soggiorno.albergo.urlFoto}}"/>
     <div class="caption">
         <div class="row intestazione">
@@ -6,8 +6,16 @@
             <i class="icon-star-empty pull-right" ng-repeat="n in []| range:(5 - soggiorno.albergo.stelle)"></i>
             <i class="icon-star pull-right" ng-repeat="n in []| range:soggiorno.albergo.stelle"></i>
         </div>
-        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-        <p><a href="#" class="btn btn-primary">Action</a> <a href="#" class="btn">Action</a></p>
+        <p class="pb-descrizione">
+            {{soggiorno.giornoInizio| date:'dd/MM/yyyy'}} - {{soggiorno.giornoFine| date:'dd/MM/yyyy'}}
+            <br/>
+            Citt&agrave;: {{soggiorno.albergo.citta}}
+        </p>
+        <legend class="pb-footer"></legend>
+        <p class="pb-descrizione">
+            <font size="5px">&euro;{{soggiorno.costo}}<font>
+            <button class="btn btn-primary btn-small pull-right">Dettagli</button>
+        </p>
     </div>
 </div>
 
