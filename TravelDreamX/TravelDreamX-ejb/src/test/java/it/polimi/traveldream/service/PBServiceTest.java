@@ -6,7 +6,9 @@
 
 package it.polimi.traveldream.service;
 
+import it.polimi.traveldream.model.Albergo;
 import it.polimi.traveldream.model.Rotta;
+import it.polimi.traveldream.model.Soggiorno;
 import it.polimi.traveldream.model.TipoPB;
 import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.model.Volo;
@@ -71,7 +73,7 @@ public class PBServiceTest {
         params.setTipo(TipoPB.Volo);
         params.setRotta(r);
         params.setData(v.getDataOra());
-        params.setNumPasseggeri(v.getNumPasseggeri());
+        params.setNumPersone(v.getNumPasseggeri());
 //        params.setCosto(v.getCosto());
         
         List<Voce> pbs = pbService.trovaPB(params);
@@ -156,14 +158,85 @@ public class PBServiceTest {
         
     }
     
-    @Test @Ignore
-    public void testRetrieveSoggiornoByAlbergo(){
+    @Test
+    public void testRetrieveSoggiornoByParams(){
+        System.out.println("testRetrieveSoggiornoByParams()");
+        Albergo a = new Albergo();
+        a.setCitta("Paperopoli");
+        a.setNome("Pensione deposito");
+        a.setUrlFoto("http://q-ec.bstatic.com/images/hotel/840x460/216/21693450.jpg");
+        a.setStelle(4);
+        edbService.salvaAlbergo(a);
         
+        Soggiorno s = new Soggiorno();
+        s.setAbilitato(true);
+        s.setAlbergo(a);
+        s.setCosto(240);
+        s.setGiornoInizio(new Date());
+        s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
+        s.setNumeroPersone(5);
+        pbService.saveSoggiorno(s);
+        
+        ParametriRicercaPB params = new ParametriRicercaPB();
+        params.setTipo(TipoPB.Soggiorno);
+        params.setAlbergo(a);
+        params.setData(s.getGiornoInizio());
+        params.setNumPersone(s.getNumeroPersone());
+        List<Voce> pbs = pbService.trovaPB(params);
+        assertTrue(pbs.contains(s));
     }
     
-    @Test @Ignore
-    public void testRetrieveSoggiornoByGiornoInizio(){
+    @Test 
+    public void testRetrieveSoggiornoByAlbergo(){
+        System.out.println("testRetrieveSoggiornoByParams()");
+        Albergo a = new Albergo();
+        a.setCitta("Paperopoli");
+        a.setNome("Pensione deposito");
+        a.setUrlFoto("http://q-ec.bstatic.com/images/hotel/840x460/216/21693450.jpg");
+        a.setStelle(4);
+        edbService.salvaAlbergo(a);
         
+        Soggiorno s = new Soggiorno();
+        s.setAbilitato(true);
+        s.setAlbergo(a);
+        s.setCosto(240);
+        s.setGiornoInizio(new Date());
+        s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
+        s.setNumeroPersone(5);
+        pbService.saveSoggiorno(s);
+        
+        ParametriRicercaPB params = new ParametriRicercaPB();
+        params.setTipo(TipoPB.Soggiorno);
+        params.setAlbergo(a);
+        
+        List<Voce> pbs = pbService.trovaPB(params);
+        assertTrue(pbs.contains(s));
+    }
+    
+    @Test 
+    public void testRetrieveSoggiornoByGiornoInizio(){
+        System.out.println("testRetrieveSoggiornoByParams()");
+        Albergo a = new Albergo();
+        a.setCitta("Paperopoli");
+        a.setNome("Pensione deposito");
+        a.setUrlFoto("http://q-ec.bstatic.com/images/hotel/840x460/216/21693450.jpg");
+        a.setStelle(4);
+        edbService.salvaAlbergo(a);
+        
+        Soggiorno s = new Soggiorno();
+        s.setAbilitato(true);
+        s.setAlbergo(a);
+        s.setCosto(240);
+        s.setGiornoInizio(new Date());
+        s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
+        s.setNumeroPersone(5);
+        pbService.saveSoggiorno(s);
+        
+        ParametriRicercaPB params = new ParametriRicercaPB();
+        params.setTipo(TipoPB.Soggiorno);
+        params.setData(s.getGiornoInizio());
+        List<Voce> pbs = pbService.trovaPB(params);
+        assertTrue(pbs.contains(s));
     }
     
     @Test @Ignore
@@ -171,9 +244,57 @@ public class PBServiceTest {
         
     }
      
-    @Test @Ignore
-    public void testRetrieveSoggiornoByNumeroPersone(){
+    @Test
+    public void testRetrieveSoggiornoByNumeroPersoneEcitta(){
+        System.out.println("testRetrieveSoggiornoByParams()");
+        Albergo a = new Albergo();
+        a.setCitta("Paperopoli");
+        a.setNome("Pensione deposito");
+        a.setUrlFoto("http://q-ec.bstatic.com/images/hotel/840x460/216/21693450.jpg");
+        a.setStelle(4);
+        edbService.salvaAlbergo(a);
         
+        Soggiorno s = new Soggiorno();
+        s.setAbilitato(true);
+        s.setAlbergo(a);
+        s.setCosto(240);
+        s.setGiornoInizio(new Date());
+        s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
+        s.setNumeroPersone(5);
+        pbService.saveSoggiorno(s);
+        
+        ParametriRicercaPB params = new ParametriRicercaPB();
+        params.setTipo(TipoPB.Soggiorno);
+        params.setNumPersone(s.getNumeroPersone());
+        params.setCitta(a.getCitta());
+        List<Voce> pbs = pbService.trovaPB(params);
+        assertTrue(pbs.contains(s));
+    }
+    
+    @Test
+    public void testRetrieveSoggiornoByCitta(){
+        System.out.println("testRetrieveSoggiornoByParams()");
+        Albergo a = new Albergo();
+        a.setCitta("Paperopoli");
+        a.setNome("Pensione deposito");
+        a.setUrlFoto("http://q-ec.bstatic.com/images/hotel/840x460/216/21693450.jpg");
+        a.setStelle(4);
+        edbService.salvaAlbergo(a);
+        
+        Soggiorno s = new Soggiorno();
+        s.setAbilitato(true);
+        s.setAlbergo(a);
+        s.setCosto(240);
+        s.setGiornoInizio(new Date());
+        s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
+        s.setNumeroPersone(5);
+        pbService.saveSoggiorno(s);
+        
+        ParametriRicercaPB params = new ParametriRicercaPB();
+        params.setTipo(TipoPB.Soggiorno);
+        params.setCitta(a.getCitta());
+        List<Voce> pbs = pbService.trovaPB(params);
+        assertTrue(pbs.contains(s));
     }
     
     @Test @Ignore
