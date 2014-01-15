@@ -2,9 +2,9 @@
     <div class="row">
         <div class="span2">
             <form name ='formRegistrazione' class="popover-content" ng-init="inizializzaUtente()">
-                    <input name="email" type="text" ng-model="utente.email" ng-required="true" ng-pattern='/^([_a-z0-9-])+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/' placeholder="Inserisci la tua email"></input>
+                    <input class="input-login-registr" name="email" type="text" ng-model="utente.email" ng-required="true" ng-pattern='/^([_a-z0-9-])+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/' placeholder="Inserisci la tua email"></input>
                     <br/>
-                    <input name="pwd" type="password" ng-model="utente.password" ng-required="true" ng-pattern="/^.{5,15}$/" placeholder="Inserisci la tua password"></input>
+                    <input class="input-login-registr" name="pwd" type="password" ng-model="utente.password" ng-required="true" ng-pattern="/^.{5,15}$/" placeholder="Inserisci la tua password"></input>
                     <br/>
                     <div class="row" ng-show="waiting">
                         Aspetta... &nbsp;&nbsp;<img src="img/loading.gif" width="20"/>
