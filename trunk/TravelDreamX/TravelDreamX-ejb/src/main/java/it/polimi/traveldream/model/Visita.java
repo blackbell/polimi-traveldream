@@ -74,7 +74,7 @@ public class Visita extends Voce implements Serializable {
     public void setDataOra(Date dataOra) {
         this.dataOra = dataOra;
     }
-
+    
     public int getNumeroPersone() {
         return numeroPersone;
     }
