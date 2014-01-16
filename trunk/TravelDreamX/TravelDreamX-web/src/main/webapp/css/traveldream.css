@@ -96,7 +96,7 @@ input[type="submit"].btn.btn-large {
         margin-left: 10px;
         margin-top: auto;
         margin-bottom: auto;
-        max-width: 141px;
+        max-width: 172px;
     }
 }
 @media (max-width: 1024px) {
@@ -105,7 +105,7 @@ input[type="submit"].btn.btn-large {
         margin-left: 10px;
         margin-top: -14px;
         margin-bottom: auto;
-        max-width: 121px;
+        max-width: 132px;
     }
 }
 @media (min-width: 1025px) {
