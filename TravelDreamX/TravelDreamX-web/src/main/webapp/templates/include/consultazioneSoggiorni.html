@@ -62,7 +62,7 @@
             </form>
         </div>
     </div>
-    <div class="row"><div class="span8"><button class="btn btn-block btn-primary" ng-init="trovaPB()" ng-click="trovaPB()">Cerca</button></div></div>
+    <div class="row"><div class="span8"><button class="btn btn-block btn-primary" ng-click="trovaPB()">Cerca</button></div></div>
 </div>
 <div class="row" ng-show="waiting">
     <div class="span9" >Sto cercando... &nbsp;&nbsp;
@@ -74,7 +74,7 @@
     <div class="span9">
         <legend>Risultati</legend>
         <ul class="thumbnails">
-            <li class="span3" ng-repeat="soggiorno in soggiorni">
+            <li class="span3" ng-repeat="soggiorno in PB.Soggiorno">
             <soggiorno soggiorno="soggiorno"/>
             </li>
         </ul>

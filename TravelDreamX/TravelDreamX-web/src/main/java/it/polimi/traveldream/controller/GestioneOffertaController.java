@@ -50,14 +50,14 @@ public class GestioneOffertaController {
         return e;
     }
     
-    @RequestMapping(value = "trovaPB", method = RequestMethod.GET)
+    @RequestMapping(value = "trovaPB", method = RequestMethod.POST)
     
-    //public @ResponseBody Esito trovaPB(@RequestBody ParametriRicercaPB params) {
-    public @ResponseBody Esito trovaPB() {
+    public @ResponseBody Esito trovaPB(@RequestBody ParametriRicercaPB params) {
+    //public @ResponseBody Esito trovaPB() {
         Esito e = new Esito();
         try{
-            ParametriRicercaPB params = new ParametriRicercaPB();
-            params.setTipo(TipoPB.Soggiorno);
+            //ParametriRicercaPB params = new ParametriRicercaPB();
+            //params.setTipo(TipoPB.Soggiorno);
             List<Voce> ret = pbService.trovaPB(params);
             e.setResult(true);
             e.setMessage(null);

@@ -3,8 +3,8 @@
  * proj codename: TravelDreamX
  */
 travelDreamApp.factory('searchService', function($http) {
-    var __trovaPB = function(callback){
-        $http({method: 'GET', url: 'trovaPB.json'}).
+    var __trovaPB = function( trovaPBParams, callback){
+        $http({method: 'POST', data:trovaPBParams, url: 'trovaPB.json'}).
                 success(function (data, status, headers, config){
                     callback(data);
                 }).

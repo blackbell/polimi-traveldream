@@ -31,7 +31,7 @@
             </form>
         </div>
     </div>
-    <div class="row"><div class="span8"><button class="btn btn-block btn-primary" ng-init="trovaPB()" ng-click="trovaPB()">Cerca</button></div></div>
+    <div class="row"><div class="span8"><button class="btn btn-block btn-primary" ng-click="trovaPB()">Cerca</button></div></div>
 </div>
 <div class="row" ng-show="waiting">
     <div class="span9">
@@ -55,7 +55,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="volo in voli">
+                <tr ng-repeat="volo in PB.Volo">
                     <td>{{volo.rotta.aeroportoPartenza}} <br/> {{volo.rotta.cittaPartenza}} ({{volo.rotta.nazionePartenza}}) </td>
                     <td>{{volo.rotta.aeroportoArrivo}} <br/> {{volo.rotta.cittaArrivo}} ({{volo.rotta.nazioneArrivo}}) </td>
                     <td>{{volo.rotta.compagniaAerea}}</td>
