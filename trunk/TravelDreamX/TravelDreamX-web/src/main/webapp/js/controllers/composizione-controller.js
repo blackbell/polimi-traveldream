@@ -6,7 +6,16 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     toastr.options = {
         positionClass: "toast-center"
     };
-    $scope.waiting = false;
+
+    $scope.inizializzaRicerca = function() {
+        $scope.PB = new Object();
+        $scope.trovaPBParams = {
+            tipo: ''
+        };
+        $scope.waiting = false;
+    };
+
+
     $scope.getPVdaRootScope = function() {
         if (typeof $rootScope.PV === 'undefined') {
             inizializzaPV();
@@ -45,6 +54,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     };
     $scope.seleziona = function(tipo, indice) {
         $scope.tipoVoceSelezionata = tipo;
+        $scope.trovaPBParams.tipo = tipo;
         $rootScope.indiceSelezionato = indice;
     };
 
@@ -104,9 +114,10 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     //***** RICERCA *****
     $scope.trovaPB = function() {
         $scope.waiting = true;
-        searchService.trovaPB(function(esito) {
+        searchService.trovaPB($scope.trovaPBParams, function(esito) {
             if (esito.result) {
-                $scope.voli = esito.returnedObj;
+                $scope.PB[$scope.trovaPBParams.tipo] = esito.returnedObj;
+//                $scope.voli = esito.returnedObj;
             } else
                 toastr.error(esito.message, "ERRORE:");
             $scope.waiting = false;
