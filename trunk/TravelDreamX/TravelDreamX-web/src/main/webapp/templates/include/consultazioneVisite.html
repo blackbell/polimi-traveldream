@@ -1,1 +1,66 @@
-VISITA
+<div class="well">
+    <div class="row">
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Nazione
+                </label>
+                <input type="text" class="span2"/>
+                <label class="control-label">
+                    Giorno
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="text" ng-model="datepickerDal.date" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
+                </div>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Citt&agrave;
+                </label>
+                <input type="text" class="span2"/>
+                <label class="control-label">
+                    Nome museo
+                </label>
+                <input type="text" class="span2"/>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Prezzo
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="number">
+                    <span class="btn add-on">&euro;</span>
+                </div>
+                <label class="control-label">
+                    Prezzo
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="number">
+                    <span class="btn add-on">&euro;</span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row"><div class="span8"><button class="btn btn-block btn-primary" ng-click="trovaPB()">Cerca</button></div></div>
+</div>
+<div class="row" ng-show="waiting">
+    <div class="span9" >Sto cercando... &nbsp;&nbsp;
+        <img src="img/loading.gif" width="20"/>
+        <br/><br/>
+    </div>
+</div>
+<div class="row">
+    <div class="span9">
+        <legend>Risultati</legend>
+        <ul class="thumbnails">
+            <li class="span3" ng-repeat="visita in PB.Visita">
+            <visita visita="visita"/>
+            </li>
+        </ul>
+    </div>
+</div>
