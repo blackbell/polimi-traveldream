@@ -11,7 +11,20 @@ travelDreamApp.factory('loginService', function($http) {
                 });
     };
     
+   
+    
+    var __logout = function(callback){
+        $http({method: 'GET', url: 'logout.json'}).
+                success(function (data, status, headers, config){
+                    callback(data);
+                }).
+                 error(function (data, status, headers, config){
+                    toastr.error("Errore " + status);
+                });
+    };
+    
     return {
-      login: __login  
+      login: __login,  
+      logout: __logout 
     };
 });

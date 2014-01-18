@@ -124,6 +124,10 @@ input[type="submit"].btn.btn-large {
         margin-left: 25px;
     }
 }
+.voce-badge {
+    max-width: 20px;
+    margin-left: 2px;
+}
 .close{
     opacity: 0.5;
 }
