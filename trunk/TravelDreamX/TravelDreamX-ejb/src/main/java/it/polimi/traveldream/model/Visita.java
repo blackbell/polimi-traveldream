@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package it.polimi.traveldream.model;
 
 import java.io.Serializable;
@@ -34,11 +33,17 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Visita.findAll", query = "SELECT v FROM Visita v"),
     @NamedQuery(name = "Visita.findByDataOra", query = "SELECT v FROM Visita v WHERE v.dataOra = :dataOra"),
     @NamedQuery(name = "Visita.findByNumeroPersone", query = "SELECT v FROM Visita v WHERE v.numeroPersone = :numeroPersone"),
-    @NamedQuery(name = "Visita.findByCosto", query = "SELECT v FROM Visita v WHERE v.costo = :costo")})
+    @NamedQuery(name = "Visita.findByCosto", query = "SELECT v FROM Visita v WHERE v.costo = :costo"),
+    @NamedQuery(name = "Visita.findByParams", query = "SELECT v FROM Museo m JOIN m.visiteCollection v WHERE "
+            + "(:citta IS NULL OR m.citta = :citta) AND "
+            + "(:museo IS NULL OR v.museo = :museo) AND "
+            + "(:numeroPersone IS NULL OR v.numeroPersone = :numeroPersone) AND "
+            + "(:data IS NULL OR v.dataOra > :data) "
+            + "")})
 public class Visita extends Voce implements Serializable {
-   
+
     private static final long serialVersionUID = 1L;
-    
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "dataOra")
@@ -59,7 +64,7 @@ public class Visita extends Voce implements Serializable {
     public Visita() {
         this.setTipo("Visita");
     }
-    
+
     public Visita(Date dataOra, int numeroPersone, float costo) {
         this();
         this.dataOra = dataOra;
@@ -74,7 +79,7 @@ public class Visita extends Voce implements Serializable {
     public void setDataOra(Date dataOra) {
         this.dataOra = dataOra;
     }
-    
+
     public int getNumeroPersone() {
         return numeroPersone;
     }
@@ -123,5 +128,5 @@ public class Visita extends Voce implements Serializable {
     public String toString() {
         return "it.polimi.traveldream.model.Visita[ idVoce = " + getIdVoce() + " ]";
     }
-    
+
 }

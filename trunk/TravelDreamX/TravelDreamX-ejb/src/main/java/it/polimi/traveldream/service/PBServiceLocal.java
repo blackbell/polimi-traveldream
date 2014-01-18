@@ -6,6 +6,7 @@
 package it.polimi.traveldream.service;
 
 import it.polimi.traveldream.model.Soggiorno;
+import it.polimi.traveldream.model.Visita;
 import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.model.Volo;
 import java.util.List;
@@ -24,4 +25,7 @@ public interface PBServiceLocal {
 
     public Soggiorno saveSoggiorno(Soggiorno s);
     public Soggiorno getSoggiornoByID(int id);
+    
+    public Visita saveVisita(Visita v);
+    public Visita getVisitaByID(int id);
 }

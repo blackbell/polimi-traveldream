@@ -6,7 +6,10 @@
 
 package it.polimi.traveldream.service;
 
+import it.polimi.traveldream.data.TestUtilities;
 import it.polimi.traveldream.model.Albergo;
+import it.polimi.traveldream.model.Museo;
+import it.polimi.traveldream.model.Visita;
 import it.polimi.traveldream.model.Rotta;
 import it.polimi.traveldream.model.Soggiorno;
 import it.polimi.traveldream.model.TipoPB;
@@ -164,7 +167,7 @@ public class PBServiceTest {
         Albergo a = new Albergo();
         a.setCitta("Paperopoli");
         a.setNome("Pensione deposito");
-        a.setUrlFoto("http://q-ec.bstatic.com/images/hotel/840x460/216/21693450.jpg");
+        a.setUrlFoto(TestUtilities.getRandomImageLink());
         a.setStelle(4);
         edbService.salvaAlbergo(a);
         
@@ -192,7 +195,7 @@ public class PBServiceTest {
         Albergo a = new Albergo();
         a.setCitta("Paperopoli");
         a.setNome("Pensione deposito");
-        a.setUrlFoto("http://q-ec.bstatic.com/images/hotel/840x460/216/21693450.jpg");
+        a.setUrlFoto(TestUtilities.getRandomImageLink());
         a.setStelle(4);
         edbService.salvaAlbergo(a);
         
@@ -219,7 +222,7 @@ public class PBServiceTest {
         Albergo a = new Albergo();
         a.setCitta("Paperopoli");
         a.setNome("Pensione deposito");
-        a.setUrlFoto("http://q-ec.bstatic.com/images/hotel/840x460/216/21693450.jpg");
+        a.setUrlFoto(TestUtilities.getRandomImageLink());
         a.setStelle(4);
         edbService.salvaAlbergo(a);
         
@@ -250,7 +253,7 @@ public class PBServiceTest {
         Albergo a = new Albergo();
         a.setCitta("Paperopoli");
         a.setNome("Pensione deposito");
-        a.setUrlFoto("http://q-ec.bstatic.com/images/hotel/840x460/216/21693450.jpg");
+        a.setUrlFoto(TestUtilities.getRandomImageLink());
         a.setStelle(4);
         edbService.salvaAlbergo(a);
         
@@ -277,7 +280,7 @@ public class PBServiceTest {
         Albergo a = new Albergo();
         a.setCitta("Paperopoli");
         a.setNome("Pensione deposito");
-        a.setUrlFoto("http://q-ec.bstatic.com/images/hotel/840x460/216/21693450.jpg");
+        a.setUrlFoto(TestUtilities.getRandomImageLink());
         a.setStelle(4);
         edbService.salvaAlbergo(a);
         
@@ -300,6 +303,35 @@ public class PBServiceTest {
     @Test @Ignore
     public void testRetrieveVisitaByMuseo(){
         
+    }
+    
+    @Test
+    public void testRetrieveVisitaByParams(){
+        System.out.println("testRetrieveVisitaByParams()");
+        Museo m = new Museo();
+        m.setNome("Louvre");
+        m.setCitta("Parigi");
+        m.setDescrizione("Museo bello. Molto bello.");
+        m.setUrlFoto(TestUtilities.getRandomImageLink());
+        edbService.salvaMuseo(m);
+        
+        Visita v = new Visita();
+        v.setAbilitato(true);
+        v.setMuseo(m);
+        v.setDataOra(new Date());
+        v.setNumeroPersone(4);
+        v.setCosto(15);
+        pbService.saveVisita(v);
+        
+        ParametriRicercaPB params = new ParametriRicercaPB();
+        params.setTipo(TipoPB.Visita);
+        params.setMuseo(m);
+        params.setData(v.getDataOra());
+        params.setNumPersone(v.getNumeroPersone());
+//        params.setCosto(v.getCosto());
+        
+        List<Voce> pbs = pbService.trovaPB(params);
+        assertTrue(pbs.contains(v));
     }
     
     @Test @Ignore

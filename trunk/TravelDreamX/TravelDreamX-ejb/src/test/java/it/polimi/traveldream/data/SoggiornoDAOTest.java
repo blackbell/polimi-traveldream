@@ -63,7 +63,7 @@ public class SoggiornoDAOTest extends DAOUnitTest{
         albergo.setNome("HOTEL PIPPO");
         albergo.setCitta("Milano");
         albergo.setStelle(3);
-        albergo.setUrlFoto("/");
+        albergo.setUrlFoto(TestUtilities.getRandomImageLink());
         Albergo a2 = albergoDAO.saveAndFlush(albergo);
         return a2;
     }
