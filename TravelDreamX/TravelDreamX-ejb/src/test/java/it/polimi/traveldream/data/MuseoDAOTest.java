@@ -32,7 +32,7 @@ public class MuseoDAOTest extends DAOUnitTest {
     public void retrieveMuseo(){
         Museo m = new Museo();
         m.setDescrizione("Il Museo Marino Marini attualmente è sede sia del Centro di Documentazione, inaugurato il 23 giugno 1979 nelle sale del Palazzo Comunale di Pistoia, che della Fondazione Marino Marini costituita a Pistoia in data 29 Novembre 1983 e riconosciuta con decreto prefettizio in data 27 Agosto 1985.");
-        m.setUrlFoto("http://www.fondazionemarinomarini.it/immagini/museo/museo-min.jpg");
+        m.setUrlFoto(TestUtilities.getRandomImageLink());
         m.setNome("Museo Marino Marini");
         m.setCitta("Pistoia");
         museoDAO.saveAndFlush(m);
@@ -45,7 +45,7 @@ public class MuseoDAOTest extends DAOUnitTest {
     public void retrieveMuseoByParams(){
         Museo m = new Museo();
         m.setDescrizione("Il Museo Marino Marini attualmente è sede sia del Centro di Documentazione, inaugurato il 23 giugno 1979 nelle sale del Palazzo Comunale di Pistoia, che della Fondazione Marino Marini costituita a Pistoia in data 29 Novembre 1983 e riconosciuta con decreto prefettizio in data 27 Agosto 1985.");
-        m.setUrlFoto("http://www.fondazionemarinomarini.it/immagini/museo/museo-min.jpg");
+        m.setUrlFoto(TestUtilities.getRandomImageLink());
         m.setNome("Museo Marino Marini");
         m.setCitta("Pistoia");
         museoDAO.saveAndFlush(m);
@@ -58,7 +58,7 @@ public class MuseoDAOTest extends DAOUnitTest {
         assertNotNull("Cannot inject museoDAO!",museoDAO);
         Museo m = new Museo();
         m.setDescrizione("Il Museo Marino Marini attualmente è sede sia del Centro di Documentazione, inaugurato il 23 giugno 1979 nelle sale del Palazzo Comunale di Pistoia, che della Fondazione Marino Marini costituita a Pistoia in data 29 Novembre 1983 e riconosciuta con decreto prefettizio in data 27 Agosto 1985.");
-        m.setUrlFoto("http://www.fondazionemarinomarini.it/immagini/museo/museo-min.jpg");
+        m.setUrlFoto(TestUtilities.getRandomImageLink());
         m.setNome("Museo Marino Marini");
         m.setCitta("Pistoia");
         Museo m2 = museoDAO.saveAndFlush(m);

@@ -1,8 +1,10 @@
 package it.polimi.traveldream.data;
 
 import it.polimi.traveldream.model.Albergo;
+import it.polimi.traveldream.model.Museo;
 import it.polimi.traveldream.model.Rotta;
 import it.polimi.traveldream.model.Soggiorno;
+import it.polimi.traveldream.model.Visita;
 import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.model.Volo;
 import java.util.Date;
@@ -29,6 +31,10 @@ public interface VoceDAO extends JpaRepository<Voce, Integer>{
                                        @Param("numPasseggeri") Integer numPasseggeri);
     public List<Soggiorno> findByParams(@Param("albergo") Albergo albergo,
                                        @Param("giornoInizio") Date giornoInizio,
+                                       @Param("citta") String citta,
+                                       @Param("numeroPersone") Integer numeroPersone);
+    public List<Visita> findByParams(@Param("museo") Museo museo,
+                                       @Param("data") Date data,
                                        @Param("citta") String citta,
                                        @Param("numeroPersone") Integer numeroPersone);
 }

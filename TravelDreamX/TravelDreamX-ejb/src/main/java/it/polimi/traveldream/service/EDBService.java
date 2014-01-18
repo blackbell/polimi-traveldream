@@ -6,6 +6,7 @@
 package it.polimi.traveldream.service;
 
 import it.polimi.traveldream.data.AlbergoDAO;
+import it.polimi.traveldream.data.MuseoDAO;
 import it.polimi.traveldream.data.RottaDAO;
 import it.polimi.traveldream.model.Albergo;
 import it.polimi.traveldream.model.EDB;
@@ -29,8 +30,8 @@ public class EDBService implements EDBServiceLocal {
     private RottaDAO rottaDAO;
     @Autowired
     private AlbergoDAO albergoDAO;
-//    @Autowired
-//    private MuseoDAO museoDAO;
+    @Autowired
+    private MuseoDAO museoDAO;
     
     @Override
     public List<EDB> trovaEntità(ParametriRicercaEDB param){
@@ -80,7 +81,7 @@ public class EDBService implements EDBServiceLocal {
 
     @Override
     public Museo salvaMuseo(Museo m) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return museoDAO.saveAndFlush(m);
     }
 
     @Override
@@ -95,7 +96,7 @@ public class EDBService implements EDBServiceLocal {
 
     @Override
     public Museo retrieveMuseoByID(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return museoDAO.findOne(id);
     }
 
     public RottaDAO getRottaDAO() {
@@ -114,13 +115,13 @@ public class EDBService implements EDBServiceLocal {
         this.albergoDAO = albergoDAO;
     }
 
-//    public MuseoDAO getMuseoDAO() {
-//        return museoDAO;
-//    }
-//
-//    public void setMuseoDAO(MuseoDAO museoDAO) {
-//        this.museoDAO = museoDAO;
-//    }
+    public MuseoDAO getMuseoDAO() {
+        return museoDAO;
+    }
+
+    public void setMuseoDAO(MuseoDAO museoDAO) {
+        this.museoDAO = museoDAO;
+    }
     
     
 

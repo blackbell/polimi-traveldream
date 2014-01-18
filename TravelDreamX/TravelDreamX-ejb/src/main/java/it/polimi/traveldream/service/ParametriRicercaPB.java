@@ -6,6 +6,7 @@
 package it.polimi.traveldream.service;
 
 import it.polimi.traveldream.model.Albergo;
+import it.polimi.traveldream.model.Museo;
 import it.polimi.traveldream.model.Rotta;
 import it.polimi.traveldream.model.TipoPB;
 import java.util.Date;
@@ -21,6 +22,15 @@ public class ParametriRicercaPB {
     private Integer numPersone;
     private Albergo albergo;
     private String citta;
+    private Museo museo;
+
+    public Museo getMuseo() {
+        return museo;
+    }
+
+    public void setMuseo(Museo museo) {
+        this.museo = museo;
+    }
 
     public String getCitta() {
         return citta;

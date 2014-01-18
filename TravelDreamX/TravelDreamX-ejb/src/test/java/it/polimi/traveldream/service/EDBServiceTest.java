@@ -5,6 +5,7 @@
 
 package it.polimi.traveldream.service;
 
+import it.polimi.traveldream.data.TestUtilities;
 import it.polimi.traveldream.model.Albergo;
 import it.polimi.traveldream.model.EDB;
 import it.polimi.traveldream.model.Rotta;
@@ -51,7 +52,7 @@ public class EDBServiceTest {
         a.setNome("Hotel Millefiori");
         a.setCitta("Londra");
         a.setStelle(3);
-        a.setUrlFoto("/");
+        a.setUrlFoto(TestUtilities.getRandomImageLink());
         System.out.println("testTrovaAlbergoByNome() -> a:" + ((Albergo)a).getNome() + "[" + a + "]");
 
         a = service.salvaAlbergo(a);
@@ -77,7 +78,7 @@ public class EDBServiceTest {
         a.setNome("Hotel Calandra");
         a.setCitta("Torino");
         a.setStelle(3);
-        a.setUrlFoto("/");
+        a.setUrlFoto(TestUtilities.getRandomImageLink());
         System.out.println("testTrovaAlbergoByCittà() -> a:" + ((Albergo)a).getNome() + "[" + a + "]");
 
         a = service.salvaAlbergo(a);
@@ -103,7 +104,7 @@ public class EDBServiceTest {
         a.setNome("Hotel Torre Eiffel");
         a.setCitta("Parigi");
         a.setStelle(4);
-        a.setUrlFoto("/");
+        a.setUrlFoto(TestUtilities.getRandomImageLink());
         System.out.println("testTrovaAlbergoByStelle() -> a:" + ((Albergo)a).getNome() + "[" + a + "]");
 
         a = service.salvaAlbergo(a);
