@@ -33,7 +33,6 @@ travelDreamApp.controller('autenticazioneController', function($scope, $location
                     //$location.path(result.newUrl);
                     //$scope.dismiss();
                     $scope.utente = esito.returnedObj;
-                    $scope.dismiss();
                     toastr.success("l'utente " + utente.email + " è ora loggato", "Login avvenuto con successo");
                 } else
                     toastr.error("Email " + utente.email + " o password " + utente.password + " errati.", "Login fallito");
@@ -45,8 +44,15 @@ travelDreamApp.controller('autenticazioneController', function($scope, $location
     };
 
     $scope.logout = function() {
-        delete($scope.utente);
-        toastr.success("Logout effettuato. DA SISTEMARE", "Arrivederci!");
+        loginService.logout( function(esito) {
+            if(esito.result){
+                delete($scope.utente);
+                toastr.success("Logout effettuato, arrivederci!", esito.message);
+            } else {
+                toastr.error(esito.message, "ERRORE");
+            }
+        });
+        
     };
 
     $scope.checkEmail = function(formEmail) {
@@ -67,6 +73,12 @@ travelDreamApp.controller('autenticazioneController', function($scope, $location
     };
     $scope.isLogged = function() {
         return typeof $scope.utente !== 'undefined';
+    };
+    $scope.isOperatore = function() {
+        return $scope.isLogged() && $scope.utente.livello === 1;
+    };
+    $scope.isAdmin = function() {
+        return $scope.isLogged() && $scope.utente.livello === 2;
     };
 });
 

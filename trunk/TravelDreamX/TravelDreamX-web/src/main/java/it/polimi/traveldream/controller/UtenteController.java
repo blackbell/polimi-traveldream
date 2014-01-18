@@ -80,7 +80,7 @@ public class UtenteController {
         return e;
     }
     
-    @RequestMapping(value = "logout", method = RequestMethod.POST)
+    @RequestMapping(value = "logout", method = RequestMethod.GET)
     public @ResponseBody Esito logout(HttpServletRequest req) {
         Esito e = new Esito();
         Utente utente = (Utente)req.getSession().getAttribute("TDX_CurrentUser");

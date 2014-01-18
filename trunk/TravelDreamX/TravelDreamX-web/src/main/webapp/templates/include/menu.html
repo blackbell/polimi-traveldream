@@ -17,9 +17,12 @@
                 <li role="presentation" ng-click="logout()"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
             </ul>              
         </li>    
+        
         <li class="pull-right"><a>&nbsp;</a></li><li class="pull-right"><a>&nbsp;</a></li><li class="pull-right"><a>&nbsp;</a></li>
-        <li ng-class="{active: getActive('/invita'), 'pull-right': pullRight}"><a href="#">Invita un amico</a></li>
-        <li ng-class="{active: getActive('/composizionePV'), 'pull-right': pullRight}"><a href="#/composizionePV">Crea viaggio</a></li>
-        <li ng-class="{active: getActive('/'), 'pull-right': pullRight}"><a href="#">Proposte viaggio</a></li>
+        <li ng-class="{active: getActive('/invita'), 'pull-right': true}"><a href="#">Invita un amico</a></li>
+        <li ng-class="{active: getActive('/composizionePV'), 'pull-right': true}"><a href="#/composizionePV">Crea viaggio</a></li>
+        <li ng-class="{active: getActive('/proposteViaggio'), 'pull-right': true}"><a href="#/proposteViaggio">Proposte viaggio</a></li>
+        <li ng-if='isOperatore()' ng-class="{active: getActive('/gestioneOfferta'), 'pull-right': true}"><a href="#">Gestione offerta</a></li>
+        <li ng-if='isAdmin()' ng-class="{active: getActive('/amministrazione'), 'pull-right': true}"><a href="#">Amministrazione</a></li>
     </ul>
 </div>

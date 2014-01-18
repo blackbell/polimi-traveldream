@@ -1,0 +1,19 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<div class="thumbnail pointer" bs-modal="'templates/modal/dettaglioPV.html'" ng-controller="proposteViaggioController">
+    <img ng-src="{{pv.urlFoto}}"/>
+    <div class="caption">
+        <div class="row intestazione">
+            <strong class="span2 zero-margin-left pull-left">{{pv.nome}}</strong>
+            <img ng-if="isPresente(pv, 'Visita')" src="img/Visita.png" class="pull-right voce-badge" bs-tooltip='tooltipVisita.title'/>
+            <img ng-if="isPresente(pv, 'Soggiorno')" src="img/Soggiorno.png" class="pull-right voce-badge" bs-tooltip='tooltipSoggiorno.title'/>
+            <img ng-if="isPresente(pv, 'Volo')" src="img/Volo.png" class="pull-right voce-badge" bs-tooltip='tooltipVolo.title'/>
+        </div>
+        <p class="pb-descrizione">
+            <font size="5px">&euro;{{calcolaPrezzo(pv)}}<font>
+            <button class="btn btn-primary btn-small pull-right">Dettagli</button>
+        </p>
+    </div>
+</div>
