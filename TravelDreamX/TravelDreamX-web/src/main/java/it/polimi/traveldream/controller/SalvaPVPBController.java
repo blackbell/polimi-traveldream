@@ -10,6 +10,7 @@ import it.polimi.traveldream.model.Pacchetto;
 import it.polimi.traveldream.service.EDBServiceLocal;
 import it.polimi.traveldream.service.PBServiceLocal;
 import it.polimi.traveldream.service.PVServiceLocal;
+import it.polimi.traveldream.service.ParametriRicercaPB;
 import javax.ejb.EJB;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,6 +39,22 @@ public class SalvaPVPBController {
         Esito e = new Esito();
         try{
             pv = pvService.salvaPV(pv);
+            e.setResult(true);
+            e.setMessage(null);
+            //e.setReturnedObj(ret);
+        }catch(Exception ex){
+            e.setResult(false);
+            e.setMessage(Esito.EXCEPTION_RAISED);
+            e.setReturnedObj(ex);
+        }
+        return e;
+    }
+    
+    @RequestMapping(value = "salvaPB", method = RequestMethod.POST)
+    public @ResponseBody Esito salvaPB(@RequestBody ParametriRicercaPB pb){
+        Esito e = new Esito();
+        try{
+            
             e.setResult(true);
             e.setMessage(null);
             //e.setReturnedObj(ret);
