@@ -17,6 +17,7 @@ import java.util.Date;
 import java.util.Random;
 import javax.naming.NamingException;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -53,7 +54,7 @@ public class PVServiceTest {
         if (!testSuite) EJBServiceTestSuite.tearDown();
     }
     
-    @Test
+    @Test @Ignore
     public void testAddVoloToPV(){
         Rotta r = new Rotta();
         r.setAeroportoPartenza("Aeroporto di Partenza");
@@ -83,6 +84,40 @@ public class PVServiceTest {
         p.setTipo(TipoPacchetto.PREDEFINITO);
         p.setVoci(new ArrayList<Voce>());
         pvService.addPBtoPV(v, p);
+    }
+    
+    @Test
+    public void testSalvaPV(){
+        Rotta r = new Rotta();
+        r.setAeroportoPartenza("Aeroporto di Partenza");
+        r.setAeroportoArrivo("Aeroporto di Arrivo");
+        r.setCittaPartenza("Citta di Partenza");
+        r.setCittaArrivo("Citta di Arrivo");
+        r.setNazionePartenza("Nazione di Partenza");
+        r.setNazioneArrivo("Nazione di Arrivo");
+        r.setCompagniaAerea("Aereo in compagnia");
+        r = edbService.salvaRotta(r);
+        
+        Volo v = new Volo();
+        v.setCosto(100f);
+        v.setRotta(r);
+        v.setDataOra(new Date());
+        v.setNumPasseggeri(3);
+        v.setAbilitato(true);
+        v = pbService.saveVolo(v);
+        v = pbService.getVoloByID(v.getIdVoce());
+        
+        Utente u = new Utente(rnd.nextInt() + "@ServiceTest.polimi.it","polimi");
+        u = utenteService.registrazione(u);
+        
+        Pacchetto p = new Pacchetto();
+        p.setProprietario(u);
+        p.setDataOraCreazione(new Date());
+        p.setTipo(TipoPacchetto.PREDEFINITO);
+        p.setVoci(new ArrayList<Voce>());
+        p.getVoci().add(v);
+        Pacchetto p2 = pvService.salvaPV(p);
+        assertEquals(p2,p);
     }
     
     @Test @Ignore
