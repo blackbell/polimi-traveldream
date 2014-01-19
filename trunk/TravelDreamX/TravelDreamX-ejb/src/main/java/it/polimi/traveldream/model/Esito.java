@@ -12,6 +12,7 @@ public class Esito {
     public static final String USER_SIGNIN_SUCCESSFUL = "USER_SIGNIN_SUCCESSFUL";
     public static final String EXCEPTION_RAISED = "EXCEPTION_RAISED";
     public static final String USER_LOGOUT_SUCCESS = "USER_LOGOUT_SUCCESS";
+    public static final String USER_NOT_LOGGED_IN = "USER_NOT_LOGGED_IN";
     private boolean result;
     private String message;
     private String newUrl;

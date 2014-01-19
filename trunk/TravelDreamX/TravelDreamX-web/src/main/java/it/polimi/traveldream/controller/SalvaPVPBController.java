@@ -7,11 +7,15 @@ package it.polimi.traveldream.controller;
 
 import it.polimi.traveldream.model.Esito;
 import it.polimi.traveldream.model.Pacchetto;
+import it.polimi.traveldream.model.TipoPacchetto;
+import it.polimi.traveldream.model.Utente;
 import it.polimi.traveldream.service.EDBServiceLocal;
 import it.polimi.traveldream.service.PBServiceLocal;
 import it.polimi.traveldream.service.PVServiceLocal;
 import it.polimi.traveldream.service.ParametriRicercaPB;
+import java.util.Date;
 import javax.ejb.EJB;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,12 +39,24 @@ public class SalvaPVPBController {
     PVServiceLocal pvService;
     
     @RequestMapping(value = "salvaPV", method = RequestMethod.POST)
-    public @ResponseBody Esito salvaPV(@RequestBody Pacchetto pv) {
+    public @ResponseBody Esito salvaPV(@RequestBody Pacchetto pv, HttpServletRequest req) {
         Esito e = new Esito();
         try{
-            pv = pvService.salvaPV(pv);
-            e.setResult(true);
-            e.setMessage(null);
+            Utente u = (Utente)req.getSession().getAttribute("TDX_CurrentUser");
+            if (u == null){
+                e.setResult(false);
+                e.setMessage(Esito.USER_NOT_LOGGED_IN);    
+            }else {
+                if (pv.getTipo() == TipoPacchetto.PREDEFINITO && u.getLivello() < 3){
+                    e.setResult(false);
+                    e.setMessage(Esito.USER_NOT_AUTHORIZED);
+                }else{
+                    pv.setProprietario(u);
+                    pv.setAbilitato(true);
+                    pv.setDataOraCreazione(new Date());
+                    pvService.salvaPV(pv);
+                }
+            }
             //e.setReturnedObj(ret);
         }catch(Exception ex){
             e.setResult(false);
@@ -54,7 +70,7 @@ public class SalvaPVPBController {
     public @ResponseBody Esito salvaPB(@RequestBody ParametriRicercaPB pb){
         Esito e = new Esito();
         try{
-            
+            pbService.salvaPB(pb);
             e.setResult(true);
             e.setMessage(null);
             //e.setReturnedObj(ret);
