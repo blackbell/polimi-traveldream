@@ -1,6 +1,6 @@
 'use strict';
 
-travelDreamApp.controller('autenticazioneController', function($scope, $location, registrazioneService, loginService) {
+travelDreamApp.controller('autenticazioneController', function($scope, $rootScope, registrazioneService, loginService) {
     toastr.options = {
         positionClass: "toast-center"
     };
@@ -30,9 +30,8 @@ travelDreamApp.controller('autenticazioneController', function($scope, $location
             loginService.login(utente, function(esito) {
                 console.log("Esito login: " + JSON.stringify(esito));
                 if (esito.result) {
-                    //$location.path(result.newUrl);
-                    //$scope.dismiss();
-                    $scope.utente = esito.returnedObj;
+                    $rootScope.utente = esito.returnedObj;
+                    $scope.utente = $rootScope.utente;
                     toastr.success("l'utente " + utente.email + " è ora loggato", "Login avvenuto con successo");
                 } else
                     toastr.error("Email " + utente.email + " o password " + utente.password + " errati.", "Login fallito");
@@ -72,13 +71,13 @@ travelDreamApp.controller('autenticazioneController', function($scope, $location
         ;
     };
     $scope.isLogged = function() {
-        return typeof $scope.utente !== 'undefined';
+        return typeof $rootScope.utente !== 'undefined';
     };
     $scope.isOperatore = function() {
-        return $scope.isLogged() && $scope.utente.livello === 1;
+        return $scope.isLogged() && $rootScope.utente.livello === 1;
     };
     $scope.isAdmin = function() {
-        return $scope.isLogged() && $scope.utente.livello === 2;
+        return $scope.isLogged() && $rootScope.utente.livello === 2;
     };
 });
 

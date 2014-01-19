@@ -4,9 +4,9 @@
  */
 'use strict';
 
-travelDreamApp.factory('registrazioneService', function($http) {
-    var __registrazione = function(utente, callback){
-        $http({method: 'POST', data:utente, url: 'registrazione.json'}).
+travelDreamApp.factory('salvaPVPBservice', function($http) {
+    var __salvaPV = function(PV, callback){
+        $http({method: 'POST', data:PV, url: 'salvaPV.json'}).
                 success(function (data, status, headers, config){
                     callback(data);
                 }).
@@ -16,6 +16,7 @@ travelDreamApp.factory('registrazioneService', function($http) {
     };
     
     return {
-      registrazione: __registrazione  
+      salvaPV: __salvaPV  
     };
 });
+

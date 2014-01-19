@@ -1,5 +1,5 @@
 'use strict';
-travelDreamApp.controller('composizioneController', function($scope, $rootScope, searchService) {
+travelDreamApp.controller('composizioneController', function($scope, $rootScope, searchService, salvaPVPBservice) {
     //****************************
     //***** Inizializzazione *****
     //****************************
@@ -20,7 +20,6 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         if (typeof $rootScope.PV === 'undefined') {
             inizializzaPV();
         }
-        ;
     };
     var inizializzaPV = function() {
         $rootScope.PV = {
@@ -150,4 +149,17 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         console.log($scope.numStelleVuote);
     };
     
+    //***** SALVATAGGIO *****
+    $scope.salvaPV = function (){
+        //$rootScope.PV.tipo ='PERSONALIZZATO';
+        $rootScope.PV.proprietario= $rootScope.utente;
+        $rootScope.PV.abilitato = true;
+        $rootScope.PV.dataOraCreazione = new Date();
+        salvaPVPBservice.salvaPV($rootScope.PV, function(esito) {
+            if (esito.result) {
+                toastr.success("Puoi consultare il PV salvato dal menu utente", esito.message);
+            } else
+                toastr.error(esito.message, "ERRORE:");
+        });
+    };
 });
