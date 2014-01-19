@@ -12,7 +12,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 /**
- *
+ * Classe che si interfaccia col database per il recupero delle entità Rotta.
  * @author Dario
  */
 @Repository

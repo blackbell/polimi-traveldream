@@ -2,7 +2,6 @@
  * Politecnico di Milano, Software Engineering 2 (autumn semester)
  * proj codename: TravelDreamX
  */
-
 package it.polimi.traveldream.service;
 
 import it.polimi.traveldream.data.PVDAO;
@@ -34,7 +33,27 @@ public class PVService implements PVServiceLocal {
     public Pacchetto salvaPV(Pacchetto pv) {
         return pvDAO.saveAndFlush(pv);
     }
+
+    @Override
+    public Pacchetto recuperaPB(Integer idPV) {
+        Pacchetto p = pvDAO.findOne(idPV);
+        return p;
+    }
     
-    
-    
+    @Override
+    public boolean attivaPV(Integer idPV) {
+        Pacchetto pv = pvDAO.findOne(idPV);
+        pv.setAbilitato(true);
+        pv = pvDAO.save(pv);
+        return pv.isAbilitato();
+    }
+
+    @Override
+    public boolean disattivaPV(Integer idPV) {
+        Pacchetto pv = pvDAO.findOne(idPV);
+        pv.setAbilitato(false);
+        pv = pvDAO.save(pv);
+        return pv.isAbilitato();
+    }
+
 }

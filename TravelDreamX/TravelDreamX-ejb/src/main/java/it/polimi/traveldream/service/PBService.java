@@ -124,4 +124,20 @@ public class PBService implements PBServiceLocal {
     public Visita getVisitaByID(int id) {
         return (Visita) voceDAO.findOne(id);
     }
+
+    @Override
+    public boolean attivaPB(Integer idPB) {
+        Voce v = voceDAO.findOne(idPB);
+        v.setAbilitato(true);
+        v = voceDAO.save(v);
+        return v.isAbilitato();
+    }
+    
+    @Override
+    public boolean disattivaPB(Integer idPB) {
+        Voce v = voceDAO.findOne(idPB);
+        v.setAbilitato(false);
+        v = voceDAO.save(v);
+        return v.isAbilitato();
+    }
 }

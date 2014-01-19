@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- *
+ * Classe che si interfaccia col database per il recupero delle entità Pagamento.
  * @author Dario
  */
 @Repository
