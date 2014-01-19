@@ -16,6 +16,7 @@ import it.polimi.traveldream.service.ParametriRicercaPB;
 import java.util.Date;
 import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,25 +40,17 @@ public class SalvaPVPBController {
     PVServiceLocal pvService;
     
     @RequestMapping(value = "salvaPV", method = RequestMethod.POST)
-    public @ResponseBody Esito salvaPV(@RequestBody Pacchetto pv, HttpServletRequest req) {
+    public @ResponseBody Esito salvaPV(@RequestBody Pacchetto pv, HttpServletRequest request) {
         Esito e = new Esito();
         try{
-            Utente u = (Utente)req.getSession().getAttribute("TDX_CurrentUser");
-            if (u == null){
-                e.setResult(false);
-                e.setMessage(Esito.USER_NOT_LOGGED_IN);    
-            }else {
-                if (pv.getTipo() == TipoPacchetto.PREDEFINITO && u.getLivello() < 3){
-                    e.setResult(false);
-                    e.setMessage(Esito.USER_NOT_AUTHORIZED);
-                }else{
-                    pv.setProprietario(u);
-                    pv.setAbilitato(true);
-                    pv.setDataOraCreazione(new Date());
-                    pvService.salvaPV(pv);
-                }
-            }
-            //e.setReturnedObj(ret);
+            pv.setProprietario((Utente) request.getSession().getAttribute("TDX_CurrentUser"));
+            pv.setAbilitato(Boolean.TRUE);
+            pv.setDataOraCreazione(new Date());
+            pv.setTipo(TipoPacchetto.PERSONALIZZATO);
+            pv = pvService.salvaPV(pv);
+            e.setResult(true);
+            e.setMessage(null);
+            //e.setReturnedObj(pv);
         }catch(Exception ex){
             e.setResult(false);
             e.setMessage(Esito.EXCEPTION_RAISED);
