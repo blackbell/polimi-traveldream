@@ -18,5 +18,9 @@ public interface PVServiceLocal {
     
     public Pacchetto addPBtoPV(Voce pb, Pacchetto pv);
 
+    public Pacchetto recuperaPB(Integer idPV);
     public Pacchetto salvaPV(Pacchetto pv);
+    
+    public boolean attivaPV(Integer idPV);
+    public boolean disattivaPV(Integer idPV);
 }

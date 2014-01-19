@@ -57,6 +57,9 @@ public class Pacchetto implements Serializable {
     @Column(name = "tipo")
     private TipoPacchetto tipo;
     
+    @NotNull
+    private Boolean abilitato;
+    
     @ManyToMany(fetch = FetchType.LAZY)//, cascade = CascadeType.PERSIST)
     @JoinTable(name = "composizione", joinColumns = {
         @JoinColumn(name = "idPacchetto", nullable = false, updatable = false) 
@@ -120,6 +123,14 @@ public class Pacchetto implements Serializable {
 
     public void setVoci(Collection<Voce> voci) {
         this.voci = voci;
+    }
+
+    public Boolean isAbilitato() {
+        return abilitato;
+    }
+
+    public void setAbilitato(Boolean abilitato) {
+        this.abilitato = abilitato;
     }
     
     @Override

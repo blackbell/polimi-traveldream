@@ -18,16 +18,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 /**
- *
+ * Classe che si interfaccia col database per il recupero delle entità di tipo Voce (Volo/Visita o Soggiorno).
  * @author rh0x
  */
 @Repository
 public interface VoceDAO extends JpaRepository<Voce, Integer>{
-    
-    @Deprecated
-    public List<Volo> findVoloByRotta(@Param("rotta") Rotta rotta);
-    @Deprecated
-    public List<Volo> findVoloByDataOra(@Param("dataOra") Date dataOra);
     
     public List<Volo> findByParams(@Param("rotta") Rotta rotta,
                                        @Param("dataOra") Date dataOra,

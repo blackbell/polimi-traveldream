@@ -7,10 +7,10 @@ package it.polimi.traveldream.controller;
 
 import it.polimi.traveldream.model.EDB;
 import it.polimi.traveldream.model.Esito;
-import it.polimi.traveldream.model.TipoPB;
 import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.service.EDBServiceLocal;
 import it.polimi.traveldream.service.PBServiceLocal;
+import it.polimi.traveldream.service.PVServiceLocal;
 import it.polimi.traveldream.service.ParametriRicercaEDB;
 import it.polimi.traveldream.service.ParametriRicercaPB;
 import java.util.List;
@@ -34,6 +34,9 @@ public class GestioneOffertaController {
     @EJB(mappedName = "java:global/TravelDreamX-ear/TravelDreamX-web-1.0/PBService")
     PBServiceLocal pbService;
     
+    @EJB(mappedName = "java:global/TravelDreamX-ear/TravelDreamX-web-1.0/PVService")
+    PVServiceLocal pvService;
+    
     @RequestMapping(value = "trovaEntita", method = RequestMethod.POST)
     public @ResponseBody Esito trovaEntità(@RequestBody ParametriRicercaEDB param) {
         Esito e = new Esito();
@@ -51,17 +54,77 @@ public class GestioneOffertaController {
     }
     
     @RequestMapping(value = "trovaPB", method = RequestMethod.POST)
-    
     public @ResponseBody Esito trovaPB(@RequestBody ParametriRicercaPB params) {
-    //public @ResponseBody Esito trovaPB() {
         Esito e = new Esito();
         try{
-            //ParametriRicercaPB params = new ParametriRicercaPB();
-            //params.setTipo(TipoPB.Soggiorno);
             List<Voce> ret = pbService.trovaPB(params);
             e.setResult(true);
             e.setMessage(null);
             e.setReturnedObj(ret);
+        }catch(Exception ex){
+            e.setResult(false);
+            e.setMessage(Esito.EXCEPTION_RAISED);
+            e.setReturnedObj(ex.getMessage());
+        }
+        return e;
+    }
+    
+    @RequestMapping(value = "attivaPB", method = RequestMethod.POST)
+    public @ResponseBody Esito attivaPB(@RequestBody Integer idPB) {
+        Esito e = new Esito();
+        try{
+            boolean newState = pbService.attivaPB(idPB);
+            e.setResult(true);
+            e.setMessage(null);
+            e.setReturnedObj(newState);
+        }catch(Exception ex){
+            e.setResult(false);
+            e.setMessage(Esito.EXCEPTION_RAISED);
+            e.setReturnedObj(ex.getMessage());
+        }
+        return e;
+    }
+    
+    @RequestMapping(value = "disattivaPB", method = RequestMethod.POST)
+    public @ResponseBody Esito disattivaPB(@RequestBody Integer idPB) {
+        Esito e = new Esito();
+        try{
+            boolean newState = pbService.disattivaPB(idPB);
+            e.setResult(true);
+            e.setMessage(null);
+            e.setReturnedObj(newState);
+        }catch(Exception ex){
+            e.setResult(false);
+            e.setMessage(Esito.EXCEPTION_RAISED);
+            e.setReturnedObj(ex.getMessage());
+        }
+        return e;
+    }
+    
+    @RequestMapping(value = "attivaPV", method = RequestMethod.POST)
+    public @ResponseBody Esito attivaPV(@RequestBody Integer idPV) {
+        Esito e = new Esito();
+        try{
+            boolean newState = pvService.attivaPV(idPV);
+            e.setResult(true);
+            e.setMessage(null);
+            e.setReturnedObj(newState);
+        }catch(Exception ex){
+            e.setResult(false);
+            e.setMessage(Esito.EXCEPTION_RAISED);
+            e.setReturnedObj(ex.getMessage());
+        }
+        return e;
+    }
+    
+    @RequestMapping(value = "disattivaPV", method = RequestMethod.POST)
+    public @ResponseBody Esito disattivaPV(@RequestBody Integer idPV) {
+        Esito e = new Esito();
+        try{
+            boolean newState = pvService.disattivaPV(idPV);
+            e.setResult(true);
+            e.setMessage(null);
+            e.setReturnedObj(newState);
         }catch(Exception ex){
             e.setResult(false);
             e.setMessage(Esito.EXCEPTION_RAISED);

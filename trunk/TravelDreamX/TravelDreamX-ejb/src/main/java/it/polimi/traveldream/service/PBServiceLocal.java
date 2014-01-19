@@ -28,4 +28,7 @@ public interface PBServiceLocal {
     
     public Visita saveVisita(Visita v);
     public Visita getVisitaByID(int id);
+    
+    public boolean attivaPB(Integer idPB);
+    public boolean disattivaPB(Integer idPB);
 }
