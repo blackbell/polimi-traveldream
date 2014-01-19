@@ -23,6 +23,24 @@ public class ParametriRicercaPB {
     private Albergo albergo;
     private String citta;
     private Museo museo;
+    private Date dataOra;
+    private Date dataOraFine;
+
+    public Date getDataOra() {
+        return dataOra;
+    }
+
+    public void setDataOra(Date dataOra) {
+        this.dataOra = dataOra;
+    }
+
+    public Date getDataOraFine() {
+        return dataOraFine;
+    }
+
+    public void setDataOraFine(Date dataOraFine) {
+        this.dataOraFine = dataOraFine;
+    }
 
     public Museo getMuseo() {
         return museo;

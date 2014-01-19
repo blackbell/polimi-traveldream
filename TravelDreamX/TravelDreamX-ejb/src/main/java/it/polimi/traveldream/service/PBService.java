@@ -53,6 +53,44 @@ public class PBService implements PBServiceLocal {
     }
 
     @Override
+    public Voce salvaPB(ParametriRicercaPB params) {
+        Voce ret = null;
+        System.out.println("PBService.salvaPB");
+        System.out.println("PBService.salvaPB -> params.tipo: " + params.getTipo());
+        switch(params.getTipo()){
+            case Volo:
+                Volo v = new Volo();
+                v.setAbilitato(true);
+                v.setRotta(params.getRotta());
+                v.setCosto(params.getCosto());
+                v.setNumPasseggeri(params.getNumPersone());
+                v.setDataOra(params.getDataOra());
+                ret = voceDAO.saveAndFlush(v);
+                break;
+            case Soggiorno:
+                Soggiorno s = new Soggiorno();
+                s.setAbilitato(true);
+                s.setAlbergo(params.getAlbergo());
+                s.setCosto(params.getCosto());
+                s.setGiornoInizio(params.getData());
+                s.setGiornoFine(params.getDataOraFine());
+                s.setNumeroPersone(params.getNumPersone());
+                ret = voceDAO.saveAndFlush(s);
+                break;
+            case Visita:
+                Visita m = new Visita();
+                m.setAbilitato(true);
+                m.setMuseo(params.getMuseo());
+                m.setNumeroPersone(params.getNumPersone());
+                m.setDataOra(params.getDataOra());
+                m.setCosto(params.getCosto());
+                ret = voceDAO.saveAndFlush(m);
+                break;
+        }
+        return ret;
+    }
+    
+    @Override
     public List<Voce> trovaPB(ParametriRicercaPB params) {
         System.out.println("PBService.trovaPB");
         List<Voce> ret = null;

@@ -19,6 +19,7 @@ import javax.ejb.Local;
 @Local
 public interface PBServiceLocal {
     public List<Voce> trovaPB(ParametriRicercaPB params);
+    public Voce salvaPB(ParametriRicercaPB params);
     
     public Volo saveVolo(Volo v);
     public Volo getVoloByID(int id);
