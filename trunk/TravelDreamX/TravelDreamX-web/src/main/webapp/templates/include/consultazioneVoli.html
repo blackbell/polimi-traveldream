@@ -18,16 +18,28 @@
                     Giorno
                 </label>
                 <div class="input-append">
-                    <input class="input-small" type="text" ng-model="datepicker.date" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <input class="input-small" type="text" ng-model="parametriRicercaPB.dataOra" data-date-format="dd/mm/yyyy" bs-datepicker>
                     <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
                 </div>
                 <label class="control-label">
-                    Prezzo
+                    Costo
                 </label>
                 <div class="input-append">
-                    <input class="input-small" type="number">
+                    <input class="input-small" type="number" ng-model="parametriRicercaPB.costo">
                     <span class="btn add-on">€</span>
                 </div>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Numero passeggeri
+                </label>
+                <input type="number" class="span2" ng-model="parametriRicercaPB.numPersone"/>
+                <label class="control-label">
+                    Città arrivo
+                </label>
+                <input type="text" class="span2"/>
             </form>
         </div>
     </div>
@@ -39,7 +51,7 @@
         <br/><br/>
     </div>
 </div>
-<div class="row">
+<div class="row" ng-if="PB.Volo !== 'undefined'">
     <div class="span9">
         <br/>
         <table class="table table-condensed table-hover table-striped">
