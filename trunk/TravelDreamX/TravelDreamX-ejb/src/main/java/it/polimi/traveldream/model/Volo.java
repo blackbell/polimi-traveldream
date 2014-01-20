@@ -20,6 +20,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.codehaus.jackson.annotate.JsonTypeName;
 
 /**
  *
@@ -41,7 +42,7 @@ import javax.xml.bind.annotation.XmlRootElement;
                                                     + "(:dataOra IS NULL OR v.dataOra > :dataOra) "
                                                     + "")
 })
-
+@JsonTypeName("Volo")
 public class Volo extends Voce implements Serializable {
   
     private static final long serialVersionUID = 1L;

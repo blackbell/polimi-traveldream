@@ -19,11 +19,13 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.codehaus.jackson.annotate.JsonTypeName;
 
 /**
  *
  * @author Dario
  */
+
 @Entity
 @DiscriminatorValue("soggiorno")
 @Table(name = "soggiorni")
@@ -40,6 +42,7 @@ import javax.xml.bind.annotation.XmlRootElement;
             + "(:numeroPersone IS NULL OR s.numeroPersone = :numeroPersone) AND "
             + "(:giornoInizio IS NULL OR s.giornoInizio > :giornoInizio) ")
 })
+@JsonTypeName("Soggiorno")
 public class Soggiorno extends Voce implements Serializable {
 
     private static final long serialVersionUID = 1L;

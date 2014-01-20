@@ -19,6 +19,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.codehaus.jackson.annotate.JsonTypeName;
 
 /**
  *
@@ -39,6 +40,7 @@ import javax.xml.bind.annotation.XmlRootElement;
             + "(:numeroPersone IS NULL OR v.numeroPersone = :numeroPersone) AND "
             + "(:data IS NULL OR v.dataOra > :data) "
             + "")})
+@JsonTypeName("Visita")
 public class Visita extends Voce implements Serializable {
 
     private static final long serialVersionUID = 1L;
