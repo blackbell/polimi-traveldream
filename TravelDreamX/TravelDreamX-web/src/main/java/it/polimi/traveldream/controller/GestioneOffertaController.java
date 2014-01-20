@@ -10,12 +10,10 @@ import it.polimi.traveldream.model.EDB;
 import it.polimi.traveldream.model.Esito;
 import it.polimi.traveldream.model.Museo;
 import it.polimi.traveldream.model.Rotta;
-import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.service.EDBServiceLocal;
 import it.polimi.traveldream.service.PBServiceLocal;
 import it.polimi.traveldream.service.PVServiceLocal;
 import it.polimi.traveldream.service.ParametriRicercaEDB;
-import it.polimi.traveldream.service.ParametriRicercaPB;
 import java.util.List;
 import javax.ejb.EJB;
 import org.springframework.stereotype.Controller;
@@ -45,22 +43,6 @@ public class GestioneOffertaController {
         Esito e = new Esito();
         try{
             List<EDB> ret = edbService.trovaEntità(param);
-            e.setResult(true);
-            e.setMessage(null);
-            e.setReturnedObj(ret);
-        }catch(Exception ex){
-            e.setResult(false);
-            e.setMessage(Esito.EXCEPTION_RAISED);
-            e.setReturnedObj(ex.getMessage());
-        }
-        return e;
-    }
-    
-    @RequestMapping(value = "trovaPB", method = RequestMethod.POST)
-    public @ResponseBody Esito trovaPB(@RequestBody ParametriRicercaPB params) {
-        Esito e = new Esito();
-        try{
-            List<Voce> ret = pbService.trovaPB(params);
             e.setResult(true);
             e.setMessage(null);
             e.setReturnedObj(ret);

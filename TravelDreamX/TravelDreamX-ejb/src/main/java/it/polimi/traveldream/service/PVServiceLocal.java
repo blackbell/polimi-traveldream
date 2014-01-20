@@ -7,6 +7,7 @@ package it.polimi.traveldream.service;
 
 import it.polimi.traveldream.model.Pacchetto;
 import it.polimi.traveldream.model.Voce;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -18,7 +19,9 @@ public interface PVServiceLocal {
     
     public Pacchetto addPBtoPV(Voce pb, Pacchetto pv);
 
-    public Pacchetto recuperaPB(Integer idPV);
+    public List<Pacchetto> trovaPB(ParametriRicercaPV params);
+    
+    public Pacchetto recuperaPV(Integer idPV);
     public Pacchetto salvaPV(Pacchetto pv);
     
     public boolean attivaPV(Integer idPV);
