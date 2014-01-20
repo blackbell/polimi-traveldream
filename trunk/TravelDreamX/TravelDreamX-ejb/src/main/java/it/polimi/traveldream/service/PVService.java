@@ -8,6 +8,7 @@ import it.polimi.traveldream.data.PVDAO;
 import it.polimi.traveldream.data.VoceDAO;
 import it.polimi.traveldream.model.Pacchetto;
 import it.polimi.traveldream.model.Voce;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class PVService implements PVServiceLocal {
     }
 
     @Override
-    public Pacchetto recuperaPB(Integer idPV) {
+    public Pacchetto recuperaPV(Integer idPV) {
         Pacchetto p = pvDAO.findOne(idPV);
         return p;
     }
@@ -60,6 +61,11 @@ public class PVService implements PVServiceLocal {
         pv.setAbilitato(false);
         pv = pvDAO.save(pv);
         return pv.isAbilitato();
+    }
+
+    @Override
+    public List<Pacchetto> trovaPB(ParametriRicercaPV params) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
