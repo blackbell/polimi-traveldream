@@ -47,6 +47,7 @@ travelDreamApp.controller('autenticazioneController', function($scope, $rootScop
         loginService.logout( function(esito) {
             if(esito.result){
                 delete($scope.utente);
+                delete($rootScope.utente);
                 toastr.success("Logout effettuato, arrivederci!", esito.message);
             } else {
                 toastr.error(esito.message, "ERRORE");
@@ -54,7 +55,8 @@ travelDreamApp.controller('autenticazioneController', function($scope, $rootScop
         });
         
     };
-
+    
+    
     $scope.checkEmail = function(formEmail) {
         if (formEmail.$valid) {
             toastr.success("Il campo è stato compilato correttamente", "OK");
