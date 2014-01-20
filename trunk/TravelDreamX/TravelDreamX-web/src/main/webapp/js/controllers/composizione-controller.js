@@ -198,7 +198,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
                         scope: $scope
                     };
                     $scope.popUpModal(modalShare);
-
+                    
                     toastr.success("Puoi consultare il PV salvato dal menu utente", esito.message);
                 } else
                     toastr.error(esito.message, "ERRORE:");
