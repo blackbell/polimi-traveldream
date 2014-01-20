@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author Dario
  */
 @Controller
-public class SalvaPVPBController {
+public class SalvataggioPVPBController {
 
     @EJB(mappedName = "java:global/TravelDreamX-ear/TravelDreamX-web-1.0/EDBService")
     EDBServiceLocal edbService;

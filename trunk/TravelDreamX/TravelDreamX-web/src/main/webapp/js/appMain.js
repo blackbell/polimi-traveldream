@@ -1,5 +1,4 @@
 'use strict';
-
 var travelDreamApp = angular.module('travelDreamApp', ['ngRoute', '$strap.directives'])
         .config(function($routeProvider) {
             $routeProvider.
