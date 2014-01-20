@@ -5,8 +5,11 @@
 
 package it.polimi.traveldream.controller;
 
+import it.polimi.traveldream.model.Albergo;
 import it.polimi.traveldream.model.EDB;
 import it.polimi.traveldream.model.Esito;
+import it.polimi.traveldream.model.Museo;
+import it.polimi.traveldream.model.Rotta;
 import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.service.EDBServiceLocal;
 import it.polimi.traveldream.service.PBServiceLocal;
@@ -93,6 +96,54 @@ public class GestioneOffertaController {
             e.setResult(true);
             e.setMessage(null);
             e.setReturnedObj(newState);
+        }catch(Exception ex){
+            e.setResult(false);
+            e.setMessage(Esito.EXCEPTION_RAISED);
+            e.setReturnedObj(ex.getMessage());
+        }
+        return e;
+    }
+    
+    @RequestMapping(value="salvaRotta", method = RequestMethod.POST)
+    public @ResponseBody Esito salvaRotta(@RequestBody Rotta r) {
+        Esito e = new Esito();
+        try{
+            r = edbService.salvaRotta(r);
+            e.setResult(r != null);
+            e.setMessage(null);
+            e.setReturnedObj(r);
+        }catch(Exception ex){
+            e.setResult(false);
+            e.setMessage(Esito.EXCEPTION_RAISED);
+            e.setReturnedObj(ex.getMessage());
+        }
+        return e;
+    }
+    
+    @RequestMapping(value="salvaAlbergo", method = RequestMethod.POST)
+    public @ResponseBody Esito salvaAlbergo(@RequestBody Albergo a) {
+        Esito e = new Esito();
+        try{
+            a = edbService.salvaAlbergo(a);
+            e.setResult(a != null);
+            e.setMessage(null);
+            e.setReturnedObj(a);
+        }catch(Exception ex){
+            e.setResult(false);
+            e.setMessage(Esito.EXCEPTION_RAISED);
+            e.setReturnedObj(ex.getMessage());
+        }
+        return e;
+    }
+    
+    @RequestMapping(value="salvaMuseo", method = RequestMethod.POST)
+    public @ResponseBody Esito salvaMuseo(@RequestBody Museo m) {
+        Esito e = new Esito();
+        try{
+            m = edbService.salvaMuseo(m);
+            e.setResult(m != null);
+            e.setMessage(null);
+            e.setReturnedObj(m);
         }catch(Exception ex){
             e.setResult(false);
             e.setMessage(Esito.EXCEPTION_RAISED);
