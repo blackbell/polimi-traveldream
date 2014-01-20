@@ -23,10 +23,18 @@ proj codename: TravelDreamX
                         <img class="img-polaroid" ng-src="{{pv.voci[indexSoggiorno].albergo.urlFoto}}" ng-if="isPresente(pv, 'Soggiorno')"/>
                     </div>
                     <div class="span4">
-                        <div class="well well-small">
-                            <img src="img/Volo.png" width="40"/>Andata:
+                        <div class="well well-small well-dettaglio-PV">
+                            <img class="pull-left" src="img/Volo.png" width="40"/>
+                            <div class="span3">Andata:<br/>Ritorno:</div>
                         </div>
-                        <button class="btn span2 btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Acquista</button> <br/>
+                        <div class="well well-small well-dettaglio-PV">
+                            <img class="pull-left" src="img/Visita.png" width="40"/>
+                            <div class="span3">Nome:<br/>Data:</div>
+                        </div>
+                        <div class="span1">solo &euro; </div>
+                        <div class="span2">
+                            <button class="btn span2 btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Acquista</button> <br/>
+                        </div>
                         <button class="btn btn-link" ng-click="fwdToComposizione(pv)">oppure personalizza il pacchetto</button>
                     </div>
                 </div>
@@ -41,7 +49,7 @@ proj codename: TravelDreamX
                             <span ng-if="pv.voci[indexSoggiorno].numeroPersone === 2">Camera doppia</span>
                             <span ng-if="pv.voci[indexSoggiorno].numeroPersone === 3">Camera tripla</span>
                             <span ng-if="pv.voci[indexSoggiorno].numeroPersone === 4">Camera quadrupla</span></strong>&nbsp;
-                            Costo: <strong>&euro; {{pv.voci[indexSoggiorno].costo}}</strong>
+                        Costo: <strong>&euro; {{pv.voci[indexSoggiorno].costo}}</strong>
                     </div>
                 </div>
                 <br/>
@@ -57,7 +65,7 @@ proj codename: TravelDreamX
                     <button class="btn" ng-click="dismiss()">Close</button>
                     <button class="btn" ng-click="fwdToComposizione(pv)"><i class="icon-edit"></i> Personalizza pacchetto</button>
                     <button class="btn btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Acquista</button>
-               </div>
+                </div>
             </div>
         </div>
     </div>

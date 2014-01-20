@@ -196,6 +196,9 @@ ul{
 .lead{
     margin-bottom: 0px !important;
 }
+.well-dettaglio-PV{
+    padding-bottom: 29px !important;
+}
 .justify{
     text-align:justify;
     text-justify:inter-word;
