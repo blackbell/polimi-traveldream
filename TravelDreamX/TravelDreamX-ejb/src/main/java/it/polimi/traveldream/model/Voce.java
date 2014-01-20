@@ -24,11 +24,19 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonSubTypes;
+import org.codehaus.jackson.annotate.JsonSubTypes.Type;
+import org.codehaus.jackson.annotate.JsonTypeInfo;
+import org.codehaus.jackson.map.annotate.JsonTypeResolver;
 
 /**
  *
  * @author Dario
  */
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "tipo" )
+@JsonSubTypes({  
+    @Type(value = Volo.class, name = "Volo"),  
+    @Type(value = Soggiorno.class, name = "Soggiorno") })
 @Entity
 @Table(name = "voci")
 @Inheritance(strategy=InheritanceType.JOINED)
