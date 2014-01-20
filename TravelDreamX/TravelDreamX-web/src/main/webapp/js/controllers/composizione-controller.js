@@ -181,7 +181,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
             salvaPVPBservice.salvaPV(escludiVociVuote(PVdaSalvare), function(esito) {
                 if (esito.result) {
                     console.log(esito.returnedObj);
-                    $scope.returnedShareLink = "http://http://localhost:8888/TravelDreamX-web/sharedPVid:" + esito.returnedObj.idPacchetto;
+                    $scope.returnedShareLink = "http://localhost:8888/TravelDreamX-web/sharedPVid:" + esito.returnedObj.idPacchetto;
                     var modalShare = {
                         template: 'templates/modal/condivisione.html',
                         show: true,

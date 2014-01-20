@@ -105,7 +105,10 @@ input[type="submit"].btn.btn-large {
         margin-left: 10px;
         margin-top: -14px;
         margin-bottom: auto;
-        max-width: 132px;
+        max-width: 75px; /* era 132px;*/
+    }
+    .voce-item strong{
+        
     }
 }
 @media (min-width: 1025px) {
@@ -133,6 +136,8 @@ input[type="submit"].btn.btn-large {
 }
 .close:hover {
     opacity: 1;
+    border-radius: 10px;
+    background-color: #dadada;
 }
 .voce-close {
     float: left;
