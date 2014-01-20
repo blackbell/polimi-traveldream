@@ -9,10 +9,19 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
 
     $scope.inizializzaRicerca = function() {
         $scope.PB = new Object();
-        $scope.trovaPBParams = {
-            tipo: ''
-        };
         $scope.waiting = false;
+        $scope.parametriRicercaPB = {
+           // disabilitatiInclusi: false,
+            tipo: new String(), 
+           // rotta: {}, 
+            costo: '',
+           // numPersone: new String(), 
+           // albergo: new Object(), 
+           // citta: new String(), 
+            //museo: new Object()
+              dataOra: new Date() 
+  //          dataOraFine: new Date() 
+        };        
     };
 
 
@@ -53,7 +62,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     };
     $scope.seleziona = function(tipo, indice) {
         $scope.tipoVoceSelezionata = tipo;
-        $scope.trovaPBParams.tipo = tipo;
+        $scope.parametriRicercaPB.tipo = tipo;
         $rootScope.indiceSelezionato = indice;
     };
 
@@ -117,9 +126,9 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     //***** RICERCA *****
     $scope.trovaPB = function() {
         $scope.waiting = true;
-        searchService.trovaPB($scope.trovaPBParams, function(esito) {
+        searchService.trovaPB($scope.parametriRicercaPB, function(esito) {
             if (esito.result) {
-                $scope.PB[$scope.trovaPBParams.tipo] = esito.returnedObj;
+                $scope.PB[$scope.parametriRicercaPB.tipo] = esito.returnedObj;
 //                $scope.voli = esito.returnedObj;
             } else
                 toastr.error(esito.message, "ERRORE:");
