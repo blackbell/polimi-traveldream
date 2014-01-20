@@ -151,12 +151,13 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     
     //***** SALVATAGGIO *****
     $scope.salvaPV = function (){
-        //$rootScope.PV.tipo ='PERSONALIZZATO';
-        $rootScope.PV.proprietario= $rootScope.utente;
-        $rootScope.PV.abilitato = true;
-        $rootScope.PV.dataOraCreazione = new Date();
+//        $rootScope.PV.tipo ='PERSONALIZZATO';
+//        $rootScope.PV.proprietario= $rootScope.utente;
+//        $rootScope.PV.abilitato = true;
+//        $rootScope.PV.dataOraCreazione = new Date();
         salvaPVPBservice.salvaPV($rootScope.PV, function(esito) {
             if (esito.result) {
+                console.log(esito.returnedObj);
                 toastr.success("Puoi consultare il PV salvato dal menu utente", esito.message);
             } else
                 toastr.error(esito.message, "ERRORE:");

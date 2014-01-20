@@ -50,7 +50,7 @@ public class SalvaPVPBController {
             pv = pvService.salvaPV(pv);
             e.setResult(true);
             e.setMessage(null);
-            //e.setReturnedObj(pv);
+            e.setReturnedObj(pv);
         }catch(Exception ex){
             e.setResult(false);
             e.setMessage(Esito.EXCEPTION_RAISED);
