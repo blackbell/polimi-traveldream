@@ -1,5 +1,5 @@
 'use strict';
-travelDreamApp.controller('composizioneController', function($scope, $rootScope, searchService, salvaPVPBservice) {
+travelDreamApp.controller('composizioneController', function($scope, $rootScope, $modal, searchService, salvaPVPBservice) {
     //****************************
     //***** Inizializzazione *****
     //****************************
@@ -87,12 +87,16 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     //**************************************        
     //***** Lista voci - GESTIONE VOCI *****
     //**************************************        
+    $scope.popUpModal = function(modal) {
+        // do something
+        $modal(modal);
+    };
 
     $scope.eliminaVoce = function(indice) {
         if (indice > -1) {
             $scope.deseleziona(indice);
-            toastr.success("Hai eliminato la voce: " + $rootScope.PV.voci[indice].tipo + ".");
             $rootScope.PV.voci.splice(indice, 1);
+            toastr.success("Hai eliminato la voce: " + $rootScope.PV.voci[indice].tipo + ".");
         }
     };
 
@@ -148,19 +152,51 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         console.log($scope.numStelle);
         console.log($scope.numStelleVuote);
     };
-    
+
     //***** SALVATAGGIO *****
-    $scope.salvaPV = function (){
+    $scope.salvaPV = function() {
 //        $rootScope.PV.tipo ='PERSONALIZZATO';
-//        $rootScope.PV.proprietario= $rootScope.utente;
 //        $rootScope.PV.abilitato = true;
 //        $rootScope.PV.dataOraCreazione = new Date();
-        salvaPVPBservice.salvaPV($rootScope.PV, function(esito) {
-            if (esito.result) {
-                console.log(esito.returnedObj);
-                toastr.success("Puoi consultare il PV salvato dal menu utente", esito.message);
-            } else
-                toastr.error(esito.message, "ERRORE:");
-        });
+        var escludiVociVuote = function(PV) {
+            for (var i = 0; i < PV.voci.length; i++) {
+                if (typeof PV.voci[i].costo === 'undefined') {
+                    PV.voci.splice(i, 1);
+                    escludiVociVuote(PV);
+                    break;
+                }
+            }
+            console.log("PV da inoltrare con voci vuote escluse");
+            console.log(PV);
+            return PV;
+        };
+        if (typeof $rootScope.utente !== 'undefined') {
+
+            var PVdaSalvare = $rootScope.PV;
+            PVdaSalvare.proprietario = $rootScope.utente;
+
+            // @TEST: controllo sicurezza lato Server 
+            // PVdaSalvare.proprietario.email = 'emailFuffa';
+
+            salvaPVPBservice.salvaPV(escludiVociVuote(PVdaSalvare), function(esito) {
+                if (esito.result) {
+                    console.log(esito.returnedObj);
+                    $scope.returnedShareLink = "http://http://localhost:8888/TravelDreamX-web/sharedPVid:" + esito.returnedObj.idPacchetto;
+                    var modalShare = {
+                        template: 'templates/modal/condivisione.html',
+                        show: true,
+                        backdrop: 'static',
+                        scope: $scope
+                    };
+                    $scope.popUpModal(modalShare);
+
+                    toastr.success("Puoi consultare il PV salvato dal menu utente", esito.message);
+                } else
+                    toastr.error(esito.message, "ERRORE:");
+            });
+        } else {
+            toastr.error("Effettuare il Login o la Registrazione prima di procedere", "ERRORE:");
+        }
+        ;
     };
 });
