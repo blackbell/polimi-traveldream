@@ -27,7 +27,6 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonSubTypes;
 import org.codehaus.jackson.annotate.JsonSubTypes.Type;
 import org.codehaus.jackson.annotate.JsonTypeInfo;
-import org.codehaus.jackson.map.annotate.JsonTypeResolver;
 
 /**
  *
@@ -36,6 +35,7 @@ import org.codehaus.jackson.map.annotate.JsonTypeResolver;
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "tipo" )
 @JsonSubTypes({  
     @Type(value = Volo.class, name = "Volo"),  
+    @Type(value = Visita.class, name = "Visita"),  
     @Type(value = Soggiorno.class, name = "Soggiorno") })
 @Entity
 @Table(name = "voci")

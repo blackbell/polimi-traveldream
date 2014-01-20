@@ -40,6 +40,7 @@ import org.codehaus.jackson.annotate.JsonTypeName;
             + "(:citta IS NULL OR a.citta = :citta) AND "
             + "(:albergo IS NULL OR s.albergo = :albergo) AND "
             + "(:numeroPersone IS NULL OR s.numeroPersone = :numeroPersone) AND "
+            + "(:disabilitatiInclusi = True OR s.abilitato = True) AND "
             + "(:giornoInizio IS NULL OR s.giornoInizio > :giornoInizio) ")
 })
 @JsonTypeName("Soggiorno")

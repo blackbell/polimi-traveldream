@@ -102,7 +102,7 @@ public class PBService implements PBServiceLocal {
                 System.out.println("PBService.trovaPB -> params.costo :" + params.getCosto());
                 Collection<Volo> voli;
 //                voli = voceDAO.findByParams(params.getRotta(), params.getData(), params.getCosto(), params.getNumPersone());
-                voli = voceDAO.findByParams(params.getRotta(), params.getData(), params.getNumPersone());
+                voli = voceDAO.findByParams(params.getRotta(), params.getData(), params.getNumPersone(), params.isDisabilitatiInclusi());
                 System.out.println("PBService.trovaPB -> voli.size: " + voli.size());
                 ret = new ArrayList<>();
                 for (Volo v : voli) {
@@ -117,7 +117,7 @@ public class PBService implements PBServiceLocal {
                 System.out.println("PBService.trovaPB -> params.albergo:" + params.getAlbergo());
                 System.out.println("PBService.trovaPB -> params.:" + params.getNumPersone());
                 Collection<Soggiorno> soggiorni;
-                soggiorni = voceDAO.findByParams(params.getAlbergo(), params.getData(), params.getCitta(), params.getNumPersone());
+                soggiorni = voceDAO.findByParams(params.getAlbergo(), params.getData(), params.getCitta(), params.getNumPersone(), params.isDisabilitatiInclusi());
                 System.out.println("PBService.trovaPB -> soggiorni.size: " + soggiorni.size());
                 ret = new ArrayList<>();
                 for (Soggiorno s : soggiorni) {
@@ -130,7 +130,7 @@ public class PBService implements PBServiceLocal {
                 System.out.println("PBService.trovaPB -> params.museo:" + params.getMuseo());
                 System.out.println("PBService.trovaPB -> params.numeroPersone:" + params.getNumPersone());
                 Collection<Visita> visite;
-                visite = voceDAO.findByParams(params.getMuseo(), params.getData(), params.getCitta(), params.getNumPersone());
+                visite = voceDAO.findByParams(params.getMuseo(), params.getData(), params.getCitta(), params.getNumPersone(), params.isDisabilitatiInclusi());
                 System.out.println("PBService.trovaPB -> visite.size: " + visite.size());
                 ret = new ArrayList<>();
                 for (Visita v : visite) {

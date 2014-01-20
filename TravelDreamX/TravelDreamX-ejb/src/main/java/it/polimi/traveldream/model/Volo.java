@@ -2,7 +2,6 @@
  * Politecnico di Milano, Software Engineering 2 (autumn semester)
  * proj codename: TravelDreamX
  */
-
 package it.polimi.traveldream.model;
 
 import java.io.Serializable;
@@ -37,22 +36,23 @@ import org.codehaus.jackson.annotate.JsonTypeName;
     @NamedQuery(name = "Volo.findByNumPasseggeri", query = "SELECT v FROM Volo v WHERE v.numPasseggeri = :numPasseggeri"),
     @NamedQuery(name = "Volo.findByCosto", query = "SELECT v FROM Volo v WHERE v.costo = :costo"),
     @NamedQuery(name = "Volo.findByParams", query = "SELECT v FROM Volo v WHERE "
-                                                    + "(:rotta IS NULL OR v.rotta = :rotta) AND "
-                                                    + "(:numPasseggeri IS NULL OR v.numPasseggeri = :numPasseggeri) AND "
-                                                    + "(:dataOra IS NULL OR v.dataOra > :dataOra) "
-                                                    + "")
+            + "(:rotta IS NULL OR v.rotta = :rotta) AND "
+            + "(:numPasseggeri IS NULL OR v.numPasseggeri = :numPasseggeri) AND "
+            + "(:disabilitatiInclusi = True OR v.abilitato = True) AND "
+            + "(:dataOra IS NULL OR v.dataOra > :dataOra) "
+            + "")
 })
 @JsonTypeName("Volo")
 public class Volo extends Voce implements Serializable {
-  
+
     private static final long serialVersionUID = 1L;
-    
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "dataOra")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataOra;
-    
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "numPasseggeri")
@@ -132,5 +132,5 @@ public class Volo extends Voce implements Serializable {
     public String toString() {
         return "it.polimi.traveldream.model.Volo[ idVoce = " + getIdVoce() + " ]";
     }
-    
+
 }

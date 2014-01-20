@@ -5,6 +5,7 @@
 package it.polimi.traveldream.service;
 
 import it.polimi.traveldream.data.PVDAO;
+import it.polimi.traveldream.data.VoceDAO;
 import it.polimi.traveldream.model.Pacchetto;
 import it.polimi.traveldream.model.Voce;
 import javax.ejb.Stateless;
@@ -20,6 +21,9 @@ import org.springframework.ejb.interceptor.SpringBeanAutowiringInterceptor;
 @Stateless
 public class PVService implements PVServiceLocal {
 
+    @Autowired 
+    VoceDAO voceDAO;
+    
     @Autowired
     PVDAO pvDAO;
 
@@ -31,6 +35,8 @@ public class PVService implements PVServiceLocal {
 
     @Override
     public Pacchetto salvaPV(Pacchetto pv) {
+        for (Voce v : pv.getVoci())
+            System.out.println("PVService.salvaPV -> v: " + v + " [tipo: " + v.getTipo() + "]");
         return pvDAO.saveAndFlush(pv);
     }
 

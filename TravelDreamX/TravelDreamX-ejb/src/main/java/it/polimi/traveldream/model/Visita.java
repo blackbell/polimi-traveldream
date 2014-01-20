@@ -38,6 +38,7 @@ import org.codehaus.jackson.annotate.JsonTypeName;
             + "(:citta IS NULL OR m.citta = :citta) AND "
             + "(:museo IS NULL OR v.museo = :museo) AND "
             + "(:numeroPersone IS NULL OR v.numeroPersone = :numeroPersone) AND "
+            + "(:disabilitatiInclusi = True OR v.abilitato = True) AND "
             + "(:data IS NULL OR v.dataOra > :data) "
             + "")})
 @JsonTypeName("Visita")
