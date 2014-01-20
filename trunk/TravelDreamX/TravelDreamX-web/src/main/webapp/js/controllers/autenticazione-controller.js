@@ -32,6 +32,7 @@ travelDreamApp.controller('autenticazioneController', function($scope, $rootScop
                 if (esito.result) {
                     $rootScope.utente = esito.returnedObj;
                     $scope.utente = $rootScope.utente;
+                    console.log('Utente loggato: ' + $rootScope.utente);
                     toastr.success("l'utente " + utente.email + " è ora loggato", "Login avvenuto con successo");
                 } else
                     toastr.error("Email " + utente.email + " o password " + utente.password + " errati.", "Login fallito");

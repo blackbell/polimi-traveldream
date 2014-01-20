@@ -40,11 +40,11 @@ public class SalvaPVPBController {
     @RequestMapping(value = "salvaPV", method = RequestMethod.POST)
     public @ResponseBody
     Esito salvaPV(@RequestBody Pacchetto pv, HttpServletRequest request) {
-        Utente u = (Utente) request.getSession().getAttribute("TDX_CurrentUser");
         Esito e = new Esito();
         try {
-            if (u != null) {
-                pv.setProprietario(u);
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute("TDX_CurrentUser");
+            if (utenteLoggato != null && utenteLoggato.equals(pv.getProprietario())) {
+                pv.setProprietario((Utente) request.getSession().getAttribute("TDX_CurrentUser"));
                 pv.setAbilitato(Boolean.TRUE);
                 pv.setDataOraCreazione(new Date());
                 pv.setTipo(TipoPacchetto.PERSONALIZZATO);
@@ -52,10 +52,9 @@ public class SalvaPVPBController {
                 e.setResult(true);
                 e.setMessage(null);
                 e.setReturnedObj(pv);
-            } else {
+            }else{
                 e.setResult(false);
                 e.setMessage(Esito.USER_NOT_LOGGED_IN);
-                e.setReturnedObj(null);
             }
         } catch (Exception ex) {
             e.setResult(false);
