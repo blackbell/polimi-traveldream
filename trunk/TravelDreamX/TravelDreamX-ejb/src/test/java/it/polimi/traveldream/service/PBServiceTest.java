@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Random;
 import javax.naming.NamingException;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -76,6 +77,7 @@ public class PBServiceTest {
         params.setRotta(r);
         params.setData(v.getDataOra());
         params.setNumPersone(v.getNumPasseggeri());
+        params.setDisabilitatiInclusi(true);
 //        params.setCosto(v.getCosto());
         
         List<Voce> pbs = pbService.trovaPB(params);
@@ -115,7 +117,7 @@ public class PBServiceTest {
         v.setRotta(r);
         v.setNumPasseggeri(3);
         v.setCosto(120.7f);
-        v.setAbilitato(false);
+        v.setAbilitato(true);
         pbService.saveVolo(v);
         
         ParametriRicercaPB params = new ParametriRicercaPB();
@@ -144,7 +146,7 @@ public class PBServiceTest {
         v.setRotta(r);
         v.setNumPasseggeri(3);
         v.setCosto(120.7f);
-        v.setAbilitato(false);
+        v.setAbilitato(true);
         pbService.saveVolo(v);
         
         ParametriRicercaPB params = new ParametriRicercaPB();
@@ -299,9 +301,30 @@ public class PBServiceTest {
         assertTrue(pbs.contains(s));
     }
     
-    @Test @Ignore
+    @Test
     public void testRetrieveVisitaByMuseo(){
+        System.out.println("testRetrieveVisitaByParams()");
+        Museo m = new Museo();
+        m.setNome("Louvre");
+        m.setCitta("Parigi");
+        m.setDescrizione("Museo bello. Molto bello.");
+        m.setUrlFoto(TestUtilities.getRandomImageLink());
+        edbService.salvaMuseo(m);
         
+        Visita v = new Visita();
+        v.setAbilitato(true);
+        v.setMuseo(m);
+        v.setDataOra(new Date());
+        v.setNumeroPersone(4);
+        v.setCosto(15);
+        pbService.saveVisita(v);
+        
+        ParametriRicercaPB params = new ParametriRicercaPB();
+        params.setTipo(TipoPB.Visita);
+        params.setMuseo(m);
+        
+        List<Voce> pbs = pbService.trovaPB(params);
+        assertTrue(pbs.contains(v));
     }
     
     @Test
@@ -338,33 +361,142 @@ public class PBServiceTest {
         
     }
     
-    @Test @Ignore
+    @Test
     public void testSalvaVolo(){
+        System.out.println("testSalvaVolo()");
+        Rotta r = new Rotta();
+        r.setAeroportoPartenza("Breda Air Deposit");
+        r.setAeroportoArrivo("Atlandide");
+        r.setNazionePartenza("Italia");
+        r.setNazioneArrivo("Mondo sottomarino");
+        r.setCompagniaAerea("Mille bolle blu");
+        r.setCittaPartenza("testSalvaVolo");
+        r.setCittaArrivo("Atlantide");
+        edbService.salvaRotta(r);
         
+        Volo v = new Volo();
+        v.setDataOra(new Date());
+        v.setRotta(r);
+        v.setNumPasseggeri(3);
+        v.setCosto(120.7f);
+        v.setAbilitato(true);
+        v = pbService.saveVolo(v);
+        
+        Assert.assertNotNull(v);
     }
     
-    @Test @Ignore
+    @Test
     public void testSalvaSoggiorno(){
+        System.out.println("testSalvaSoggiorno()");
+        Albergo a = new Albergo();
+        a.setCitta("Paperopoli");
+        a.setNome("Pensione deposito");
+        a.setUrlFoto(TestUtilities.getRandomImageLink());
+        a.setStelle(4);
+        edbService.salvaAlbergo(a);
         
+        Soggiorno s = new Soggiorno();
+        s.setAbilitato(true);
+        s.setAlbergo(a);
+        s.setCosto(240);
+        s.setGiornoInizio(new Date());
+        s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
+        s.setNumeroPersone(5);
+        s = pbService.saveSoggiorno(s);
+        
+        Assert.assertNotNull(s);
     }
     
-    @Test @Ignore
+    @Test
     public void testSalvaVisita(){
+        System.out.println("testSalvaVisita()");
+        Museo m = new Museo();
+        m.setNome("Louvre");
+        m.setCitta("Parigi");
+        m.setDescrizione("Museo bello. Molto bello.");
+        m.setUrlFoto(TestUtilities.getRandomImageLink());
+        edbService.salvaMuseo(m);
         
+        Visita v = new Visita();
+        v.setAbilitato(true);
+        v.setMuseo(m);
+        v.setDataOra(new Date());
+        v.setNumeroPersone(4);
+        v.setCosto(15);
+        v = pbService.saveVisita(v);
+        Assert.assertNotNull(v);
     }
     
-    @Test @Ignore
+    @Test
     public void testDisattivaVolo(){
+        System.out.println("testDisattivaVolo()");
+        Rotta r = new Rotta();
+        r.setAeroportoPartenza("Breda Air Deposit");
+        r.setAeroportoArrivo("Atlandide");
+        r.setNazionePartenza("Italia");
+        r.setNazioneArrivo("Mondo sottomarino");
+        r.setCompagniaAerea("Mille bolle blu");
+        r.setCittaPartenza("testDisattivaVolo");
+        r.setCittaArrivo("Atlantide");
+        edbService.salvaRotta(r);
         
+        Volo v = new Volo();
+        v.setDataOra(new Date());
+        v.setRotta(r);
+        v.setNumPasseggeri(3);
+        v.setCosto(120.7f);
+        v.setAbilitato(true);
+        v = pbService.saveVolo(v);
+        
+        pbService.disattivaPB(v.getIdVoce());
+        v = pbService.getVoloByID(v.getIdVoce());
+        assertTrue(!v.isAbilitato());
     }
     
-    @Test @Ignore
+    @Test
     public void testDisattivaSoggiorno(){
+        System.out.println("testDisattivaSoggiorno()");
+        Albergo a = new Albergo();
+        a.setCitta("testDisattivaSoggiorno");
+        a.setNome("Pensione deposito");
+        a.setUrlFoto(TestUtilities.getRandomImageLink());
+        a.setStelle(4);
+        edbService.salvaAlbergo(a);
         
+        Soggiorno s = new Soggiorno();
+        s.setAbilitato(true);
+        s.setAlbergo(a);
+        s.setCosto(240);
+        s.setGiornoInizio(new Date());
+        s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
+        s.setNumeroPersone(5);
+        s = pbService.saveSoggiorno(s);
+        
+        pbService.disattivaPB(s.getIdVoce());
+        s = pbService.getSoggiornoByID(s.getIdVoce());
+        assertTrue(!s.isAbilitato());
     }
     
-    @Test @Ignore
+    @Test
     public void testDisattivaVisita(){
+        System.out.println("testDisattivaVisita()");
+        Museo m = new Museo();
+        m.setNome("Louvre");
+        m.setCitta("testDisattivaVisita");
+        m.setDescrizione("Museo bello. Molto bello.");
+        m.setUrlFoto(TestUtilities.getRandomImageLink());
+        edbService.salvaMuseo(m);
         
+        Visita v = new Visita();
+        v.setAbilitato(true);
+        v.setMuseo(m);
+        v.setDataOra(new Date());
+        v.setNumeroPersone(4);
+        v.setCosto(15);
+        pbService.saveVisita(v);
+        
+        pbService.disattivaPB(v.getIdVoce());
+        v = pbService.getVisitaByID(v.getIdVoce());
+        assertTrue(!v.isAbilitato());
     }
 }

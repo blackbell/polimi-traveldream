@@ -16,6 +16,7 @@ import java.util.Date;
  * @author Dario
  */
 public class ParametriRicercaPB {
+    private boolean disabilitatiInclusi = false;
     private TipoPB tipo;
     private Rotta rotta;
     private Float costo;
@@ -118,5 +119,11 @@ public class ParametriRicercaPB {
         this.data = new Date(time);
     }
     
-    
+    public boolean isDisabilitatiInclusi() {
+        return disabilitatiInclusi;
+    }
+
+    public void setDisabilitatiInclusi(boolean disabilitatiInclusi) {
+        this.disabilitatiInclusi = disabilitatiInclusi;
+    }
 }

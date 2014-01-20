@@ -53,8 +53,8 @@ public class VoceDAOTest extends DAOUnitTest{
     }
         
     @Test
-    public void saveSoggiornoEVolo(){
-        Albergo a2 = addHotel();
+    public void salvaSoggiornoEVolo(){
+        Albergo a2 = aggiungiAlbergo();
         assertNotNull("Cannot inject voceDAO!", voceDAO);
         Soggiorno s = new Soggiorno();
         s.setAlbergo(a2);
@@ -63,7 +63,7 @@ public class VoceDAOTest extends DAOUnitTest{
         s.setGiornoFine(new Date());
         s.setNumeroPersone(2);
         s.setAbilitato(true);
-        Rotta r = addRotta();
+        Rotta r = aggiungiRotta();
         Volo volo = new Volo();
         volo.setDataOra(new Date());
         volo.setRotta(r);
@@ -80,7 +80,7 @@ public class VoceDAOTest extends DAOUnitTest{
     
     @Autowired
     AlbergoDAO albergoDAO;
-    private Albergo addHotel(){
+    private Albergo aggiungiAlbergo(){
         Albergo albergo = new Albergo();
         albergo.setNome("HOTEL PIPPO");
         albergo.setCitta("Milano");
@@ -91,10 +91,10 @@ public class VoceDAOTest extends DAOUnitTest{
     }
 
     @Test
-    public void checkToRetrieveTheRightObjectType(){
+    public void recuperaOggettoDelTipoGiusto(){
         assertNotNull("Cannot inject voceDAO!", voceDAO);
-        Rotta r = addRotta();
-        Volo volo = addVolo();
+        Rotta r = aggiungiRotta();
+        Volo volo = aggiungiVolo();
         Voce v = voceDAO.findOne(volo.getIdVoce());        
         assertTrue("The retrieved object is not instance of Volo", v instanceof Volo);
         assertTrue("The retrieved object is instance of Soggiorno", ! (v instanceof Soggiorno));
@@ -102,7 +102,7 @@ public class VoceDAOTest extends DAOUnitTest{
     
     @Autowired
     RottaDAO rottaDAO;
-    private Rotta addRotta(){
+    private Rotta aggiungiRotta(){
         Rotta rotta = new Rotta();
         rotta.setAeroportoPartenza("San Giorgio International Airport");
         rotta.setAeroportoArrivo("Malpensa");
@@ -115,8 +115,8 @@ public class VoceDAOTest extends DAOUnitTest{
         return rotta2;
     }
     
-    private Volo addVolo(){
-        Rotta r = addRotta();
+    private Volo aggiungiVolo(){
+        Rotta r = aggiungiRotta();
         Volo volo = new Volo();
         volo.setDataOra(new Date());
         volo.setRotta(r);
