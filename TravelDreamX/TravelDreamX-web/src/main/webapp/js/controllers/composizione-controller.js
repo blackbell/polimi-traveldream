@@ -4,7 +4,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     //***** Inizializzazione *****
     //****************************
     toastr.options = {
-        positionClass: "toast-center"
+        positionClass: "toast-center",
     };
 
     $scope.inizializzaRicerca = function() {
@@ -199,6 +199,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
                     };
                     $scope.popUpModal(modalShare);
                     
+
                     toastr.success("Puoi consultare il PV salvato dal menu utente", esito.message);
                 } else
                     toastr.error(esito.message, "ERRORE:");
