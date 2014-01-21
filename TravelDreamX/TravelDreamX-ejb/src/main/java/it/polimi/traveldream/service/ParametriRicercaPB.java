@@ -5,9 +5,6 @@
 
 package it.polimi.traveldream.service;
 
-import it.polimi.traveldream.model.Albergo;
-import it.polimi.traveldream.model.Museo;
-import it.polimi.traveldream.model.Rotta;
 import it.polimi.traveldream.model.TipoPB;
 import java.util.Date;
 
@@ -16,75 +13,20 @@ import java.util.Date;
  * @author Dario
  */
 public class ParametriRicercaPB {
-    private boolean disabilitatiInclusi = false;
-    private TipoPB tipo;
-    private Rotta rotta;
-    private Float costo;
-    private Integer numPersone;
-    private Albergo albergo;
-    private String citta;
-    private Museo museo;
-    private Date dataOra;
-    private Date dataOraFine;
-
-    public Date getDataOra() {
-        return dataOra;
-    }
-
-    public void setDataOra(Date dataOra) {
-        this.dataOra = dataOra;
-    }
-
-    public Date getDataOraFine() {
-        return dataOraFine;
-    }
-
-    public void setDataOraFine(Date dataOraFine) {
-        this.dataOraFine = dataOraFine;
-    }
-
-    public Museo getMuseo() {
-        return museo;
-    }
-
-    public void setMuseo(Museo museo) {
-        this.museo = museo;
-    }
-
-    public String getCitta() {
-        return citta;
-    }
-
-    public void setCitta(String citta) {
-        this.citta = citta;
-    }
-    private Integer idMuseo;
-    private Date data;
     
-    public Rotta getRotta() {
-        return rotta;
-    }
+    private TipoPB tipo;
+    private String nomeAlbergo;
+    private String nomeMuseo;
+    private String cittaAlbergo;
+    private String cittaMuseo;
+    private String cittàPartenzaVolo;
+    private String cittàArrivoVolo;
+    private Date dataInizioSoggiorno;
+    private Date dataOraVolo;
+    private Date dataFineSoggiorno;
 
-    public void setRotta(Rotta rotta) {
-        this.rotta = rotta;
-    }
-
-    public Float getCosto() {
-        return costo;
-    }
-
-    public void setCosto(Float costo) {
-        this.costo = costo;
-    }
-
-    public Integer getNumPersone() {
-        return numPersone;
-    }
-
-    public void setNumPersone(Integer numPasseggeri) {
-        this.numPersone = numPasseggeri;
-    }
-
+    private boolean disabilitatiInclusi = false;
+    
     public TipoPB getTipo() {
         return tipo;
     }
@@ -93,30 +35,79 @@ public class ParametriRicercaPB {
         this.tipo = tipo;
     }
 
-    public Albergo getAlbergo() {
-        return albergo;
+    public String getNomeAlbergo() {
+        return nomeAlbergo;
     }
 
-    public void setAlbergo(Albergo albergo) {
-        this.albergo = albergo;
+    public void setNomeAlbergo(String nomeAlbergo) {
+        this.nomeAlbergo = nomeAlbergo;
     }
 
-    public Integer getIdMuseo() {
-        return idMuseo;
+    public String getNomeMuseo() {
+        return nomeMuseo;
     }
 
-    public void setIdMuseo(Integer idMuseo) {
-        this.idMuseo = idMuseo;
+    public void setNomeMuseo(String nomeMuseo) {
+        this.nomeMuseo = nomeMuseo;
     }
 
-    public Date getData() {
-        return data;
+    public String getCittaAlbergo() {
+        return cittaAlbergo;
     }
 
-    public void setData(Date data) {
+    public void setCittaAlbergo(String cittaAlbergo) {
+        this.cittaAlbergo = cittaAlbergo;
+    }
+
+    public String getCittaMuseo() {
+        return cittaMuseo;
+    }
+
+    public void setCittaMuseo(String cittaMuseo) {
+        this.cittaMuseo = cittaMuseo;
+    }
+
+    public String getCittàPartenzaVolo() {
+        return cittàPartenzaVolo;
+    }
+
+    public void setCittàPartenzaVolo(String cittàPartenzaVolo) {
+        this.cittàPartenzaVolo = cittàPartenzaVolo;
+    }
+
+    public String getCittàArrivoVolo() {
+        return cittàArrivoVolo;
+    }
+
+    public void setCittàArrivoVolo(String cittàArrivoVolo) {
+        this.cittàArrivoVolo = cittàArrivoVolo;
+    }
+
+    public Date getDataOraVolo() {
+        return dataOraVolo;
+    }
+
+    public void setDataOraVolo(Date dataOraVolo) {
+        long time = dataOraVolo.getTime();
+        time = ((int)time / (60*60*24))*(60*60*24);
+        this.dataOraVolo = new Date(time);
+    }
+
+    public Date getDataFineSoggiorno() {
+        return dataFineSoggiorno;
+    }
+
+    public void setDataFineSoggiorno(Date dataFineSoggiorno) {
+        long time = dataOraVolo.getTime();
+        time = ((int)time / (60*60*24))*(60*60*24);
+        this.dataFineSoggiorno = new Date(time);
+    }
+
+    
+    public void setDataInizioSoggiorno(Date data) {
         long time = data.getTime();
         time = ((int)time / (60*60*24))*(60*60*24);
-        this.data = new Date(time);
+        this.dataInizioSoggiorno = new Date(time);
     }
     
     public boolean isDisabilitatiInclusi() {
