@@ -13,18 +13,15 @@ import org.springframework.stereotype.Repository;
 
 /**
  * Classe che si interfaccia col database per il recupero delle entità Albergo.
+ *
  * @author Dario
  */
 @Repository
-public interface AlbergoDAO extends JpaRepository<Albergo, Integer>{
-    
-    /*public List<EDB> findByParams(
-                                            @Param("nome") String nome,
-                                            @Param("citta") String città
-                                          );*/
+public interface AlbergoDAO extends JpaRepository<Albergo, Integer> {
+
     public List<EDB> findByParams(
-                                            @Param("nome") String nome,
-                                            @Param("citta") String città,
-                                            @Param("stelle") Integer stelle
-                                          );
+            @Param("nome") String nome,
+            @Param("citta") String città,
+            @Param("stelle") Integer stelle
+    );
 }

@@ -35,12 +35,15 @@ import org.codehaus.jackson.annotate.JsonTypeName;
     @NamedQuery(name = "Volo.findByDataOra", query = "SELECT v FROM Volo v WHERE v.dataOra = :dataOra"),
     @NamedQuery(name = "Volo.findByNumPasseggeri", query = "SELECT v FROM Volo v WHERE v.numPasseggeri = :numPasseggeri"),
     @NamedQuery(name = "Volo.findByCosto", query = "SELECT v FROM Volo v WHERE v.costo = :costo"),
-    @NamedQuery(name = "Volo.findByParams", query = "SELECT v FROM Volo v WHERE "
-            + "(:rotta IS NULL OR v.rotta = :rotta) AND "
-            + "(:numPasseggeri IS NULL OR v.numPasseggeri = :numPasseggeri) AND "
-            + "(:disabilitatiInclusi = True OR v.abilitato = True) AND "
-            + "(:dataOra IS NULL OR v.dataOra > :dataOra) "
-            + "")
+    @NamedQuery(name = "Volo.findByParams", query = ""
+            + "SELECT v "
+            + "FROM "
+            + "Rotta r JOIN r.voliCollection v "
+            + "WHERE "
+            + "(:cittaPartenzaVolo IS NULL OR r.cittaPartenza IN :cittaPartenzaVolo) AND "
+            + "(:cittaArrivoVolo IS NULL OR r.cittaArrivo = :cittaArrivoVolo) AND "
+            + "(:dataOraVolo IS NULL OR v.dataOra >= :dataOraVolo) AND "
+            + "(:disabilitatiInclusi = True OR v.abilitato = True)")
 })
 @JsonTypeName("Volo")
 public class Volo extends Voce implements Serializable {
@@ -81,7 +84,9 @@ public class Volo extends Voce implements Serializable {
     }
 
     public void setDataOra(Date dataOra) {
-        this.dataOra = dataOra;
+        long time = dataOra.getTime();
+        time = ((long) ((long) time / (long) (1000))) * (1000);
+        this.dataOra = new Date(time);
     }
 
     public int getNumPasseggeri() {

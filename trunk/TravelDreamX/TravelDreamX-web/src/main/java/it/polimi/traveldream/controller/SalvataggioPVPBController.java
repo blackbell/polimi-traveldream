@@ -8,10 +8,10 @@ import it.polimi.traveldream.model.Esito;
 import it.polimi.traveldream.model.Pacchetto;
 import it.polimi.traveldream.model.TipoPacchetto;
 import it.polimi.traveldream.model.Utente;
+import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.service.EDBServiceLocal;
 import it.polimi.traveldream.service.PBServiceLocal;
 import it.polimi.traveldream.service.PVServiceLocal;
-import it.polimi.traveldream.service.ParametriRicercaPB;
 import java.util.Date;
 import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
@@ -66,7 +66,7 @@ public class SalvataggioPVPBController {
 
     @RequestMapping(value = "salvaPB", method = RequestMethod.POST)
     public @ResponseBody
-    Esito salvaPB(@RequestBody ParametriRicercaPB pb) {
+    Esito salvaPB(@RequestBody Voce pb) {
         Esito e = new Esito();
         try {
             pbService.salvaPB(pb);
