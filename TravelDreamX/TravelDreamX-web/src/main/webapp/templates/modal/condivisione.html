@@ -2,8 +2,8 @@
 Politecnico di Milano, Software Engineering 2 (autumn semester)
 proj codename: TravelDreamX
 -->
-<div class="container">
-    <div class="row">
+<div class="container" ng-controller="condivisioneController">
+    <div class="row" ng-init="getLinkCondivisione()">
         <div class="span6">
             <div class="modal-header" align="center">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -12,7 +12,7 @@ proj codename: TravelDreamX
             <div class="modal-body" align="center">
                     <br/>
                     <div class="row">
-                        <textarea name="link" type="text" class="form-control input-login-registr" ng-readonly="true" ng-model="returnedShareLink" />
+                        <textarea name="link" type="text" class="form-control input-login-registr" ng-readonly="true" ng-model="linkCondivisione" />
                     </div>
             </div>
         </div>

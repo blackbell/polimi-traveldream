@@ -1,5 +1,5 @@
 'use strict';
-travelDreamApp.controller('composizioneController', function($scope, $rootScope, $modal, searchService, salvaPVPBservice) {
+travelDreamApp.controller('composizioneController', function($scope, $rootScope, $route, $location, $modal, searchService, salvaPVPBservice) {
     //****************************
     //***** Inizializzazione *****
     //****************************
@@ -11,17 +11,17 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         $scope.PB = new Object();
         $scope.waiting = false;
         $scope.parametriRicercaPB = {
-           // disabilitatiInclusi: false,
-            tipo: new String(), 
-           // rotta: {}, 
+            // disabilitatiInclusi: false,
+            tipo: new String(),
+            // rotta: {}, 
             costo: '',
-           // numPersone: new String(), 
-           // albergo: new Object(), 
-           // citta: new String(), 
+            // numPersone: new String(), 
+            // albergo: new Object(), 
+            // citta: new String(), 
             //museo: new Object()
-              dataOra: new Date() 
-  //          dataOraFine: new Date() 
-        };        
+            dataOra: new Date()
+                    //          dataOraFine: new Date() 
+        };
     };
 
 
@@ -163,43 +163,43 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     };
 
     //***** SALVATAGGIO *****
-    $scope.salvaPV = function() {
-//        $rootScope.PV.tipo ='PERSONALIZZATO';
-//        $rootScope.PV.abilitato = true;
-//        $rootScope.PV.dataOraCreazione = new Date();
-        var escludiVociVuote = function(PV) {
-            for (var i = 0; i < PV.voci.length; i++) {
-                if (typeof PV.voci[i].costo === 'undefined') {
-                    PV.voci.splice(i, 1);
-                    escludiVociVuote(PV);
-                    break;
-                }
+    var escludiVociVuote = function(PV) {
+        for (var i = 0; i < PV.voci.length; i++) {
+            if (typeof PV.voci[i].costo === 'undefined') {
+                PV.voci.splice(i, 1);
+                escludiVociVuote(PV);
+                break;
             }
-            console.log("PV da inoltrare con voci vuote escluse");
-            console.log(PV);
-            return PV;
+        }
+        $rootScope.PV = PV;
+        console.log("PV da inoltrare con voci vuote escluse");
+        console.log(PV);
+        return PV;
+    };
+    var apriModaleCondivisione = function() {
+        var modaleCondivisione = {
+            template: 'templates/modal/condivisione.html',
+            show: true,
+            backdrop: 'static'
+//                scope: $scope
         };
-        if (typeof $rootScope.utente !== 'undefined') {
+        $scope.popUpModal(modaleCondivisione);
+    };
+    $scope.salvaPV = function() {
 
-            var PVdaSalvare = $rootScope.PV;
-            PVdaSalvare.proprietario = $rootScope.utente;
+        if (typeof $rootScope.utente !== 'undefined') {
+            $rootScope.PV.proprietario = $rootScope.utente;
 
             // @TEST: controllo sicurezza lato Server 
             // PVdaSalvare.proprietario.email = 'emailFuffa';
 
-            salvaPVPBservice.salvaPV(escludiVociVuote(PVdaSalvare), function(esito) {
+            salvaPVPBservice.salvaPV(escludiVociVuote($rootScope.PV), function(esito) {
                 if (esito.result) {
+                    console.log("ESITO:");
                     console.log(esito.returnedObj);
-                    $scope.returnedShareLink = "http://localhost:8888/TravelDreamX-web/sharedPVid:" + esito.returnedObj.idPacchetto;
-                    var modalShare = {
-                        template: 'templates/modal/condivisione.html',
-                        show: true,
-                        backdrop: 'static',
-                        scope: $scope
-                    };
-                    $scope.popUpModal(modalShare);
-                    
-
+                    $rootScope.PV = esito.returnedObj;
+                    $rootScope.linkCondivisione = "http://localhost:8888/TravelDreamX-web/sharedPVid:" + $rootScope.PV.idPacchetto;
+                    apriModaleCondivisione();
                     toastr.success("Puoi consultare il PV salvato dal menu utente", esito.message);
                 } else
                     toastr.error(esito.message, "ERRORE:");
