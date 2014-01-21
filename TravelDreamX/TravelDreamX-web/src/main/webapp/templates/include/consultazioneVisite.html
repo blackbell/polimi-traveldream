@@ -1,43 +1,28 @@
 <div class="well">
     <div class="row">
-        <div class="span2">
+        <div class="span2 offset2">
             <form>
                 <label class="control-label">
-                    Nazione
+                    A
                 </label>
-                <input type="text" class="span2"/>
+                <input type="text" placeholder="Milano" class="span2" ng-model="parametriRicercaPB.cittaMuseo"/>
                 <label class="control-label">
-                    Giorno
+                    Nel museo
                 </label>
-                <div class="input-append">
-                    <input class="input-small" type="text" ng-model="datepickerDal.date" data-date-format="dd/mm/yyyy" bs-datepicker>
-                    <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
-                </div>
+                <input type="text" class="span2" placeholder="Museo della Scienza e della Tecnica" ng-model="parametriRicercaPB.nomeMuseo"/>
             </form>
         </div>
         <div class="span2">
             <form>
                 <label class="control-label">
-                    Citt&agrave;
-                </label>
-                <input type="text" class="span2"/>
-                <label class="control-label">
-                    Nome museo
-                </label>
-                <input type="text" class="span2"/>
-            </form>
-        </div>
-        <div class="span2">
-            <form>
-                <label class="control-label">
-                    Prezzo
+                    Nel giorno
                 </label>
                 <div class="input-append">
-                    <input class="input-small" type="number">
-                    <span class="btn add-on">&euro;</span>
+                    <input class="input-small" type="text" ng-model="parametriRicercaPB.giornoVisita" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
                 </div>
                 <label class="control-label">
-                    Prezzo
+                    Prezzo Massimo
                 </label>
                 <div class="input-append">
                     <input class="input-small" type="number">
@@ -46,7 +31,7 @@
             </form>
         </div>
     </div>
-    <div class="row"><div class="span8"><button class="btn btn-block btn-primary" ng-click="trovaPB()">Cerca</button></div></div>
+    <div class="row"><div class="span4 offset2"><button class="btn btn-block btn-primary" ng-click="trovaPB()">Cerca</button></div></div>
 </div>
 <div class="row" ng-show="waiting">
     <div class="span9" >Sto cercando... &nbsp;&nbsp;
