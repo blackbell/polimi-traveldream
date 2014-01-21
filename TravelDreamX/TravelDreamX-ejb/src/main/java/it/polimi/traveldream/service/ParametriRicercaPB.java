@@ -15,16 +15,32 @@ import java.util.Date;
 public class ParametriRicercaPB {
     
     private TipoPB tipo;
-    private String nomeAlbergo;
-    private String nomeMuseo;
-    private String cittaAlbergo;
-    private String cittaMuseo;
-    private String cittàPartenzaVolo;
-    private String cittàArrivoVolo;
-    private Date dataInizioSoggiorno;
+    /* Volo */
+    private String cittaPartenzaVolo;
+    private String cittaArrivoVolo;
     private Date dataOraVolo;
+    
+    /* Albergo */
+    private String nomeAlbergo;
+    private String cittaAlbergo;
+    private Date dataInizioSoggiorno;
     private Date dataFineSoggiorno;
 
+    /* Museo */
+    private String nomeMuseo;
+    private String cittaMuseo;
+    private Date giornoVisita;
+
+    public Date getGiornoVisita() {
+        return giornoVisita;
+    }
+
+    public void setGiornoVisita(Date giornoVisita) {
+        long time = giornoVisita.getTime();
+        time = ((long)time / (24*60*60*1000))*(24*60*60*1000);
+        this.giornoVisita = new Date(time);
+    }
+    
     private boolean disabilitatiInclusi = false;
     
     public TipoPB getTipo() {
@@ -67,29 +83,34 @@ public class ParametriRicercaPB {
         this.cittaMuseo = cittaMuseo;
     }
 
-    public String getCittàPartenzaVolo() {
-        return cittàPartenzaVolo;
+    public String getCittaPartenzaVolo() {
+        return cittaPartenzaVolo;
     }
 
-    public void setCittàPartenzaVolo(String cittàPartenzaVolo) {
-        this.cittàPartenzaVolo = cittàPartenzaVolo;
+    public void setCittaPartenzaVolo(String cittaPartenzaVolo) {
+        this.cittaPartenzaVolo = cittaPartenzaVolo;
     }
 
-    public String getCittàArrivoVolo() {
-        return cittàArrivoVolo;
+    public String getCittaArrivoVolo() {
+        return cittaArrivoVolo;
     }
 
-    public void setCittàArrivoVolo(String cittàArrivoVolo) {
-        this.cittàArrivoVolo = cittàArrivoVolo;
+    public void setCittaArrivoVolo(String cittàArrivoVolo) {
+        this.cittaArrivoVolo = cittàArrivoVolo;
     }
 
+    public Date getDataInizioSoggiorno() {
+        return dataInizioSoggiorno;
+    }
+
+    
     public Date getDataOraVolo() {
         return dataOraVolo;
     }
 
     public void setDataOraVolo(Date dataOraVolo) {
         long time = dataOraVolo.getTime();
-        time = ((int)time / (60*60*24))*(60*60*24);
+        time = ((long)time / (1000))*(1000);
         this.dataOraVolo = new Date(time);
     }
 
@@ -98,16 +119,18 @@ public class ParametriRicercaPB {
     }
 
     public void setDataFineSoggiorno(Date dataFineSoggiorno) {
-        long time = dataOraVolo.getTime();
-        time = ((int)time / (60*60*24))*(60*60*24);
+        long time = dataFineSoggiorno.getTime();
+        time = ((long)time / (1000))*(1000);
         this.dataFineSoggiorno = new Date(time);
+//        this.dataFineSoggiorno = dataFineSoggiorno;
     }
 
     
-    public void setDataInizioSoggiorno(Date data) {
-        long time = data.getTime();
-        time = ((int)time / (60*60*24))*(60*60*24);
+    public void setDataInizioSoggiorno(Date dataInizioSoggiorno) {
+        long time = dataInizioSoggiorno.getTime();
+        time = ((long)time / (1000))*(1000);
         this.dataInizioSoggiorno = new Date(time);
+//        this.dataInizioSoggiorno = dataInizioSoggiorno;
     }
     
     public boolean isDisabilitatiInclusi() {

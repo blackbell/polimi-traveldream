@@ -36,12 +36,16 @@ import org.codehaus.jackson.annotate.JsonTypeName;
     @NamedQuery(name = "Soggiorno.findByGiornoFine", query = "SELECT s FROM Soggiorno s WHERE s.giornoFine = :giornoFine"),
     @NamedQuery(name = "Soggiorno.findByNumeroPersone", query = "SELECT s FROM Soggiorno s WHERE s.numeroPersone = :numeroPersone"),
     @NamedQuery(name = "Soggiorno.findByCosto", query = "SELECT s FROM Soggiorno s WHERE s.costo = :costo"),
-    @NamedQuery(name = "Soggiorno.findByParams", query = "SELECT s FROM Albergo a JOIN a.soggiorniCollection s WHERE "
-            + "(:citta IS NULL OR a.citta = :citta) AND "
-            + "(:albergo IS NULL OR s.albergo = :albergo) AND "
-            + "(:numeroPersone IS NULL OR s.numeroPersone = :numeroPersone) AND "
-            + "(:disabilitatiInclusi = True OR s.abilitato = True) AND "
-            + "(:giornoInizio IS NULL OR s.giornoInizio > :giornoInizio) ")
+    @NamedQuery(name = "Soggiorno.findByParams", query = ""
+            + "SELECT s "
+            + "FROM "
+            + "Albergo a JOIN a.soggiorniCollection s "
+            + "WHERE "
+            + "(:nomeAlbergo IS NULL OR a.nome = :nomeAlbergo) AND "
+            + "(:cittaAlbergo IS NULL OR a.citta = :cittaAlbergo) AND "
+            + "(:dataInizioSoggiorno IS NULL OR s.giornoInizio = :dataInizioSoggiorno) AND " 
+            + "(:dataFineSoggiorno IS NULL OR s.giornoFine >= :dataFineSoggiorno) AND " 
+            + "(:disabilitatiInclusi = True OR s.abilitato = True)")
 })
 @JsonTypeName("Soggiorno")
 public class Soggiorno extends Voce implements Serializable {
@@ -86,7 +90,13 @@ public class Soggiorno extends Voce implements Serializable {
     }
 
     public void setGiornoInizio(Date giornoInizio) {
-        this.giornoInizio = giornoInizio;
+        long time = giornoInizio.getTime();
+        System.out.println("Soggiorno.setGiornoInizio -> time: " + time);
+        time = ((long)((long)time / (long)(1000)))*(1000);
+//        time = ((long)((long)time / (long)(24*60*60*1000)))*(24*60*60*1000);
+        System.out.println("Soggiorno.setGiornoInizio -> time: " + time);
+        this.giornoInizio = new Date(time);
+//        this.giornoInizio = giornoInizio;
     }
 
     public Date getGiornoFine() {
@@ -94,6 +104,11 @@ public class Soggiorno extends Voce implements Serializable {
     }
 
     public void setGiornoFine(Date giornoFine) {
+//        long time = giornoFine.getTime();
+//        System.out.println("Soggiorno.setGiornoFine -> time: " + time);
+//        time = ((long)((long)time / (long)(24*60*60*1000)))*(24*60*60*1000);
+//        System.out.println("Soggiorno.setGiornoFine -> time: " + time);
+//        this.giornoFine = new Date(time);
         this.giornoFine = giornoFine;
     }
 

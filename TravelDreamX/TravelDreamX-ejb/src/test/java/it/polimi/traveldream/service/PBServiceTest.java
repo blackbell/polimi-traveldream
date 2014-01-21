@@ -74,11 +74,10 @@ public class PBServiceTest {
         
         ParametriRicercaPB params = new ParametriRicercaPB();
         params.setTipo(TipoPB.Volo);
-        params.setRotta(r);
-        params.setData(v.getDataOra());
-        params.setNumPersone(v.getNumPasseggeri());
+        params.setCittaPartenzaVolo(r.getCittaPartenza());
+        params.setCittaArrivoVolo(r.getCittaArrivo());
+        params.setDataOraVolo(v.getDataOra());
         params.setDisabilitatiInclusi(true);
-//        params.setCosto(v.getCosto());
         
         List<Voce> pbs = pbService.trovaPB(params);
         assertTrue(pbs.contains(v));
@@ -100,7 +99,7 @@ public class PBServiceTest {
     }
     
     @Test
-    public void testRetrieveVoloByRotta(){
+    public void testRetrieveVoloByCittàPartenzaEArrivo(){
         System.out.println("testRetrieveVoloByRotta()");
         Rotta r = new Rotta();
         r.setAeroportoPartenza("Breda Air Deposit");
@@ -122,10 +121,12 @@ public class PBServiceTest {
         
         ParametriRicercaPB params = new ParametriRicercaPB();
         params.setTipo(TipoPB.Volo);
-        params.setRotta(r);
+        params.setCittaPartenzaVolo(r.getCittaPartenza());
+        params.setCittaArrivoVolo(r.getCittaArrivo());
         
         List<Voce> pbs = pbService.trovaPB(params);
         assertTrue(pbs.contains(v));
+        Assert.assertEquals(((Volo)pbs.get(pbs.indexOf(v))).getDataOra().getTime(),v.getDataOra().getTime());
     }
     
     @Test 
@@ -151,7 +152,7 @@ public class PBServiceTest {
         
         ParametriRicercaPB params = new ParametriRicercaPB();
         params.setTipo(TipoPB.Volo);
-        params.setData(v.getDataOra());
+        params.setDataOraVolo(v.getDataOra());
         
         List<Voce> pbs = pbService.trovaPB(params);
         assertTrue(pbs.contains(v));
@@ -183,15 +184,16 @@ public class PBServiceTest {
         
         ParametriRicercaPB params = new ParametriRicercaPB();
         params.setTipo(TipoPB.Soggiorno);
-        params.setAlbergo(a);
-        params.setData(s.getGiornoInizio());
-        params.setNumPersone(s.getNumeroPersone());
+        params.setNomeAlbergo(a.getNome());
+        params.setCittaAlbergo(a.getCitta());
+        params.setDataInizioSoggiorno(s.getGiornoInizio());
+        params.setDataFineSoggiorno(s.getGiornoFine());
         List<Voce> pbs = pbService.trovaPB(params);
         assertTrue(pbs.contains(s));
     }
     
-    @Test 
-    public void testRetrieveSoggiornoByAlbergo(){
+    @Test  
+    public void testRetrieveSoggiornoByNomeAlbergo(){
         System.out.println("testRetrieveSoggiornoByParams()");
         Albergo a = new Albergo();
         a.setCitta("Paperopoli");
@@ -211,15 +213,16 @@ public class PBServiceTest {
         
         ParametriRicercaPB params = new ParametriRicercaPB();
         params.setTipo(TipoPB.Soggiorno);
-        params.setAlbergo(a);
+        params.setNomeAlbergo(a.getNome());
         
         List<Voce> pbs = pbService.trovaPB(params);
         assertTrue(pbs.contains(s));
+        Assert.assertEquals(((Soggiorno)pbs.get(pbs.indexOf(s))).getGiornoInizio().getTime(),s.getGiornoInizio().getTime());
     }
     
     @Test 
     public void testRetrieveSoggiornoByGiornoInizio(){
-        System.out.println("testRetrieveSoggiornoByParams()");
+        System.out.println("testRetrieveSoggiornoByGiornoInizio()");
         Albergo a = new Albergo();
         a.setCitta("Paperopoli");
         a.setNome("Pensione deposito");
@@ -232,13 +235,13 @@ public class PBServiceTest {
         s.setAlbergo(a);
         s.setCosto(240);
         s.setGiornoInizio(new Date());
-        s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
+        s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3*24*60*60*1000));
         s.setNumeroPersone(5);
         pbService.saveSoggiorno(s);
         
         ParametriRicercaPB params = new ParametriRicercaPB();
         params.setTipo(TipoPB.Soggiorno);
-        params.setData(s.getGiornoInizio());
+        params.setDataInizioSoggiorno(s.getGiornoInizio());
         List<Voce> pbs = pbService.trovaPB(params);
         assertTrue(pbs.contains(s));
     }
@@ -247,34 +250,7 @@ public class PBServiceTest {
     public void testRetrieveSoggiornoByCosto(){
         
     }
-     
-    @Test
-    public void testRetrieveSoggiornoByNumeroPersoneEcitta(){
-        System.out.println("testRetrieveSoggiornoByParams()");
-        Albergo a = new Albergo();
-        a.setCitta("Paperopoli");
-        a.setNome("Pensione deposito");
-        a.setUrlFoto(TestUtilities.getRandomImageLink());
-        a.setStelle(4);
-        edbService.salvaAlbergo(a);
-        
-        Soggiorno s = new Soggiorno();
-        s.setAbilitato(true);
-        s.setAlbergo(a);
-        s.setCosto(240);
-        s.setGiornoInizio(new Date());
-        s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
-        s.setNumeroPersone(5);
-        pbService.saveSoggiorno(s);
-        
-        ParametriRicercaPB params = new ParametriRicercaPB();
-        params.setTipo(TipoPB.Soggiorno);
-        params.setNumPersone(s.getNumeroPersone());
-        params.setCitta(a.getCitta());
-        List<Voce> pbs = pbService.trovaPB(params);
-        assertTrue(pbs.contains(s));
-    }
-    
+         
     @Test
     public void testRetrieveSoggiornoByCitta(){
         System.out.println("testRetrieveSoggiornoByParams()");
@@ -296,13 +272,13 @@ public class PBServiceTest {
         
         ParametriRicercaPB params = new ParametriRicercaPB();
         params.setTipo(TipoPB.Soggiorno);
-        params.setCitta(a.getCitta());
+        params.setCittaAlbergo(a.getCitta());
         List<Voce> pbs = pbService.trovaPB(params);
         assertTrue(pbs.contains(s));
     }
     
     @Test
-    public void testRetrieveVisitaByMuseo(){
+    public void testRetrieveVisitaByNomeMuseo(){
         System.out.println("testRetrieveVisitaByParams()");
         Museo m = new Museo();
         m.setNome("Louvre");
@@ -321,7 +297,7 @@ public class PBServiceTest {
         
         ParametriRicercaPB params = new ParametriRicercaPB();
         params.setTipo(TipoPB.Visita);
-        params.setMuseo(m);
+        params.setNomeMuseo(m.getNome());
         
         List<Voce> pbs = pbService.trovaPB(params);
         assertTrue(pbs.contains(v));
@@ -347,10 +323,8 @@ public class PBServiceTest {
         
         ParametriRicercaPB params = new ParametriRicercaPB();
         params.setTipo(TipoPB.Visita);
-        params.setMuseo(m);
-        params.setData(v.getDataOra());
-        params.setNumPersone(v.getNumeroPersone());
-//        params.setCosto(v.getCosto());
+        params.setNomeMuseo(m.getNome());
+        params.setCittaMuseo(m.getCitta());
         
         List<Voce> pbs = pbService.trovaPB(params);
         assertTrue(pbs.contains(v));

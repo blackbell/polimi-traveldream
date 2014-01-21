@@ -53,43 +53,44 @@ public class PBService implements PBServiceLocal {
     }
 
     @Override
-    public Voce salvaPB(ParametriRicercaPB params) {
+    public Voce salvaPB(Voce voce) {
         Voce ret = null;
         System.out.println("PBService.salvaPB");
-        System.out.println("PBService.salvaPB -> params.tipo: " + params.getTipo());
-        switch(params.getTipo()){
-            case Volo:
-                Volo v = new Volo();
-                v.setAbilitato(true);
-                v.setRotta(params.getRotta());
-                v.setCosto(params.getCosto());
-                v.setNumPasseggeri(params.getNumPersone());
-                v.setDataOra(params.getDataOra());
-                ret = voceDAO.saveAndFlush(v);
+        System.out.println("PBService.salvaPB -> params.tipo: " + voce.getTipo());
+        switch (voce.getTipo()) {
+            case "Volo":
+                Volo v = (Volo)voce;
+//                Volo v = new Volo();
+//                v.setAbilitato(true);
+//                v.setRotta(params.getRotta());
+//                v.setCosto(params.getCosto());
+//                v.setNumPasseggeri(params.getNumPersone());
+//                v.setDataOra(params.getDataOra());
+                ret = voceDAO.saveAndFlush(voce);
                 break;
-            case Soggiorno:
-                Soggiorno s = new Soggiorno();
-                s.setAbilitato(true);
-                s.setAlbergo(params.getAlbergo());
-                s.setCosto(params.getCosto());
-                s.setGiornoInizio(params.getData());
-                s.setGiornoFine(params.getDataOraFine());
-                s.setNumeroPersone(params.getNumPersone());
+            case "Soggiorno":
+                Soggiorno s = (Soggiorno) voce;
+//                s.setAbilitato(true);
+//                s.setAlbergo(params.getAlbergo());
+//                s.setCosto(params.getCosto());
+//                s.setGiornoInizio(params.getData());
+//                s.setGiornoFine(params.getDataOraFine());
+//                s.setNumeroPersone(params.getNumPersone());
                 ret = voceDAO.saveAndFlush(s);
                 break;
-            case Visita:
-                Visita m = new Visita();
-                m.setAbilitato(true);
-                m.setMuseo(params.getMuseo());
-                m.setNumeroPersone(params.getNumPersone());
-                m.setDataOra(params.getDataOra());
-                m.setCosto(params.getCosto());
+            case "Visita":
+                Visita m = (Visita) voce;
+//                m.setAbilitato(true);
+//                m.setMuseo(params.getMuseo());
+//                m.setNumeroPersone(params.getNumPersone());
+//                m.setDataOra(params.getDataOra());
+//                m.setCosto(params.getCosto());
                 ret = voceDAO.saveAndFlush(m);
                 break;
         }
         return ret;
     }
-    
+
     @Override
     public List<Voce> trovaPB(ParametriRicercaPB params) {
         System.out.println("PBService.trovaPB");
@@ -97,12 +98,16 @@ public class PBService implements PBServiceLocal {
         switch (params.getTipo()) {
             case Volo:
                 System.out.println("PBService.trovaPB -> params.tipo = volo");
-                System.out.println("PBService.trovaPB -> params.rotta :" + params.getRotta());
-                System.out.println("PBService.trovaPB -> params.data :" + params.getData());
-                System.out.println("PBService.trovaPB -> params.costo :" + params.getCosto());
+                System.out.println("PBService.trovaPB -> params.dataOraVolo :" + params.getDataOraVolo());
+                System.out.println("PBService.trovaPB -> params.cittàPartenzaVolo :" + params.getCittaPartenzaVolo());
+                System.out.println("PBService.trovaPB -> params.cittàArrivoVolo :" + params.getCittaArrivoVolo());
                 Collection<Volo> voli;
 //                voli = voceDAO.findByParams(params.getRotta(), params.getData(), params.getCosto(), params.getNumPersone());
-                voli = voceDAO.findByParams(params.getRotta(), params.getData(), params.getNumPersone(), params.isDisabilitatiInclusi());
+                voli = voceDAO.findByParams(
+                        params.getCittaPartenzaVolo(),
+                        params.getCittaArrivoVolo(),
+                        params.getDataOraVolo(),
+                        params.isDisabilitatiInclusi());
                 System.out.println("PBService.trovaPB -> voli.size: " + voli.size());
                 ret = new ArrayList<>();
                 for (Volo v : voli) {
@@ -114,10 +119,17 @@ public class PBService implements PBServiceLocal {
 
             case Soggiorno:
                 System.out.println("PBService.trovaPB -> params.tipo = soggiorno");
-                System.out.println("PBService.trovaPB -> params.albergo:" + params.getAlbergo());
-                System.out.println("PBService.trovaPB -> params.:" + params.getNumPersone());
+                System.out.println("PBService.trovaPB -> params.nomeAlbergo:" + params.getNomeAlbergo());
+                System.out.println("PBService.trovaPB -> params.cittàAlbergo:" + params.getCittaAlbergo());
+                System.out.println("PBService.trovaPB -> params.dataInizioSoggiorno:" + params.getDataInizioSoggiorno());
+                System.out.println("PBService.trovaPB -> params.dataFineSoggiorno:" + params.getDataFineSoggiorno());
                 Collection<Soggiorno> soggiorni;
-                soggiorni = voceDAO.findByParams(params.getAlbergo(), params.getData(), params.getCitta(), params.getNumPersone(), params.isDisabilitatiInclusi());
+                soggiorni = voceDAO.findByParams(
+                        params.getNomeAlbergo(), 
+                        params.getCittaAlbergo(),
+                        params.getDataInizioSoggiorno(), 
+                        params.getDataFineSoggiorno(), 
+                        params.isDisabilitatiInclusi());
                 System.out.println("PBService.trovaPB -> soggiorni.size: " + soggiorni.size());
                 ret = new ArrayList<>();
                 for (Soggiorno s : soggiorni) {
@@ -127,10 +139,14 @@ public class PBService implements PBServiceLocal {
                 break;
             case Visita:
                 System.out.println("PBService.trovaPB -> params.tipo = visita");
-                System.out.println("PBService.trovaPB -> params.museo:" + params.getMuseo());
-                System.out.println("PBService.trovaPB -> params.numeroPersone:" + params.getNumPersone());
+                System.out.println("PBService.trovaPB -> params.nomeMuseo:" + params.getNomeMuseo());
+                System.out.println("PBService.trovaPB -> params.cittàMuseo:" + params.getCittaMuseo());
                 Collection<Visita> visite;
-                visite = voceDAO.findByParams(params.getMuseo(), params.getData(), params.getCitta(), params.getNumPersone(), params.isDisabilitatiInclusi());
+                visite = voceDAO.findByParams(
+                        params.getGiornoVisita(),
+                        params.getNomeMuseo(), 
+                        params.getCittaMuseo(), 
+                        params.isDisabilitatiInclusi());
                 System.out.println("PBService.trovaPB -> visite.size: " + visite.size());
                 ret = new ArrayList<>();
                 for (Visita v : visite) {
@@ -170,7 +186,7 @@ public class PBService implements PBServiceLocal {
         v = voceDAO.save(v);
         return v.isAbilitato();
     }
-    
+
     @Override
     public boolean disattivaPB(Integer idPB) {
         Voce v = voceDAO.findOne(idPB);

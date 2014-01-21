@@ -34,13 +34,16 @@ import org.codehaus.jackson.annotate.JsonTypeName;
     @NamedQuery(name = "Visita.findByDataOra", query = "SELECT v FROM Visita v WHERE v.dataOra = :dataOra"),
     @NamedQuery(name = "Visita.findByNumeroPersone", query = "SELECT v FROM Visita v WHERE v.numeroPersone = :numeroPersone"),
     @NamedQuery(name = "Visita.findByCosto", query = "SELECT v FROM Visita v WHERE v.costo = :costo"),
-    @NamedQuery(name = "Visita.findByParams", query = "SELECT v FROM Museo m JOIN m.visiteCollection v WHERE "
-            + "(:citta IS NULL OR m.citta = :citta) AND "
-            + "(:museo IS NULL OR v.museo = :museo) AND "
-            + "(:numeroPersone IS NULL OR v.numeroPersone = :numeroPersone) AND "
-            + "(:disabilitatiInclusi = True OR v.abilitato = True) AND "
-            + "(:data IS NULL OR v.dataOra > :data) "
-            + "")})
+    @NamedQuery(name = "Visita.findByParams", query = ""
+            + "SELECT v "
+            + "FROM "
+            + "Museo m JOIN m.visiteCollection v "
+            + "WHERE "
+            + "(:nomeMuseo IS NULL OR m.nome = :nomeMuseo) AND "
+            + "(:cittaMuseo IS NULL OR m.citta = :cittaMuseo) AND "
+            + "(:giornoVisita IS NULL OR v.giornoVisita = :giornoVisita) AND "
+            + "(:disabilitatiInclusi = True OR v.abilitato = True)")
+})
 @JsonTypeName("Visita")
 public class Visita extends Voce implements Serializable {
 
@@ -62,6 +65,9 @@ public class Visita extends Voce implements Serializable {
     @JoinColumn(name = "idMuseo", referencedColumnName = "idMuseo")
     @ManyToOne(optional = false)
     private Museo museo;
+    @Temporal(TemporalType.DATE)
+    @Column(name = "giornoVisita")
+    private Date giornoVisita;
 
     public Visita() {
         this.setTipo("Visita");
@@ -76,6 +82,12 @@ public class Visita extends Voce implements Serializable {
 
     public Date getDataOra() {
         return dataOra;
+    }
+    
+    public Date getGiornoVisita(){
+        long time = getDataOra().getTime();
+        time = ((int)time / (60*60*24))*(60*60*24);
+        return new Date(time);
     }
 
     public void setDataOra(Date dataOra) {
