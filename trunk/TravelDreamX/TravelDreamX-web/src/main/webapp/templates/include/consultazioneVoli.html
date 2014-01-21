@@ -1,28 +1,28 @@
 <div class="well">
     <div class="row">
-        <div class="span2">
+        <div class="span2 offset2">
             <form>
                 <label class="control-label">
-                    Città partenza
+                    Dalla citt&agrave; di
                 </label>
-                <input type="text" class="span2"/>
+                <input type="text" class="span2" placeholder="Bologna" ng-model="parametriRicercaPB.cittaPartenzaVolo"/>
                 <label class="control-label">
-                    Città arrivo
+                    Alla citt&agrave; di
                 </label>
-                <input type="text" class="span2"/>
+                <input type="text" class="span2" placeholder="Milano" ng-model="parametriRicercaPB.cittaArrivoVolo"/>
             </form>
         </div>
         <div class="span2">
             <form>
                 <label class="control-label">
-                    Giorno
+                    Il giorno
                 </label>
                 <div class="input-append">
-                    <input class="input-small" type="text" ng-model="parametriRicercaPB.dataOra" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <input class="input-small" type="text" ng-model="parametriRicercaPB.dataOraVolo" data-date-format="dd/mm/yyyy" bs-datepicker>
                     <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
                 </div>
                 <label class="control-label">
-                    Costo
+                    Prezzo massimo
                 </label>
                 <div class="input-append">
                     <input class="input-small" type="number" ng-model="parametriRicercaPB.costo">
@@ -30,20 +30,8 @@
                 </div>
             </form>
         </div>
-        <div class="span2">
-            <form>
-                <label class="control-label">
-                    Numero passeggeri
-                </label>
-                <input type="number" class="span2" ng-model="parametriRicercaPB.numPersone"/>
-                <label class="control-label">
-                    Città arrivo
-                </label>
-                <input type="text" class="span2"/>
-            </form>
-        </div>
     </div>
-    <div class="row"><div class="span8"><button class="btn btn-block btn-primary" ng-click="trovaPB()">Cerca</button></div></div>
+    <div class="row"><div class="span4 offset2"><button class="btn btn-block btn-primary" ng-click="trovaPB()">Cerca</button></div></div>
 </div>
 <div class="row" ng-show="waiting">
     <div class="span9">

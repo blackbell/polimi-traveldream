@@ -4,23 +4,24 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     //***** Inizializzazione *****
     //****************************
     toastr.options = {
-        positionClass: "toast-center",
+        positionClass: "toast-center"
     };
 
     $scope.inizializzaRicerca = function() {
         $scope.PB = new Object();
         $scope.waiting = false;
         $scope.parametriRicercaPB = {
-            // disabilitatiInclusi: false,
             tipo: new String(),
-            // rotta: {}, 
-            costo: '',
-            // numPersone: new String(), 
-            // albergo: new Object(), 
-            // citta: new String(), 
-            //museo: new Object()
-            dataOra: new Date()
-                    //          dataOraFine: new Date() 
+            nomeAlbergo: new String(),
+            nomeMuseo: new String(),
+            cittaAlbergo: new String(),
+            cittaMuseo: new String(),
+            cittaPartenzaVolo: new String(),
+            cittaArrivoVolo: new String(),
+            dataInizioSoggiorno: new Date(),
+            dataOraVolo: new Date(),
+            dataFineSoggiorno: new Date(),
+            giornoVisita: new Date()
         };
     };
 

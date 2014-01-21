@@ -1,16 +1,19 @@
 <div class="well">
     <div class="row">
-        <div class="span2">
+        <div class="span2 offset1">
             <form>
                 <label class="control-label">
-                    Nazione
-                </label>
-                <input type="text" class="span2"/>
-                <label class="control-label">
-                    Dal giorno
+                    Che va dal giorno
                 </label>
                 <div class="input-append">
-                    <input class="input-small" type="text" ng-model="datepicker.date" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <input class="input-small" type="text" ng-model="parametriRicercaPB.dataInizioSoggiorno" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
+                </div>
+                <label class="control-label">
+                    Ad almeno il giorno
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="text" ng-model="parametriRicercaPB.dataInizioSoggiorno" data-date-format="dd/mm/yyyy" bs-datepicker>
                     <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
                 </div>
             </form>
@@ -18,42 +21,25 @@
         <div class="span2">
             <form>
                 <label class="control-label">
-                    Citt&agrave;
+                    Nell'albergo
                 </label>
-                <input type="text" class="span2"/>
+                <input type="text" placeholder="Hotel Pina" class="span2" ng-model="parametriRicercaPB.nomeAlbergo"/>
                 <label class="control-label">
-                    Al giorno
+                    A
                 </label>
-                <div class="input-append">
-                    <input class="input-small" type="text" ng-model="datepicker.date" data-date-format="dd/mm/yyyy" bs-datepicker>
-                    <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
-                </div>
+                <input type="text" class="span2" placeholder="Milano" ng-model="parametriRicercaPB.cittaAlbergo"/>
             </form>
         </div>
         <div class="span2">
             <form>
-                <label class="control-label">
-                    Nome albergo
-                </label>
-                <input type="text" class="span2"/>
                 <label class="control-label">
                     Stelle
                 </label>
                 <i ng-click="diminuisciStelle($index)" class="icon-star pointer" ng-repeat="i in getNumStelle(numStelle) track by $index"></i>
                 <i ng-click="aumentaStelle($index)" class="icon-star-empty pointer" ng-repeat="i in getNumStelle(numStelleVuote) track by $index"></i>
-            </form>
-        </div>
-        <div class="span2">
-            <form>
+                <br/><br/>
                 <label class="control-label">
-                    Prezzo
-                </label>
-                <div class="input-append">
-                    <input class="input-small" type="number">
-                    <span class="btn add-on">€</span>
-                </div>
-                <label class="control-label">
-                    Prezzo
+                    Prezzo massimo
                 </label>
                 <div class="input-append">
                     <input class="input-small" type="number">
@@ -62,7 +48,7 @@
             </form>
         </div>
     </div>
-    <div class="row"><div class="span8"><button class="btn btn-block btn-primary" ng-click="trovaPB()">Cerca</button></div></div>
+    <div class="row"><div class="span6 offset1"><button class="btn btn-block btn-primary" ng-click="trovaPB()">Cerca</button></div></div>
 </div>
 <div class="row" ng-show="waiting">
     <div class="span9" >Sto cercando... &nbsp;&nbsp;
