@@ -43,9 +43,9 @@ public class Utente implements Serializable {
     @Column(name = "password")
     private String password;
     @Column(name = "abilitato")
-    private Boolean abilitato;
+    private Boolean abilitato = true;
     @Column(name = "livello")
-    private Integer livello;
+    private Integer livello = 0;
 
     public Utente() {
     }
