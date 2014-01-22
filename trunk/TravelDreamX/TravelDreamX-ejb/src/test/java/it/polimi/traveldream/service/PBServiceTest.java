@@ -194,7 +194,7 @@ public class PBServiceTest {
     
     @Test  
     public void testRetrieveSoggiornoByNomeAlbergo(){
-        System.out.println("testRetrieveSoggiornoByParams()");
+        System.out.println("testRetrieveSoggiornoByNomeAlbergo()");
         Albergo a = new Albergo();
         a.setCitta("Paperopoli");
         a.setNome("Pensione deposito");
@@ -253,7 +253,7 @@ public class PBServiceTest {
          
     @Test
     public void testRetrieveSoggiornoByCitta(){
-        System.out.println("testRetrieveSoggiornoByParams()");
+        System.out.println("testRetrieveSoggiornoByCitta()");
         Albergo a = new Albergo();
         a.setCitta("Paperopoli");
         a.setNome("Pensione deposito");

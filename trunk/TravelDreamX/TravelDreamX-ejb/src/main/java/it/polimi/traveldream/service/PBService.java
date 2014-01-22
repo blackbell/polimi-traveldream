@@ -12,6 +12,7 @@ import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.model.Volo;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;
@@ -118,16 +119,19 @@ public class PBService implements PBServiceLocal {
                 break;
 
             case Soggiorno:
+                Date d2 = (params.getDataInizioSoggiorno()!=null)?new Date(params.getDataInizioSoggiorno().getTime()+ 24*60*60*1000):null;
                 System.out.println("PBService.trovaPB -> params.tipo = soggiorno");
                 System.out.println("PBService.trovaPB -> params.nomeAlbergo:" + params.getNomeAlbergo());
                 System.out.println("PBService.trovaPB -> params.cittàAlbergo:" + params.getCittaAlbergo());
                 System.out.println("PBService.trovaPB -> params.dataInizioSoggiorno:" + params.getDataInizioSoggiorno());
+                System.out.println("PBService.trovaPB -> params.dataInizioSoggiorno2:" + d2);
                 System.out.println("PBService.trovaPB -> params.dataFineSoggiorno:" + params.getDataFineSoggiorno());
                 Collection<Soggiorno> soggiorni;
                 soggiorni = voceDAO.findByParams(
                         params.getNomeAlbergo(), 
                         params.getCittaAlbergo(),
                         params.getDataInizioSoggiorno(), 
+                        d2, 
                         params.getDataFineSoggiorno(), 
                         params.isDisabilitatiInclusi());
                 System.out.println("PBService.trovaPB -> soggiorni.size: " + soggiorni.size());

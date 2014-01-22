@@ -43,7 +43,7 @@ import org.codehaus.jackson.annotate.JsonTypeName;
             + "WHERE "
             + "(:nomeAlbergo IS NULL OR a.nome = :nomeAlbergo) AND "
             + "(:cittaAlbergo IS NULL OR a.citta = :cittaAlbergo) AND "
-            + "(:dataInizioSoggiorno IS NULL OR s.giornoInizio = :dataInizioSoggiorno) AND " 
+            + "(:dataInizioSoggiorno IS NULL OR (s.giornoInizio BETWEEN :dataInizioSoggiorno AND :dataInizioSoggiorno2)) AND " 
             + "(:dataFineSoggiorno IS NULL OR s.giornoFine >= :dataFineSoggiorno) AND " 
             + "(:disabilitatiInclusi = True OR s.abilitato = True)")
 })

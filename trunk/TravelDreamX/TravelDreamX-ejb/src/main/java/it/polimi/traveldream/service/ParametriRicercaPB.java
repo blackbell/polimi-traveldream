@@ -128,7 +128,7 @@ public class ParametriRicercaPB {
     
     public void setDataInizioSoggiorno(Date dataInizioSoggiorno) {
         long time = dataInizioSoggiorno.getTime();
-        time = ((long)time / (1000))*(1000);
+        time = ((long)time / (24*60*60*1000))*(24*60*60*1000);
         this.dataInizioSoggiorno = new Date(time);
 //        this.dataInizioSoggiorno = dataInizioSoggiorno;
     }
