@@ -58,7 +58,7 @@ public class GestioneOffertaController {
     public @ResponseBody Esito attivaPB(@RequestBody Integer idPB) {
         Esito e = new Esito();
         try{
-            boolean newState = pbService.attivaPB(idPB);
+            Boolean newState = pbService.attivaPB(idPB);
             e.setResult(true);
             e.setMessage(null);
             e.setReturnedObj(newState);
@@ -74,7 +74,7 @@ public class GestioneOffertaController {
     public @ResponseBody Esito disattivaPB(@RequestBody Integer idPB) {
         Esito e = new Esito();
         try{
-            boolean newState = pbService.disattivaPB(idPB);
+            Boolean newState = pbService.disattivaPB(idPB);
             e.setResult(true);
             e.setMessage(null);
             e.setReturnedObj(newState);
@@ -154,7 +154,7 @@ public class GestioneOffertaController {
     public @ResponseBody Esito disattivaPV(@RequestBody Integer idPV) {
         Esito e = new Esito();
         try{
-            boolean newState = pvService.disattivaPV(idPV);
+            Boolean newState = pvService.disattivaPV(idPV);
             e.setResult(true);
             e.setMessage(null);
             e.setReturnedObj(newState);

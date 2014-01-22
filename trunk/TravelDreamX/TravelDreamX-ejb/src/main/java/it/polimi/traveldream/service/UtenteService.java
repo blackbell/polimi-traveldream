@@ -60,4 +60,20 @@ public class UtenteService implements UtenteServiceLocal {
     public List<Utente> recuperaUtenti() {
         return utenteDAO.findAll();
     }
+
+    @Override
+    public Boolean disattivaUtente(Utente utente) {
+        Utente u = utenteDAO.findOne(utente.getEmail());
+        u.setAbilitato(false);
+        utente = utenteDAO.save(u);
+        return utente.getAbilitato();
+    }
+
+    @Override
+    public Boolean attivaUtente(Utente utente) {
+        Utente u = utenteDAO.findOne(utente.getEmail());
+        u.setAbilitato(true);
+        utente = utenteDAO.save(u);
+        return utente.getAbilitato();
+    }
 }
