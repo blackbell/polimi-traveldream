@@ -11,6 +11,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -47,4 +48,52 @@ public class AmministrazioneController {
         }
         return e;
     }
+    
+    @RequestMapping(value = "disattivaUtente", method = RequestMethod.POST)
+    public @ResponseBody Esito disattivaUtente(@RequestBody Utente utente, HttpServletRequest request) {
+        Esito e = new Esito();
+        try {
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute("TDX_CurrentUser");
+            if (utenteLoggato != null && utenteLoggato.getLivello() >= 0) {
+                Boolean newState = utenteService.disattivaUtente(utente);
+                e.setResult(true);
+                e.setMessage(null);
+                e.setReturnedObj(newState);
+            }else{
+                e.setResult(false);
+                e.setMessage(Esito.USER_NOT_AUTHORIZED);
+                e.setReturnedObj(null);
+            }
+        } catch (Exception ex) {
+            e.setResult(false);
+            e.setMessage(Esito.EXCEPTION_RAISED);
+            e.setReturnedObj(ex.getMessage());
+        }
+        return e;
+    }
+    
+    @RequestMapping(value = "attivaUtente", method = RequestMethod.POST)
+    public @ResponseBody Esito attivaUtente(@RequestBody Utente utente, HttpServletRequest request) {
+        Esito e = new Esito();
+        try {
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute("TDX_CurrentUser");
+            if (utenteLoggato != null && utenteLoggato.getLivello() >= 0) {
+                Boolean newState = utenteService.attivaUtente(utente);
+                e.setResult(true);
+                e.setMessage(null);
+                e.setReturnedObj(newState);
+            }else{
+                e.setResult(false);
+                e.setMessage(Esito.USER_NOT_AUTHORIZED);
+                e.setReturnedObj(null);
+            }
+        } catch (Exception ex) {
+            e.setResult(false);
+            e.setMessage(Esito.EXCEPTION_RAISED);
+            e.setReturnedObj(ex.getMessage());
+        }
+        return e;
+    }
+    
+    
 }

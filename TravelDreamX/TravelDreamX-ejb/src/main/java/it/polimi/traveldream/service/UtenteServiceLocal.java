@@ -18,4 +18,7 @@ public interface UtenteServiceLocal {
     public Utente login(Utente u);
 
     public List<Utente> recuperaUtenti();
+
+    public Boolean disattivaUtente(Utente utente);
+    public Boolean attivaUtente(Utente utente);
 }
