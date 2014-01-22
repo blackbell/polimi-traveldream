@@ -93,4 +93,25 @@ public class UtenteServiceTest {
         Utente u2 = service.login(utente);
         assertNull(u2);
     }
+    
+    @Test
+    public void testModificaLivelloUtente(){
+        Utente utente = new Utente("testUserSIS" + rnd.nextInt() +  "@testDomain.polimi.it", "testPsw");
+        Utente result = service.registrazione(utente);
+        
+        result.setLivello(2);
+        Integer newLevel = service.modificaLivello(result);
+        assertEquals(newLevel, new Integer(2));
+    }
+    
+    @Test
+    public void testModificaLivelloEAbilitazioneUtente(){
+        Utente utente = new Utente("testUserSIS" + rnd.nextInt() +  "@testDomain.polimi.it", "testPsw");
+        Utente result = service.registrazione(utente);
+        
+        result.setAbilitato(!result.getAbilitato());
+        result.setLivello(2);
+        Integer newLevel = service.modificaLivello(result);
+        assertNull(newLevel);
+    }
 }

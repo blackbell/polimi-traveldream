@@ -101,10 +101,10 @@ public class AmministrazioneController {
         try {
             Utente utenteLoggato = (Utente) request.getSession().getAttribute("TDX_CurrentUser");
             if (utenteLoggato != null && utenteLoggato.getLivello() >= 0) {
-                Boolean newState = utenteService.modificaLivello(utente);
+                Integer newLevel = utenteService.modificaLivello(utente);
                 e.setResult(true);
                 e.setMessage(null);
-                e.setReturnedObj(newState);
+                e.setReturnedObj(newLevel);
             }else{
                 e.setResult(false);
                 e.setMessage(Esito.USER_NOT_AUTHORIZED);
