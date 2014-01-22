@@ -76,4 +76,14 @@ public class UtenteService implements UtenteServiceLocal {
         utente = utenteDAO.save(u);
         return utente.getAbilitato();
     }
+
+    @Override
+    public Boolean modificaLivello(Utente utente) {
+        Utente u = utenteDAO.findOne(utente.getEmail());
+        if (u == null) return null;
+        utente = utenteDAO.save(utente);
+        return utente.getAbilitato();
+    }
+    
+    
 }

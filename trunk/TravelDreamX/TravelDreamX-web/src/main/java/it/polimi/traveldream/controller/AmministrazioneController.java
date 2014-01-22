@@ -95,5 +95,26 @@ public class AmministrazioneController {
         return e;
     }
     
-    
+    @RequestMapping(value = "modificaLivelloUtente", method = RequestMethod.POST)
+    public @ResponseBody Esito modificaLivelloUtente(@RequestBody Utente utente, HttpServletRequest request) {
+        Esito e = new Esito();
+        try {
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute("TDX_CurrentUser");
+            if (utenteLoggato != null && utenteLoggato.getLivello() >= 0) {
+                Boolean newState = utenteService.modificaLivello(utente);
+                e.setResult(true);
+                e.setMessage(null);
+                e.setReturnedObj(newState);
+            }else{
+                e.setResult(false);
+                e.setMessage(Esito.USER_NOT_AUTHORIZED);
+                e.setReturnedObj(null);
+            }
+        } catch (Exception ex) {
+            e.setResult(false);
+            e.setMessage(Esito.EXCEPTION_RAISED);
+            e.setReturnedObj(ex.getMessage());
+        }
+        return e;
+    }
 }
