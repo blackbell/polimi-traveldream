@@ -9,7 +9,7 @@ proj codename: TravelDreamX
         <button class="btn btn-block btn-large" ng-click="gestisci = 'pagamenti'">Gestione pagamenti</button>
     </div>
     <div class="span9">
-
+        <p class="lead">Lista utenti traveldream</p>
         <table class="table table-condensed table-hover table-striped" ng-if="gestisci === 'utenti'">
             <thead>
                 <tr>
@@ -21,9 +21,12 @@ proj codename: TravelDreamX
             </thead>
             <tbody>
                 <tr ng-repeat="utente in listaUtenti">
-                    <td>{{disattivaUtente(utente)}}</td>
+                    <td ng-if="utente.abilitato"><button ng-click="disattivaUtente(utente)"></button> </td>
+                    <td ng-if="!utente.abilitato"><button ng-click="abilitaUtente(utente)"></button> </td>
                     <td>{{utente.email}}</td>
-                    <td>{{utente.livello}}</td>
+                    <td ng-if="utente.livello===2">ADMIN_img</td>
+                    <td ng-if="utente.livello===1">DIP_img</td>
+                    <td ng-if="utente.livello===0">USER_img</td>
                     <td>{{recuperaPagamentiUtente(utente)}}</td>
                 </tr>
             </tbody>

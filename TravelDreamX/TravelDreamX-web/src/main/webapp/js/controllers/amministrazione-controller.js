@@ -63,5 +63,18 @@ travelDreamApp.controller('amministrazioneController', function($scope, amminist
         }
         });
     };
+    $scope.abilitaUtente = function(utente) {
+        $scope.waiting = true;
+        amministrazioneService.abilitaUtente(utente, function(esito) {
+            if (esito.result) {
+                $scope.listaPagamenti = esito.returnedObject;
+                toastr.success("l'utente " + utente.email + " è stato abilitato.", "SUCCESSO:");
+                $scope.waiting = false;
+            } else {
+                toastr.error(esito.message, "ERRORE:");
+                $scope.waiting = false;
+        }
+        });
+    };
 });
 
