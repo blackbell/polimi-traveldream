@@ -26,7 +26,7 @@ travelDreamApp.controller('amministrazioneController', function($scope, amminist
         $scope.waiting = true;
         amministrazioneService.recuperaUtenti( function(esito) {
             if (esito.result) {
-                $scope.listaUtenti = esito.returnedObject;
+                $scope.listaUtenti = esito.returnedObj;
                 $scope.waiting = false;
             } else{
                 toastr.error(esito.message, "ERRORE:");

@@ -31,7 +31,7 @@ public class AmministrazioneController {
         Esito e = new Esito();
         try {
             Utente utenteLoggato = (Utente) request.getSession().getAttribute("TDX_CurrentUser");
-            if (utenteLoggato != null && utenteLoggato.getLivello() >= 0) {
+            if (utenteLoggato != null && utenteLoggato.getLivello() == 2) {
                 List<Utente> ret = utenteService.recuperaUtenti();
                 e.setResult(true);
                 e.setMessage(null);
