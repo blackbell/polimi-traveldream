@@ -5,6 +5,7 @@
 package it.polimi.traveldream.service;
 
 import it.polimi.traveldream.model.Utente;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -15,4 +16,6 @@ import javax.ejb.Local;
 public interface UtenteServiceLocal {
     public Utente registrazione(Utente utente);
     public Utente login(Utente u);
+
+    public List<Utente> recuperaUtenti();
 }
