@@ -12,15 +12,15 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         $scope.waiting = false;
         $scope.parametriRicercaPB = {
             tipo: new String(),
-            nomeAlbergo: new String(),
-            nomeMuseo: new String(),
-            cittaAlbergo: new String(),
-            cittaMuseo: new String(),
             cittaPartenzaVolo: new String(),
             cittaArrivoVolo: new String(),
-            dataInizioSoggiorno: new Date(),
             dataOraVolo: new Date(),
+            nomeAlbergo: new String(),
+            cittaAlbergo: new String(),
+            dataInizioSoggiorno: new Date(),
             dataFineSoggiorno: new Date(),
+            nomeMuseo: new String(),
+            cittaMuseo: new String(),
             giornoVisita: new Date()
         };
     };
