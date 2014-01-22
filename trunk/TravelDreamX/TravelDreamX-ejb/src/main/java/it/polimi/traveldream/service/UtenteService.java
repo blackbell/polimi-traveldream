@@ -6,6 +6,7 @@ package it.polimi.traveldream.service;
 
 import it.polimi.traveldream.data.UtenteDAO;
 import it.polimi.traveldream.model.Utente;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,4 +55,9 @@ public class UtenteService implements UtenteServiceLocal {
         Utente ret = utenteDAO.findOne(u.getEmail());
         return ret;
     }   
+
+    @Override
+    public List<Utente> recuperaUtenti() {
+        return utenteDAO.findAll();
+    }
 }
