@@ -59,10 +59,11 @@
 <div class="row">
     <div class="span9">
         <legend>Risultati</legend>
-        <ul class="thumbnails">
+        <ul class="thumbnails" ng-if="PB.Soggiorno.length>0">
             <li class="span3" ng-repeat="soggiorno in PB.Soggiorno">
             <soggiorno soggiorno="soggiorno"/>
             </li>
         </ul>
+        <p class="lead" ng-if="PB.Soggiorno.length===0">Non ci sono risultati per questa ricerca</p>
     </div>
 </div>

@@ -42,7 +42,7 @@
 <div class="row" ng-if="PB.Volo !== 'undefined'">
     <div class="span9">
         <br/>
-        <table class="table table-condensed table-hover table-striped">
+        <table class="table table-condensed table-hover table-striped" ng-if="PB.Volo.length>0">
             <legend>Risultati</legend>
             <thead>
                 <tr>
@@ -65,5 +65,6 @@
                 </tr>
             </tbody>
         </table>
+        <p class="lead" ng-if="PB.Volo.length===0">Non ci sono risultati per questa ricerca</p>
     </div>
 </div>
