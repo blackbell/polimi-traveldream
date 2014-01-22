@@ -29,7 +29,7 @@ travelDreamApp.controller('amministrazioneController', function($scope, amminist
                 $scope.listaUtenti = esito.returnedObject;
                 $scope.waiting = false;
             } else{
-                toastr.success(esito.message, "ERRORE:");
+                toastr.error(esito.message, "ERRORE:");
                 $scope.waiting = false;
             }
         });
@@ -45,7 +45,7 @@ travelDreamApp.controller('amministrazioneController', function($scope, amminist
                 $scope.listaPagamenti = esito.returnedObject;
                 $scope.waiting = false;
             } else {
-                toastr.success(esito.message, "ERRORE:");
+                toastr.error(esito.message, "ERRORE:");
                 $scope.waiting = false;
             }
         });
@@ -58,7 +58,7 @@ travelDreamApp.controller('amministrazioneController', function($scope, amminist
                 toastr.success("l'utente " + utente.email + " è stato disabilitato.", "SUCCESSO:");
                 $scope.waiting = false;
             } else {
-                toastr.success(esito.message, "ERRORE:");
+                toastr.error(esito.message, "ERRORE:");
                 $scope.waiting = false;
         }
         });
