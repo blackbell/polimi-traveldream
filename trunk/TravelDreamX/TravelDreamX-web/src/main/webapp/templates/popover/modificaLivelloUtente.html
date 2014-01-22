@@ -1,0 +1,41 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<div class="container" ng-controller="amministrazioneController">
+            <div class="row">
+                <div class="span3">
+                    Modifica il livello in:
+                    <br/>
+                    <br/>
+                    <div class="btn-group" data-toggle="buttons-radio">
+                        <button type="button" class="btn" ng-click="livelloSelezionato = 0">Utente</button>
+                        <button type="button" class="btn" ng-click="livelloSelezionato = 1">Impiegato</button>
+                        <button type="button" class="btn" ng-click="livelloSelezionato = 2">Amministratore</button>
+                    </div>
+                    <br/>
+                    <br/>
+                </div>
+            </div>
+            <div class="row" ng-if="livelloSelezionato === 2">
+                <div class="span3"> Hai selezionato: <strong>Amministratore</strong></div>
+            </div>
+            <div class="row" ng-if="livelloSelezionato === 1">
+                <div class="span3">Hai selezionato: <strong>Impiegato</strong></div>
+            </div>
+            <div class="row" ng-if="livelloSelezionato === 0">
+                <div class="span3">Hai selezionato: <strong>Utente registrato</strong></div>
+            </div>
+            <div class="row" ng-if="livelloSelezionato === -1">
+                <div class="span3">Non hai selezionato alcun livello</div>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <br/>
+                    <legend></legend>
+                    <button class="btn pull-left" ng-click="livelloSelezionato = -1;
+                            dismiss()">Annulla</button>
+                    <button class="btn btn-info pull-right" ng-disabled="livelloSelezionato === -1" ng-click="modificaLivelloUtente(utente, livelloSelezionato)" >Salva</button>
+                </div>
+            </div>
+</div>

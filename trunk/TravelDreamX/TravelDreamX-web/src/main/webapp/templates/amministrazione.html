@@ -16,7 +16,7 @@ proj codename: TravelDreamX
         <table class="table table-condensed table-hover table-striped" ng-if="gestisci === 'utenti'">
             <thead>
                 <tr>
-                    <th>Abilita/Disabilita</th>
+                    <th>Abilitato/Disabilitato</th>
                     <th>Email</th>
                     <th>Livello</th>
                     <th>Vedi pagamenti</th>
@@ -24,13 +24,13 @@ proj codename: TravelDreamX
             </thead>
             <tbody>
                 <tr ng-repeat="utente in listaUtenti">
-                    <td ng-if="utente.abilitato"><button ng-click="disattivaUtente(utente)"></button> </td>
-                    <td ng-if="!utente.abilitato"><button class="btn" ng-click="abilitaUtente(utente)"></button> </td>
+                    <td ng-if="utente.abilitato"><span class="badge badge-utente-attivo pointer" ng-click="disattivaUtente(utente)" bs-tooltip='tooltipDisattiva.title'><i class="icon-ok-circle"></i></span></td>
+                    <td ng-if="!utente.abilitato"><span class="badge badge-important pointer" ng-click="abilitaUtente(utente)" bs-tooltip='tooltipAbilita.title'><i class="icon-ban-circle icon-white"></i></span></td>
                     <td>{{utente.email}}</td>
-                    <td ng-if="utente.livello === 2">ADMIN_img</td>
-                    <td ng-if="utente.livello === 1">DIP_img</td>
-                    <td ng-if="utente.livello === 0">USER_img</td>
-                    <td><button ng-click="recuperaPagamentiUtente(utente)">+</button></td>
+                    <td ng-if="utente.livello === 2"><img src="img/admin.png" class="pointer" width="20" bs-tooltip='tooltipAmministratore.title' bs-popover="'templates/popover/modificaLivelloUtente.html'"/></td>
+                    <td ng-if="utente.livello === 1"><img src="img/impiegato.png" class="pointer" width="20" bs-tooltip='tooltipImpiegato.title' bs-popover="'templates/popover/modificaLivelloUtente.html'"/></td>
+                    <td ng-if="utente.livello === 0"><img src="img/utente.png" class="pointer" width="20" bs-tooltip='tooltipUtenteRegistrato.title' bs-popover="'templates/popover/modificaLivelloUtente.html'"/></td>
+                    <td><span class="badge badge-inverse pointer" ng-click="recuperaPagamentiUtente(utente)"><i class="icon-shopping-cart icon-white"></i></span></td>
                 </tr>
             </tbody>
         </table>

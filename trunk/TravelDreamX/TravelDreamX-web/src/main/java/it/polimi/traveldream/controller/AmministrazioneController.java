@@ -54,7 +54,7 @@ public class AmministrazioneController {
         Esito e = new Esito();
         try {
             Utente utenteLoggato = (Utente) request.getSession().getAttribute("TDX_CurrentUser");
-            if (utenteLoggato != null && utenteLoggato.getLivello() >= 0) {
+            if (utenteLoggato != null && utenteLoggato.getLivello() == 2) {
                 Boolean newState = utenteService.disattivaUtente(utente);
                 e.setResult(true);
                 e.setMessage(null);
@@ -77,7 +77,7 @@ public class AmministrazioneController {
         Esito e = new Esito();
         try {
             Utente utenteLoggato = (Utente) request.getSession().getAttribute("TDX_CurrentUser");
-            if (utenteLoggato != null && utenteLoggato.getLivello() >= 0) {
+            if (utenteLoggato != null && utenteLoggato.getLivello() == 2) {
                 Boolean newState = utenteService.attivaUtente(utente);
                 e.setResult(true);
                 e.setMessage(null);
@@ -100,7 +100,7 @@ public class AmministrazioneController {
         Esito e = new Esito();
         try {
             Utente utenteLoggato = (Utente) request.getSession().getAttribute("TDX_CurrentUser");
-            if (utenteLoggato != null && utenteLoggato.getLivello() >= 0) {
+            if (utenteLoggato != null && utenteLoggato.getLivello() == 2) {
                 Integer newLevel = utenteService.modificaLivello(utente);
                 e.setResult(true);
                 e.setMessage(null);
