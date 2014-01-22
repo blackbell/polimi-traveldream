@@ -24,6 +24,15 @@ travelDreamApp.factory('amministrazioneService', function($http) {
                     toastr.error("Errore " + status);
                 });
     };
+    var __abilitaUtente = function(utente, callback) {
+        $http({method: 'POST', data: utente, url: 'attivaUtente.json'}).
+                success(function(data, status, headers, config) {
+                    callback(data);
+                }).
+                error(function(data, status, headers, config) {
+                    toastr.error("Errore " + status);
+                });
+    };
     var __recuperaPagamenti = function(parametriRicercaPagamenti, callback) {
         $http({method: 'POST', data: parametriRicercaPagamenti, url: 'recuperaPagamenti.json'}).
                 success(function(data, status, headers, config) {
@@ -38,6 +47,7 @@ travelDreamApp.factory('amministrazioneService', function($http) {
     return {
         recuperaUtenti: __recuperaUtenti,
         disattivaUtente: __disattivaUtente,
+        abilitaUtente:__abilitaUtente,
         recuperaPagamenti: __recuperaPagamenti
     };
 });
