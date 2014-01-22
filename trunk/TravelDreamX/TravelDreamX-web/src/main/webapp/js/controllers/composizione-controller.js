@@ -11,17 +11,17 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         $scope.PB = new Object();
         $scope.waiting = false;
         $scope.parametriRicercaPB = {
-            tipo: new String(),
-            cittaPartenzaVolo: new String(),
-            cittaArrivoVolo: new String(),
-            dataOraVolo: new Date(),
-            nomeAlbergo: new String(),
-            cittaAlbergo: new String(),
-            dataInizioSoggiorno: new Date(),
-            dataFineSoggiorno: new Date(),
-            nomeMuseo: new String(),
-            cittaMuseo: new String(),
-            giornoVisita: new Date()
+            tipo: null,
+            cittaPartenzaVolo: null,
+            cittaArrivoVolo: null,
+            dataOraVolo: null,
+            nomeAlbergo: null,
+            cittaAlbergo: null,
+            dataInizioSoggiorno: null,
+            dataFineSoggiorno: null,
+            nomeMuseo: null,
+            cittaMuseo: null,
+            giornoVisita: null
         };
     };
 
@@ -126,7 +126,30 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
 
     //***** RICERCA *****
     $scope.trovaPB = function() {
+        var eliminaParametriRicercaInutilizzati = function (parPB){
+            if(!parPB.cittaPartenzaVolo)
+                delete parPB.cittaPartenzaVolo;
+            if(!parPB.cittaArrivoVolo)
+                delete parPB.cittaArrivoVolo;
+            if(!parPB.dataOraVolo)
+                delete parPB.dataOraVolo;
+            if(!parPB.nomeAlbergo)
+                delete parPB.nomeAlbergo;
+            if(!parPB.cittaAlbergo)
+                delete parPB.cittaAlbergo;
+            if(!parPB.dataInizioSoggiorno)
+                delete parPB.dataInizioSoggiorno;
+            if(!parPB.dataFineSoggiorno)
+                delete parPB.dataFineSoggiorno;
+            if(!parPB.nomeMuseo)
+                delete parPB.nomeMuseo;
+            if(!parPB.cittaMuseo)
+                delete parPB.cittaMuseo;
+            if(!parPB.giornoVisita)
+                delete parPB.giornoVisita;
+        };
         $scope.waiting = true;
+        eliminaParametriRicercaInutilizzati($scope.parametriRicercaPB)
         searchService.trovaPB($scope.parametriRicercaPB, function(esito) {
             if (esito.result) {
                 $scope.PB[$scope.parametriRicercaPB.tipo] = esito.returnedObj;

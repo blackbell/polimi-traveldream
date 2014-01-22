@@ -14,9 +14,12 @@ var travelDreamApp = angular.module('travelDreamApp', ['ngRoute', '$strap.direct
                         templateUrl: 'templates/modal/registrazione.html',
                         controller: 'autenticazioneController'
                     }).
-                    when('/amminisstrazione', {
+                    when('/amministrazione', {
                         templateUrl: 'templates/amministrazione.html',
-                        controller: 'amministrazioneController'
+                        controller: 'amministrazioneController',
+                        access: {
+                            livelloAbilitazione: 2
+                        }
                     }).
                     otherwise({
                         redirectTo: '/proposteViaggio'
