@@ -154,8 +154,9 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
             if (esito.result) {
                 $scope.PB[$scope.parametriRicercaPB.tipo] = esito.returnedObj;
 //                $scope.voli = esito.returnedObj;
-            } else
+            } else{
                 toastr.error(esito.message, "ERRORE:");
+            }
             $scope.waiting = false;
         });
     };
