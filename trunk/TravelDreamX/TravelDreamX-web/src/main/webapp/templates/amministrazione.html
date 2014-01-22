@@ -9,8 +9,10 @@ proj codename: TravelDreamX
         <button class="btn btn-block btn-large" ng-click="gestisci = 'pagamenti'">Gestione pagamenti</button>
     </div>
     <div class="span9">
-        <p class="lead">Lista utenti traveldream</p>
-        <div class="span3 offset3" ng-if="waiting">&nbsp;&nbsp;Aspetta... &nbsp;&nbsp;<img src="img/loading.gif" width="20"/>
+        <div class="row" ng-show="waiting">
+            <div class="span3 offset3">&nbsp;&nbsp;Aspetta... &nbsp;&nbsp;<img src="img/loading.gif" width="20"/></div>
+        </div>
+        <p class="lead" ng-if="gestisci === 'utenti'">Lista utenti traveldream</p>
         <table class="table table-condensed table-hover table-striped" ng-if="gestisci === 'utenti'">
             <thead>
                 <tr>
@@ -25,13 +27,12 @@ proj codename: TravelDreamX
                     <td ng-if="utente.abilitato"><button ng-click="disattivaUtente(utente)"></button> </td>
                     <td ng-if="!utente.abilitato"><button class="btn" ng-click="abilitaUtente(utente)"></button> </td>
                     <td>{{utente.email}}</td>
-                    <td ng-if="utente.livello===2">ADMIN_img</td>
-                    <td ng-if="utente.livello===1">DIP_img</td>
-                    <td ng-if="utente.livello===0">USER_img</td>
-                    <td>{{recuperaPagamentiUtente(utente)}}</td>
+                    <td ng-if="utente.livello === 2">ADMIN_img</td>
+                    <td ng-if="utente.livello === 1">DIP_img</td>
+                    <td ng-if="utente.livello === 0">USER_img</td>
+                    <td><button ng-click="recuperaPagamentiUtente(utente)">+</button></td>
                 </tr>
             </tbody>
         </table>
-
     </div>
 </div>
