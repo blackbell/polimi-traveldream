@@ -22,9 +22,9 @@ travelDreamApp.controller('amministrazioneController', function($scope, amminist
         PV: new Object()
     };
     
-    $scope.getUtenti = function() {
+    $scope.recuperaUtenti = function() {
         $scope.waiting = true;
-        amministrazioneService.getUtenti($scope.parametriRicercaUtenti, function(esito) {
+        amministrazioneService.recuperaUtenti( function(esito) {
             if (esito.result) {
                 $scope.listaUtenti = esito.returnedObject;
                 $scope.waiting = false;

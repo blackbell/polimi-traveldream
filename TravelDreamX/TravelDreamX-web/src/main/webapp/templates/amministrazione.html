@@ -10,7 +10,7 @@ proj codename: TravelDreamX
     </div>
     <div class="span9">
 
-        <table class="table table-condensed table-hover table-striped" ng-if="gestisci === 'utenti'">
+        <table class="table table-condensed table-hover table-striped" ng-if="gestisci === 'utenti'" ng-init="recuperaUtenti()">
             <thead>
                 <tr>
                     <th>Abilita/Disabilita</th>

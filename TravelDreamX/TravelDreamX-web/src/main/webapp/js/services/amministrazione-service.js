@@ -6,8 +6,8 @@
 
 travelDreamApp.factory('amministrazioneService', function($http) {
 
-    var __getUtenti = function(parametriRicercaUtenti, callback) {
-        $http({method: 'GET', data: parametriRicercaUtenti, url: 'getUtenti.json'}).
+    var __recuperaUtenti = function(callback) {
+        $http({method: 'POST', url: 'recuperaUtenti.json'}).
                 success(function(data, status, headers, config) {
                     callback(data);
                 }).
@@ -16,7 +16,7 @@ travelDreamApp.factory('amministrazioneService', function($http) {
                 });
     };
     var __disattivaUtente = function(utente, callback) {
-        $http({method: 'UPDATE', data: utente, url: 'disattivaUtente.json'}).
+        $http({method: 'POST', data: utente, url: 'disattivaUtente.json'}).
                 success(function(data, status, headers, config) {
                     callback(data);
                 }).
@@ -25,7 +25,7 @@ travelDreamApp.factory('amministrazioneService', function($http) {
                 });
     };
     var __recuperaPagamenti = function(parametriRicercaPagamenti, callback) {
-        $http({method: 'GET', data: parametriRicercaPagamenti, url: 'recuperaPagamenti.json'}).
+        $http({method: 'POST', data: parametriRicercaPagamenti, url: 'recuperaPagamenti.json'}).
                 success(function(data, status, headers, config) {
                     callback(data);
                 }).
@@ -36,7 +36,7 @@ travelDreamApp.factory('amministrazioneService', function($http) {
 
 
     return {
-        getUtenti: __getUtenti,
+        recuperaUtenti: __recuperaUtenti,
         disattivaUtente: __disattivaUtente,
         recuperaPagamenti: __recuperaPagamenti
     };
