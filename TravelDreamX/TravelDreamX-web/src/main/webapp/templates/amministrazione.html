@@ -3,3 +3,31 @@
 Politecnico di Milano, Software Engineering 2 (autumn semester)
 proj codename: TravelDreamX
 -->
+<div class="row">
+    <div class="span3">
+        <button class="btn btn-block btn-large" ng-click="gestisci = 'utenti'">Gestione utenti</button>
+        <button class="btn btn-block btn-large" ng-click="gestisci = 'pagamenti'">Gestione pagamenti</button>
+    </div>
+    <div class="span9">
+
+        <table class="table table-condensed table-hover table-striped" ng-if="gestisci === 'utenti'">
+            <thead>
+                <tr>
+                    <th>Abilita/Disabilita</th>
+                    <th>Email</th>
+                    <th>Livello</th>
+                    <th>Vedi pagamenti</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="utente in listaUtenti">
+                    <td>{{disattivaUtente(utente)}}</td>
+                    <td>{{utente.email}}</td>
+                    <td>{{utente.livello}}</td>
+                    <td>{{recuperaPagamentiUtente(utente)}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
