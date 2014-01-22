@@ -282,3 +282,6 @@ ul{
 .badge-utente-attivo {
     background-color: #B3D1A4;
 }
+.popover-footer {
+    margin-right: 27px;
+}
