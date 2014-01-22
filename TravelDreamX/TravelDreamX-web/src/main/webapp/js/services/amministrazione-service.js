@@ -42,12 +42,20 @@ travelDreamApp.factory('amministrazioneService', function($http) {
                     toastr.error("Errore " + status);
                 });
     };
-
-
+    var __modificaLivelloUtente = function(utente, callback) {
+        $http({method: 'POST', data: utente, url: 'modificaLivelloUtente.json'}).
+                success(function(data, status, headers, config) {
+                    callback(data);
+                }).
+                error(function(data, status, headers, config) {
+                    toastr.error("Errore " + status);
+                });
+    };
     return {
         recuperaUtenti: __recuperaUtenti,
         disattivaUtente: __disattivaUtente,
         abilitaUtente:__abilitaUtente,
+        modificaLivelloUtente: __modificaLivelloUtente,
         recuperaPagamenti: __recuperaPagamenti
     };
 });
