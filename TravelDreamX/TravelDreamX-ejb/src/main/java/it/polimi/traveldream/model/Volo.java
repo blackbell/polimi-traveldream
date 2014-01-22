@@ -40,8 +40,8 @@ import org.codehaus.jackson.annotate.JsonTypeName;
             + "FROM "
             + "Rotta r JOIN r.voliCollection v "
             + "WHERE "
-            + "(:cittaPartenzaVolo IS NULL OR r.cittaPartenza IN :cittaPartenzaVolo) AND "
-            + "(:cittaArrivoVolo IS NULL OR r.cittaArrivo = :cittaArrivoVolo) AND "
+            + "(:cittaPartenzaVolo IS NULL OR r.cittaPartenza LIKE :cittaPartenzaVolo) AND "
+            + "(:cittaArrivoVolo IS NULL OR r.cittaArrivo LIKE :cittaArrivoVolo) AND "
             + "(:dataOraVolo IS NULL OR v.dataOra >= :dataOraVolo) AND "
             + "(:disabilitatiInclusi = True OR v.abilitato = True)")
 })

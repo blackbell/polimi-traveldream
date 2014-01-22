@@ -39,8 +39,8 @@ import org.codehaus.jackson.annotate.JsonTypeName;
             + "FROM "
             + "Museo m JOIN m.visiteCollection v "
             + "WHERE "
-            + "(:nomeMuseo IS NULL OR m.nome = :nomeMuseo) AND "
-            + "(:cittaMuseo IS NULL OR m.citta = :cittaMuseo) AND "
+            + "(:nomeMuseo IS NULL OR m.nome LIKE :nomeMuseo) AND "
+            + "(:cittaMuseo IS NULL OR m.citta LIKE :cittaMuseo) AND "
             + "(:giornoVisita IS NULL OR v.giornoVisita = :giornoVisita) AND "
             + "(:disabilitatiInclusi = True OR v.abilitato = True)")
 })

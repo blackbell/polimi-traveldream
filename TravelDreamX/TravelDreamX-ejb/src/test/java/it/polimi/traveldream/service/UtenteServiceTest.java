@@ -53,7 +53,7 @@ public class UtenteServiceTest {
        assertEquals(utente.getEmail(), result.getEmail());
        assertEquals(utente.getPassword(), result.getPassword());
        assertEquals(utente.getAbilitato(), result.getAbilitato());
-       assertEquals(utente.getLivello(), result.getAbilitato());
+       assertEquals(utente.getLivello(), result.getLivello());
     }
     
     @Test
