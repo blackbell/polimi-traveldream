@@ -149,7 +149,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
                 delete parPB.giornoVisita;
         };
         $scope.waiting = true;
-        eliminaParametriRicercaInutilizzati($scope.parametriRicercaPB)
+        eliminaParametriRicercaInutilizzati($scope.parametriRicercaPB);
         searchService.trovaPB($scope.parametriRicercaPB, function(esito) {
             if (esito.result) {
                 $scope.PB[$scope.parametriRicercaPB.tipo] = esito.returnedObj;
