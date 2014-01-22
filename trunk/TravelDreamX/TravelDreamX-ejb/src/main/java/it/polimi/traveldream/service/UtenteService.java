@@ -78,11 +78,13 @@ public class UtenteService implements UtenteServiceLocal {
     }
 
     @Override
-    public Boolean modificaLivello(Utente utente) {
+    public Integer modificaLivello(Utente utente) {
         Utente u = utenteDAO.findOne(utente.getEmail());
         if (u == null) return null;
+        if (!u.getAbilitato().equals(utente.getAbilitato())) return null;
+//        if (!u.getPassword().equals(utente.getPassword())) return null;
         utente = utenteDAO.save(utente);
-        return utente.getAbilitato();
+        return utente.getLivello();
     }
     
     

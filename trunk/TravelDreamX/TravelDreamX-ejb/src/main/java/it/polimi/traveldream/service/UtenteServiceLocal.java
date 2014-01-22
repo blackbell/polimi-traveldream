@@ -22,5 +22,5 @@ public interface UtenteServiceLocal {
     public Boolean disattivaUtente(Utente utente);
     public Boolean attivaUtente(Utente utente);
 
-    public Boolean modificaLivello(Utente utente);
+    public Integer modificaLivello(Utente utente);
 }
