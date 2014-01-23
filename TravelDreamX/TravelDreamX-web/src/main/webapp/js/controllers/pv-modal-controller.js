@@ -4,8 +4,10 @@
  */
 'use strict';
 
-travelDreamApp.controller('pvModalController', function($scope, $rootScope, $location) {
-
+travelDreamApp.controller('pvModalController', function($scope, $rootScope, $location, gestioneOffertaService) {
+    toastr.options = {
+        positionClass: "toast-center"
+    };
     $scope.setIndexes = function (pv){
         console.log(pv);
         for(var index = 0; index < pv.voci.length; ++index){
@@ -32,6 +34,30 @@ travelDreamApp.controller('pvModalController', function($scope, $rootScope, $loc
                 return true;
         }
         return false;
+    };
+    
+    $scope.isAbilitato = function (pv){
+        return pv.abilitato;
+    };
+    $scope.abilita = function( pv ){
+        gestioneOffertaService.abilita(pv ,function (esito){
+            if(esito.result){
+                toastr.succ(esito.message, "SUCCESSO:");
+            }else {
+                toastr.error(esito.message, "ERRORE:");
+            }
+            
+        });
+    }; 
+    $scope.disabilita = function( pv ){
+        gestioneOffertaService.abilita(pv ,function (esito){
+            if(esito.result){
+                toastr.succ(esito.message, "SUCCESSO:");
+            }else {
+                toastr.error(esito.message, "ERRORE:");
+            }
+            
+        });
     };
 });
 

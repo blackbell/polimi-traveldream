@@ -4,7 +4,7 @@
  */
 'use strict';
 
-travelDreamApp.controller('proposteViaggioController', function($scope) {
+travelDreamApp.controller('proposteViaggioController', function($scope, searchService) {
     $scope.PVs = [
         {
             nome: 'Splendida avventura',
@@ -30,10 +30,10 @@ travelDreamApp.controller('proposteViaggioController', function($scope) {
                 {
                     tipo: 'Visita',
                     costo: 37
-                }                
+                }
             ]
         },
-        {    nome: 'Splendida avventura',
+        {nome: 'Splendida avventura',
             urlFoto: 'http://q-ec.bstatic.com/images/hotel/840x460/216/21693450.jpg',
             voci: [
                 {
@@ -56,10 +56,10 @@ travelDreamApp.controller('proposteViaggioController', function($scope) {
                 {
                     tipo: 'Visita',
                     costo: 37
-                }                
+                }
             ]
         },
-        {    nome: 'Splendida avventura',
+        {nome: 'Splendida avventura',
             urlFoto: 'http://q-ec.bstatic.com/images/hotel/840x460/216/21693450.jpg',
             voci: [
                 {
@@ -82,10 +82,10 @@ travelDreamApp.controller('proposteViaggioController', function($scope) {
                 {
                     tipo: 'Visita',
                     costo: 37
-                }                
+                }
             ]
         },
-        {    nome: 'Splendida avventura',
+        {nome: 'Splendida avventura',
             urlFoto: 'http://q-ec.bstatic.com/images/hotel/840x460/216/21693450.jpg',
             voci: [
                 {
@@ -108,10 +108,10 @@ travelDreamApp.controller('proposteViaggioController', function($scope) {
                 {
                     tipo: 'Visita',
                     costo: 37
-                }                
+                }
             ]
         },
-        {    nome: 'Splendida avventura',
+        {nome: 'Splendida avventura',
             urlFoto: 'http://q-ec.bstatic.com/images/hotel/840x460/216/21693450.jpg',
             voci: [
                 {
@@ -134,10 +134,10 @@ travelDreamApp.controller('proposteViaggioController', function($scope) {
                 {
                     tipo: 'Visita',
                     costo: 37
-                }                
+                }
             ]
         },
-        {    nome: 'Splendida avventura',
+        {nome: 'Splendida avventura',
             urlFoto: 'http://q-ec.bstatic.com/images/hotel/840x460/216/21693450.jpg',
             voci: [
                 {
@@ -160,23 +160,26 @@ travelDreamApp.controller('proposteViaggioController', function($scope) {
                 {
                     tipo: 'Visita',
                     costo: 37
-                }                
+                }
             ]
         }
-        
-    ];
 
+    ];
+    $scope.waiting = false;
+    $scope.parametriRicercaPV = {
+        idPacchetto: null
+    };
     $scope.isPresente = function(pv, tipo) {
-        for(var index = 0; index < pv.voci.length; ++index){
-            if(pv.voci[index].tipo === tipo)
+        for (var index = 0; index < pv.voci.length; ++index) {
+            if (pv.voci[index].tipo === tipo)
                 return true;
         }
         return false;
     };
-    
+
     $scope.calcolaPrezzo = function(pv) {
         var prezzoTotale = 0;
-        for(var index = 0; index < pv.voci.length; ++index){
+        for (var index = 0; index < pv.voci.length; ++index) {
             prezzoTotale += pv.voci[index].costo;
         }
         return prezzoTotale;
@@ -191,6 +194,19 @@ travelDreamApp.controller('proposteViaggioController', function($scope) {
     $scope.tooltipVisita = {
         title: 'Visita'
     };
+    
+    $scope.trovaPV = function() {
+        $scope.waiting=true;
+        searchService.trovaPV($scope.parametriRicercaPV, function(esito) {
+            if (esito.result) {
+                $scope.PVs = esito.returnedObj;
+            } else {
+                toastr.error(esito.message, "ERRORE:");
+            }
+            $scope.waiting = false;
+        });
+    };
+    
 });
 
 
