@@ -10,9 +10,9 @@ proj codename: TravelDreamX
                     <br/>
                     <br/>
                     <div class="btn-group" data-toggle="buttons-radio">
-                        <button type="button" class="btn" ng-click="livelloSelezionato = 0">Utente</button>
-                        <button type="button" class="btn" ng-click="livelloSelezionato = 1">Impiegato</button>
-                        <button type="button" class="btn" ng-click="livelloSelezionato = 2">Admin</button>
+                        <button type="button" class="btn btn-info" ng-click="livelloSelezionato = 0">Utente</button>
+                        <button type="button" class="btn btn-info" ng-click="livelloSelezionato = 1">Impiegato</button>
+                        <button type="button" class="btn btn-info" ng-click="livelloSelezionato = 2">Admin</button>
                     </div>
                     <br/>
                     <br/>
@@ -36,7 +36,7 @@ proj codename: TravelDreamX
                     <legend class="popover-footer"></legend>
                     <button class="btn pull-left" ng-click="livelloSelezionato = -1;
                             dismiss()">Annulla</button>
-                    <button class="btn btn-info pull-right popover-footer" ng-disabled="livelloSelezionato === -1" ng-click="modificaLivelloUtente(utente, livelloSelezionato)" >Salva</button>
+                    <button class="btn btn-success pull-right popover-footer" ng-disabled="livelloSelezionato === -1" ng-click="modificaLivelloUtente(utente, livelloSelezionato)" >Salva</button>
                 </div>
             </div>
 </div>

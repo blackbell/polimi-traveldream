@@ -10,7 +10,7 @@ travelDreamApp.directive('visita', function(){
         restrict : 'E', 
         templateUrl :  'templates/directive/visita.html',
         scope : {      
-            soggiorno : "="
+            visita : "="
         }
     };
 });
