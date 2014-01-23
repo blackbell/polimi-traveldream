@@ -21,7 +21,7 @@ import javax.ejb.Local;
 public interface PagamentoServiceLocal {
     
     public Pagamento pagamentoPV(Pacchetto pv, Utente u);
-    public Pagamento pagamentoPB(Voce pb, Utente u);
+    public Pagamento pagamentoPB(Pacchetto pv, Voce pb, Utente u);
     
     public List<Pagamento> recuperaPagamenti(Date da, Date a, Utente u, Pacchetto pv);
     

@@ -21,21 +21,21 @@ import org.springframework.transaction.annotation.Transactional;
 @Stateless
 public class UtenteService implements UtenteServiceLocal {
 
-    
+
     @Autowired
     private UtenteDAO utenteDAO;
 
     public UtenteDAO getUtenteDAO() {
         return utenteDAO;
     }
-    
+
     public void setUtenteDAO(UtenteDAO utenteDAO) {
         this.utenteDAO = utenteDAO;
     }
-    
+
     public boolean isPresent(Utente utente) {
         Utente utenteDaCercare = utenteDAO.findOne(utente.getEmail());
-        return utenteDaCercare != null; 
+        return utenteDaCercare != null;
     }
 
     @Transactional
@@ -54,7 +54,7 @@ public class UtenteService implements UtenteServiceLocal {
         System.out.println("login() -> utenteDAO:" + utenteDAO);
         Utente ret = utenteDAO.findOne(u.getEmail());
         return ret;
-    }   
+    }
 
     @Override
     public List<Utente> recuperaUtenti() {
@@ -64,6 +64,7 @@ public class UtenteService implements UtenteServiceLocal {
     @Override
     public Boolean disattivaUtente(Utente utente) {
         Utente u = utenteDAO.findOne(utente.getEmail());
+        if (u == null) return null;
         u.setAbilitato(false);
         utente = utenteDAO.save(u);
         return utente.getAbilitato();
@@ -72,6 +73,7 @@ public class UtenteService implements UtenteServiceLocal {
     @Override
     public Boolean attivaUtente(Utente utente) {
         Utente u = utenteDAO.findOne(utente.getEmail());
+        if (u == null) return null;
         u.setAbilitato(true);
         utente = utenteDAO.save(u);
         return utente.getAbilitato();
@@ -81,11 +83,12 @@ public class UtenteService implements UtenteServiceLocal {
     public Integer modificaLivello(Utente utente) {
         Utente u = utenteDAO.findOne(utente.getEmail());
         if (u == null) return null;
-        if (!u.getAbilitato().equals(utente.getAbilitato())) return null;
+//        if (!u.getAbilitato().equals(utente.getAbilitato())) return null;
+        utente.setAbilitato(u.getAbilitato());
 //        if (!u.getPassword().equals(utente.getPassword())) return null;
         utente = utenteDAO.save(utente);
         return utente.getLivello();
     }
-    
-    
+
+
 }

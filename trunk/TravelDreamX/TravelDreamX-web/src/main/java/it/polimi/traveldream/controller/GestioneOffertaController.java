@@ -10,12 +10,14 @@ import it.polimi.traveldream.model.EDB;
 import it.polimi.traveldream.model.Esito;
 import it.polimi.traveldream.model.Museo;
 import it.polimi.traveldream.model.Rotta;
+import it.polimi.traveldream.model.Utente;
 import it.polimi.traveldream.service.EDBServiceLocal;
 import it.polimi.traveldream.service.PBServiceLocal;
 import it.polimi.traveldream.service.PVServiceLocal;
 import it.polimi.traveldream.service.ParametriRicercaEDB;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,13 +57,20 @@ public class GestioneOffertaController {
     }
     
     @RequestMapping(value = "attivaPB", method = RequestMethod.POST)
-    public @ResponseBody Esito attivaPB(@RequestBody Integer idPB) {
+    public @ResponseBody Esito attivaPB(@RequestBody Integer idPB, HttpServletRequest request) {
         Esito e = new Esito();
         try{
-            Boolean newState = pbService.attivaPB(idPB);
-            e.setResult(true);
-            e.setMessage(null);
-            e.setReturnedObj(newState);
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
+            if (utenteLoggato != null && utenteLoggato.getLivello() >= Utente.LIVELLO_IMPIEGATO) {
+                Boolean newState = pbService.attivaPB(idPB);
+                e.setResult(newState == Boolean.TRUE);
+                e.setMessage(newState != null ? null : Esito.OPERATION_FAILED);
+                e.setReturnedObj(newState);
+            }else{
+                e.setResult(false);
+                e.setMessage(Esito.USER_NOT_AUTHORIZED);
+                e.setReturnedObj(null);
+            }
         }catch(Exception ex){
             e.setResult(false);
             e.setMessage(Esito.EXCEPTION_RAISED);
@@ -71,13 +80,20 @@ public class GestioneOffertaController {
     }
     
     @RequestMapping(value = "disattivaPB", method = RequestMethod.POST)
-    public @ResponseBody Esito disattivaPB(@RequestBody Integer idPB) {
+    public @ResponseBody Esito disattivaPB(@RequestBody Integer idPB, HttpServletRequest request) {
         Esito e = new Esito();
         try{
-            Boolean newState = pbService.disattivaPB(idPB);
-            e.setResult(true);
-            e.setMessage(null);
-            e.setReturnedObj(newState);
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
+            if (utenteLoggato != null && utenteLoggato.getLivello() == Utente.LIVELLO_IMPIEGATO) {
+                Boolean newState = pbService.disattivaPB(idPB);
+                e.setResult(newState == Boolean.TRUE);
+                e.setMessage(newState != null ? null : Esito.OPERATION_FAILED);
+                e.setReturnedObj(newState);
+            }else{
+                e.setResult(false);
+                e.setMessage(Esito.USER_NOT_AUTHORIZED);
+                e.setReturnedObj(null);
+            }
         }catch(Exception ex){
             e.setResult(false);
             e.setMessage(Esito.EXCEPTION_RAISED);
@@ -87,13 +103,20 @@ public class GestioneOffertaController {
     }
     
     @RequestMapping(value="salvaRotta", method = RequestMethod.POST)
-    public @ResponseBody Esito salvaRotta(@RequestBody Rotta r) {
+    public @ResponseBody Esito salvaRotta(@RequestBody Rotta r, HttpServletRequest request) {
         Esito e = new Esito();
         try{
-            r = edbService.salvaRotta(r);
-            e.setResult(r != null);
-            e.setMessage(null);
-            e.setReturnedObj(r);
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
+            if (utenteLoggato != null && utenteLoggato.getLivello() == Utente.LIVELLO_IMPIEGATO) {
+                r = edbService.salvaRotta(r);
+                e.setResult(r != null);
+                e.setMessage(null);
+                e.setReturnedObj(r);
+            }else{
+                e.setResult(false);
+                e.setMessage(Esito.USER_NOT_AUTHORIZED);
+                e.setReturnedObj(null);
+            }
         }catch(Exception ex){
             e.setResult(false);
             e.setMessage(Esito.EXCEPTION_RAISED);
@@ -103,13 +126,20 @@ public class GestioneOffertaController {
     }
     
     @RequestMapping(value="salvaAlbergo", method = RequestMethod.POST)
-    public @ResponseBody Esito salvaAlbergo(@RequestBody Albergo a) {
+    public @ResponseBody Esito salvaAlbergo(@RequestBody Albergo a, HttpServletRequest request) {
         Esito e = new Esito();
         try{
-            a = edbService.salvaAlbergo(a);
-            e.setResult(a != null);
-            e.setMessage(null);
-            e.setReturnedObj(a);
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
+            if (utenteLoggato != null && utenteLoggato.getLivello() == Utente.LIVELLO_IMPIEGATO) {
+                a = edbService.salvaAlbergo(a);
+                e.setResult(a != null);
+                e.setMessage(null);
+                e.setReturnedObj(a);
+            }else{
+                e.setResult(false);
+                e.setMessage(Esito.USER_NOT_AUTHORIZED);
+                e.setReturnedObj(null);
+            }
         }catch(Exception ex){
             e.setResult(false);
             e.setMessage(Esito.EXCEPTION_RAISED);
@@ -119,13 +149,20 @@ public class GestioneOffertaController {
     }
     
     @RequestMapping(value="salvaMuseo", method = RequestMethod.POST)
-    public @ResponseBody Esito salvaMuseo(@RequestBody Museo m) {
+    public @ResponseBody Esito salvaMuseo(@RequestBody Museo m, HttpServletRequest request) {
         Esito e = new Esito();
         try{
-            m = edbService.salvaMuseo(m);
-            e.setResult(m != null);
-            e.setMessage(null);
-            e.setReturnedObj(m);
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
+            if (utenteLoggato != null && utenteLoggato.getLivello() == Utente.LIVELLO_IMPIEGATO) {
+                m = edbService.salvaMuseo(m);
+                e.setResult(m != null);
+                e.setMessage(null);
+                e.setReturnedObj(m);
+            }else{
+                e.setResult(false);
+                e.setMessage(Esito.USER_NOT_AUTHORIZED);
+                e.setReturnedObj(null);
+            }
         }catch(Exception ex){
             e.setResult(false);
             e.setMessage(Esito.EXCEPTION_RAISED);
@@ -135,13 +172,20 @@ public class GestioneOffertaController {
     }
     
     @RequestMapping(value = "attivaPV", method = RequestMethod.POST)
-    public @ResponseBody Esito attivaPV(@RequestBody Integer idPV) {
+    public @ResponseBody Esito attivaPV(@RequestBody Integer idPV, HttpServletRequest request) {
         Esito e = new Esito();
         try{
-            boolean newState = pvService.attivaPV(idPV);
-            e.setResult(true);
-            e.setMessage(null);
-            e.setReturnedObj(newState);
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
+            if (utenteLoggato != null && utenteLoggato.getLivello() == Utente.LIVELLO_IMPIEGATO) {
+                Boolean newState = pvService.attivaPV(idPV);
+                e.setResult(newState == Boolean.TRUE);
+                e.setMessage(newState != null ? null : Esito.OPERATION_FAILED);
+                e.setReturnedObj(newState);
+            }else{
+                e.setResult(false);
+                e.setMessage(Esito.USER_NOT_AUTHORIZED);
+                e.setReturnedObj(null);
+            }
         }catch(Exception ex){
             e.setResult(false);
             e.setMessage(Esito.EXCEPTION_RAISED);
@@ -151,13 +195,20 @@ public class GestioneOffertaController {
     }
     
     @RequestMapping(value = "disattivaPV", method = RequestMethod.POST)
-    public @ResponseBody Esito disattivaPV(@RequestBody Integer idPV) {
+    public @ResponseBody Esito disattivaPV(@RequestBody Integer idPV, HttpServletRequest request) {
         Esito e = new Esito();
         try{
-            Boolean newState = pvService.disattivaPV(idPV);
-            e.setResult(true);
-            e.setMessage(null);
-            e.setReturnedObj(newState);
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
+            if (utenteLoggato != null && utenteLoggato.getLivello() == Utente.LIVELLO_IMPIEGATO) {
+                Boolean newState = pvService.disattivaPV(idPV);
+                e.setResult(newState == Boolean.TRUE);
+                e.setMessage(newState != null ? null : Esito.OPERATION_FAILED);
+                e.setReturnedObj(newState);
+            }else{
+                e.setResult(false);
+                e.setMessage(Esito.USER_NOT_AUTHORIZED);
+                e.setReturnedObj(null);
+            }
         }catch(Exception ex){
             e.setResult(false);
             e.setMessage(Esito.EXCEPTION_RAISED);

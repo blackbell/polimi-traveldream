@@ -26,9 +26,11 @@ public class PagamentoService implements PagamentoServiceLocal {
     }
 
     @Override
-    public Pagamento pagamentoPB(Voce pb, Utente u) {
+    public Pagamento pagamentoPB(Pacchetto pv, Voce pb, Utente u) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
 
     @Override
     public List<Pagamento> recuperaPagamenti(Date da, Date a, Utente u, Pacchetto pv) {

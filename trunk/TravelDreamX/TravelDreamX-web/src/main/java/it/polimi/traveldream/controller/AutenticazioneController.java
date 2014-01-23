@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class AutenticazioneController {
+    public static final String TAG_UTENTE_SESSIONE = "TDX_CurrentUser"; 
+    
     @EJB(mappedName = "java:global/TravelDreamX-ear/TravelDreamX-web-1.0/UtenteService")
     private UtenteServiceLocal utenteService;
     
@@ -30,7 +32,7 @@ public class AutenticazioneController {
         System.out.println("login() -> utente: " + utente);
         Esito e = new Esito();
         {
-            Utente u = (Utente)req.getSession().getAttribute("TDX_CurrentUser");
+            Utente u = (Utente)req.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
             if (u != null)
                 utente = u;
             else
@@ -49,7 +51,7 @@ public class AutenticazioneController {
                 e.setResult(true);
                 e.setMessage(Esito.USER_LOGIN_SUCCESS);
                 e.setReturnedObj(utente);
-                req.getSession().setAttribute("TDX_CurrentUser", utente);
+                req.getSession().setAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE, utente);
             }
         }catch(Exception ex){
             e.setResult(false);
@@ -63,8 +65,8 @@ public class AutenticazioneController {
     @RequestMapping(value = "logout", method = RequestMethod.GET)
     public @ResponseBody Esito logout(HttpServletRequest req) {
         Esito e = new Esito();
-        Utente utente = (Utente)req.getSession().getAttribute("TDX_CurrentUser");
         try{
+            Utente utente = (Utente)req.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
             if (utente == null){
                 e.setResult(false);
                 e.setMessage(Esito.USER_NOT_FOUND);
@@ -73,7 +75,7 @@ public class AutenticazioneController {
                 e.setResult(true);
                 e.setMessage(Esito.USER_LOGOUT_SUCCESS);
                 e.setReturnedObj(null);
-                req.getSession().removeAttribute("TDX_CurrentUser");
+                req.getSession().removeAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
             }
         }catch(Exception ex){
             e.setResult(false);
