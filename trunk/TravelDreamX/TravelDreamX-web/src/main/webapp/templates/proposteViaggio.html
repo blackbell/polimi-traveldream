@@ -2,8 +2,8 @@
 Politecnico di Milano, Software Engineering 2 (autumn semester)
 proj codename: TravelDreamX
 -->
-<div class="row" ng-controller="autenticazioneController">
-    <div class="well well-small">
+<div class="well well-small" ng-controller="autenticazioneController">
+    <div class="row">
         <div class="span2">
             <form>
                 <label class="control-label">
@@ -50,27 +50,32 @@ proj codename: TravelDreamX
                 <input type="text" placeholder="Amsterdam" class="span2" ng-model="parametriRicercaPV.cittaAlbergo"/>
             </form>
         </div>
-        <div class="span1" ng-if="isImpiegato()">
-            <form>
-                <label class="control-label" >
-                    ID
-                </label>
-                <div class="input-append">
-                    <input class="input-small" type="number" ng-model="parametriRicercaPV.idPacchetto" placeholder="0">
-                </div>
-            </form>
-        </div>
         <div class="span1">
             <form>
                 <label class="control-label">
                     &nbsp;
                 </label>
-                <div class="input-append">
-                    <button class="btn btn-small btn-primary" ng-click="trovaPV()">Cerca</button>
-                </div>
+                <button class="btn btn-small btn-primary" ng-click="trovaPV()">Cerca</button>
             </form>
         </div>
-        <div class="row">&nbsp;</div>
+    </div>
+    <div class="row">
+        <div class="span2" ng-if="isImpiegato()">
+            <form>
+                <label class="control-label" >
+                    ID
+                </label>
+                <input type="number" class="span2" ng-model="parametriRicercaPV.idPacchetto" placeholder="0">
+            </form>
+        </div>
+        <div class="span2" ng-if="isImpiegato()">
+            <form>
+                <label class="control-label" >
+                    Nome
+                </label>
+                <input type="text" class="span2" ng-model="parametriRicercaPV.nome" placeholder="Splendida avventura">
+            </form>
+        </div>
     </div>
 </div>
 <div class="row">
