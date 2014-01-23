@@ -30,8 +30,8 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Utente.findByLivello", query = "SELECT u FROM Utente u WHERE u.livello = :livello")})
 public class Utente implements Serializable {
     public static final int LIVELLO_REGISTRATO = 0;
-    public static final int LIVELLO_IMPIEGATO = 0;
-    public static final int LIVELLO_AMMINISTRATORE = 0;
+    public static final int LIVELLO_IMPIEGATO = 1;
+    public static final int LIVELLO_AMMINISTRATORE = 2;
     
     private static final long serialVersionUID = 1L;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
