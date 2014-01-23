@@ -13,6 +13,7 @@ public class Esito {
     public static final String EXCEPTION_RAISED = "EXCEPTION_RAISED";
     public static final String USER_LOGOUT_SUCCESS = "USER_LOGOUT_SUCCESS";
     public static final String USER_NOT_LOGGED_IN = "USER_NOT_LOGGED_IN";
+    public static final String OPERATION_FAILED = "OPERATION_FAILED";
     private boolean result;
     private String message;
     private String newUrl;

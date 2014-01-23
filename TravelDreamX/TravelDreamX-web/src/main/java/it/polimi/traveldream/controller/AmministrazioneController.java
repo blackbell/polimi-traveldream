@@ -30,8 +30,8 @@ public class AmministrazioneController {
     public @ResponseBody Esito recuperaUtenti(HttpServletRequest request) {
         Esito e = new Esito();
         try {
-            Utente utenteLoggato = (Utente) request.getSession().getAttribute("TDX_CurrentUser");
-            if (utenteLoggato != null && utenteLoggato.getLivello() == 2) {
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
+            if (utenteLoggato != null && utenteLoggato.getLivello() == Utente.LIVELLO_AMMINISTRATORE) {
                 List<Utente> ret = utenteService.recuperaUtenti();
                 e.setResult(true);
                 e.setMessage(null);
@@ -53,11 +53,11 @@ public class AmministrazioneController {
     public @ResponseBody Esito disattivaUtente(@RequestBody Utente utente, HttpServletRequest request) {
         Esito e = new Esito();
         try {
-            Utente utenteLoggato = (Utente) request.getSession().getAttribute("TDX_CurrentUser");
-            if (utenteLoggato != null && utenteLoggato.getLivello() == 2) {
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
+            if (utenteLoggato != null && utenteLoggato.getLivello() >= Utente.LIVELLO_AMMINISTRATORE) {
                 Boolean newState = utenteService.disattivaUtente(utente);
-                e.setResult(true);
-                e.setMessage(null);
+                e.setResult(newState == Boolean.TRUE);
+                e.setMessage(newState != null ? null : Esito.USER_NOT_FOUND);
                 e.setReturnedObj(newState);
             }else{
                 e.setResult(false);
@@ -76,11 +76,11 @@ public class AmministrazioneController {
     public @ResponseBody Esito attivaUtente(@RequestBody Utente utente, HttpServletRequest request) {
         Esito e = new Esito();
         try {
-            Utente utenteLoggato = (Utente) request.getSession().getAttribute("TDX_CurrentUser");
-            if (utenteLoggato != null && utenteLoggato.getLivello() == 2) {
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
+            if (utenteLoggato != null && utenteLoggato.getLivello() >= Utente.LIVELLO_AMMINISTRATORE) {
                 Boolean newState = utenteService.attivaUtente(utente);
-                e.setResult(true);
-                e.setMessage(null);
+                e.setResult(newState == Boolean.TRUE);
+                e.setMessage(newState != null ? null : Esito.USER_NOT_FOUND);
                 e.setReturnedObj(newState);
             }else{
                 e.setResult(false);
@@ -99,11 +99,11 @@ public class AmministrazioneController {
     public @ResponseBody Esito modificaLivelloUtente(@RequestBody Utente utente, HttpServletRequest request) {
         Esito e = new Esito();
         try {
-            Utente utenteLoggato = (Utente) request.getSession().getAttribute("TDX_CurrentUser");
-            if (utenteLoggato != null && utenteLoggato.getLivello() == 2) {
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
+            if (utenteLoggato != null && utenteLoggato.getLivello() >= Utente.LIVELLO_AMMINISTRATORE) {
                 Integer newLevel = utenteService.modificaLivello(utente);
-                e.setResult(true);
-                e.setMessage(null);
+                e.setResult(newLevel != null);
+                e.setMessage(newLevel != null ? null : Esito.USER_NOT_FOUND);
                 e.setReturnedObj(newLevel);
             }else{
                 e.setResult(false);
