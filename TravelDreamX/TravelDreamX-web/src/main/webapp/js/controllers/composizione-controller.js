@@ -33,6 +33,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     };
     var inizializzaPV = function() {
         $rootScope.PV = {
+            nome: null,
             voci: [{tipo: 'Volo'}, {tipo: 'Soggiorno'}, {tipo: 'Visita'}]
         };
         $rootScope.indiceSelezionato = -1;
@@ -66,7 +67,13 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         }
         ;
     };
-
+    $scope.ceAlmenoUnaVoce = function (){
+        for(var i=0; i<$rootScope.PV.voci.length; i++){
+            if($scope.isCompleta($rootScope.PV.voci[i]))
+                return true;
+        };
+        return false;
+    };
     $scope.isCompleta = function(voce) {
         //console.log(voce.tipo + " " + (typeof voce.costo !== 'undefined') + " costo " + voce.costo);
         return (typeof voce.costo !== 'undefined');
@@ -87,11 +94,6 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     //**************************************        
     //***** Lista voci - GESTIONE VOCI *****
     //**************************************        
-    $scope.popUpModal = function(modal) {
-        // do something
-        $modal(modal);
-    };
-
     $scope.eliminaVoce = function(indice) {
         if (indice > -1) {
             $scope.deseleziona(indice);
@@ -172,13 +174,18 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
             template: 'templates/modal/condivisione.html',
             show: true,
             backdrop: 'static'
-//                scope: $scope
         };
-        $scope.popUpModal(modaleCondivisione);
+        var popUpModal = function(modal) {
+        // do something
+        $modal(modal);
+        };
+        popUpModal(modaleCondivisione);
     };
-    $scope.salvaPV = function() {
-        if (typeof $scope.nomePV !== 'undefined')
+    $scope.salvaPV = function(isGL) {
+        if (!$scope.nomePV)
             $rootScope.PV.nome = $scope.nomePV;
+        if (isGL)
+            $rootScope.PV.tipo = 2;
         if (typeof $rootScope.utente !== 'undefined') {
             $rootScope.PV.proprietario = $rootScope.utente;
             
@@ -198,4 +205,5 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         }
         ;
     };
+    
 });

@@ -40,13 +40,13 @@ proj codename: TravelDreamX
                             <button class="btn span2 btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Acquista</button> <br/>
                         </div>
                         <div class="span2" ng-if='isImpiegato() && isAbilitato(pv)'>
-                            <button class="btn span2 btn-success pull-right" ng-click=""><i class="icon-shopping-cart icon-white"></i> Disabilita</button> <br/>
+                            <button class="btn span2 btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Disabilita</button> <br/>
                         </div>
                         <div class="span2" ng-if='isImpiegato() && !isAbilitato(pv)'>
-                            <button class="btn span2 btn-success pull-right" ng-click=""><i class="icon-shopping-cart icon-white"></i> Abilita</button> <br/>
+                            <button class="btn span2 btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Abilita</button> <br/>
                         </div>
                         <button class="btn btn-link pull-right" ng-if='isImpiegato()' ng-click="fwdToComposizione(pv)">oppure modifica il pacchetto</button>
-                        <button class="btn btn-link pull-right" ng-if='!isImpiegato()' ng-click="fwdToComposizione(pv)">oppure personalizza il pacchetto</button>
+                        <button class="btn btn-link pull-right btn-personalizza-PV" ng-if='!isImpiegato()' ng-click="fwdToComposizione(pv)">oppure personalizza il pacchetto</button>
                     </div>
                 </div>
                 <br/>
