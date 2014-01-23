@@ -8,7 +8,6 @@ package it.polimi.traveldream.service;
 import it.polimi.traveldream.model.Pacchetto;
 import it.polimi.traveldream.model.Pagamento;
 import it.polimi.traveldream.model.Rotta;
-import it.polimi.traveldream.model.TipoPacchetto;
 import it.polimi.traveldream.model.Utente;
 import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.model.Volo;
