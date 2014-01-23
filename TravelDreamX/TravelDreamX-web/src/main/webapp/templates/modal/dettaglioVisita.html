@@ -1,0 +1,43 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<div class="container modal span9" ng-controller="pbModalController">
+    <div class="row">
+        <div class="span9">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <br/>
+                <p class="lead">
+                    Visita al museo "{{visita.museo.nome}}"
+                </p>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="span4">    
+                        <img class="img-polaroid" ng-src="{{visita.museo.urlFoto}}"/>
+                    </div>
+                    <div class="span4">
+                        Citt&agrave;: <strong>{{visita.museo.citta}}</strong> <br/>
+                        Giorno: <strong>{{visita.dataOra|date:'dd/MM/yyyy'}} </strong> <br/>
+                        <p class="lead">solo &euro; {{visita.costo}}</p> 
+                        <button class="btn btn-large btn-success" ng-click="aggiungiPBaPV(visita)"><i class="icon-plus-sign icon-white"></i> Aggiungi al pacchetto</button>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="span8">
+                        <p class="lead">Descrizione</p>
+                        <p class="justify">{{visita.museo.descrizione}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="span8">
+                    <button class="btn" ng-click="dismiss()">Close</button>
+                    <button class="btn btn-success" ng-click="aggiungiPBaPV(visita)"><i class="icon-plus-sign icon-white"></i> Aggiungi al pacchetto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

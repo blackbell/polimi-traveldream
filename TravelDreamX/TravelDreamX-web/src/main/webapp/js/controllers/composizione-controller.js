@@ -153,7 +153,6 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         searchService.trovaPB($scope.parametriRicercaPB, function(esito) {
             if (esito.result) {
                 $scope.PB[$scope.parametriRicercaPB.tipo] = esito.returnedObj;
-//                $scope.voli = esito.returnedObj;
             } else{
                 toastr.error(esito.message, "ERRORE:");
             }
