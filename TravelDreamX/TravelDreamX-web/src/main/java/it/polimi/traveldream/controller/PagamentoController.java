@@ -9,7 +9,7 @@ import it.polimi.traveldream.model.Pacchetto;
 import it.polimi.traveldream.model.Pagamento;
 import it.polimi.traveldream.model.Utente;
 import it.polimi.traveldream.model.Voce;
-import it.polimi.traveldream.service.PagamentoService;
+import it.polimi.traveldream.service.PagamentoServiceLocal;
 import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class PagamentoController {
 
     @EJB(mappedName = "java:global/TravelDreamX-ear/TravelDreamX-web-1.0/PagamentoService")
-    PagamentoService pagamentoService;
+    PagamentoServiceLocal pagamentoService;
 
     @RequestMapping(value = "acquistaPB", method = RequestMethod.POST)
     public @ResponseBody Esito acquistaPB(@RequestBody Pacchetto pv, @RequestBody Voce pb, HttpServletRequest request) {
