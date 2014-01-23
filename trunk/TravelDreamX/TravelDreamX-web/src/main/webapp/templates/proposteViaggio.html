@@ -2,6 +2,41 @@
 Politecnico di Milano, Software Engineering 2 (autumn semester)
 proj codename: TravelDreamX
 -->
+<div class="row" ng-controller="autenticazioneController">
+    <div class="well" ng-if="isImpiegato()">
+        <div class="span2 offset4">
+            <form>
+                <label class="control-label">
+                    ID
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="number" ng-model="">
+                </div>
+                <label class="control-label">
+                    Ad almeno il giorno
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="text" ng-model="" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
+                </div>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Nell'albergo
+                </label>
+                <input type="text" placeholder="Hotel Pina" class="span2" ng-model=""/>
+                <label class="control-label">
+                    A
+                </label>
+                <input type="text" class="span2" placeholder="Milano" ng-model=""/>
+            </form>
+        </div>        
+    </div>
+    <div class="row"><div class="span4 offset4"><button class="btn btn-block btn-primary" ng-click="trovaPV()">Cerca</button></div></div>
+
+</div>
 <div class="row">
     <div class="span12">
         <legend>Le nostre proposte</legend>

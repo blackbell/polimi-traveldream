@@ -3,7 +3,7 @@ Politecnico di Milano, Software Engineering 2 (autumn semester)
 proj codename: TravelDreamX
 -->
 <div class="container modal span9" ng-controller="pvModalController">
-    <div class="row">
+    <div class="row" ng-controller="autenticazioneController">
         <div class="span9">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -32,8 +32,14 @@ proj codename: TravelDreamX
                             <div class="span3">Nome:<br/>Data:</div>
                         </div>
                         <div class="span1">solo &euro; </div>
-                        <div class="span2">
+                        <div class="span2" ng-if='!isImpiegato()'>
                             <button class="btn span2 btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Acquista</button> <br/>
+                        </div>
+                        <div class="span2" ng-if='isImpiegato() && isAbilitato(pv)'>
+                            <button class="btn span2 btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Disabilita</button> <br/>
+                        </div>
+                        <div class="span2" ng-if='isImpiegato() && !isAbilitato(pv)'>
+                            <button class="btn span2 btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Abilita</button> <br/>
                         </div>
                         <button class="btn btn-link" ng-click="fwdToComposizione(pv)">oppure personalizza il pacchetto</button>
                     </div>
@@ -64,7 +70,9 @@ proj codename: TravelDreamX
                 <div class="span8">
                     <button class="btn" ng-click="dismiss()">Close</button>
                     <button class="btn" ng-click="fwdToComposizione(pv)"><i class="icon-edit"></i> Personalizza pacchetto</button>
-                    <button class="btn btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Acquista</button>
+                    <button class="btn btn-success" ng-if="isAbilitato(pv)" ng-click="disabilita(pv)"><i class="icon-shopping-cart icon-white"></i> Disabilita</button>
+                    <button class="btn btn-success" ng-if="!isAbilitato(pv)" ng-click="abilita(pv)"><i class="icon-shopping-cart icon-white"></i> Abilita</button> <br/>
+                    <button class="btn btn-success" ng-click=""ng-if="!isImpiegato()"><i class="icon-shopping-cart icon-white"></i> Acquista</button>
                 </div>
             </div>
         </div>

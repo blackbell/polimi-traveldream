@@ -76,7 +76,7 @@ travelDreamApp.controller('autenticazioneController', function($scope, $rootScop
     $scope.isLogged = function() {
         return typeof $rootScope.utente !== 'undefined';
     };
-    $scope.isOperatore = function() {
+    $scope.isImpiegato = function() {
         return $scope.isLogged() && $rootScope.utente.livello === 1;
     };
     $scope.isAdmin = function() {

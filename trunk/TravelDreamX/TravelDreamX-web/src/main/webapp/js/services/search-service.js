@@ -12,9 +12,18 @@ travelDreamApp.factory('searchService', function($http) {
                     toastr.error("Errore " + status);
                 });
     };
-    
+    var __trovaPV = function( trovaPVParams, callback){
+        $http({method: 'POST', data:trovaPVParams, url: 'trovaPV.json'}).
+                success(function (data, status, headers, config){
+                    callback(data);
+                }).
+                 error(function (data, status, headers, config){
+                    toastr.error("Errore " + status);
+                });
+    };
     return {
-        trovaPB: __trovaPB  
+        trovaPB: __trovaPB,
+        trovaPV: __trovaPV 
     };
 });
 

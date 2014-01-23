@@ -23,7 +23,16 @@
         <li ng-class="{active: getActive('/invita'), 'pull-right': true}"><a href="#">Invita un amico</a></li>
         <li ng-class="{active: getActive('/composizionePV'), 'pull-right': true}"><a href="#/composizionePV">Crea viaggio</a></li>
         <li ng-class="{active: getActive('/proposteViaggio'), 'pull-right': true}"><a href="#/proposteViaggio">Proposte viaggio</a></li>
-        <li ng-if='isOperatore()' ng-class="{active: getActive('/gestioneOfferta'), 'pull-right': true}"><a href="#">Gestione offerta</a></li>
+        <li class="dropdown pull-right pointer" ng-if='isImpiegato()'>
+            <a class="dropdown-toggle" id="drop4" role="button" data-toggle="dropdown"><i class="icon-user"></i> Gestione offerta <b class="caret"></b></a>
+            <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#/composizionePV">Aggiungi PV all'offerta</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#/creazionePB">Aggiungi PB all'offerta</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#/proposteViaggio">Trova PV</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#/consultazione">Trova PB</a></li>
+            </ul>              
+        </li> 
         <li ng-if='isAdmin()' ng-class="{active: getActive('/amministrazione'), 'pull-right': true}"><a href="#/amministrazione">Amministrazione</a></li>
     </ul>
 </div>
