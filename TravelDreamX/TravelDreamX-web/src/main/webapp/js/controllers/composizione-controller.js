@@ -188,7 +188,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
             $rootScope.PV.tipo = 2;
         if (typeof $rootScope.utente !== 'undefined') {
             $rootScope.PV.proprietario = $rootScope.utente;
-            
+            apriModaleCondivisione();
             salvaPVPBservice.salvaPV(escludiVociVuote($rootScope.PV), function(esito) {
                 if (esito.result) {
                     console.log("ESITO:");

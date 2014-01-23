@@ -14,8 +14,17 @@ proj codename: TravelDreamX
                     <div class="row">
                         <input name="link" type="text" class="span4 form-control input-login-registr" ng-readonly="true" ng-model="linkCondivisione" />
                     </div>
-                    <p>Passando ad altre persone questo link, queste potranno accedere al tuo pacchetto viaggio per poterlo acquistare</p>
-                    
+                    <div class="row">
+                    <p>Dando questo link ai tuoi amici, potranno<br/> consultare e acquistare il tuo pacchetto</p>
+                    </div>
+                    <div class="row">
+                    <legend></legend>
+                    <p>Oppure scrivi l'indirizzo email delle persone con cui vuoi condividerlo:</p>
+                    </div>
+                    <div class="row" ng-repeat="email in emails">
+                        <input type="text" class="span2" placeholder="mario.rossi@email.it" ng-model="indirizzoEmail"/><button><i class="icon-plus-sign" ng-click="aggiungiCampoEmail()"></i></button>
+                    </div>
+                    <div class="row" ><button align="center" class="btn btn-success span2" ng-disabled="ceAlmenoUnIndirizzo()" ng-click="condividi()">Condividi</button></div>
             </div>
         </div>
     </div>
