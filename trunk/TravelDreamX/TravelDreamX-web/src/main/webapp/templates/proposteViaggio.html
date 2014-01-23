@@ -10,7 +10,7 @@ proj codename: TravelDreamX
                     Dal giorno
                 </label>
                 <div class="input-append">
-                    <input class="input-small" type="text" ng-model="a" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <input class="input-small" type="text" ng-model="parametriRicercaPV.giornoInizio" data-date-format="dd/mm/yyyy" bs-datepicker>
                     <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
                 </div>
             </form>
@@ -21,7 +21,7 @@ proj codename: TravelDreamX
                     Ad almeno il giorno
                 </label>
                 <div class="input-append">
-                    <input class="input-small" type="text" ng-model="b" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <input class="input-small" type="text" ng-model="parametriRicercaPV.giornoFine" data-date-format="dd/mm/yyyy" bs-datepicker>
                     <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
                 </div>
             </form>
@@ -31,7 +31,7 @@ proj codename: TravelDreamX
                 <label class="control-label">
                     Nazione di partenza
                 </label>
-                <input type="text" class="span2" placeholder="Milano" ng-model="c"/>
+                <input type="text" class="span2" placeholder="Milano" ng-model="parametriRicercaPV.nazionePartenza"/>
             </form>
         </div>
         <div class="span2">
@@ -39,7 +39,7 @@ proj codename: TravelDreamX
                 <label class="control-label">
                     Nazione di arrivo
                 </label>
-                <input type="text" class="span2" placeholder="Olanda" ng-model="d"/>
+                <input type="text" class="span2" placeholder="Olanda" ng-model="parametriRicercaPV.nazioneArrivo"/>
             </form>
         </div>
         <div class="span2">
@@ -47,7 +47,7 @@ proj codename: TravelDreamX
                 <label class="control-label">
                     Citt&agrave;
                 </label>
-                <input type="text" placeholder="Amsterdam" class="span2" ng-model="e"/>
+                <input type="text" placeholder="Amsterdam" class="span2" ng-model="parametriRicercaPV.cittaAlbergo"/>
             </form>
         </div>
         <div class="span1" ng-if="isImpiegato()">
@@ -56,7 +56,7 @@ proj codename: TravelDreamX
                     ID
                 </label>
                 <div class="input-append">
-                    <input class="input-small" type="number" ng-model="f" placeholder="0">
+                    <input class="input-small" type="number" ng-model="parametriRicercaPV.idPacchetto" placeholder="0">
                 </div>
             </form>
         </div>

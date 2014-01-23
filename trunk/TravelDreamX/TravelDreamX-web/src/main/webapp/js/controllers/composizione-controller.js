@@ -33,17 +33,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     };
     var inizializzaPV = function() {
         $rootScope.PV = {
-            voci: [
-                {
-                    tipo: 'Volo'
-                },
-                {
-                    tipo: 'Soggiorno'
-                },
-                {
-                    tipo: 'Visita'
-                }
-            ]
+            voci: [{tipo: 'Volo'}, {tipo: 'Soggiorno'}, {tipo: 'Visita'}]
         };
         $rootScope.indiceSelezionato = -1;
     };
@@ -59,17 +49,17 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         if (typeof data === 'number')
             return $rootScope.indiceSelezionato === data;
         else
-            return $scope.tipoVoceSelezionata === data;
+            return $rootScope.tipoVoceSelezionata === data;
     };
     $scope.seleziona = function(tipo, indice) {
-        $scope.tipoVoceSelezionata = tipo;
+        $rootScope.tipoVoceSelezionata = tipo;
         $scope.parametriRicercaPB.tipo = tipo;
         $rootScope.indiceSelezionato = indice;
     };
 
     $scope.deseleziona = function(indice) {
         if (indice === $scope.indiceSelezionato) {
-            $scope.tipoVoceSelezionata = 'nonSelezionato';
+            $rootScope.tipoVoceSelezionata = 'nonSelezionato';
             $rootScope.indiceSelezionato = -1;
         } else {
             $rootScope.indiceSelezionato -= 1;
@@ -130,7 +120,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         searchService.trovaPB($scope.parametriRicercaPB, function(esito) {
             if (esito.result) {
                 $scope.PB[$scope.parametriRicercaPB.tipo] = esito.returnedObj;
-            } else{
+            } else {
                 toastr.error(esito.message, "ERRORE:");
             }
             $scope.waiting = false;
@@ -187,13 +177,11 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         $scope.popUpModal(modaleCondivisione);
     };
     $scope.salvaPV = function() {
-
+        if (typeof $scope.nomePV !== 'undefined')
+            $rootScope.PV.nome = $scope.nomePV;
         if (typeof $rootScope.utente !== 'undefined') {
             $rootScope.PV.proprietario = $rootScope.utente;
-
-            // @TEST: controllo sicurezza lato Server 
-            // PVdaSalvare.proprietario.email = 'emailFuffa';
-
+            
             salvaPVPBservice.salvaPV(escludiVociVuote($rootScope.PV), function(esito) {
                 if (esito.result) {
                     console.log("ESITO:");
