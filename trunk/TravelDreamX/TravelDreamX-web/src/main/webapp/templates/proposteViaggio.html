@@ -3,20 +3,14 @@ Politecnico di Milano, Software Engineering 2 (autumn semester)
 proj codename: TravelDreamX
 -->
 <div class="row" ng-controller="autenticazioneController">
-    <div class="well" ng-if="isImpiegato()">
-        <div class="span2 offset4">
+    <div class="well well-small">
+        <div class="span2">
             <form>
                 <label class="control-label">
-                    ID
+                    Dal giorno
                 </label>
                 <div class="input-append">
-                    <input class="input-small" type="number" ng-model="">
-                </div>
-                <label class="control-label">
-                    Ad almeno il giorno
-                </label>
-                <div class="input-append">
-                    <input class="input-small" type="text" ng-model="" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <input class="input-small" type="text" ng-model="a" data-date-format="dd/mm/yyyy" bs-datepicker>
                     <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
                 </div>
             </form>
@@ -24,16 +18,59 @@ proj codename: TravelDreamX
         <div class="span2">
             <form>
                 <label class="control-label">
-                    Nell'albergo
+                    Ad almeno il giorno
                 </label>
-                <input type="text" placeholder="Hotel Pina" class="span2" ng-model=""/>
-                <label class="control-label">
-                    A
-                </label>
-                <input type="text" class="span2" placeholder="Milano" ng-model=""/>
+                <div class="input-append">
+                    <input class="input-small" type="text" ng-model="b" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
+                </div>
             </form>
         </div>
-        <div class="row"><div class="span4 offset4"><button class="btn btn-block btn-primary" ng-click="trovaPV()">Cerca</button></div></div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Nazione di partenza
+                </label>
+                <input type="text" class="span2" placeholder="Milano" ng-model="c"/>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Nazione di arrivo
+                </label>
+                <input type="text" class="span2" placeholder="Olanda" ng-model="d"/>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Citt&agrave;
+                </label>
+                <input type="text" placeholder="Amsterdam" class="span2" ng-model="e"/>
+            </form>
+        </div>
+        <div class="span1" ng-if="isImpiegato()">
+            <form>
+                <label class="control-label" >
+                    ID
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="number" ng-model="f" placeholder="0">
+                </div>
+            </form>
+        </div>
+        <div class="span1">
+            <form>
+                <label class="control-label">
+                    &nbsp;
+                </label>
+                <div class="input-append">
+                    <button class="btn btn-small btn-primary" ng-click="trovaPV()">Cerca</button>
+                </div>
+            </form>
+        </div>
+        <div class="row">&nbsp;</div>
     </div>
 </div>
 <div class="row">

@@ -167,7 +167,12 @@ travelDreamApp.controller('proposteViaggioController', function($scope, searchSe
     ];
     $scope.waiting = false;
     $scope.parametriRicercaPV = {
-        idPacchetto: null
+        idPacchetto: null,
+        dataInizio: null,
+        dataFine: null,
+        cittaAlbergo: null,
+        nazionePartenza: null,
+        nazioneArrivo: null
     };
     $scope.isPresente = function(pv, tipo) {
         for (var index = 0; index < pv.voci.length; ++index) {

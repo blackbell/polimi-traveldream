@@ -15,7 +15,11 @@ proj codename: TravelDreamX
             <div class="modal-body" ng-init="setIndexes(pv)">
                 <div class="row">
                     <div class="span8">
-                        <p class="lead">{{pv.voci[indexSoggiorno].albergo.nome}} STELLE</p> 
+                        <p class="lead">{{pv.voci[indexSoggiorno].albergo.nome}} 
+                            &nbsp;&nbsp;
+                            <i class="icon-star-empty pull-right" ng-repeat="n in []| range:(5 - pv.voci[indexSoggiorno].albergo.stelle)"></i>
+                            <i class="icon-star pull-right" ng-repeat="n in []| range: pv.voci[indexSoggiorno].albergo.stelle"></i>
+                        </p> 
                     </div>
                 </div>
                 <div class="row">
@@ -31,17 +35,18 @@ proj codename: TravelDreamX
                             <img class="pull-left" src="img/Visita.png" width="40"/>
                             <div class="span3">Nome:<br/>Data:</div>
                         </div>
-                        <div class="span1">solo &euro; </div>
+                        <div class="span1">solo<p class="lead"> &euro;{{calcolaPrezzo(pv)}}</p></div>
                         <div class="span2" ng-if='!isImpiegato()'>
                             <button class="btn span2 btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Acquista</button> <br/>
                         </div>
                         <div class="span2" ng-if='isImpiegato() && isAbilitato(pv)'>
-                            <button class="btn span2 btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Disabilita</button> <br/>
+                            <button class="btn span2 btn-success pull-right" ng-click=""><i class="icon-shopping-cart icon-white"></i> Disabilita</button> <br/>
                         </div>
                         <div class="span2" ng-if='isImpiegato() && !isAbilitato(pv)'>
-                            <button class="btn span2 btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Abilita</button> <br/>
+                            <button class="btn span2 btn-success pull-right" ng-click=""><i class="icon-shopping-cart icon-white"></i> Abilita</button> <br/>
                         </div>
-                        <button class="btn btn-link" ng-click="fwdToComposizione(pv)">oppure personalizza il pacchetto</button>
+                        <button class="btn btn-link pull-right" ng-if='isImpiegato()' ng-click="fwdToComposizione(pv)">oppure modifica il pacchetto</button>
+                        <button class="btn btn-link pull-right" ng-if='!isImpiegato()' ng-click="fwdToComposizione(pv)">oppure personalizza il pacchetto</button>
                     </div>
                 </div>
                 <br/>
@@ -55,7 +60,6 @@ proj codename: TravelDreamX
                             <span ng-if="pv.voci[indexSoggiorno].numeroPersone === 2">Camera doppia</span>
                             <span ng-if="pv.voci[indexSoggiorno].numeroPersone === 3">Camera tripla</span>
                             <span ng-if="pv.voci[indexSoggiorno].numeroPersone === 4">Camera quadrupla</span></strong>&nbsp;
-                        Costo: <strong>&euro; {{pv.voci[indexSoggiorno].costo}}</strong>
                     </div>
                 </div>
                 <br/>
@@ -69,7 +73,8 @@ proj codename: TravelDreamX
             <div class="modal-footer">
                 <div class="span8">
                     <button class="btn" ng-click="dismiss()">Close</button>
-                    <button class="btn" ng-click="fwdToComposizione(pv)"><i class="icon-edit"></i> Personalizza pacchetto</button>
+                    <button class="btn" ng-click="fwdToComposizione(pv)" ng-if="!isImpiegato()"><i class="icon-edit"></i> Personalizza pacchetto</button>
+                    <button class="btn" ng-click="fwdToComposizione(pv)" ng-if="isImpiegato()"><i class="icon-edit"></i> Modifica pacchetto</button>
                     <button class="btn btn-success" ng-if="isAbilitato(pv)" ng-click="disabilita(pv)"><i class="icon-shopping-cart icon-white"></i> Disabilita</button>
                     <button class="btn btn-success" ng-if="!isAbilitato(pv)" ng-click="abilita(pv)"><i class="icon-shopping-cart icon-white"></i> Abilita</button> <br/>
                     <button class="btn btn-success" ng-click=""ng-if="!isImpiegato()"><i class="icon-shopping-cart icon-white"></i> Acquista</button>
