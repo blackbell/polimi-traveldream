@@ -77,6 +77,7 @@ public class PVServiceTest {
         v = pbService.getVoloByID(v.getIdVoce());
         
         Utente u = new Utente(rnd.nextInt() + "@ServiceTest.polimi.it","polimi");
+        u.setLivello(Utente.LIVELLO_IMPIEGATO);
         u = utenteService.registrazione(u);
         
         Pacchetto p = new Pacchetto();
