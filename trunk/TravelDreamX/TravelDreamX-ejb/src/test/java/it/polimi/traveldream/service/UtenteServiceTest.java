@@ -107,11 +107,13 @@ public class UtenteServiceTest {
     @Test
     public void testModificaLivelloEAbilitazioneUtente(){
         Utente utente = new Utente("testUserSIS" + rnd.nextInt() +  "@testDomain.polimi.it", "testPsw");
+        utente.setAbilitato(true);
         Utente result = service.registrazione(utente);
         
-        result.setAbilitato(!result.getAbilitato());
+        result.setAbilitato(false);
         result.setLivello(2);
         Integer newLevel = service.modificaLivello(result);
-        assertNull(newLevel);
+        assertEquals(newLevel, new Integer(2));
+        assertTrue(service.login(result).getAbilitato());
     }
 }
