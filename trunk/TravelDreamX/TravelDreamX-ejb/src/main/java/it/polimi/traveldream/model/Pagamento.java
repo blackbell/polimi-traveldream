@@ -33,7 +33,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Pagamento.findAll", query = "SELECT p FROM Pagamento p"),
     @NamedQuery(name = "Pagamento.findByIdPagamento", query = "SELECT p FROM Pagamento p WHERE p.idPagamento = :idPagamento"),
-    @NamedQuery(name = "Pagamento.findByDataOraPagamento", query = "SELECT p FROM Pagamento p WHERE p.dataOraPagamento = :dataOraPagamento")})
+    @NamedQuery(name = "Pagamento.findByVoce", query = "SELECT p FROM Pagamento p WHERE p.voce = :voce"),
+    @NamedQuery(name = "Pagamento.findByUtente", query = "SELECT p FROM Pagamento p WHERE p.utente = :utente")})
 public class Pagamento implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -46,14 +47,15 @@ public class Pagamento implements Serializable {
     @Column(name = "data_ora_pagamento")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataOraPagamento;
-    /*@JoinColumns({
-        @JoinColumn(name = "idVoce", referencedColumnName = "idVoce", insertable = false, updatable = false),//),
-        @JoinColumn(name = "idPagamento", referencedColumnName = "idPacchetto", insertable = false, updatable = false)})
-    @ManyToOne(optional = false)
-    */private Voce voce;
+    @NotNull
+    @ManyToOne
+    private Voce voce;
+    @NotNull
+    @ManyToOne
+    private Pacchetto pacchetto;
     @JoinColumn(name = "idUtente", referencedColumnName = "email")
     @ManyToOne(optional = false)
-    private Utente idUtente;
+    private Utente utente;
 
     public Pagamento() {
     }
@@ -91,14 +93,23 @@ public class Pagamento implements Serializable {
         this.voce = voce;
     }
 
-    public Utente getIdUtente() {
-        return idUtente;
+    public Utente getUtente() {
+        return utente;
     }
 
-    public void setIdUtente(Utente idUtente) {
-        this.idUtente = idUtente;
+    public void setUtente(Utente utente) {
+        this.utente = utente;
     }
 
+    public Pacchetto getPacchetto() {
+        return pacchetto;
+    }
+
+    public void setPacchetto(Pacchetto pacchetto) {
+        this.pacchetto = pacchetto;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;

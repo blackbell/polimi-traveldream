@@ -36,6 +36,7 @@ public class PVService implements PVServiceLocal {
 
     @Override
     public Pacchetto salvaPV(Pacchetto pv) {
+        if (pv.getVoci() == null || pv.getVoci().size() == 0 || pv.getVoci().size() >= Pacchetto.MAX_NRO_VOCI) return null;
         for (Voce v : pv.getVoci())
             System.out.println("PVService.salvaPV -> v: " + v + " [tipo: " + v.getTipo() + "]");
         return pvDAO.saveAndFlush(pv);

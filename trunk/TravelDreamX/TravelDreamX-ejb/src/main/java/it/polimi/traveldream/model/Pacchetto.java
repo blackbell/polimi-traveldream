@@ -42,6 +42,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Pacchetto.findByTipo", query = "SELECT p FROM Pacchetto p WHERE p.tipo = :tipo")})
 public class Pacchetto implements Serializable {
     private static final long serialVersionUID = 1L;
+    public static int MAX_NRO_VOCI = 10;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -56,6 +57,8 @@ public class Pacchetto implements Serializable {
     @NotNull
     @Column(name = "tipo")
     private TipoPacchetto tipo;
+    @NotNull
+    private String nome = "Pacchetto senza nome";
     
     @NotNull
     private Boolean abilitato;
@@ -91,6 +94,14 @@ public class Pacchetto implements Serializable {
 
     public void setIdPacchetto(Integer idPacchetto) {
         this.idPacchetto = idPacchetto;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public Date getDataOraCreazione() {
@@ -157,5 +168,8 @@ public class Pacchetto implements Serializable {
     public String toString() {
         return "it.polimi.traveldream.model.Pacchetto[ idPacchetto=" + idPacchetto + " ]";
     }
-    
+ 
+    public static boolean nroVociNonConfome(Pacchetto pv){
+        return (pv.getVoci().size() > 0 && pv.getVoci().size() <= Pacchetto.MAX_NRO_VOCI);
+    }
 }

@@ -14,6 +14,7 @@ public class Esito {
     public static final String USER_LOGOUT_SUCCESS = "USER_LOGOUT_SUCCESS";
     public static final String USER_NOT_LOGGED_IN = "USER_NOT_LOGGED_IN";
     public static final String OPERATION_FAILED = "OPERATION_FAILED";
+    public static final String TOO_MANY_PBS = "TOO_MANY_PBS";
     private boolean result;
     private String message;
     private String newUrl;

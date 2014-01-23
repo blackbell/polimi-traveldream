@@ -17,6 +17,7 @@ import java.util.Date;
 import java.util.Random;
 import javax.naming.NamingException;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
@@ -121,6 +122,21 @@ public class PVServiceTest {
         p.getVoci().add(v);
         Pacchetto p2 = pvService.salvaPV(p);
         assertEquals(p2,p);
+    }
+    
+    @Test
+    public void testSalvaPVvuoto(){
+        Utente u = new Utente(rnd.nextInt() + "@ServiceTest.polimi.it","polimi");
+        u = utenteService.registrazione(u);
+        
+        Pacchetto p = new Pacchetto();
+        p.setAbilitato(true);
+        p.setProprietario(u);
+        p.setDataOraCreazione(new Date());
+        p.setTipo(TipoPacchetto.PREDEFINITO);
+        p.setVoci(new ArrayList<Voce>());
+        Pacchetto p2 = pvService.salvaPV(p);
+        Assert.assertNull(p2);
     }
     
     @Test

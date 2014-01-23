@@ -48,9 +48,11 @@ public class SalvataggioPVPBController {
                 pv.setAbilitato(Boolean.TRUE);
                 pv.setDataOraCreazione(new Date());
                 pv.setTipo(TipoPacchetto.PERSONALIZZATO);
-                pv = pvService.salvaPV(pv);
-                e.setResult(true);
-                e.setMessage(null);
+                Pacchetto result  = pvService.salvaPV(pv);
+                e.setResult(result != null);
+                e.setMessage(result != null ? null : Esito.OPERATION_FAILED);
+                if (result == null && Pacchetto.nroVociNonConfome(pv))
+                    e.setMessage(Esito.TOO_MANY_PBS);
                 e.setReturnedObj(pv);
             }else{
                 e.setResult(false);
