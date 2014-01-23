@@ -19,6 +19,9 @@ input-login-registr.ng-valid {
 .glyphicon {
     margin-left: 3px;
 }
+.btn-personalizza-PV{
+    margin-right: 20px;
+};
 .btn-registrazione {
     width: 296px;
 }

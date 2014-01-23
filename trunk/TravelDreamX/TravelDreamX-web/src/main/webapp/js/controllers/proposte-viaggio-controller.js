@@ -168,6 +168,7 @@ travelDreamApp.controller('proposteViaggioController', function($scope, searchSe
     $scope.waiting = false;
     $scope.parametriRicercaPV = {
         idPacchetto: null,
+        nome: null,
         dataInizio: null,
         dataFine: null,
         cittaAlbergo: null,

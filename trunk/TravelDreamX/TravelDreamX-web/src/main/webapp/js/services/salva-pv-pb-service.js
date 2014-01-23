@@ -6,6 +6,8 @@
 
 travelDreamApp.factory('salvaPVPBservice', function($http) {
     var __salvaPV = function(PV, callback){
+        if(!PV.nome)
+            delete PV.nome;
         $http({method: 'POST', data:PV, url: 'salvaPV.json'}).
                 success(function (data, status, headers, config){
                     callback(data);

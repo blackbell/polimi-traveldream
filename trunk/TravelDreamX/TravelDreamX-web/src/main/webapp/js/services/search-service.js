@@ -30,6 +30,8 @@ travelDreamApp.factory('searchService', function($http) {
     var eliminaParametriRicercaPVInutilizzati = function(parPV) {
         if (!parPV.idPacchetto)
             delete parPV.idPacchetto;
+        if (!parPV.idPacchetto)
+            delete parPV.nome;
         if (!parPV.cittaAlbergo)
             delete parPV.cittaAlbergo;
         if (!parPV.nazionePartenza)
@@ -54,7 +56,7 @@ travelDreamApp.factory('searchService', function($http) {
                 });
     };
     var __trovaPV = function(trovaPVParams, callback) {
-        trovaPVParams = eliminaParametriRicercaPBInutilizzati(trovaPVParams);
+        trovaPVParams = eliminaParametriRicercaPVInutilizzati(trovaPVParams);
         $http({method: 'POST', data: trovaPVParams, url: 'pv.json'}).
                 success(function(data, status, headers, config) {
                     callback(data);
