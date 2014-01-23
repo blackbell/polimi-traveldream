@@ -42,12 +42,13 @@ public class SalvataggioPVPBController {
     Esito salvaPV(@RequestBody Pacchetto pv, HttpServletRequest request) {
         Esito e = new Esito();
         try {
-            Utente utenteLoggato = (Utente) request.getSession().getAttribute("TDX_CurrentUser");
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
             if (utenteLoggato != null && utenteLoggato.equals(pv.getProprietario())) {
-                pv.setProprietario((Utente) request.getSession().getAttribute("TDX_CurrentUser"));
+                pv.setProprietario(utenteLoggato);
                 pv.setAbilitato(Boolean.TRUE);
                 pv.setDataOraCreazione(new Date());
-                pv.setTipo(TipoPacchetto.PERSONALIZZATO);
+                if (utenteLoggato.getLivello() == Utente.LIVELLO_IMPIEGATO)
+                    pv.setTipo(Pacchetto.PREDEFINITO);
                 Pacchetto result  = pvService.salvaPV(pv);
                 e.setResult(result != null);
                 e.setMessage(result != null ? null : Esito.OPERATION_FAILED);

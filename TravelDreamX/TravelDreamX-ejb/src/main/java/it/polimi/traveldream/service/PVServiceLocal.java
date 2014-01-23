@@ -19,7 +19,7 @@ public interface PVServiceLocal {
     
     public Pacchetto addPBtoPV(Voce pb, Pacchetto pv);
 
-    public List<Pacchetto> trovaPB(ParametriRicercaPV params);
+    public List<Pacchetto> trovaPV(ParametriRicercaPV params);
     
     public Pacchetto recuperaPV(Integer idPV);
     public Pacchetto salvaPV(Pacchetto pv);

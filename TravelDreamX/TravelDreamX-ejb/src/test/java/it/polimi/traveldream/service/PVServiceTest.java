@@ -84,7 +84,7 @@ public class PVServiceTest {
         Pacchetto p = new Pacchetto();
         p.setProprietario(u);
         p.setDataOraCreazione(new Date());
-        p.setTipo(TipoPacchetto.PREDEFINITO);
+        p.setTipo(Pacchetto.PREDEFINITO);
         p.setVoci(new ArrayList<Voce>());
         pvService.addPBtoPV(v, p);
     }
@@ -117,7 +117,7 @@ public class PVServiceTest {
         p.setAbilitato(true);
         p.setProprietario(u);
         p.setDataOraCreazione(new Date());
-        p.setTipo(TipoPacchetto.PREDEFINITO);
+        p.setTipo(Pacchetto.PREDEFINITO);
         p.setVoci(new ArrayList<Voce>());
         p.getVoci().add(v);
         Pacchetto p2 = pvService.salvaPV(p);
@@ -133,7 +133,7 @@ public class PVServiceTest {
         p.setAbilitato(true);
         p.setProprietario(u);
         p.setDataOraCreazione(new Date());
-        p.setTipo(TipoPacchetto.PREDEFINITO);
+        p.setTipo(Pacchetto.PREDEFINITO);
         p.setVoci(new ArrayList<Voce>());
         Pacchetto p2 = pvService.salvaPV(p);
         Assert.assertNull(p2);
@@ -166,7 +166,7 @@ public class PVServiceTest {
         Pacchetto p = new Pacchetto();
         p.setProprietario(u);
         p.setDataOraCreazione(new Date());
-        p.setTipo(TipoPacchetto.PREDEFINITO);
+        p.setTipo(Pacchetto.PREDEFINITO);
         p.setVoci(new ArrayList<Voce>());
         p.getVoci().add(v);
         p.setAbilitato(true);

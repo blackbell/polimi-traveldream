@@ -65,7 +65,7 @@ public class PVService implements PVServiceLocal {
     }
 
     @Override
-    public List<Pacchetto> trovaPB(ParametriRicercaPV params) {
+    public List<Pacchetto> trovaPV(ParametriRicercaPV params) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

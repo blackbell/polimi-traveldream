@@ -37,7 +37,7 @@ public class SearchController {
     public @ResponseBody Esito pv(@RequestBody ParametriRicercaPV params) {
         Esito e = new Esito();
         try{
-            List<Pacchetto> ret = pvService.trovaPB(params);
+            List<Pacchetto> ret = pvService.trovaPV(params);
             e.setResult(true);
             e.setMessage(null);
             e.setReturnedObj(ret);

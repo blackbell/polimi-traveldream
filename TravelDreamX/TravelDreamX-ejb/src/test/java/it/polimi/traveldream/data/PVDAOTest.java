@@ -34,7 +34,7 @@ public class PVDAOTest extends DAOUnitTest {
     public void savePVpredefinito(){
         Pacchetto p = new Pacchetto();
         p.setAbilitato(true);
-        p.setTipo(TipoPacchetto.PREDEFINITO);
+        p.setTipo(Pacchetto.PREDEFINITO);
         p.setProprietario(addUser());
         p.setDataOraCreazione(new Date());
         Pacchetto p2 = pvDAO.save(p);

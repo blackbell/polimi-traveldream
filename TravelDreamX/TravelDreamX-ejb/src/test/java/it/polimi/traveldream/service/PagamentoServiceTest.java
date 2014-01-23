@@ -87,7 +87,7 @@ public class PagamentoServiceTest {
         p.setAbilitato(true);
         p.setProprietario(u);
         p.setDataOraCreazione(new Date());
-        p.setTipo(TipoPacchetto.PREDEFINITO);
+        p.setTipo(Pacchetto.PREDEFINITO);
         p.setVoci(new ArrayList<Voce>());
         p.getVoci().add(v);
         Pacchetto p2 = pvService.salvaPV(p);
@@ -132,7 +132,7 @@ public class PagamentoServiceTest {
         p.setAbilitato(true);
         p.setProprietario(u);
         p.setDataOraCreazione(new Date());
-        p.setTipo(TipoPacchetto.PREDEFINITO);
+        p.setTipo(Pacchetto.PREDEFINITO);
         p.setVoci(new ArrayList<Voce>());
 //        p.getVoci().add(v);
         p.getVoci().add(ritorno);
@@ -178,7 +178,7 @@ public class PagamentoServiceTest {
         p.setAbilitato(true);
         p.setProprietario(u);
         p.setDataOraCreazione(new Date());
-        p.setTipo(TipoPacchetto.PREDEFINITO);
+        p.setTipo(Pacchetto.PREDEFINITO);
         p.setVoci(new ArrayList<Voce>());
         p.getVoci().add(v);
         p.getVoci().add(ritorno);

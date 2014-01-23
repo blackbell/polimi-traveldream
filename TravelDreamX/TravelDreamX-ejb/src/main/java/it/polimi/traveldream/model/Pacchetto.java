@@ -43,6 +43,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Pacchetto implements Serializable {
     private static final long serialVersionUID = 1L;
     public static int MAX_NRO_VOCI = 10;
+    public static final int GIFT_LIST = 2;
+    public static final int PREDEFINITO = 0;
+    public static final int PERSONALIZZATO = 1;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -56,7 +59,7 @@ public class Pacchetto implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "tipo")
-    private TipoPacchetto tipo;
+    private Integer tipo;
     @NotNull
     private String nome = "Pacchetto senza nome";
     
@@ -82,7 +85,7 @@ public class Pacchetto implements Serializable {
         this.idPacchetto = idPacchetto;
     }
 
-    public Pacchetto(Integer idPacchetto, Date dataOraCreazione, TipoPacchetto tipo) {
+    public Pacchetto(Integer idPacchetto, Date dataOraCreazione, Integer tipo) {
         this.idPacchetto = idPacchetto;
         this.dataOraCreazione = dataOraCreazione;
         this.tipo = tipo;
@@ -112,11 +115,11 @@ public class Pacchetto implements Serializable {
         this.dataOraCreazione = dataOraCreazione;
     }
 
-    public TipoPacchetto getTipo() {
+    public Integer getTipo() {
         return tipo;
     }
 
-    public void setTipo(TipoPacchetto tipo) {
+    public void setTipo(Integer tipo) {
         this.tipo = tipo;
     }
 
