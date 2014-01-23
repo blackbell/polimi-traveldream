@@ -59,5 +59,12 @@ travelDreamApp.controller('pvModalController', function($scope, $rootScope, $loc
             
         });
     };
+    $scope.calcolaPrezzo = function(pv) {
+        var prezzoTotale = 0;
+        for (var index = 0; index < pv.voci.length; ++index) {
+            prezzoTotale += pv.voci[index].costo;
+        }
+        return prezzoTotale;
+    };
 });
 

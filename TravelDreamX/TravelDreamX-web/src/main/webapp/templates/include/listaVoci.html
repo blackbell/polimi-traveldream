@@ -28,9 +28,11 @@
         </li>
         <li class="pull-right voce-item-col" ng-if="isSoggiorno(voce)">
             <p class="voce-item-left" > 
-                {{voce.albergo.nome}} - {{voce.albergo.citta}} - {{voce.albergo.stelle}} <i class="icon-star"/>
+                {{voce.albergo.nome}} 
                 <br/>
-                Dal {{voce.giornoInizio| date:'dd/MM/yyyy'}}
+                {{voce.albergo.citta}} - {{voce.albergo.stelle}} <i class="icon-star"/>
+                <br/>
+                Dal {{voce.giornoInizio| date:'dd/MM/yyyy'}} 
                 <br/>
                 Al {{voce.giornoFine| date:'dd/MM/yyyy'}}
                 <br/>
@@ -42,7 +44,7 @@
             <p class="voce-item-left" > 
                 {{voce.museo.nome}} - {{voce.museo.citta}}
                 <br/>
-                {{voce.dataOra}}
+                {{voce.dataOra| date:'dd/MM/yyyy hh:mm'}}
                 <br/>
                 &euro;{{voce.costo}} 
             </p>
