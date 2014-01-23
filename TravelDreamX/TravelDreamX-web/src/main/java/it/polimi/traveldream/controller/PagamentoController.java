@@ -10,6 +10,7 @@ import it.polimi.traveldream.model.Pagamento;
 import it.polimi.traveldream.model.Utente;
 import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.service.PagamentoServiceLocal;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
@@ -57,9 +58,9 @@ public class PagamentoController {
         try{
             Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
             if (utenteLoggato != null && utenteLoggato.getLivello() >= Utente.LIVELLO_REGISTRATO) {
-                Pagamento p = pagamentoService.pagamentoPV(pv, utenteLoggato);
-                e.setResult(p != null);
-                e.setMessage(p != null ? null : Esito.OPERATION_FAILED);
+                List<Pagamento> p = pagamentoService.pagamentoPV(pv, utenteLoggato);
+                e.setResult(!p.isEmpty());
+                e.setMessage(p.isEmpty() ? Esito.OPERATION_FAILED : null);
                 e.setReturnedObj(p);
             }else{
                 e.setResult(false);
