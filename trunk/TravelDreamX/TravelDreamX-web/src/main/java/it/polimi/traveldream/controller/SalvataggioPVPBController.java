@@ -6,7 +6,6 @@ package it.polimi.traveldream.controller;
 
 import it.polimi.traveldream.model.Esito;
 import it.polimi.traveldream.model.Pacchetto;
-import it.polimi.traveldream.model.TipoPacchetto;
 import it.polimi.traveldream.model.Utente;
 import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.service.EDBServiceLocal;

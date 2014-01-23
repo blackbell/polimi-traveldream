@@ -6,7 +6,6 @@
 package it.polimi.traveldream.data;
 
 import it.polimi.traveldream.model.Pacchetto;
-import it.polimi.traveldream.model.TipoPacchetto;
 import it.polimi.traveldream.model.Utente;
 import java.util.Date;
 import static org.junit.Assert.assertNotNull;
