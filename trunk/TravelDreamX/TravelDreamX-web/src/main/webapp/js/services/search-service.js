@@ -30,7 +30,7 @@ travelDreamApp.factory('searchService', function($http) {
     var eliminaParametriRicercaPVInutilizzati = function(parPV) {
         if (!parPV.idPacchetto)
             delete parPV.idPacchetto;
-        if (!parPV.idPacchetto)
+        if (!parPV.nome)
             delete parPV.nome;
         if (!parPV.cittaAlbergo)
             delete parPV.cittaAlbergo;
