@@ -18,6 +18,7 @@ import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ejb.interceptor.SpringBeanAutowiringInterceptor;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -33,26 +34,31 @@ public class PBService implements PBServiceLocal {
     @Autowired
     private VoceDAO voceDAO;
 
+    @Transactional
     @Override
     public Volo saveVolo(Volo v) {
         return (Volo) voceDAO.saveAndFlush(v);
     }
 
+    @Transactional
     @Override
     public Volo getVoloByID(int id) {
         return (Volo) voceDAO.findOne(id);
     }
 
+    @Transactional
     @Override
     public Soggiorno saveSoggiorno(Soggiorno s) {
         return (Soggiorno) voceDAO.saveAndFlush(s);
     }
 
+    @Transactional
     @Override
     public Soggiorno getSoggiornoByID(int id) {
         return (Soggiorno) voceDAO.findOne(id);
     }
 
+    @Transactional
     @Override
     public Voce salvaPB(Voce voce) {
         Voce ret = null;
@@ -105,7 +111,6 @@ public class PBService implements PBServiceLocal {
                 System.out.println("PBService.trovaPB -> params.cittàPartenzaVolo :" + params.getCittaPartenzaVolo());
                 System.out.println("PBService.trovaPB -> params.cittàArrivoVolo :" + params.getCittaArrivoVolo());
                 Collection<Volo> voli;
-//                voli = voceDAO.findByParams(params.getRotta(), params.getData(), params.getCosto(), params.getNumPersone());
                 voli = voceDAO.findByParams(
                         cittàPartenzaVolo != null ? "%" + cittàPartenzaVolo + "%" : null,
                         cittàArrivoVolo != null ? "%" + cittàArrivoVolo + "%" : null,
@@ -171,14 +176,7 @@ public class PBService implements PBServiceLocal {
 
     }
 
-    public RottaDAO getRottaDAO() {
-        return rottaDAO;
-    }
-
-    public void setRottaDAO(RottaDAO rottaDAO) {
-        this.rottaDAO = rottaDAO;
-    }
-
+    @Transactional
     @Override
     public Visita saveVisita(Visita v) {
         return (Visita) voceDAO.saveAndFlush(v);
@@ -189,19 +187,31 @@ public class PBService implements PBServiceLocal {
         return (Visita) voceDAO.findOne(id);
     }
 
+    @Transactional
     @Override
-    public boolean attivaPB(Integer idPB) {
+    public Boolean attivaPB(Integer idPB) {
         Voce v = voceDAO.findOne(idPB);
+        if (v == null) return null;
         v.setAbilitato(true);
         v = voceDAO.save(v);
         return v.isAbilitato();
     }
 
+    @Transactional
     @Override
-    public boolean disattivaPB(Integer idPB) {
+    public Boolean disattivaPB(Integer idPB) {
         Voce v = voceDAO.findOne(idPB);
+        if (v == null) return null;
         v.setAbilitato(false);
         v = voceDAO.save(v);
         return v.isAbilitato();
+    }
+
+    public RottaDAO getRottaDAO() {
+        return rottaDAO;
+    }
+
+    public void setRottaDAO(RottaDAO rottaDAO) {
+        this.rottaDAO = rottaDAO;
     }
 }

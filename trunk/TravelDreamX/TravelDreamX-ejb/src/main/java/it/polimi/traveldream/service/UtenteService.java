@@ -61,6 +61,7 @@ public class UtenteService implements UtenteServiceLocal {
         return utenteDAO.findAll();
     }
 
+    @Transactional
     @Override
     public Boolean disattivaUtente(Utente utente) {
         Utente u = utenteDAO.findOne(utente.getEmail());
@@ -70,6 +71,7 @@ public class UtenteService implements UtenteServiceLocal {
         return utente.getAbilitato();
     }
 
+    @Transactional
     @Override
     public Boolean attivaUtente(Utente utente) {
         Utente u = utenteDAO.findOne(utente.getEmail());
@@ -79,6 +81,7 @@ public class UtenteService implements UtenteServiceLocal {
         return utente.getAbilitato();
     }
 
+    @Transactional
     @Override
     public Integer modificaLivello(Utente utente) {
         Utente u = utenteDAO.findOne(utente.getEmail());

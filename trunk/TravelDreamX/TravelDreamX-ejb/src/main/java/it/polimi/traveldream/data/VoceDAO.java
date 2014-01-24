@@ -27,22 +27,6 @@ public interface VoceDAO extends JpaRepository<Voce, Integer>{
             @Param("dataOraVolo") Date dataOraVolo, 
             @Param("disabilitatiInclusi") boolean disabilitatiInclusi);
     
-//    public List<Volo> findByParams(@Param("rotte") Collection<Rotta> rotte,
-//                                       @Param("dataOra") Date dataOra,
-//                                       //@Param("costo") Float costo,
-//                                       @Param("numPasseggeri") Integer numPasseggeri,
-//                                       @Param("disabilitatiInclusi") boolean disabilitatiInclusi);
-//    public List<Soggiorno> findByParams(@Param("albergo") Albergo albergo,
-//                                       @Param("giornoInizio") Date giornoInizio,
-//                                       @Param("citta") String citta,
-//                                       @Param("numeroPersone") Integer numeroPersone,
-//                                       @Param("disabilitatiInclusi") boolean disabilitatiInclusi);
-//    public List<Visita> findByParams(@Param("museo") Museo museo,
-//                                       @Param("data") Date data,
-//                                       @Param("citta") String citta,
-//                                       @Param("numeroPersone") Integer numeroPersone,
-//                                       @Param("disabilitatiInclusi") boolean disabilitatiInclusi);
-
     public Collection<Soggiorno> findByParams(
             @Param("nomeAlbergo") String nomeAlbergo, 
             @Param("cittaAlbergo") String cittaAlbergo, 

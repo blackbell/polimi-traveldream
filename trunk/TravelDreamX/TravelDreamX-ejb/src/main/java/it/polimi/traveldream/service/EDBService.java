@@ -17,6 +17,7 @@ import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ejb.interceptor.SpringBeanAutowiringInterceptor;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -69,16 +70,19 @@ public class EDBService implements EDBServiceLocal {
         return ret;
     }
 
+    @Transactional
     @Override
     public Rotta salvaRotta(Rotta r) {
         return rottaDAO.saveAndFlush(r);
     }
 
+    @Transactional
     @Override
     public Albergo salvaAlbergo(Albergo a) {
         return albergoDAO.saveAndFlush(a);
     }
 
+    @Transactional
     @Override
     public Museo salvaMuseo(Museo m) {
         return museoDAO.saveAndFlush(m);

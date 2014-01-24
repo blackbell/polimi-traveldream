@@ -5,13 +5,17 @@
 
 package it.polimi.traveldream.service;
 
+import it.polimi.traveldream.data.TestUtilities;
+import it.polimi.traveldream.model.Albergo;
 import it.polimi.traveldream.model.Pacchetto;
 import it.polimi.traveldream.model.Rotta;
+import it.polimi.traveldream.model.Soggiorno;
 import it.polimi.traveldream.model.Utente;
 import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.model.Volo;
 import static it.polimi.traveldream.service.EJBServiceTestSuite.container;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Date;
 import java.util.Random;
 import javax.naming.NamingException;
@@ -55,43 +59,43 @@ public class PVServiceTest {
         if (!testSuite) EJBServiceTestSuite.tearDown();
     }
     
-    @Test @Ignore
-    public void testAddVoloToPV(){
-        Rotta r = new Rotta();
-        r.setAeroportoPartenza("Aeroporto di Partenza");
-        r.setAeroportoArrivo("Aeroporto di Arrivo");
-        r.setCittaPartenza("Citta di Partenza");
-        r.setCittaArrivo("Citta di Arrivo");
-        r.setNazionePartenza("Nazione di Partenza");
-        r.setNazioneArrivo("Nazione di Arrivo");
-        r.setCompagniaAerea("Aereo in compagnia");
-        r = edbService.salvaRotta(r);
-        
-        Volo v = new Volo();
-        v.setCosto(100f);
-        v.setRotta(r);
-        v.setDataOra(new Date());
-        v.setNumPasseggeri(3);
-        v.setAbilitato(true);
-        v = pbService.saveVolo(v);
-        v = pbService.getVoloByID(v.getIdVoce());
-        
-        Utente u = new Utente(rnd.nextInt() + "@ServiceTest.polimi.it","polimi");
-        u.setLivello(Utente.LIVELLO_IMPIEGATO);
-        u = utenteService.registrazione(u);
-        
-        Pacchetto p = new Pacchetto();
-        p.setProprietario(u);
-        p.setDataOraCreazione(new Date());
-        p.setTipo(Pacchetto.PREDEFINITO);
-        p.setVoci(new ArrayList<Voce>());
-        pvService.addPBtoPV(v, p);
-    }
+//    @Test @Ignore
+//    public void testAddVoloToPV(){
+//        Rotta r = new Rotta();
+//        r.setAeroportoPartenza("Aeroporto di Partenza");
+//        r.setAeroportoArrivo("Aeroporto di Arrivo");
+//        r.setCittaPartenza("Citta di Partenza");
+//        r.setCittaArrivo("Citta di Arrivo");
+//        r.setNazionePartenza("Nazione di Partenza");
+//        r.setNazioneArrivo("Nazione di Arrivo");
+//        r.setCompagniaAerea("Aereo in compagnia");
+//        r = edbService.salvaRotta(r);
+//        
+//        Volo v = new Volo();
+//        v.setCosto(100f);
+//        v.setRotta(r);
+//        v.setDataOra(new Date());
+//        v.setNumPasseggeri(3);
+//        v.setAbilitato(true);
+//        v = pbService.saveVolo(v);
+//        v = pbService.getVoloByID(v.getIdVoce());
+//        
+//        Utente u = new Utente(rnd.nextInt() + "@ServiceTest.polimi.it","polimi");
+//        u.setLivello(Utente.LIVELLO_IMPIEGATO);
+//        u = utenteService.registrazione(u);
+//        
+//        Pacchetto p = new Pacchetto();
+//        p.setProprietario(u);
+//        p.setDataOraCreazione(new Date());
+//        p.setTipo(Pacchetto.PREDEFINITO);
+//        p.setVoci(new ArrayList<Voce>());
+//        pvService.addPBtoPV(v, p);
+//    }
     
     @Test
     public void testSalvaPV(){
         Rotta r = new Rotta();
-        r.setAeroportoPartenza("Aeroporto di Partenza");
+        r.setAeroportoPartenza("testSalvaPV");
         r.setAeroportoArrivo("Aeroporto di Arrivo");
         r.setCittaPartenza("Citta di Partenza");
         r.setCittaArrivo("Citta di Arrivo");
@@ -142,7 +146,7 @@ public class PVServiceTest {
     public void testDisattivaPV(){
         Rotta r = new Rotta();
         r.setAeroportoPartenza("Aeroporto di Partenza");
-        r.setAeroportoArrivo("Aeroporto di Arrivo");
+        r.setAeroportoArrivo("testDisattivaPV");
         r.setCittaPartenza("Citta di Partenza");
         r.setCittaArrivo("Citta di Arrivo");
         r.setNazionePartenza("Nazione di Partenza");
@@ -175,62 +179,254 @@ public class PVServiceTest {
     }
     
     @Test @Ignore
-    public void testAddVoloESoggiornoToPV(){
+    public void trovaPVbyParams(){
+        Rotta r = new Rotta();
+        r.setAeroportoPartenza("trovaPBbyParams");
+        r.setAeroportoArrivo("Aeroporto di Arrivo");
+        r.setCittaPartenza("Citta di Partenza");
+        r.setCittaArrivo("Citta di Arrivo");
+        r.setNazionePartenza("Nazione di Partenza");
+        r.setNazioneArrivo("Nazione di Arrivo");
+        r.setCompagniaAerea("Aereo in compagnia");
+        r = edbService.salvaRotta(r);
+        System.out.println("PVServiceTest.trovaPVbyParams -> r: " + r);
         
+        Volo v = new Volo();
+        v.setCosto(100f);
+        v.setRotta(r);
+        v.setDataOra(new Date());
+        v.setNumPasseggeri(3);
+        v.setAbilitato(true);
+        v = pbService.saveVolo(v);
+        v = pbService.getVoloByID(v.getIdVoce());
+        System.out.println("PVServiceTest.trovaPVbyParams -> v: " + v);
+
+        
+        Albergo a = new Albergo();
+        a.setCitta("Padova");
+        a.setNome("Albergo a Padova");
+        a.setStelle(5);
+        a.setUrlFoto(TestUtilities.getRandomImageLink());
+        edbService.salvaAlbergo(a);
+        
+        Soggiorno s = new Soggiorno();
+        s.setAbilitato(true);
+        s.setAlbergo(a);
+        s.setCosto(20);
+        s.setGiornoInizio(new Date());
+        s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
+        s.setNumeroPersone(3);
+        s = pbService.saveSoggiorno(s);
+        s = pbService.getSoggiornoByID(s.getIdVoce());
+        
+        Utente u = new Utente(rnd.nextInt() + "@ServiceTest.polimi.it","polimi");
+        u = utenteService.registrazione(u);
+        
+        Pacchetto p = new Pacchetto();
+        p.setNome("trovaPVbyParams");
+        p.setAbilitato(true);
+        p.setProprietario(u);
+        p.setDataOraCreazione(new Date());
+        p.setTipo(Pacchetto.PREDEFINITO);
+        p.setVoci(new ArrayList<Voce>());
+        p.getVoci().add(v);
+        p.getVoci().add(s);
+        pvService.salvaPV(p);
+        
+        ParametriRicercaPV params = new ParametriRicercaPV();
+        params.setNome(p.getNome());
+        params.setCittaAlbergo(a.getCitta());
+        params.setNazionePartenza(r.getNazionePartenza());
+        params.setNazioneArrivo(r.getNazioneArrivo());
+        params.setDataInizio(s.getGiornoInizio());
+        params.setDataFine(s.getGiornoFine());
+        
+        List<Pacchetto> pvs = pvService.trovaPV(params);
+        assertTrue("PV non nell'elenco dei pv recuperati", pvs.contains(p));
     }
     
     @Test @Ignore
-    public void testAddVoloESoggiornoEVisitaToPV(){
+    public void trovaPVbyGiornoInizioGiornoFine(){
+        Rotta r = new Rotta();
+        r.setAeroportoPartenza("trovaPBbyParams");
+        r.setAeroportoArrivo("Aeroporto di Arrivo");
+        r.setCittaPartenza("Citta di Partenza");
+        r.setCittaArrivo("Citta di Arrivo");
+        r.setNazionePartenza("Nazione di Partenza");
+        r.setNazioneArrivo("Nazione di Arrivo");
+        r.setCompagniaAerea("Aereo in compagnia");
+        r = edbService.salvaRotta(r);
+        System.out.println("PVServiceTest.trovaPVbyParams -> r: " + r);
         
+        Volo v = new Volo();
+        v.setCosto(100f);
+        v.setRotta(r);
+        v.setDataOra(new Date());
+        v.setNumPasseggeri(3);
+        v.setAbilitato(true);
+        v = pbService.saveVolo(v);
+        v = pbService.getVoloByID(v.getIdVoce());
+        System.out.println("PVServiceTest.trovaPVbyParams -> v: " + v);
+
+        
+        Albergo a = new Albergo();
+        a.setCitta("Padova");
+        a.setNome("Albergo a Padova");
+        a.setStelle(5);
+        a.setUrlFoto(TestUtilities.getRandomImageLink());
+        edbService.salvaAlbergo(a);
+        
+        Soggiorno s = new Soggiorno();
+        s.setAbilitato(true);
+        s.setAlbergo(a);
+        s.setCosto(20);
+        s.setGiornoInizio(new Date());
+        s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
+        s.setNumeroPersone(3);
+        s = pbService.saveSoggiorno(s);
+        s = pbService.getSoggiornoByID(s.getIdVoce());
+        
+        Utente u = new Utente(rnd.nextInt() + "@ServiceTest.polimi.it","polimi");
+        u = utenteService.registrazione(u);
+        
+        Pacchetto p = new Pacchetto();
+        p.setNome("trovaPVbyGiornoInizioGiornoFine");
+        p.setAbilitato(true);
+        p.setProprietario(u);
+        p.setDataOraCreazione(new Date());
+        p.setTipo(Pacchetto.PREDEFINITO);
+        p.setVoci(new ArrayList<Voce>());
+        p.getVoci().add(v);
+        p.getVoci().add(s);
+        pvService.salvaPV(p);
+        
+        ParametriRicercaPV params = new ParametriRicercaPV();
+        params.setDataInizio(s.getGiornoInizio());
+        params.setDataFine(s.getGiornoFine());
+        
+        List<Pacchetto> pvs = pvService.trovaPV(params);
+        assertTrue("PV non nell'elenco dei pv recuperati", pvs.contains(p));
     }
     
     @Test @Ignore
-    public void testAddVoloEVisitaToPV(){
+    public void trovaPVbyNome(){
+        Rotta r = new Rotta();
+        r.setAeroportoPartenza("trovaPBbyParams");
+        r.setAeroportoArrivo("Aeroporto di Arrivo");
+        r.setCittaPartenza("Citta di Partenza");
+        r.setCittaArrivo("Citta di Arrivo");
+        r.setNazionePartenza("Nazione di Partenza");
+        r.setNazioneArrivo("Nazione di Arrivo");
+        r.setCompagniaAerea("Aereo in compagnia");
+        r = edbService.salvaRotta(r);
+        System.out.println("PVServiceTest.trovaPVbyParams -> r: " + r);
         
+        Volo v = new Volo();
+        v.setCosto(100f);
+        v.setRotta(r);
+        v.setDataOra(new Date());
+        v.setNumPasseggeri(3);
+        v.setAbilitato(true);
+        v = pbService.saveVolo(v);
+        v = pbService.getVoloByID(v.getIdVoce());
+        System.out.println("PVServiceTest.trovaPVbyParams -> v: " + v);
+
+        
+        Albergo a = new Albergo();
+        a.setCitta("Padova");
+        a.setNome("Albergo a Padova");
+        a.setStelle(5);
+        a.setUrlFoto(TestUtilities.getRandomImageLink());
+        edbService.salvaAlbergo(a);
+        
+        Soggiorno s = new Soggiorno();
+        s.setAbilitato(true);
+        s.setAlbergo(a);
+        s.setCosto(20);
+        s.setGiornoInizio(new Date());
+        s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
+        s.setNumeroPersone(3);
+        s = pbService.saveSoggiorno(s);
+        s = pbService.getSoggiornoByID(s.getIdVoce());
+        
+        Utente u = new Utente(rnd.nextInt() + "@ServiceTest.polimi.it","polimi");
+        u = utenteService.registrazione(u);
+        
+        Pacchetto p = new Pacchetto();
+        p.setNome("trovaPVbyNome");
+        p.setAbilitato(true);
+        p.setProprietario(u);
+        p.setDataOraCreazione(new Date());
+        p.setTipo(Pacchetto.PREDEFINITO);
+        p.setVoci(new ArrayList<Voce>());
+        p.getVoci().add(v);
+        p.getVoci().add(s);
+        pvService.salvaPV(p);
+        
+        ParametriRicercaPV params = new ParametriRicercaPV();
+        params.setNome(p.getNome());
+        
+        List<Pacchetto> pvs = pvService.trovaPV(params);
+        assertTrue("PV non nell'elenco dei pv recuperati", pvs.contains(p));
     }
     
-    @Test @Ignore
-    public void testAddSoggiornoToPV(){
-        
-    }
-    
-    @Test @Ignore
-    public void testAddVisitaToPV(){
-        
-    }
-    
-    @Test @Ignore
-    public void testAddVoloDisabilitatoESoggiornoToPV(){
-        
-    }
-    
-    @Test @Ignore
-    public void testAddVoloESoggiornoDisabilitatoToPV(){
-        
-    }
-    
-    @Test @Ignore
-    public void testAddVoloESoggiornoEVisitaDiabilitataToPV(){
-        
-    }
-    
-    @Test @Ignore
-    public void testAddVoloEVisitaDisabilitataToPV(){
-        
-    }
-    
-    @Test @Ignore
-    public void testAddVoloDisasbilitatoEVisitaToPV(){
-        
-    }
-    
-    @Test @Ignore
-    public void testAddSoggiornoDisabilitatoToPV(){
-        
-    }
-    
-    @Test @Ignore
-    public void testAddVisitaDisabilitataToPV(){
-        
-    }
+//    @Test @Ignore
+//    public void testAddVoloESoggiornoToPV(){
+//        
+//    }
+//    
+//    @Test @Ignore
+//    public void testAddVoloESoggiornoEVisitaToPV(){
+//        
+//    }
+//    
+//    @Test @Ignore
+//    public void testAddVoloEVisitaToPV(){
+//        
+//    }
+//    
+//    @Test @Ignore
+//    public void testAddSoggiornoToPV(){
+//        
+//    }
+//    
+//    @Test @Ignore
+//    public void testAddVisitaToPV(){
+//        
+//    }
+//    
+//    @Test @Ignore
+//    public void testAddVoloDisabilitatoESoggiornoToPV(){
+//        
+//    }
+//    
+//    @Test @Ignore
+//    public void testAddVoloESoggiornoDisabilitatoToPV(){
+//        
+//    }
+//    
+//    @Test @Ignore
+//    public void testAddVoloESoggiornoEVisitaDiabilitataToPV(){
+//        
+//    }
+//    
+//    @Test @Ignore
+//    public void testAddVoloEVisitaDisabilitataToPV(){
+//        
+//    }
+//    
+//    @Test @Ignore
+//    public void testAddVoloDisasbilitatoEVisitaToPV(){
+//        
+//    }
+//    
+//    @Test @Ignore
+//    public void testAddSoggiornoDisabilitatoToPV(){
+//        
+//    }
+//    
+//    @Test @Ignore
+//    public void testAddVisitaDisabilitataToPV(){
+//        
+//    }
 }
