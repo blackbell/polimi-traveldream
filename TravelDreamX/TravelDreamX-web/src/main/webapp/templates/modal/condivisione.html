@@ -34,7 +34,7 @@ proj codename: TravelDreamX
                     <div class="row" ng-repeat="email in emails">
                         <input type="text" class="span2" placeholder="mario.rossi@email.it" ng-model="indirizzoEmail"/><button><i class="icon-plus-sign" ng-click="aggiungiCampoEmail()"></i></button>
                     </div>
-                    <div class="row" ><button align="center" class="btn btn-success span2" ng-disabled="ceAlmenoUnIndirizzo()" ng-click="condividi()">Condividi</button></div>
+                    <div class="row" ><button align="center" class="btn btn-success span2" ng-disabled="!ceAlmenoUnIndirizzo()" ng-click="condividi()">Condividi</button></div>
             </div>
         </div>
     </div>
