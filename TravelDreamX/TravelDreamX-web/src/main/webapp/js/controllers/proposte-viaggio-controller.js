@@ -65,7 +65,14 @@ travelDreamApp.controller('proposteViaggioController', function($scope, searchSe
     $scope.tooltipVisita = {
         title: 'Visita'
     };
-    
+    $scope.getFotoPV = function (pv) {
+        for(var i=0; i< pv.voci.length; i++){
+            if(pv.voci[i].tipo === 'Soggiorno'){
+                $scope.fotoPV = pv.voci[i].albergo.urlFoto;
+                break;
+            }
+        };
+    };
     $scope.trovaPV = function() {
         $scope.waiting=true;
         searchService.trovaPV($scope.parametriRicercaPV, function(esito) {

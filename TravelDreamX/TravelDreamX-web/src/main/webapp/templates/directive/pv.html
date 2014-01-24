@@ -3,7 +3,7 @@ Politecnico di Milano, Software Engineering 2 (autumn semester)
 proj codename: TravelDreamX
 -->
 <div class="thumbnail pointer" bs-modal="'templates/modal/dettaglioPV.html'" ng-controller="proposteViaggioController">
-    <img ng-src="{{pv.urlFoto}}"/>
+    <img ng-init="getFotoPV(pv)" ng-src="{{fotoPV}}"/>
     <div class="caption">
         <div class="row intestazione">
             <strong class="span2 zero-margin-left pull-left">{{pv.nome}}</strong>

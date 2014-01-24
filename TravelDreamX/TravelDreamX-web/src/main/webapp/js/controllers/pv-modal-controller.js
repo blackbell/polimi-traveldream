@@ -66,11 +66,6 @@ travelDreamApp.controller('pvModalController', function($scope, $rootScope, $loc
         }
         return prezzoTotale;
     };
-    $scope.ceVolo = function (){
-        return typeof $scope.indexVolo === 'undefined';
-    };
-    $scope.ceVisita = function (){
-        return typeof $scope.indexVisita === 'undefined';
-    };
+    
 });
 
