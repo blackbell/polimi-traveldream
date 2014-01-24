@@ -237,8 +237,8 @@ public class PVServiceTest {
         params.setCittaAlbergo(a.getCitta());
         params.setNazionePartenza(r.getNazionePartenza());
         params.setNazioneArrivo(r.getNazioneArrivo());
-        params.setDataInizio(s.getGiornoInizio());
-        params.setDataFine(s.getGiornoFine());
+        params.setGiornoInizio(s.getGiornoInizio());
+        params.setGiornoFine(s.getGiornoFine());
         
         List<Pacchetto> pvs = pvService.trovaPV(params);
         assertTrue("PV non nell'elenco dei pv recuperati", pvs.contains(p));
@@ -300,8 +300,8 @@ public class PVServiceTest {
         pvService.salvaPV(p);
         
         ParametriRicercaPV params = new ParametriRicercaPV();
-        params.setDataInizio(s.getGiornoInizio());
-        params.setDataFine(s.getGiornoFine());
+        params.setGiornoInizio(s.getGiornoInizio());
+        params.setGiornoFine(s.getGiornoFine());
         System.out.println("********************************************");
         System.out.println("PVService.trovaPVbyParams -> p.giornoInizio: " + p.getGiornoInizio());
         List<Pacchetto> pvs = pvService.trovaPV(params);
