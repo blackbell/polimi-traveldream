@@ -21,7 +21,7 @@ travelDreamApp.controller('condivisioneController', function($scope, $rootScope)
         $scope.dismiss();
     };
     $scope.ceAlmenoUnIndirizzo = function (){
-        if($scope.emails[0].indirizzoEmail.length>6)
+        if(typeof $scope.emails[0].indirizzoEmail !== 'undefined' && $scope.emails[0].indirizzoEmail.length>6)
             return true;
         else
             return false;
