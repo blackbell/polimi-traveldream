@@ -187,6 +187,8 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
             $rootScope.PV.nome = $scope.nomePV;
         if (isGL)
             $rootScope.PV.tipo = 2;
+        else
+            $rootScope.PV.tipo = 1;
         if (typeof $rootScope.utente !== 'undefined') {
             $rootScope.PV.proprietario = $rootScope.utente;
             salvaPVPBservice.salvaPV(escludiVociVuote($rootScope.PV), function(esito) {
