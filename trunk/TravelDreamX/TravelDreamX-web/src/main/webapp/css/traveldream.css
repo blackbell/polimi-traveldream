@@ -6,6 +6,9 @@
 .nav-pills > .active > a:focus {
     background-color: rgba(20, 155, 223, 0.84);
 }
+.testo-modale-condivisione {
+    margin-left: 50px;
+}
 a {
     color: rgba(20, 155, 223, 0.84);
 }

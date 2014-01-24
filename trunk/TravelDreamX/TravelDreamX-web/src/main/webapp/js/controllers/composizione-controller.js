@@ -99,6 +99,10 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         if (indice > -1) {
             $scope.deseleziona(indice);
             $rootScope.PV.voci.splice(indice, 1);
+            if($rootScope.PV.voci.length===0){
+                delete $rootScope.PV;
+                inizializzaPV();
+            }
             toastr.success("Hai eliminato la voce: " + $rootScope.PV.voci[indice].tipo + ".");
         }
     };
@@ -183,7 +187,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         popUpModal(modaleCondivisione);
     };
     $scope.salvaPV = function(isGL) {
-        if (!$scope.nomePV)
+        if (typeof $scope.nomePV !== 'undefined')
             $rootScope.PV.nome = $scope.nomePV;
         if (isGL)
             $rootScope.PV.tipo = 2;
