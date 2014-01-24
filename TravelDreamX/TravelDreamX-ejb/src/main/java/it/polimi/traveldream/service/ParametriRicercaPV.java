@@ -19,8 +19,8 @@ public class ParametriRicercaPV {
     
     private String nome;
     private String cittaAlbergo;
-    private Date dataInizio;
-    private Date dataFine;
+    private Date giornoInizio;
+    private Date giornoFine;
 
     private String nazionePartenza;
     private String nazioneArrivo;
@@ -50,25 +50,25 @@ public class ParametriRicercaPV {
     }
 
     
-    public Date getDataInizio() {
-        return dataInizio;
+    public Date getGiornoInizio() {
+        return giornoInizio;
     }
 
-    public Date getDataFine() {
-        return dataFine;
+    public Date getGiornoFine() {
+        return giornoFine;
     }
 
-    public void setDataFine(Date dataFine) {
-        long time = dataFine.getTime();
+    public void setGiornoFine(Date giornoFine) {
+        long time = giornoFine.getTime();
         time = ((long)time / (1000))*(1000);
-        this.dataFine = new Date(time);
+        this.giornoFine = new Date(time);
     }
 
     
-    public void setDataInizio(Date dataInizio) {
-        long time = dataInizio.getTime();
+    public void setGiornoInizio(Date giornoInizio) {
+        long time = giornoInizio.getTime();
         time = ((long)time / (24*60*60*1000))*(24*60*60*1000);
-        this.dataInizio = new Date(time);
+        this.giornoInizio = new Date(time);
     }
     
     public Boolean isDisabilitatiInclusi() {

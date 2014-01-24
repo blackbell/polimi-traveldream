@@ -127,9 +127,9 @@ public class PVService implements PVServiceLocal {
             String cittàAlbergo = params.getCittaAlbergo();
             String nazionePartenza = params.getNazionePartenza();
             String nazioneArrivo = params.getNazioneArrivo();
-            Date dataInizio = params.getDataInizio();
-            Date dataFine = params.getDataFine();
-            Date d2 = (params.getDataInizio() != null) ? new Date(params.getDataInizio().getTime() + 24 * 60 * 60 * 1000) : null;
+            Date dataInizio = params.getGiornoInizio();
+            Date dataFine = params.getGiornoFine();
+            Date d2 = (params.getGiornoInizio() != null) ? new Date(params.getGiornoInizio().getTime() + 24 * 60 * 60 * 1000) : null;
             System.out.println("PVService.trovaPV -> nome : " + nome);
             System.out.println("PVService.trovaPV -> cittàAlbergo : " + cittàAlbergo);
             System.out.println("PVService.trovaPV -> nazionePartenza : " + nazionePartenza);
