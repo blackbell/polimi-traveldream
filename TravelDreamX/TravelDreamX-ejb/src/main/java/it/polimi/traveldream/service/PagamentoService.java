@@ -17,6 +17,7 @@ import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ejb.interceptor.SpringBeanAutowiringInterceptor;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -29,6 +30,7 @@ public class PagamentoService implements PagamentoServiceLocal {
     @Autowired
     PagamentoDAO pagamentoDAO;
     
+    @Transactional        
     @Override
     public List<Pagamento> pagamentoPV(Pacchetto pv, Utente u) {
         List<Pagamento> pagamenti = new ArrayList<>();
@@ -46,6 +48,7 @@ public class PagamentoService implements PagamentoServiceLocal {
         return pagamenti;
     }
 
+    @Transactional
     @Override
     public Pagamento pagamentoPB(Pacchetto pv, Voce pb, Utente u) {
         System.out.println("PagamentoService.pagamentoPB -> pv: " + pv);

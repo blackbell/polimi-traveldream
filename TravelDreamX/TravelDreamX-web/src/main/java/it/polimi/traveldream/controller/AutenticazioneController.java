@@ -69,7 +69,7 @@ public class AutenticazioneController {
             Utente utente = (Utente)req.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
             if (utente == null){
                 e.setResult(false);
-                e.setMessage(Esito.USER_NOT_FOUND);
+                e.setMessage(Esito.OPERATION_FAILED);
                 e.setReturnedObj(null);
             }else {
                 e.setResult(true);

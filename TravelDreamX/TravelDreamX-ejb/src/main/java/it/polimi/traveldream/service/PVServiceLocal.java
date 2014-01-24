@@ -24,6 +24,6 @@ public interface PVServiceLocal {
     public Pacchetto recuperaPV(Integer idPV);
     public Pacchetto salvaPV(Pacchetto pv);
     
-    public boolean attivaPV(Integer idPV);
-    public boolean disattivaPV(Integer idPV);
+    public Boolean attivaPV(Integer idPV);
+    public Boolean disattivaPV(Integer idPV);
 }

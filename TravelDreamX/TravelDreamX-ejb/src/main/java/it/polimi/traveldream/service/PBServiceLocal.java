@@ -19,7 +19,6 @@ import javax.ejb.Local;
 @Local
 public interface PBServiceLocal {
     public List<Voce> trovaPB(ParametriRicercaPB params);
-//    public Voce salvaPB(ParametriRicercaPB params);
     public Voce salvaPB(Voce voce) ;
     
     public Volo saveVolo(Volo v);
@@ -31,6 +30,6 @@ public interface PBServiceLocal {
     public Visita saveVisita(Visita v);
     public Visita getVisitaByID(int id);
     
-    public boolean attivaPB(Integer idPB);
-    public boolean disattivaPB(Integer idPB);
+    public Boolean attivaPB(Integer idPB);
+    public Boolean disattivaPB(Integer idPB);
 }

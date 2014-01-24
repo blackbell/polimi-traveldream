@@ -39,10 +39,57 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Pacchetto.findAll", query = "SELECT p FROM Pacchetto p"),
     @NamedQuery(name = "Pacchetto.findByIdPacchetto", query = "SELECT p FROM Pacchetto p WHERE p.idPacchetto = :idPacchetto"),
     @NamedQuery(name = "Pacchetto.findByDataOraCreazione", query = "SELECT p FROM Pacchetto p WHERE p.dataOraCreazione = :dataOraCreazione"),
-    @NamedQuery(name = "Pacchetto.findByTipo", query = "SELECT p FROM Pacchetto p WHERE p.tipo = :tipo")})
+    @NamedQuery(name = "Pacchetto.findByTipo", query = "SELECT p FROM Pacchetto p WHERE p.tipo = :tipo"),
+    @NamedQuery(name = "Pacchetto.findByParams", query = ""
+            + "SELECT p "
+            + "FROM "
+            + "Pacchetto p "
+            + "WHERE "
+            + "(:nome IS NULL OR p.nome LIKE :nome) AND "
+            + "(:cittaAlbergo IS NULL OR p.cittaAlbergo LIKE :cittaAlbergo) AND "
+            + "(:dataInizio IS NULL OR (p.giornoInizio BETWEEN :dataInizio AND :dataInizio2)) AND "
+            + "(:dataFine IS NULL OR p.giornoFine >= :dataFine) AND "
+            + "(:nazionePartenza IS NULL OR p.nazionePartenza LIKE :nazionePartenza) AND "
+            + "(:nazioneArrivo IS NULL OR p.nazioneArrivo LIKE :nazioneArrivo) AND "
+//    @NamedQuery(name = "Pacchetto.findByParams", query = ""
+//            + "SELECT p "
+//            + "FROM "
+//            + "Pacchetto p JOIN p.voci v "
+//            + "WHERE "
+//            + "(:nome IS NULL OR p.nome LIKE :nome) AND "
+//            
+//            + "((:cittaAlbergo IS NULL AND "
+//            + " (:dataInizio IS NULL) AND "
+//            + " (:dataFine IS NULL)) OR "
+//                + "(v.idVoce IN("
+//                    + "SELECT s.idVoce "
+//                    + "FROM Albergo a JOIN a.soggiorniCollection s "
+//                    + "WHERE "
+//                        + "(:cittaAlbergo IS NULL OR a.citta LIKE :cittaAlbergo) AND "
+//                        + "(:dataInizio IS NULL OR (s.giornoInizio BETWEEN :dataInizio AND :dataInizio2)) AND "
+//                        + "(:dataFine IS NULL OR :dataFine >= s.giornoFine)"
+//                    + ")"
+//                + ")"
+//            + ") AND "
+//            
+//            + "((:nazionePartenza IS NULL AND "
+//            + "  :nazioneArrivo IS NULL) OR "
+//                + "(v.idVoce IN("
+//                    + "SELECT vv.idVoce "
+//                    + "FROM Rotta rr JOIN rr.voliCollection vv "
+//                    + "WHERE "
+//                        + "(:nazionePartenza IS NULL OR rr.nazionePartenza LIKE :nazionePartenza) AND "
+//                        + "(:nazioneArrivo IS NULL OR rr.nazioneArrivo LIKE :nazioneArrivo)"
+//                    + ")"
+//                + ")"
+//            + ") AND "
+//
+            + "(:disabilitatiInclusi = True OR p.abilitato = True) "
+            + ""),
+})
 public class Pacchetto implements Serializable {
     private static final long serialVersionUID = 1L;
-    public static int MAX_NRO_VOCI = 10;
+    public static final int MAX_NRO_VOCI = 10;
     public static final int GIFT_LIST = 2;
     public static final int PREDEFINITO = 0;
     public static final int PERSONALIZZATO = 1;
@@ -61,8 +108,7 @@ public class Pacchetto implements Serializable {
     @Column(name = "tipo")
     private Integer tipo;
     @NotNull
-    private String nome = "Pacchetto senza nome";
-    
+    private String nome = "Pacchetto senza nome";   
     @NotNull
     private Boolean abilitato;
     
@@ -175,4 +221,53 @@ public class Pacchetto implements Serializable {
     public static boolean nroVociNonConfome(Pacchetto pv){
         return (pv.getVoci().size() > 0 && pv.getVoci().size() <= Pacchetto.MAX_NRO_VOCI);
     }
+    
+    private String nazionePartenza;
+    private String nazioneArrivo;
+    @Temporal(TemporalType.DATE)
+    private Date giornoInizio;
+    @Temporal(TemporalType.DATE)
+    private Date giornoFine;
+    private String cittaAlbergo;
+
+    public String getNazionePartenza() {
+        return nazionePartenza;
+    }
+
+    public void setNazionePartenza(String nazionePartenza) {
+        this.nazionePartenza = nazionePartenza;
+    }
+
+    public String getNazioneArrivo() {
+        return nazioneArrivo;
+    }
+
+    public void setNazioneArrivo(String nazioneArrivo) {
+        this.nazioneArrivo = nazioneArrivo;
+    }
+
+    public Date getGiornoInizio() {
+        return giornoInizio;
+    }
+
+    public void setGiornoInizio(Date giornoInizio) {
+        this.giornoInizio = giornoInizio;
+    }
+
+    public Date getGiornoFine() {
+        return giornoFine;
+    }
+
+    public void setGiornoFine(Date giornoFine) {
+        this.giornoFine = giornoFine;
+    }
+
+    public String getCittaAlbergo() {
+        return cittaAlbergo;
+    }
+
+    public void setCittaAlbergo(String nomeAlbergo) {
+        this.cittaAlbergo = nomeAlbergo;
+    }
+    
 }
