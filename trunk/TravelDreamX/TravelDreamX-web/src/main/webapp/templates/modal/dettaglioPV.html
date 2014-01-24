@@ -22,17 +22,16 @@ proj codename: TravelDreamX
                         </p> 
                     </div>
                 </div>
-                <div class="row">IndexVolo: {{indexVolo}} &nbsp; IndexSoggiorno: {{indexSoggiorno}} &nbsp; IndexVisita: {{indexVisita}}</div>
                 <div class="row">
                     <div class="span4">                        
                         <img class="img-polaroid" ng-src="{{pv.voci[indexSoggiorno].albergo.urlFoto}}" ng-if="isPresente(pv, 'Soggiorno')"/>
                     </div>
                     <div class="span4">
-                        <div class="well well-small well-dettaglio-PV" ng-if="ceVolo()">
+                        <div class="well well-small well-dettaglio-PV" ng-if="isPresente(pv, 'Volo')">
                             <img class="pull-left" src="img/Volo.png" width="40"/>
-                            <div class="span3">Andata: {{pv.voci[indexVolo].dataOra}}<br/>Ritorno: {{pv.voci[indexVolo].dataOra}}</div>
+                            <div class="span3">Andata: {{pv.voci[indexVolo].dataOra|date:'dd/MM/yyyy hh:mm'}}<br/>Ritorno: {{pv.voci[indexVolo].dataOra|date:'dd/MM/yyyy hh:mm'}}</div>
                         </div>
-                        <div class="well well-small well-dettaglio-PV" ng-if="ceVisita()">
+                        <div class="well well-small well-dettaglio-PV" ng-if="isPresente(pv, 'Visita')">
                             <img class="pull-left" src="img/Visita.png" width="40"/>
                             <div class="span3">Nome: {{pv.voci[indexVisita].museo.nome}}<br/>Data: {{pv.voci[indexVisita].dataOra}}</div>
                         </div>
