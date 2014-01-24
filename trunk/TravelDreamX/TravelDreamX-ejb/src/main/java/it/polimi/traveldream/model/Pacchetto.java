@@ -79,7 +79,7 @@ public class Pacchetto implements Serializable {
     @NotNull
     private Boolean abilitato;
     
-    @ManyToMany(fetch = FetchType.LAZY)//, cascade = CascadeType.PERSIST)
+    @ManyToMany(fetch = FetchType.EAGER)//, cascade = CascadeType.PERSIST)
     @JoinTable(name = "composizione", joinColumns = {
         @JoinColumn(name = "idPacchetto", nullable = false, updatable = false) 
     },inverseJoinColumns = {
