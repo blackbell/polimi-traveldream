@@ -51,39 +51,6 @@ import javax.xml.bind.annotation.XmlRootElement;
             + "(:dataFine IS NULL OR p.giornoFine >= :dataFine) AND "
             + "(:nazionePartenza IS NULL OR p.nazionePartenza LIKE :nazionePartenza) AND "
             + "(:nazioneArrivo IS NULL OR p.nazioneArrivo LIKE :nazioneArrivo) AND "
-//    @NamedQuery(name = "Pacchetto.findByParams", query = ""
-//            + "SELECT p "
-//            + "FROM "
-//            + "Pacchetto p JOIN p.voci v "
-//            + "WHERE "
-//            + "(:nome IS NULL OR p.nome LIKE :nome) AND "
-//            
-//            + "((:cittaAlbergo IS NULL AND "
-//            + " (:dataInizio IS NULL) AND "
-//            + " (:dataFine IS NULL)) OR "
-//                + "(v.idVoce IN("
-//                    + "SELECT s.idVoce "
-//                    + "FROM Albergo a JOIN a.soggiorniCollection s "
-//                    + "WHERE "
-//                        + "(:cittaAlbergo IS NULL OR a.citta LIKE :cittaAlbergo) AND "
-//                        + "(:dataInizio IS NULL OR (s.giornoInizio BETWEEN :dataInizio AND :dataInizio2)) AND "
-//                        + "(:dataFine IS NULL OR :dataFine >= s.giornoFine)"
-//                    + ")"
-//                + ")"
-//            + ") AND "
-//            
-//            + "((:nazionePartenza IS NULL AND "
-//            + "  :nazioneArrivo IS NULL) OR "
-//                + "(v.idVoce IN("
-//                    + "SELECT vv.idVoce "
-//                    + "FROM Rotta rr JOIN rr.voliCollection vv "
-//                    + "WHERE "
-//                        + "(:nazionePartenza IS NULL OR rr.nazionePartenza LIKE :nazionePartenza) AND "
-//                        + "(:nazioneArrivo IS NULL OR rr.nazioneArrivo LIKE :nazioneArrivo)"
-//                    + ")"
-//                + ")"
-//            + ") AND "
-//
             + "(:disabilitatiInclusi = True OR p.abilitato = True) "
             + ""),
 })
@@ -224,9 +191,9 @@ public class Pacchetto implements Serializable {
     
     private String nazionePartenza;
     private String nazioneArrivo;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date giornoInizio;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date giornoFine;
     private String cittaAlbergo;
 
@@ -251,7 +218,9 @@ public class Pacchetto implements Serializable {
     }
 
     public void setGiornoInizio(Date giornoInizio) {
-        this.giornoInizio = giornoInizio;
+        long time = giornoInizio.getTime();
+        time = ((long)((long)time / (long)(1000)))*(1000); 
+        this.giornoInizio = new Date(time);
     }
 
     public Date getGiornoFine() {

@@ -24,7 +24,6 @@ import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -178,7 +177,7 @@ public class PVServiceTest {
         assertTrue(!x);
     }
     
-    @Test @Ignore
+    @Test 
     public void trovaPVbyParams(){
         Rotta r = new Rotta();
         r.setAeroportoPartenza("trovaPBbyParams");
@@ -245,7 +244,7 @@ public class PVServiceTest {
         assertTrue("PV non nell'elenco dei pv recuperati", pvs.contains(p));
     }
     
-    @Test @Ignore
+    @Test
     public void trovaPVbyGiornoInizioGiornoFine(){
         Rotta r = new Rotta();
         r.setAeroportoPartenza("trovaPBbyParams");
@@ -303,12 +302,13 @@ public class PVServiceTest {
         ParametriRicercaPV params = new ParametriRicercaPV();
         params.setDataInizio(s.getGiornoInizio());
         params.setDataFine(s.getGiornoFine());
-        
+        System.out.println("********************************************");
+        System.out.println("PVService.trovaPVbyParams -> p.giornoInizio: " + p.getGiornoInizio());
         List<Pacchetto> pvs = pvService.trovaPV(params);
         assertTrue("PV non nell'elenco dei pv recuperati", pvs.contains(p));
     }
     
-    @Test @Ignore
+    @Test 
     public void trovaPVbyNome(){
         Rotta r = new Rotta();
         r.setAeroportoPartenza("trovaPBbyParams");
@@ -366,6 +366,8 @@ public class PVServiceTest {
         ParametriRicercaPV params = new ParametriRicercaPV();
         params.setNome(p.getNome());
         
+        System.out.println("********************************************");
+        System.out.println("PVService.trovaPVbyParams -> p.giornoInizio: " + p.getGiornoInizio());
         List<Pacchetto> pvs = pvService.trovaPV(params);
         assertTrue("PV non nell'elenco dei pv recuperati", pvs.contains(p));
     }
