@@ -38,10 +38,10 @@ travelDreamApp.factory('searchService', function($http) {
             delete parPV.nazionePartenza;
         if (!parPV.nazioneArrivo)
             delete parPV.nazioneArrivo;
-        if (!parPV.dataInizio)
-            delete parPV.dataInizio;
-        if (!parPV.dataFine)
-            delete parPV.dataFine;
+        if (!parPV.giornoInizio)
+            delete parPV.giornoInizio;
+        if (!parPV.giornoFine)
+            delete parPV.giornoFine;
         
         return parPV;
     };
