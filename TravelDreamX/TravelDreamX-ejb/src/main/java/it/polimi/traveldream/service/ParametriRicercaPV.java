@@ -8,7 +8,7 @@ package it.polimi.traveldream.service;
 import java.util.Date;
 
 /**
- *
+ * Incapsula tutti i criteri che è possibile specificare per la ricerca di un PV
  * @author Dario
  */
 public class ParametriRicercaPV {

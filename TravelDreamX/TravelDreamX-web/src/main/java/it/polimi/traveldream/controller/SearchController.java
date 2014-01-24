@@ -38,7 +38,7 @@ public class SearchController {
         Esito e = new Esito();
         try{
             List<Pacchetto> ret = pvService.trovaPV(params);
-            e.setResult(true);
+            e.setResult(ret != null);
             e.setMessage(null);
             e.setReturnedObj(ret);
         }catch(Exception ex){

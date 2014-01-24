@@ -73,7 +73,7 @@ public class PBService implements PBServiceLocal {
 //                v.setCosto(params.getCosto());
 //                v.setNumPasseggeri(params.getNumPersone());
 //                v.setDataOra(params.getDataOra());
-                ret = voceDAO.saveAndFlush(voce);
+                ret = voceDAO.saveAndFlush(v);
                 break;
             case "Soggiorno":
                 Soggiorno s = (Soggiorno) voce;
@@ -99,23 +99,23 @@ public class PBService implements PBServiceLocal {
     }
 
     @Override
-    public List<Voce> trovaPB(ParametriRicercaPB params) {
+    public List<Voce> trovaPB(ParametriRicercaPB param) {
         System.out.println("PBService.trovaPB");
         List<Voce> ret = null;
-        switch (params.getTipo()) {
+        switch (param.getTipo()) {
             case Volo:
-                String cittàPartenzaVolo = params.getCittaPartenzaVolo();
-                String cittàArrivoVolo = params.getCittaArrivoVolo();
+                String cittàPartenzaVolo = param.getCittaPartenzaVolo();
+                String cittàArrivoVolo = param.getCittaArrivoVolo();
                 System.out.println("PBService.trovaPB -> params.tipo = volo");
-                System.out.println("PBService.trovaPB -> params.dataOraVolo :" + params.getDataOraVolo());
-                System.out.println("PBService.trovaPB -> params.cittàPartenzaVolo :" + params.getCittaPartenzaVolo());
-                System.out.println("PBService.trovaPB -> params.cittàArrivoVolo :" + params.getCittaArrivoVolo());
+                System.out.println("PBService.trovaPB -> params.dataOraVolo :" + param.getDataOraVolo());
+                System.out.println("PBService.trovaPB -> params.cittàPartenzaVolo :" + param.getCittaPartenzaVolo());
+                System.out.println("PBService.trovaPB -> params.cittàArrivoVolo :" + param.getCittaArrivoVolo());
                 Collection<Volo> voli;
                 voli = voceDAO.findByParams(
                         cittàPartenzaVolo != null ? "%" + cittàPartenzaVolo + "%" : null,
                         cittàArrivoVolo != null ? "%" + cittàArrivoVolo + "%" : null,
-                        params.getDataOraVolo(),
-                        params.isDisabilitatiInclusi());
+                        param.getDataOraVolo(),
+                        param.isDisabilitatiInclusi());
                 System.out.println("PBService.trovaPB -> voli.size: " + voli.size());
                 ret = new ArrayList<>();
                 for (Volo v : voli) {
@@ -126,23 +126,23 @@ public class PBService implements PBServiceLocal {
                 break;
 
             case Soggiorno:
-                String nomeAlbergo = params.getNomeAlbergo();
-                String cittàAlbergo = params.getCittaAlbergo();
-                Date d2 = (params.getDataInizioSoggiorno()!=null)?new Date(params.getDataInizioSoggiorno().getTime()+ 24*60*60*1000):null;
+                String nomeAlbergo = param.getNomeAlbergo();
+                String cittàAlbergo = param.getCittaAlbergo();
+                Date d2 = (param.getDataInizioSoggiorno()!=null)?new Date(param.getDataInizioSoggiorno().getTime()+ 24*60*60*1000):null;
                 System.out.println("PBService.trovaPB -> params.tipo = soggiorno");
                 System.out.println("PBService.trovaPB -> params.nomeAlbergo:" + nomeAlbergo);
                 System.out.println("PBService.trovaPB -> params.cittàAlbergo:" + cittàAlbergo);
-                System.out.println("PBService.trovaPB -> params.dataInizioSoggiorno:" + params.getDataInizioSoggiorno());
+                System.out.println("PBService.trovaPB -> params.dataInizioSoggiorno:" + param.getDataInizioSoggiorno());
                 System.out.println("PBService.trovaPB -> params.dataInizioSoggiorno2:" + d2);
-                System.out.println("PBService.trovaPB -> params.dataFineSoggiorno:" + params.getDataFineSoggiorno());
+                System.out.println("PBService.trovaPB -> params.dataFineSoggiorno:" + param.getDataFineSoggiorno());
                 Collection<Soggiorno> soggiorni;
                 soggiorni = voceDAO.findByParams(
                         nomeAlbergo != null ? "%" + nomeAlbergo + "%" : null,
                         cittàAlbergo != null ? "%" + cittàAlbergo + "%" : null,
-                        params.getDataInizioSoggiorno(), 
+                        param.getDataInizioSoggiorno(), 
                         d2, 
-                        params.getDataFineSoggiorno(), 
-                        params.isDisabilitatiInclusi());
+                        param.getDataFineSoggiorno(), 
+                        param.isDisabilitatiInclusi());
                 System.out.println("PBService.trovaPB -> soggiorni.size: " + soggiorni.size());
                 ret = new ArrayList<>();
                 for (Soggiorno s : soggiorni) {
@@ -151,17 +151,17 @@ public class PBService implements PBServiceLocal {
                 }
                 break;
             case Visita:
-                String nomeMuseo = params.getNomeMuseo();
-                String cittàMuseo = params.getCittaMuseo();
+                String nomeMuseo = param.getNomeMuseo();
+                String cittàMuseo = param.getCittaMuseo();
                 System.out.println("PBService.trovaPB -> params.tipo = visita");
-                System.out.println("PBService.trovaPB -> params.nomeMuseo:" + params.getNomeMuseo());
-                System.out.println("PBService.trovaPB -> params.cittàMuseo:" + params.getCittaMuseo());
+                System.out.println("PBService.trovaPB -> params.nomeMuseo:" + param.getNomeMuseo());
+                System.out.println("PBService.trovaPB -> params.cittàMuseo:" + param.getCittaMuseo());
                 Collection<Visita> visite;
                 visite = voceDAO.findByParams(
-                        params.getGiornoVisita(),
+                        param.getGiornoVisita(),
                         nomeMuseo != null ? "%" + nomeMuseo + "%" : null,
                         cittàMuseo != null ? "%" + cittàMuseo  + "%" : null,
-                        params.isDisabilitatiInclusi());
+                        param.isDisabilitatiInclusi());
                 System.out.println("PBService.trovaPB -> visite.size: " + visite.size());
                 ret = new ArrayList<>();
                 for (Visita v : visite) {

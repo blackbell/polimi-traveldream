@@ -178,6 +178,130 @@ public class PVServiceTest {
     }
     
     @Test 
+    public void trovaPVbyID(){
+        Rotta r = new Rotta();
+        r.setAeroportoPartenza("trovaPVbyID");
+        r.setAeroportoArrivo("Aeroporto di Arrivo");
+        r.setCittaPartenza("Citta di Partenza");
+        r.setCittaArrivo("Citta di Arrivo");
+        r.setNazionePartenza("Nazione di Partenza");
+        r.setNazioneArrivo("Nazione di Arrivo");
+        r.setCompagniaAerea("Aereo in compagnia");
+        r = edbService.salvaRotta(r);
+        System.out.println("PVServiceTest.trovaPVbyParams -> r: " + r);
+        
+        Volo v = new Volo();
+        v.setCosto(100f);
+        v.setRotta(r);
+        v.setDataOra(new Date());
+        v.setNumPasseggeri(3);
+        v.setAbilitato(true);
+        v = pbService.saveVolo(v);
+        v = pbService.getVoloByID(v.getIdVoce());
+        System.out.println("PVServiceTest.trovaPVbyParams -> v: " + v);
+
+        
+        Albergo a = new Albergo();
+        a.setCitta("Padova");
+        a.setNome("Albergo a Padova");
+        a.setStelle(5);
+        a.setUrlFoto(TestUtilities.getRandomImageLink());
+        edbService.salvaAlbergo(a);
+        
+        Soggiorno s = new Soggiorno();
+        s.setAbilitato(true);
+        s.setAlbergo(a);
+        s.setCosto(20);
+        s.setGiornoInizio(new Date());
+        s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
+        s.setNumeroPersone(3);
+        s = pbService.saveSoggiorno(s);
+        s = pbService.getSoggiornoByID(s.getIdVoce());
+        
+        Utente u = new Utente(rnd.nextInt() + "@ServiceTest.polimi.it","polimi");
+        u = utenteService.registrazione(u);
+        
+        Pacchetto p = new Pacchetto();
+        p.setNome("trovaPVbyID");
+        p.setAbilitato(true);
+        p.setProprietario(u);
+        p.setDataOraCreazione(new Date());
+        p.setTipo(Pacchetto.PREDEFINITO);
+        p.setVoci(new ArrayList<Voce>());
+        p.getVoci().add(v);
+        p.getVoci().add(s);
+        pvService.salvaPV(p);
+        
+        ParametriRicercaPV params = new ParametriRicercaPV();
+        params.setIdPacchetto(p.getIdPacchetto());
+        
+        List<Pacchetto> pvs = pvService.trovaPV(params);
+        assertTrue("PV non nell'elenco dei pv recuperati", pvs.contains(p));
+    }
+    
+    @Test 
+    public void trovaPVbyIDsbagliato(){
+        Rotta r = new Rotta();
+        r.setAeroportoPartenza("trovaPVbyID");
+        r.setAeroportoArrivo("Aeroporto di Arrivo");
+        r.setCittaPartenza("Citta di Partenza");
+        r.setCittaArrivo("Citta di Arrivo");
+        r.setNazionePartenza("Nazione di Partenza");
+        r.setNazioneArrivo("Nazione di Arrivo");
+        r.setCompagniaAerea("Aereo in compagnia");
+        r = edbService.salvaRotta(r);
+        System.out.println("PVServiceTest.trovaPVbyParams -> r: " + r);
+        
+        Volo v = new Volo();
+        v.setCosto(100f);
+        v.setRotta(r);
+        v.setDataOra(new Date());
+        v.setNumPasseggeri(3);
+        v.setAbilitato(true);
+        v = (Volo)pbService.salvaPB(v);
+        v = pbService.getVoloByID(v.getIdVoce());
+        System.out.println("PVServiceTest.trovaPVbyParams -> v: " + v);
+
+        
+        Albergo a = new Albergo();
+        a.setCitta("Padova");
+        a.setNome("Albergo a Padova");
+        a.setStelle(5);
+        a.setUrlFoto(TestUtilities.getRandomImageLink());
+        edbService.salvaAlbergo(a);
+        
+        Soggiorno s = new Soggiorno();
+        s.setAbilitato(true);
+        s.setAlbergo(a);
+        s.setCosto(20);
+        s.setGiornoInizio(new Date());
+        s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
+        s.setNumeroPersone(3);
+        s = (Soggiorno)pbService.salvaPB(s);
+        s = pbService.getSoggiornoByID(s.getIdVoce());
+        
+        Utente u = new Utente(rnd.nextInt() + "@ServiceTest.polimi.it","polimi");
+        u = utenteService.registrazione(u);
+        
+        Pacchetto p = new Pacchetto();
+        p.setNome("trovaPVbyID");
+        p.setAbilitato(true);
+        p.setProprietario(u);
+        p.setDataOraCreazione(new Date());
+        p.setTipo(Pacchetto.PREDEFINITO);
+        p.setVoci(new ArrayList<Voce>());
+        p.getVoci().add(v);
+        p.getVoci().add(s);
+        pvService.salvaPV(p);
+        
+        ParametriRicercaPV params = new ParametriRicercaPV();
+        params.setIdPacchetto(Integer.MIN_VALUE);
+        
+        List<Pacchetto> pvs = pvService.trovaPV(params);
+        Assert.assertNull("PV trovato nell'elenco dei recuperati (non dovrebbe esserci)", pvs);
+    }
+    
+    @Test 
     public void trovaPVbyParams(){
         Rotta r = new Rotta();
         r.setAeroportoPartenza("trovaPBbyParams");

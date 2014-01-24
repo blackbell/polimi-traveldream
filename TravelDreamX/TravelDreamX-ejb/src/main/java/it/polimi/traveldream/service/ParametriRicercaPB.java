@@ -9,7 +9,7 @@ import it.polimi.traveldream.model.TipoPB;
 import java.util.Date;
 
 /**
- *
+ * Incapsula tutti i criteri che è possibile specificare per la ricerca di un PB
  * @author Dario
  */
 public class ParametriRicercaPB {

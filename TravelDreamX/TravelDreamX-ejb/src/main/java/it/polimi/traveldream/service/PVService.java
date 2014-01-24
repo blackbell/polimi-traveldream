@@ -10,6 +10,7 @@ import it.polimi.traveldream.model.Pacchetto;
 import it.polimi.traveldream.model.Soggiorno;
 import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.model.Volo;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -19,7 +20,7 @@ import org.springframework.ejb.interceptor.SpringBeanAutowiringInterceptor;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- *
+ * 
  * @author Dario
  */
 @Interceptors(SpringBeanAutowiringInterceptor.class)
@@ -47,7 +48,7 @@ public class PVService implements PVServiceLocal {
                 || pv.getVoci().size() >= Pacchetto.MAX_NRO_VOCI) {
             return null;
         }
-
+        
         Volo andata = trovaVoloAndata(pv);
         Soggiorno soggiorno = trovaSoggiorno(pv);
         for (Voce v : pv.getVoci()) {
@@ -65,6 +66,7 @@ public class PVService implements PVServiceLocal {
         return pvDAO.saveAndFlush(pv);
     }
 
+    
     private Soggiorno trovaSoggiorno(Pacchetto pv){
         Soggiorno soggiorno = null;
         for (Voce v : pv.getVoci())
@@ -122,6 +124,12 @@ public class PVService implements PVServiceLocal {
         List<Pacchetto> ret = null;
         if (idPV != null) {
             System.out.println("PVService.trovaPV -> idPV : " + idPV);
+            Pacchetto p = pvDAO.findOne(idPV);
+            if (p != null){
+                System.out.println("PVService.trovaPV -> Found by ID!");
+                ret = new ArrayList<>();
+                ret.add(p);
+            }
         } else {
             String nome = params.getNome();
             String cittàAlbergo = params.getCittaAlbergo();

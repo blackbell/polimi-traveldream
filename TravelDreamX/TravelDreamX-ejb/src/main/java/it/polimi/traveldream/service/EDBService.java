@@ -20,7 +20,7 @@ import org.springframework.ejb.interceptor.SpringBeanAutowiringInterceptor;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- *
+ * 
  * @author Dario
  */
 @Interceptors(SpringBeanAutowiringInterceptor.class)
@@ -63,6 +63,9 @@ public class EDBService implements EDBServiceLocal {
                                             nazionePartenza   !=null ? nazionePartenza   :"%",
                                             nazioneArrivo     !=null ? nazioneArrivo     :"%",
                                             compagniaAerea    !=null ? compagniaAerea    :"%");
+                break;
+            case Museo:
+                //TODO finire di implementare il metodo!
                 break;
             default:
                 break;
