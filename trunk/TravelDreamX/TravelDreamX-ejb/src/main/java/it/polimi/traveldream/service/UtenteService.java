@@ -21,7 +21,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Stateless
 public class UtenteService implements UtenteServiceLocal {
 
-
     @Autowired
     private UtenteDAO utenteDAO;
 

@@ -8,7 +8,8 @@ package it.polimi.traveldream.service;
 import it.polimi.traveldream.model.TipoEDB;
 
 /**
- *
+ * Incapsula tutti i criteri che è possibile specificare per la ricerca di una 
+ * EDB
  * @author Dario
  */
 public class ParametriRicercaEDB {
@@ -47,8 +48,6 @@ public class ParametriRicercaEDB {
     public void setStelle(Integer stelle) {
         this.stelle = stelle;
     }
-
-    
 
     public String getAeroportoPartenza() {
         return aeroportoPartenza;
