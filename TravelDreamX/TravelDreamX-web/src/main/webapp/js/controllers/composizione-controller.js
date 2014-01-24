@@ -68,7 +68,8 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         ;
     };
     $scope.ceAlmenoUnaVoce = function (){
-        for(var i=0; i<$rootScope.PV.voci.length; i++){
+        if( typeof $rootScope.PV !== 'undefined')
+        for(var i=0; i < $rootScope.PV.voci.length; i++){
             if($scope.isCompleta($rootScope.PV.voci[i]))
                 return true;
         };
