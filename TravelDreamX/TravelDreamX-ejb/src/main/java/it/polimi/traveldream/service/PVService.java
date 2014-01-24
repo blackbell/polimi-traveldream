@@ -57,10 +57,10 @@ public class PVService implements PVServiceLocal {
         System.out.println("PVService.salvaPV -> nome: " + pv.getNome());
         pv.setNazionePartenza(andata.getRotta().getNazionePartenza());
         pv.setNazioneArrivo(andata.getRotta().getNazioneArrivo());
-        pv.setGiornoInizio(soggiorno != null ? soggiorno.getGiornoInizio() : null);
+        if (soggiorno != null) pv.setGiornoInizio(soggiorno.getGiornoInizio());
+        if (soggiorno != null) pv.setGiornoFine(soggiorno.getGiornoFine());
+        if (soggiorno != null) pv.setCittaAlbergo(soggiorno.getAlbergo().getCitta());
         System.out.println("PVService.salvaPV -> pv.giornoInizio: " + pv.getGiornoInizio());
-        pv.setGiornoFine(soggiorno != null ? soggiorno.getGiornoFine() : null);
-        pv.setCittaAlbergo(soggiorno != null ? soggiorno.getAlbergo().getCitta() : null);
         
         return pvDAO.saveAndFlush(pv);
     }
