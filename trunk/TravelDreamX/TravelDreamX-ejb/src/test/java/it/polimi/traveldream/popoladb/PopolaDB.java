@@ -10,10 +10,12 @@ import it.polimi.traveldream.data.AlbergoDAO;
 import it.polimi.traveldream.data.DAOUnitTest;
 import it.polimi.traveldream.data.RottaDAO;
 import static it.polimi.traveldream.data.TestUtilities.getRandomImageLink;
+import it.polimi.traveldream.data.UtenteDAO;
 import it.polimi.traveldream.data.VoceDAO;
 import it.polimi.traveldream.model.Albergo;
 import it.polimi.traveldream.model.Rotta;
 import it.polimi.traveldream.model.Soggiorno;
+import it.polimi.traveldream.model.Utente;
 import it.polimi.traveldream.model.Volo;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -38,6 +40,8 @@ public class PopolaDB extends DAOUnitTest{
     VoceDAO voceDAO;
     @Autowired
     RottaDAO rottaDAO;
+    @Autowired
+    UtenteDAO utenteDAO;
     
     public void setAlbergoDAO(AlbergoDAO albergoDAO) {
         this.albergoDAO = albergoDAO;
@@ -66,6 +70,18 @@ public class PopolaDB extends DAOUnitTest{
         generaSoggiorni(nroSoggiorniDaGenerare,  2, 14, 180, 30, 300);
         salvaRotte();
         generaVoli(nroVoliDaGenerare, 180, 30, 300);
+        salvaUtentiImpiegatoEdAdmin();
+    }
+    
+    private void salvaUtentiImpiegatoEdAdmin(){
+        Utente impiegato = new Utente("impiegato@traveldream.it", "impiegato");
+        impiegato.setLivello(Utente.LIVELLO_IMPIEGATO);
+        impiegato.setAbilitato(true);
+        Utente admin = new Utente("admin@traveldream.it", "admin");
+        admin.setLivello(Utente.LIVELLO_AMMINISTRATORE);
+        admin.setAbilitato(true);
+        utenteDAO.saveAndFlush(impiegato);
+        utenteDAO.saveAndFlush(admin);
     }
     
     private void inserisciVolo(Rotta r, Date dataOra, float costo){
