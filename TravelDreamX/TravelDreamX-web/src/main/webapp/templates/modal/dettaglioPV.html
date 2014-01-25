@@ -75,8 +75,8 @@ proj codename: TravelDreamX
                     <button class="btn" ng-click="dismiss()">Close</button>
                     <button class="btn" ng-click="fwdToComposizione(pv)" ng-if="!isImpiegato()"><i class="icon-edit"></i> Personalizza pacchetto</button>
                     <button class="btn" ng-click="fwdToComposizione(pv)" ng-if="isImpiegato()"><i class="icon-edit"></i> Modifica pacchetto</button>
-                    <button class="btn btn-success" ng-if="isAbilitato(pv)" ng-click="disabilita(pv)"><i class="icon-shopping-cart icon-white"></i> Disabilita</button>
-                    <button class="btn btn-success" ng-if="!isAbilitato(pv)" ng-click="abilita(pv)"><i class="icon-shopping-cart icon-white"></i> Abilita</button> <br/>
+                    <button class="btn btn-success" ng-if="isImpiegato() && isAbilitato(pv)" ng-click="disabilita(pv)"><i class="icon-shopping-cart icon-white"></i> Disabilita</button>
+                    <button class="btn btn-success" ng-if="isImpiegato() && !isAbilitato(pv)" ng-click="abilita(pv)"><i class="icon-shopping-cart icon-white"></i> Abilita</button> 
                     <button class="btn btn-success" ng-click=""ng-if="!isImpiegato()"><i class="icon-shopping-cart icon-white"></i> Acquista</button>
                 </div>
             </div>
