@@ -54,7 +54,7 @@ public class PVService implements PVServiceLocal {
         for (Voce v : pv.getVoci()) {
             System.out.println("PVService.salvaPV -> v: " + v + " [tipo: " + v.getTipo() + "]");
         }
-        System.out.println("PVService.salvaPV -> volo di andata: " + andata + " [tipo: " + andata.getTipo() + "]");
+        System.out.println("PVService.salvaPV -> volo di andata: " + andata);
         System.out.println("PVService.salvaPV -> nome: " + pv.getNome());
         pv.setNazionePartenza(andata.getRotta().getNazionePartenza());
         pv.setNazioneArrivo(andata.getRotta().getNazioneArrivo());

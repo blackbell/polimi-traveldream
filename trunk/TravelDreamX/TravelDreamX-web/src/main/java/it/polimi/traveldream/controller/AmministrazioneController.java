@@ -56,7 +56,7 @@ public class AmministrazioneController {
             Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
             if (utenteLoggato != null && utenteLoggato.getLivello() >= Utente.LIVELLO_AMMINISTRATORE && !utente.equals(utenteLoggato)) {
                 Boolean newState = utenteService.disattivaUtente(utente);
-                e.setResult(newState == Boolean.TRUE);
+                e.setResult(newState != null);
                 e.setMessage(newState != null ? null : Esito.USER_NOT_FOUND);
                 e.setReturnedObj(newState);
             }else{
@@ -79,7 +79,7 @@ public class AmministrazioneController {
             Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
             if (utenteLoggato != null && utenteLoggato.getLivello() >= Utente.LIVELLO_AMMINISTRATORE) {
                 Boolean newState = utenteService.attivaUtente(utente);
-                e.setResult(newState == Boolean.TRUE);
+                e.setResult(newState != null);
                 e.setMessage(newState != null ? null : Esito.USER_NOT_FOUND);
                 e.setReturnedObj(newState);
             }else{
