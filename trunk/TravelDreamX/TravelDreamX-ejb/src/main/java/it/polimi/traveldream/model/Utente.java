@@ -28,7 +28,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Utente.findByPassword", query = "SELECT u FROM Utente u WHERE u.password = :password"),
     @NamedQuery(name = "Utente.findByAbilitato", query = "SELECT u FROM Utente u WHERE u.abilitato = :abilitato"),
     @NamedQuery(name = "Utente.findByLivello", query = "SELECT u FROM Utente u WHERE u.livello = :livello")})
-public class Utente implements Serializable {
+public class Utente implements Serializable, Cloneable {
     public static final int LIVELLO_REGISTRATO = 0;
     public static final int LIVELLO_IMPIEGATO = 1;
     public static final int LIVELLO_AMMINISTRATORE = 2;
@@ -43,7 +43,7 @@ public class Utente implements Serializable {
     private String email;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 15)
+//    @Size(min = 1, max = 60)
     @Column(name = "password")
     private String password;
     @Column(name = "abilitato")
@@ -120,5 +120,14 @@ public class Utente implements Serializable {
     public String toString() {
         return "it.polimi.traveldream.model.prova.Utente[ email=" + email + " ]";
     }
-    
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Utente u = new Utente();
+        u.setAbilitato(this.abilitato);
+        u.setEmail(this.email);
+        u.setLivello(this.livello);
+        u.setPassword(this.password);
+        return u;
+    }
 }

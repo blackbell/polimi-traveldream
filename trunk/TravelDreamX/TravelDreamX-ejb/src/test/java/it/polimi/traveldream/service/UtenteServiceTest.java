@@ -51,7 +51,6 @@ public class UtenteServiceTest {
        Utente result = service.registrazione(utente);
        assertNotNull(result);
        assertEquals(utente.getEmail(), result.getEmail());
-       assertEquals(utente.getPassword(), result.getPassword());
        assertEquals(utente.getAbilitato(), result.getAbilitato());
        assertEquals(utente.getLivello(), result.getLivello());
     }
@@ -67,10 +66,12 @@ public class UtenteServiceTest {
     
     @Test
     public void testLoginSuccessful(){
-        Utente utente = new Utente("testUserLS" + rnd.nextInt() +  "@testDomain.polimi.it", "testPsw");
+        String testUserName = "testUserLS" + rnd.nextInt() +  "@testDomain.polimi.it";
+        System.out.println("UtenteServiceTest.testLoginSuccessful");
+        Utente utente = new Utente(testUserName, "testPsw");
         utente.setAbilitato(true);
         service.registrazione(utente);
-        
+        utente = new Utente(testUserName, "testPsw");
         Utente u2 = service.login(utente);
         assertNotNull(u2);
         assertTrue(u2.getAbilitato());
@@ -78,10 +79,13 @@ public class UtenteServiceTest {
     
     @Test
     public void testLoginNotAuth(){
-        Utente utente = new Utente("testUserLNA" + rnd.nextInt() +  "@testDomain.polimi.it", "testPsw");
+        String testUserName = "testUserLNA" + rnd.nextInt() +  "@testDomain.polimi.it";
+        System.out.println("UtenteServiceTest.testLoginNotAuth");
+        Utente utente = new Utente(testUserName, "testPsw");
         utente.setAbilitato(false);
         service.registrazione(utente);
         
+        utente = new Utente(testUserName, "testPsw");
         Utente u2 = service.login(utente);
         assertNotNull(u2);
         assertTrue(!u2.getAbilitato());
@@ -89,6 +93,7 @@ public class UtenteServiceTest {
     
     @Test
     public void testLoginUserNotExisting(){
+        System.out.println("UtenteServiceTest.testLoginUserNotExisting");
         Utente utente = new Utente("testUserLUNE" + rnd.nextInt() +  "@testDomain.polimi.it", "testPsw");
         Utente u2 = service.login(utente);
         assertNull(u2);
@@ -96,24 +101,30 @@ public class UtenteServiceTest {
     
     @Test
     public void testModificaLivelloUtente(){
-        Utente utente = new Utente("testUserSIS" + rnd.nextInt() +  "@testDomain.polimi.it", "testPsw");
-        Utente result = service.registrazione(utente);
+        String testUserName = "testUserMLU" + rnd.nextInt() +  "@testDomain.polimi.it";
+        System.out.println("UtenteServiceTest.testModificaLivelloUtente");
+        Utente utente = new Utente(testUserName, "testPsw");
+        service.registrazione(utente);
         
-        result.setLivello(2);
-        Integer newLevel = service.modificaLivello(result);
-        assertEquals(newLevel, new Integer(2));
+        utente = new Utente(testUserName, "testPsw");
+        utente.setLivello(2);
+        Integer newLevel = service.modificaLivello(utente);
+        assertEquals(new Integer(2), newLevel);
     }
     
     @Test
     public void testModificaLivelloEAbilitazioneUtente(){
-        Utente utente = new Utente("testUserSIS" + rnd.nextInt() +  "@testDomain.polimi.it", "testPsw");
+        String testUserName = "testUserMLAU" + rnd.nextInt() +  "@testDomain.polimi.it";
+        System.out.println("UtenteServiceTest.testModificaLivelloEAbilitazioneUtente");
+        Utente utente = new Utente(testUserName, "testPsw");
         utente.setAbilitato(true);
-        Utente result = service.registrazione(utente);
-        
-        result.setAbilitato(false);
-        result.setLivello(2);
-        Integer newLevel = service.modificaLivello(result);
-        assertEquals(newLevel, new Integer(2));
-        assertTrue(service.login(result).getAbilitato());
+        service.registrazione(utente);
+
+        utente = new Utente(testUserName, "testPsw");        
+        utente.setAbilitato(false);
+        utente.setLivello(2);
+        Integer newLevel = service.modificaLivello(utente);
+        assertEquals(new Integer(2), newLevel);
+        assertTrue(service.login(utente).getAbilitato());
     }
 }
