@@ -12,6 +12,8 @@ import javax.interceptor.Interceptors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ejb.interceptor.SpringBeanAutowiringInterceptor;
 import org.springframework.transaction.annotation.Transactional;
+import org.mindrot.jbcrypt.BCrypt;
+//import org.springframework.security.crypto.bcrypt.BCrypt;
 
 /**
  *
@@ -42,16 +44,30 @@ public class UtenteService implements UtenteServiceLocal {
     public Utente registrazione(Utente utente) {
         if(isPresent(utente))
             return null;
-        return utenteDAO.saveAndFlush(utente);
+        System.out.println("UtenteService.registrazione -> utente.password: " + utente.getPassword());
+        String pw_hash = BCrypt.hashpw(utente.getPassword(), BCrypt.gensalt());
+        utente.setPassword(pw_hash);
+        System.out.println("UtenteService.registrazione -> utente.password: " + utente.getPassword());
+        utente = utenteDAO.saveAndFlush(utente);
+        if (utente != null) utente.setPassword(null);
+        return utente;
     }
 
     @Transactional
     @Override
     public Utente login(Utente u) {
-        System.out.println("login() -> u: " + u);
-        System.out.println("login() -> u.getEmail(): " + u.getEmail());
-        System.out.println("login() -> utenteDAO:" + utenteDAO);
-        Utente ret = utenteDAO.findOne(u.getEmail());
+        System.out.println("UtenteService.login() -> u: " + u);
+        System.out.println("UtenteService.login() -> u.getEmail(): " + u.getEmail());
+        Utente ret = utenteDAO.findOne(u.getEmail());       
+        System.out.println("UtenteService.login -> u.password  : " + u.getPassword());
+        
+        if (ret != null){
+            System.out.println("UtenteService.login -> ret.password  : " + ret.getPassword());
+            if (!BCrypt.checkpw(u.getPassword(), ret.getPassword()))
+                ret = null;
+            else
+                ret.setPassword(null);
+        }
         return ret;
     }
 
@@ -83,12 +99,17 @@ public class UtenteService implements UtenteServiceLocal {
     @Transactional
     @Override
     public Integer modificaLivello(Utente utente) {
+        System.out.println("UtenteService.modificaLivello -> utente.livello:" + utente.getLivello());
         Utente u = utenteDAO.findOne(utente.getEmail());
         if (u == null) return null;
 //        if (!u.getAbilitato().equals(utente.getAbilitato())) return null;
-        utente.setAbilitato(u.getAbilitato());
+        System.out.println("UtenteService.modificaLivello -> u.livello:" + u.getLivello());
+        u.setLivello(utente.getLivello());
+        System.out.println("UtenteService.modificaLivello -> utente.livello:" + utente.getLivello());
+
 //        if (!u.getPassword().equals(utente.getPassword())) return null;
-        utente = utenteDAO.save(utente);
+        utente = utenteDAO.save(u);
+        System.out.println("UtenteService.modificaLivello -> utente.livello:" + utente.getLivello());
         return utente.getLivello();
     }
 

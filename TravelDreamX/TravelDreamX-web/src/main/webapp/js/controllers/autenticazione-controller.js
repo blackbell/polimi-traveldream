@@ -35,7 +35,8 @@ travelDreamApp.controller('autenticazioneController', function($scope, $rootScop
                     console.log('Utente loggato: ' + $rootScope.utente);
                     toastr.success("l'utente " + utente.email + " è ora loggato", "Login avvenuto con successo");
                 } else
-                    toastr.error("Email " + utente.email + " o password " + utente.password + " errati.", "Login fallito");
+//                    toastr.error("Email " + utente.email + " o password " + utente.password + " errati.", "Login fallito");
+                    toastr.error("Email o password errati.", "Login fallito");
                 $scope.waiting = false;
             });
         } else {
