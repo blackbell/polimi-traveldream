@@ -47,7 +47,7 @@ import org.codehaus.jackson.annotate.JsonTypeInfo;
     @NamedQuery(name = "Voce.findByIdVoce", query = "SELECT v FROM Voce v WHERE v.idVoce = :idVoce"),
 //    @NamedQuery(name = "Voce.findByTipo", query = "SELECT v FROM Voce v WHERE v.tipo = :tipo")
     })
-public class Voce implements Serializable {
+public abstract class Voce implements Serializable, Pagabile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)

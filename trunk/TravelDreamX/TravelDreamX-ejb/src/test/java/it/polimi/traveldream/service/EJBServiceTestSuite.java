@@ -27,7 +27,7 @@ import org.junit.runners.Suite;
 })
 public class EJBServiceTestSuite {
 
-    protected static EJBContainer container;
+    public static EJBContainer container;
 
     @BeforeClass
     public static void setUp() {

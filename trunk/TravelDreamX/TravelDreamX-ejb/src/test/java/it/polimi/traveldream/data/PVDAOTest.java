@@ -36,6 +36,7 @@ public class PVDAOTest extends DAOUnitTest {
         p.setTipo(Pacchetto.PREDEFINITO);
         p.setProprietario(addUser());
         p.setDataOraCreazione(new Date());
+        p.setNumeroPersone(2);
         Pacchetto p2 = pvDAO.save(p);
         assertNotNull("Cannot save a PV!", p2);
     }

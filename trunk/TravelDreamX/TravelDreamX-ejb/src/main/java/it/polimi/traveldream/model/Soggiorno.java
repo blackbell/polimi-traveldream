@@ -161,4 +161,9 @@ public class Soggiorno extends Voce implements Serializable {
         return "it.polimi.traveldream.model.Soggiorno[ idVoce = " + getIdVoce() + " ]";
     }
 
+    @Override
+    public Float getSpesa(int molteplicità) {
+        return molteplicità <= numeroPersone ? this.costo : null;
+    }
+
 }

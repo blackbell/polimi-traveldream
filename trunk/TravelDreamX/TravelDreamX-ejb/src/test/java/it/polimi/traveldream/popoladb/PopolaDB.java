@@ -6,17 +6,18 @@
 package it.polimi.traveldream.popoladb;
 
 
-import it.polimi.traveldream.data.AlbergoDAO;
-import it.polimi.traveldream.data.DAOUnitTest;
-import it.polimi.traveldream.data.RottaDAO;
 import static it.polimi.traveldream.data.TestUtilities.getRandomImageLink;
-import it.polimi.traveldream.data.UtenteDAO;
-import it.polimi.traveldream.data.VoceDAO;
 import it.polimi.traveldream.model.Albergo;
 import it.polimi.traveldream.model.Rotta;
 import it.polimi.traveldream.model.Soggiorno;
 import it.polimi.traveldream.model.Utente;
 import it.polimi.traveldream.model.Volo;
+import it.polimi.traveldream.service.EDBServiceLocal;
+import it.polimi.traveldream.service.EJBServiceTestSuite;
+import static it.polimi.traveldream.service.EJBServiceTestSuite.container;
+import it.polimi.traveldream.service.PBServiceLocal;
+import it.polimi.traveldream.service.PVServiceLocal;
+import it.polimi.traveldream.service.UtenteServiceLocal;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -24,32 +25,44 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import javax.naming.NamingException;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
  * @author Dario
  */
-public class PopolaDB extends DAOUnitTest{
+public class PopolaDB{
+
+    private static final String PVServiceJdniName = "java:global/classes/PVService";
+    private static final String utenteServiceJdniName = "java:global/classes/UtenteService";
+    private static final String pbServiceJdniName = "java:global/classes/PBService";
+    private static final String edbServiceJdniName = "java:global/classes/EDBService";
+    private static PVServiceLocal pvService = null;
+    private static UtenteServiceLocal utenteService = null;
+    private static PBServiceLocal pbService = null;
+    private static EDBServiceLocal edbService = null;
+    private static boolean testSuite = false;
+    
+    @BeforeClass
+    public static void setUpClass() throws NamingException {
+        if (container != null) testSuite = true;
+        else EJBServiceTestSuite.setUp();
+        pvService = (PVServiceLocal)container.getContext().lookup(PVServiceJdniName);
+        utenteService = (UtenteServiceLocal)container.getContext().lookup(utenteServiceJdniName);
+        pbService = (PBServiceLocal)container.getContext().lookup(pbServiceJdniName);
+        edbService = (EDBServiceLocal)container.getContext().lookup(edbServiceJdniName);
+        rnd = new Random(new Date().getTime());
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+        if (!testSuite) EJBServiceTestSuite.tearDown();
+    }
     
     static Random rnd = new Random(new Date().getTime());
-    @Autowired
-    AlbergoDAO albergoDAO;
-    @Autowired
-    VoceDAO voceDAO;
-    @Autowired
-    RottaDAO rottaDAO;
-    @Autowired
-    UtenteDAO utenteDAO;
-    
-    public void setAlbergoDAO(AlbergoDAO albergoDAO) {
-        this.albergoDAO = albergoDAO;
-    }
-    
-    public void setRottaDAO(RottaDAO rottaDAO) {
-        this.rottaDAO = rottaDAO;
-    }
         
     private static final int nroAlberghiDaGenerare = 50;
     private static final int nroSoggiorniDaGenerare = 50;
@@ -80,8 +93,9 @@ public class PopolaDB extends DAOUnitTest{
         Utente admin = new Utente("admin@traveldream.it", "admin");
         admin.setLivello(Utente.LIVELLO_AMMINISTRATORE);
         admin.setAbilitato(true);
-        utenteDAO.saveAndFlush(impiegato);
-        utenteDAO.saveAndFlush(admin);
+    
+        utenteService.registrazione(admin);
+        utenteService.registrazione(impiegato);
     }
     
     private void inserisciVolo(Rotta r, Date dataOra, float costo){
@@ -89,9 +103,9 @@ public class PopolaDB extends DAOUnitTest{
         v.setAbilitato(true);
         v.setCosto(costo);
         v.setDataOra(dataOra);
-        v.setNumPasseggeri(rnd.nextInt(7)+1);
+//        v.setNumPasseggeri(rnd.nextInt(7)+1);
         v.setRotta(r);
-        voceDAO.saveAndFlush(v);
+        pbService.salvaPB(v);
     }
     
     private void generaVoli(int n, int dataMassimaGiornoInizio, float costoMinimo, float costoMassimo) {
@@ -218,7 +232,7 @@ public class PopolaDB extends DAOUnitTest{
     }    
     
     private void inserisciRotta(Rotta r){
-        rottaDAO.saveAndFlush(r);
+        edbService.salvaRotta(r);
     }
 
     private void inserisciAlbergo(Città c, String nome, int stelle, String url) {
@@ -227,7 +241,7 @@ public class PopolaDB extends DAOUnitTest{
         albergo.setCitta(c.getCittà());
         albergo.setStelle(stelle);
         albergo.setUrlFoto(url);
-        alberghiGenerati.add(albergoDAO.saveAndFlush(albergo));
+        alberghiGenerati.add(edbService.salvaAlbergo(albergo));
     }
 
     private void inserisciSoggiorno(Albergo a, Date giornoInizio, Date giornoFine, float costo) {
@@ -238,7 +252,7 @@ public class PopolaDB extends DAOUnitTest{
         s.setGiornoInizio(giornoInizio);
         s.setGiornoFine(giornoFine);
         s.setNumeroPersone(3);
-        voceDAO.saveAndFlush(s);
+        pbService.salvaPB(s);
     }
 }
 

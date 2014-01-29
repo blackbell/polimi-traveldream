@@ -67,7 +67,7 @@ public class VoceDAOTest extends DAOUnitTest{
         Volo volo = new Volo();
         volo.setDataOra(new Date());
         volo.setRotta(r);
-        volo.setNumPasseggeri(3);
+//        volo.setNumPasseggeri(3);
         volo.setCosto(120.7f);
         volo.setAbilitato(true);
         voceDAO.save(volo);
@@ -120,7 +120,7 @@ public class VoceDAOTest extends DAOUnitTest{
         Volo volo = new Volo();
         volo.setDataOra(new Date());
         volo.setRotta(r);
-        volo.setNumPasseggeri(3);
+//        volo.setNumPasseggeri(3);
         volo.setCosto(120.7f);
         volo.setAbilitato(true);
         Volo volo2 = voceDAO.save(volo);

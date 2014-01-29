@@ -74,7 +74,7 @@ public class PagamentoServiceTest {
         v.setCosto(100f);
         v.setRotta(r);
         v.setDataOra(new Date());
-        v.setNumPasseggeri(3);
+//        v.setNumPasseggeri(3);
         v.setAbilitato(true);
         v = pbService.saveVolo(v);
         v = pbService.getVoloByID(v.getIdVoce());
@@ -88,6 +88,7 @@ public class PagamentoServiceTest {
         p.setDataOraCreazione(new Date());
         p.setTipo(Pacchetto.PREDEFINITO);
         p.setVoci(new ArrayList<Voce>());
+        p.setNumeroPersone(3);
         p.getVoci().add(v);
         Pacchetto p2 = pvService.salvaPV(p);
         
@@ -111,7 +112,7 @@ public class PagamentoServiceTest {
         v.setCosto(100f);
         v.setRotta(r);
         v.setDataOra(new Date());
-        v.setNumPasseggeri(3);
+//        v.setNumPasseggeri(3);
         v.setAbilitato(true);
         v = pbService.saveVolo(v);
         v = pbService.getVoloByID(v.getIdVoce());
@@ -119,7 +120,7 @@ public class PagamentoServiceTest {
         ritorno.setCosto(100f);
         ritorno.setRotta(r);
         ritorno.setDataOra(new Date(v.getDataOra().getTime() + 3 * 24 * 60 * 60 * 1000));
-        ritorno.setNumPasseggeri(3);
+//        ritorno.setNumPasseggeri(3);
         ritorno.setAbilitato(true);
         ritorno = pbService.saveVolo(ritorno);
         ritorno = pbService.getVoloByID(ritorno.getIdVoce());
@@ -133,6 +134,7 @@ public class PagamentoServiceTest {
         p.setDataOraCreazione(new Date());
         p.setTipo(Pacchetto.PREDEFINITO);
         p.setVoci(new ArrayList<Voce>());
+        p.setNumeroPersone(2);
 //        p.getVoci().add(v);
         p.getVoci().add(ritorno);
         Pacchetto p2 = pvService.salvaPV(p);
@@ -157,7 +159,7 @@ public class PagamentoServiceTest {
         v.setCosto(100f);
         v.setRotta(r);
         v.setDataOra(new Date());
-        v.setNumPasseggeri(3);
+//        v.setNumPasseggeri(3);
         v.setAbilitato(true);
         v = pbService.saveVolo(v);
         v = pbService.getVoloByID(v.getIdVoce());
@@ -165,7 +167,7 @@ public class PagamentoServiceTest {
         ritorno.setCosto(100f);
         ritorno.setRotta(r);
         ritorno.setDataOra(new Date(v.getDataOra().getTime() + 3 * 24 * 60 * 60 * 1000));
-        ritorno.setNumPasseggeri(3);
+//        ritorno.setNumPasseggeri(3);
         ritorno.setAbilitato(true);
         ritorno = pbService.saveVolo(ritorno);
         ritorno = pbService.getVoloByID(ritorno.getIdVoce());
@@ -177,6 +179,7 @@ public class PagamentoServiceTest {
         p.setAbilitato(true);
         p.setProprietario(u);
         p.setDataOraCreazione(new Date());
+        p.setNumeroPersone(2);
         p.setTipo(Pacchetto.PREDEFINITO);
         p.setVoci(new ArrayList<Voce>());
         p.getVoci().add(v);

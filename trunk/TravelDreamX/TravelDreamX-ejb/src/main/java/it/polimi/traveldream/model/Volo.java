@@ -33,7 +33,7 @@ import org.codehaus.jackson.annotate.JsonTypeName;
     @NamedQuery(name = "Volo.findAll", query = "SELECT v FROM Volo v"),
     @NamedQuery(name = "Volo.findByRotta", query = "SELECT v FROM Volo v WHERE v.rotta = :rotta"),
     @NamedQuery(name = "Volo.findByDataOra", query = "SELECT v FROM Volo v WHERE v.dataOra = :dataOra"),
-    @NamedQuery(name = "Volo.findByNumPasseggeri", query = "SELECT v FROM Volo v WHERE v.numPasseggeri = :numPasseggeri"),
+//    @NamedQuery(name = "Volo.findByNumPasseggeri", query = "SELECT v FROM Volo v WHERE v.numPasseggeri = :numPasseggeri"),
     @NamedQuery(name = "Volo.findByCosto", query = "SELECT v FROM Volo v WHERE v.costo = :costo"),
     @NamedQuery(name = "Volo.findByParams", query = ""
             + "SELECT v "
@@ -56,10 +56,10 @@ public class Volo extends Voce implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataOra;
 
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "numPasseggeri")
-    private int numPasseggeri;
+//    @Basic(optional = false)
+//    @NotNull
+//    @Column(name = "numPasseggeri")
+//    private int numPasseggeri;
     @Basic(optional = false)
     @NotNull
     @Column(name = "costo")
@@ -75,7 +75,7 @@ public class Volo extends Voce implements Serializable {
     public Volo(Date dataOra, int numPasseggeri, float costo) {
         this();
         this.dataOra = dataOra;
-        this.numPasseggeri = numPasseggeri;
+//        this.numPasseggeri = numPasseggeri;
         this.costo = costo;
     }
 
@@ -89,13 +89,13 @@ public class Volo extends Voce implements Serializable {
         this.dataOra = new Date(time);
     }
 
-    public int getNumPasseggeri() {
-        return numPasseggeri;
-    }
-
-    public void setNumPasseggeri(int numPasseggeri) {
-        this.numPasseggeri = numPasseggeri;
-    }
+//    public int getNumPasseggeri() {
+//        return numPasseggeri;
+//    }
+//
+//    public void setNumPasseggeri(int numPasseggeri) {
+//        this.numPasseggeri = numPasseggeri;
+//    }
 
     public Float getCosto() {
         return costo;
@@ -136,6 +136,11 @@ public class Volo extends Voce implements Serializable {
     @Override
     public String toString() {
         return "it.polimi.traveldream.model.Volo[ idVoce = " + getIdVoce() + " ]";
+    }
+
+    @Override
+    public Float getSpesa(int molteplicità) {
+        return this.costo * molteplicità;
     }
 
 }

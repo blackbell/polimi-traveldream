@@ -38,7 +38,7 @@ public class VoloDAOTest extends DAOUnitTest{
         Volo volo = new Volo();
         volo.setDataOra(new Date());
         volo.setRotta(r);
-        volo.setNumPasseggeri(3);
+//        volo.setNumPasseggeri(3);
         volo.setCosto(120.7f);
         volo.setAbilitato(false);
         Volo volo2 = voceDAO.save(volo);
@@ -57,7 +57,7 @@ public class VoloDAOTest extends DAOUnitTest{
         assertTrue("The retrieved object is not instance of Volo", ! (v instanceof Soggiorno));
         assertEquals("The retrieved flight is not as expected!", volo2.getDataOra(), volo.getDataOra());
         assertEquals("The retrieved flight is not as expected!", volo2.getRotta(), volo.getRotta());
-        assertEquals("The retrieved flight is not as expected!", volo2.getNumPasseggeri(), volo.getNumPasseggeri());
+//        assertEquals("The retrieved flight is not as expected!", volo2.getNumPasseggeri(), volo.getNumPasseggeri());
         assertTrue("The retrieved flight is not as expected!", volo2.getCosto() == volo.getCosto());
     }
     
@@ -66,7 +66,7 @@ public class VoloDAOTest extends DAOUnitTest{
         Volo volo = new Volo();
         volo.setDataOra(new Date());
         volo.setRotta(r);
-        volo.setNumPasseggeri(3);
+//        volo.setNumPasseggeri(3);
         volo.setCosto(120.7f);
         volo.setAbilitato(true);
         Volo volo2 = voceDAO.save(volo);

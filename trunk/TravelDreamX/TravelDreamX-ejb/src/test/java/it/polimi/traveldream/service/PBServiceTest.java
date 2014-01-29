@@ -67,7 +67,7 @@ public class PBServiceTest {
         Volo v = new Volo();
         v.setDataOra(new Date());
         v.setRotta(r);
-        v.setNumPasseggeri(3);
+//        v.setNumPasseggeri(3);
         v.setCosto(120.7f);
         v.setAbilitato(false);
         pbService.saveVolo(v);
@@ -114,7 +114,7 @@ public class PBServiceTest {
         Volo v = new Volo();
         v.setDataOra(new Date());
         v.setRotta(r);
-        v.setNumPasseggeri(3);
+//        v.setNumPasseggeri(3);
         v.setCosto(120.7f);
         v.setAbilitato(true);
         pbService.saveVolo(v);
@@ -145,7 +145,7 @@ public class PBServiceTest {
         Volo v = new Volo();
         v.setDataOra(new Date());
         v.setRotta(r);
-        v.setNumPasseggeri(3);
+//        v.setNumPasseggeri(3);
         v.setCosto(120.7f);
         v.setAbilitato(true);
         pbService.saveVolo(v);
@@ -291,7 +291,7 @@ public class PBServiceTest {
         v.setAbilitato(true);
         v.setMuseo(m);
         v.setDataOra(new Date());
-        v.setNumeroPersone(4);
+//        v.setNumeroPersone(4);
         v.setCosto(15);
         pbService.saveVisita(v);
         
@@ -317,7 +317,7 @@ public class PBServiceTest {
         v.setAbilitato(true);
         v.setMuseo(m);
         v.setDataOra(new Date());
-        v.setNumeroPersone(4);
+//        v.setNumeroPersone(4);
         v.setCosto(15);
         pbService.saveVisita(v);
         
@@ -351,7 +351,7 @@ public class PBServiceTest {
         Volo v = new Volo();
         v.setDataOra(new Date());
         v.setRotta(r);
-        v.setNumPasseggeri(3);
+//        v.setNumPasseggeri(3);
         v.setCosto(120.7f);
         v.setAbilitato(true);
         v = pbService.saveVolo(v);
@@ -395,7 +395,7 @@ public class PBServiceTest {
         v.setAbilitato(true);
         v.setMuseo(m);
         v.setDataOra(new Date());
-        v.setNumeroPersone(4);
+//        v.setNumeroPersone(4);
         v.setCosto(15);
         v = pbService.saveVisita(v);
         Assert.assertNotNull(v);
@@ -417,7 +417,7 @@ public class PBServiceTest {
         Volo v = new Volo();
         v.setDataOra(new Date());
         v.setRotta(r);
-        v.setNumPasseggeri(3);
+//        v.setNumPasseggeri(3);
         v.setCosto(120.7f);
         v.setAbilitato(true);
         v = pbService.saveVolo(v);
@@ -465,7 +465,7 @@ public class PBServiceTest {
         v.setAbilitato(true);
         v.setMuseo(m);
         v.setDataOra(new Date());
-        v.setNumeroPersone(4);
+//        v.setNumeroPersone(4);
         v.setCosto(15);
         pbService.saveVisita(v);
         

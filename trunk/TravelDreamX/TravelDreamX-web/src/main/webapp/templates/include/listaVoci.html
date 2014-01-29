@@ -1,4 +1,9 @@
 <div class="row ">
+    <p class="span2 lead" ng-init="getPVdaRootScope()">Partecipanti: </p>
+    <input type="text" placeholder="2" class="span1" ng-model="PV.numeroPersone"/>
+    <br />
+</div>
+<div class="row ">
     <p class="span1 lead" ng-init="getPVdaRootScope()">Voci: </p>
     <div class="span1 btn-group">
         <button class="btn" ng-click="creaVoce('Volo')"><img src="img/Volo.png" width="15"/></button>
@@ -24,7 +29,7 @@
                 <br/>
                 {{voce.dataOra| date:'dd/MM/yyyy hh:mm'}}
                 <br/>
-                &euro;{{voce.costo}} 
+                &euro;{{voce.costo}} c.u.
             </p>
             <i class="voce-item-right icon-chevron-right"></i>
         </li>

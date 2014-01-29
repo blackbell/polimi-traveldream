@@ -46,7 +46,7 @@ public class VisitaDAOTest extends DAOUnitTest{
         v.setCosto(50);
         v.setDataOra(new Date());
         v.setMuseo(m);
-        v.setNumeroPersone(5);
+//        v.setNumeroPersone(5);
         Visita v2 = voceDAO.save(v);
         assertNotNull(v2);
     }
@@ -67,7 +67,7 @@ public class VisitaDAOTest extends DAOUnitTest{
         v.setCosto(50);
         v.setDataOra(d);
         v.setMuseo(m);
-        v.setNumeroPersone(5);
+//        v.setNumeroPersone(5);
         voceDAO.save(v);
         Visita v2 = (Visita) voceDAO.findOne(v.getIdVoce());
         System.out.println("d:" + d);
@@ -77,7 +77,7 @@ public class VisitaDAOTest extends DAOUnitTest{
         assertTrue(v.getCosto() == v2.getCosto());
         assertEquals(Math.round(v.getDataOra().getTime()/1000.0),Math.round(v2.getDataOra().getTime()/1000.0));
         assertTrue(v.isAbilitato()== v2.isAbilitato());
-        assertTrue(v.getNumeroPersone() == v2.getNumeroPersone());
+//        assertTrue(v.getNumeroPersone() == v2.getNumeroPersone());
     }
         
     public void setVoceDAO(VoceDAO voceDAO) {
