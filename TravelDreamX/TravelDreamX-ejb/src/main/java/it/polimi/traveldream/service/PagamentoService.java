@@ -34,15 +34,22 @@ public class PagamentoService implements PagamentoServiceLocal {
     @Override
     public List<Pagamento> pagamentoPV(Pacchetto pv, Utente u) {
         List<Pagamento> pagamenti = new ArrayList<>();
+        System.out.println("PagamentoService.pagamentoPV -> pv.numeroPersone:" + pv.getNumeroPersone());
+
         for(Voce v : pv.getVoci()){
             Pagamento p = new Pagamento();
             p.setVoce(v);
             p.setUtente(u);
             p.setPacchetto(pv);
             p.setDataOraPagamento(new Date());
+            p.setMolteplicitaVoce(pv.getNumeroPersone());
             p = pagamentoDAO.save(p);
-            if (p != null)
-                pagamenti.add(p);
+            if (p != null){
+                pagamenti.add(p);   
+                System.out.println("PagamentoService.pagamentoPV -> pb:" + p.getVoce());
+                System.out.println("PagamentoService.pagamentoPV -> pb.spesa:" + p.getVoce().getSpesa(1));
+                System.out.println("PagamentoService.pagamentoPV -> p.spesa:" + p.getSpesa());
+            }
         }
         pagamentoDAO.flush();
         return pagamenti;
@@ -60,6 +67,11 @@ public class PagamentoService implements PagamentoServiceLocal {
         p.setUtente(u);
         p.setPacchetto(pv);
         p.setDataOraPagamento(new Date());
+        p.setMolteplicitaVoce(pv.getNumeroPersone());
+        System.out.println("PagamentoService.pagamentoPB -> pv.numeroPersone:" + pv.getNumeroPersone());
+        System.out.println("PagamentoService.pagamentoPB -> pb:" + p.getVoce());
+        System.out.println("PagamentoService.pagamentoPB -> pb.spesa:" + p.getVoce().getSpesa(1));
+        System.out.println("PagamentoService.pagamentoPB -> p.spesa:" + p.getSpesa());
         return pagamentoDAO.saveAndFlush(p);
     }
 

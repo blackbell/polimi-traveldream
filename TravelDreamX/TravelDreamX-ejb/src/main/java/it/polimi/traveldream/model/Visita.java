@@ -32,7 +32,7 @@ import org.codehaus.jackson.annotate.JsonTypeName;
 @NamedQueries({
     @NamedQuery(name = "Visita.findAll", query = "SELECT v FROM Visita v"),
     @NamedQuery(name = "Visita.findByDataOra", query = "SELECT v FROM Visita v WHERE v.dataOra = :dataOra"),
-    @NamedQuery(name = "Visita.findByNumeroPersone", query = "SELECT v FROM Visita v WHERE v.numeroPersone = :numeroPersone"),
+//    @NamedQuery(name = "Visita.findByNumeroPersone", query = "SELECT v FROM Visita v WHERE v.numeroPersone = :numeroPersone"),
     @NamedQuery(name = "Visita.findByCosto", query = "SELECT v FROM Visita v WHERE v.costo = :costo"),
     @NamedQuery(name = "Visita.findByParams", query = ""
             + "SELECT v "
@@ -45,7 +45,7 @@ import org.codehaus.jackson.annotate.JsonTypeName;
             + "(:disabilitatiInclusi = True OR v.abilitato = True)")
 })
 @JsonTypeName("Visita")
-public class Visita extends Voce implements Serializable {
+public class Visita extends Voce implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -54,10 +54,10 @@ public class Visita extends Voce implements Serializable {
     @Column(name = "dataOra")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataOra;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "numeroPersone")
-    private int numeroPersone;
+//    @Basic(optional = false)
+//    @NotNull
+//    @Column(name = "numeroPersone")
+//    private int numeroPersone;
     @Basic(optional = false)
     @NotNull
     @Column(name = "costo")
@@ -76,7 +76,7 @@ public class Visita extends Voce implements Serializable {
     public Visita(Date dataOra, int numeroPersone, float costo) {
         this();
         this.dataOra = dataOra;
-        this.numeroPersone = numeroPersone;
+//        this.numeroPersone = numeroPersone;
         this.costo = costo;
     }
 
@@ -94,13 +94,13 @@ public class Visita extends Voce implements Serializable {
         this.dataOra = dataOra;
     }
 
-    public int getNumeroPersone() {
-        return numeroPersone;
-    }
-
-    public void setNumeroPersone(int numeroPersone) {
-        this.numeroPersone = numeroPersone;
-    }
+//    public int getNumeroPersone() {
+//        return numeroPersone;
+//    }
+//
+//    public void setNumeroPersone(int numeroPersone) {
+//        this.numeroPersone = numeroPersone;
+//    }
 
     public float getCosto() {
         return costo;
@@ -143,4 +143,8 @@ public class Visita extends Voce implements Serializable {
         return "it.polimi.traveldream.model.Visita[ idVoce = " + getIdVoce() + " ]";
     }
 
+    @Override
+    public Float getSpesa(int molteplicità) {
+        return this.costo * molteplicità;
+    }
 }

@@ -107,7 +107,7 @@ public class PVServiceTest {
         v.setCosto(100f);
         v.setRotta(r);
         v.setDataOra(new Date());
-        v.setNumPasseggeri(3);
+//        v.setNumPasseggeri(3);
         v.setAbilitato(true);
         v = pbService.saveVolo(v);
         v = pbService.getVoloByID(v.getIdVoce());
@@ -120,6 +120,7 @@ public class PVServiceTest {
         p.setProprietario(u);
         p.setDataOraCreazione(new Date());
         p.setTipo(Pacchetto.PREDEFINITO);
+        p.setNumeroPersone(3);
         p.setVoci(new ArrayList<Voce>());
         p.getVoci().add(v);
         Pacchetto p2 = pvService.salvaPV(p);
@@ -136,6 +137,7 @@ public class PVServiceTest {
         p.setProprietario(u);
         p.setDataOraCreazione(new Date());
         p.setTipo(Pacchetto.PREDEFINITO);
+        p.setNumeroPersone(2);
         p.setVoci(new ArrayList<Voce>());
         Pacchetto p2 = pvService.salvaPV(p);
         Assert.assertNull(p2);
@@ -157,7 +159,7 @@ public class PVServiceTest {
         v.setCosto(100f);
         v.setRotta(r);
         v.setDataOra(new Date());
-        v.setNumPasseggeri(3);
+//        v.setNumPasseggeri(3);
         v.setAbilitato(true);
         v = pbService.saveVolo(v);
         v = pbService.getVoloByID(v.getIdVoce());
@@ -170,6 +172,7 @@ public class PVServiceTest {
         p.setDataOraCreazione(new Date());
         p.setTipo(Pacchetto.PREDEFINITO);
         p.setVoci(new ArrayList<Voce>());
+        p.setNumeroPersone(6);
         p.getVoci().add(v);
         p.setAbilitato(true);
         Pacchetto p2 = pvService.salvaPV(p);
@@ -194,7 +197,7 @@ public class PVServiceTest {
         v.setCosto(100f);
         v.setRotta(r);
         v.setDataOra(new Date());
-        v.setNumPasseggeri(3);
+//        v.setNumPasseggeri(3);
         v.setAbilitato(true);
         v = pbService.saveVolo(v);
         v = pbService.getVoloByID(v.getIdVoce());
@@ -226,6 +229,7 @@ public class PVServiceTest {
         p.setAbilitato(true);
         p.setProprietario(u);
         p.setDataOraCreazione(new Date());
+        p.setNumeroPersone(3);
         p.setTipo(Pacchetto.PREDEFINITO);
         p.setVoci(new ArrayList<Voce>());
         p.getVoci().add(v);
@@ -256,7 +260,7 @@ public class PVServiceTest {
         v.setCosto(100f);
         v.setRotta(r);
         v.setDataOra(new Date());
-        v.setNumPasseggeri(3);
+//        v.setNumPasseggeri(3);
         v.setAbilitato(true);
         v = (Volo)pbService.salvaPB(v);
         v = pbService.getVoloByID(v.getIdVoce());
@@ -289,6 +293,7 @@ public class PVServiceTest {
         p.setProprietario(u);
         p.setDataOraCreazione(new Date());
         p.setTipo(Pacchetto.PREDEFINITO);
+        p.setNumeroPersone(3);
         p.setVoci(new ArrayList<Voce>());
         p.getVoci().add(v);
         p.getVoci().add(s);
@@ -318,7 +323,7 @@ public class PVServiceTest {
         v.setCosto(100f);
         v.setRotta(r);
         v.setDataOra(new Date());
-        v.setNumPasseggeri(3);
+//        v.setNumPasseggeri(3);
         v.setAbilitato(true);
         v = pbService.saveVolo(v);
         v = pbService.getVoloByID(v.getIdVoce());
@@ -351,6 +356,7 @@ public class PVServiceTest {
         p.setProprietario(u);
         p.setDataOraCreazione(new Date());
         p.setTipo(Pacchetto.PREDEFINITO);
+        p.setNumeroPersone(3);
         p.setVoci(new ArrayList<Voce>());
         p.getVoci().add(v);
         p.getVoci().add(s);
@@ -385,7 +391,7 @@ public class PVServiceTest {
         v.setCosto(100f);
         v.setRotta(r);
         v.setDataOra(new Date());
-        v.setNumPasseggeri(3);
+//        v.setNumPasseggeri(3);
         v.setAbilitato(true);
         v = pbService.saveVolo(v);
         v = pbService.getVoloByID(v.getIdVoce());
@@ -417,6 +423,7 @@ public class PVServiceTest {
         p.setAbilitato(true);
         p.setProprietario(u);
         p.setDataOraCreazione(new Date());
+        p.setNumeroPersone(3);
         p.setTipo(Pacchetto.PREDEFINITO);
         p.setVoci(new ArrayList<Voce>());
         p.getVoci().add(v);
@@ -449,7 +456,7 @@ public class PVServiceTest {
         v.setCosto(100f);
         v.setRotta(r);
         v.setDataOra(new Date());
-        v.setNumPasseggeri(3);
+//        v.setNumPasseggeri(3);
         v.setAbilitato(true);
         v = pbService.saveVolo(v);
         v = pbService.getVoloByID(v.getIdVoce());
@@ -481,6 +488,7 @@ public class PVServiceTest {
         p.setAbilitato(true);
         p.setProprietario(u);
         p.setDataOraCreazione(new Date());
+        p.setNumeroPersone(3);
         p.setTipo(Pacchetto.PREDEFINITO);
         p.setVoci(new ArrayList<Voce>());
         p.getVoci().add(v);

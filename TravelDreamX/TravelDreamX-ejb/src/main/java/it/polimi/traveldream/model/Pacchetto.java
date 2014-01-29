@@ -78,6 +78,8 @@ public class Pacchetto implements Serializable {
     private String nome = "Pacchetto senza nome";   
     @NotNull
     private Boolean abilitato;
+    @NotNull
+    private Integer numeroPersone;
     
     @ManyToMany(fetch = FetchType.EAGER)//, cascade = CascadeType.PERSIST)
     @JoinTable(name = "composizione", joinColumns = {
@@ -159,6 +161,14 @@ public class Pacchetto implements Serializable {
     public void setAbilitato(Boolean abilitato) {
         this.abilitato = abilitato;
     }
+
+    public Integer getNumeroPersone() {
+        return numeroPersone;
+    }
+
+    public void setNumeroPersone(Integer numeroPersone) {
+        this.numeroPersone = numeroPersone;
+    }   
     
     @Override
     public int hashCode() {

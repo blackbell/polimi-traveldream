@@ -51,11 +51,14 @@ public class Pagamento implements Serializable {
     @ManyToOne
     private Voce voce;
     @NotNull
+    private Integer molteplicitaVoce;
+    @NotNull
     @ManyToOne
     private Pacchetto pacchetto;
     @JoinColumn(name = "idUtente", referencedColumnName = "email")
     @ManyToOne(optional = false)
     private Utente utente;
+    
 
     public Pagamento() {
     }
@@ -109,6 +112,13 @@ public class Pagamento implements Serializable {
         this.pacchetto = pacchetto;
     }
 
+    public Integer getMolteplicitaVoce() {
+        return molteplicitaVoce;
+    }
+
+    public void setMolteplicitaVoce(Integer molteplicitaVoce) {
+        this.molteplicitaVoce = molteplicitaVoce;
+    }
     
     @Override
     public int hashCode() {
@@ -135,4 +145,7 @@ public class Pagamento implements Serializable {
         return "it.polimi.traveldream.model.Pagamento[ idPagamento=" + idPagamento + " ]";
     }
     
+    public Float getSpesa(){
+        return voce.getSpesa(this.molteplicitaVoce);
+    }
 }
