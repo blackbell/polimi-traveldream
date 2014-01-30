@@ -37,7 +37,7 @@ public class ParametriRicercaPB {
 
     public void setGiornoVisita(Date giornoVisita) {
         long time = giornoVisita.getTime();
-        time = ((long)time / (24*60*60*1000))*(24*60*60*1000);
+        time = ((long)time / (long)(24*60*60*1000))*(24*60*60*1000);
         this.giornoVisita = new Date(time);
     }
     

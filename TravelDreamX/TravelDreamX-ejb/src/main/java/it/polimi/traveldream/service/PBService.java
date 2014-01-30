@@ -117,12 +117,13 @@ public class PBService implements PBServiceLocal {
                         param.getDataOraVolo(),
                         param.isDisabilitatiInclusi());
                 System.out.println("PBService.trovaPB -> voli.size: " + voli.size());
-                ret = new ArrayList<>();
-                for (Volo v : voli) {
-                    ret.add(v);
-                    System.out.println("PBService.trovaPB -> v: " + v);
+                if (!voli.isEmpty()){
+                    ret = new ArrayList<>();
+                    for (Volo v : voli) {
+                        ret.add(v);
+                        System.out.println("PBService.trovaPB -> v: " + v);
+                    }
                 }
-
                 break;
 
             case Soggiorno:
@@ -144,30 +145,38 @@ public class PBService implements PBServiceLocal {
                         param.getDataFineSoggiorno(), 
                         param.isDisabilitatiInclusi());
                 System.out.println("PBService.trovaPB -> soggiorni.size: " + soggiorni.size());
-                ret = new ArrayList<>();
-                for (Soggiorno s : soggiorni) {
-                    ret.add(s);
-                    System.out.println("PBService.trovaPB -> s: " + s);
+                if (!soggiorni.isEmpty()){
+                    ret = new ArrayList<>();
+                    for (Soggiorno s : soggiorni) {
+                        ret.add(s);
+                        System.out.println("PBService.trovaPB -> s: " + s);
+                    }
                 }
                 break;
             case Visita:
                 String nomeMuseo = param.getNomeMuseo();
                 String cittàMuseo = param.getCittaMuseo();
+                Date d3 = (param.getGiornoVisita()!=null)?new Date(param.getGiornoVisita().getTime()+ 24*60*60*1000):null;
                 System.out.println("PBService.trovaPB -> params.tipo = visita");
                 System.out.println("PBService.trovaPB -> params.nomeMuseo:" + param.getNomeMuseo());
                 System.out.println("PBService.trovaPB -> params.cittàMuseo:" + param.getCittaMuseo());
+                System.out.println("PBService.trovaPB -> params.giornoVisita:" + param.getGiornoVisita());
                 Collection<Visita> visite;
                 visite = voceDAO.findByParams(
                         param.getGiornoVisita(),
+                        d3,
                         nomeMuseo != null ? "%" + nomeMuseo + "%" : null,
                         cittàMuseo != null ? "%" + cittàMuseo  + "%" : null,
                         param.isDisabilitatiInclusi());
                 System.out.println("PBService.trovaPB -> visite.size: " + visite.size());
-                ret = new ArrayList<>();
-                for (Visita v : visite) {
-                    ret.add(v);
-                    System.out.println("PBService.trovaPB -> v: " + v);
+                if (!visite.isEmpty()){
+                    ret = new ArrayList<>();
+                    for (Visita v : visite) {
+                        ret.add(v);
+                        System.out.println("PBService.trovaPB -> v: " + v);
+                    }
                 }
+                
                 break;
             default:
                 break;

@@ -214,7 +214,7 @@ public class PVServiceTest {
         Soggiorno s = new Soggiorno();
         s.setAbilitato(true);
         s.setAlbergo(a);
-        s.setCosto(20);
+        s.setCosto(20f);
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
         s.setNumeroPersone(3);
@@ -277,7 +277,7 @@ public class PVServiceTest {
         Soggiorno s = new Soggiorno();
         s.setAbilitato(true);
         s.setAlbergo(a);
-        s.setCosto(20);
+        s.setCosto(20f);
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
         s.setNumeroPersone(3);
@@ -340,7 +340,7 @@ public class PVServiceTest {
         Soggiorno s = new Soggiorno();
         s.setAbilitato(true);
         s.setAlbergo(a);
-        s.setCosto(20);
+        s.setCosto(20f);
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
         s.setNumeroPersone(3);
@@ -408,7 +408,7 @@ public class PVServiceTest {
         Soggiorno s = new Soggiorno();
         s.setAbilitato(true);
         s.setAlbergo(a);
-        s.setCosto(20);
+        s.setCosto(20f);
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
         s.setNumeroPersone(3);
@@ -473,7 +473,7 @@ public class PVServiceTest {
         Soggiorno s = new Soggiorno();
         s.setAbilitato(true);
         s.setAlbergo(a);
-        s.setCosto(20);
+        s.setCosto(20f);
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
         s.setNumeroPersone(3);

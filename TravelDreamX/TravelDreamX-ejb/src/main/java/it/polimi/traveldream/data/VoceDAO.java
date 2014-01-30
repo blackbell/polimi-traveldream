@@ -37,6 +37,7 @@ public interface VoceDAO extends JpaRepository<Voce, Integer>{
 
     public Collection<Visita> findByParams(
             @Param("giornoVisita") Date giornoVisita, 
+            @Param("giornoVisita2") Date giornoVisita2, 
             @Param("nomeMuseo") String nomeMuseo, 
             @Param("cittaMuseo") String cittaMuseo, 
             @Param("disabilitatiInclusi") boolean disabilitatiInclusi);
