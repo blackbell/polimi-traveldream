@@ -68,7 +68,7 @@ public class Soggiorno extends Voce implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "costo")
-    private float costo;
+    private Float costo;
     @JoinColumn(name = "idAlbergo", referencedColumnName = "idAlbergo")
     @ManyToOne(optional = false)
     private Albergo albergo;
@@ -120,11 +120,11 @@ public class Soggiorno extends Voce implements Serializable {
         this.numeroPersone = numeroPersone;
     }
 
-    public float getCosto() {
+    public Float getCosto() {
         return costo;
     }
 
-    public void setCosto(float costo) {
+    public void setCosto(Float costo) {
         this.costo = costo;
     }
 

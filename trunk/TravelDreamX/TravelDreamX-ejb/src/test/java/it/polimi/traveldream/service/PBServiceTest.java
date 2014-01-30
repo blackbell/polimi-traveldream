@@ -24,7 +24,6 @@ import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 
 /**
  *
@@ -83,19 +82,76 @@ public class PBServiceTest {
         assertTrue(pbs.contains(v));
     }
     
-    @Test @Ignore
+    @Test
     public void testRetrieveVoloByID(){
+        Rotta r = new Rotta();
+        r.setAeroportoPartenza("Breda Air Deposit");
+        r.setAeroportoArrivo("Atlandide");
+        r.setNazionePartenza("Italia");
+        r.setNazioneArrivo("Mondo sottomarino");
+        r.setCompagniaAerea("Mille bolle blu");
+        r.setCittaPartenza("Pistoia");
+        r.setCittaArrivo("Atlantide");
+        edbService.salvaRotta(r);
         
+        Volo v = new Volo();
+        v.setDataOra(new Date());
+        v.setRotta(r);
+        v.setCosto(120.7f);
+        v.setAbilitato(false);
+        v = (Volo)pbService.salvaPB(v);
+        
+        Volo v2 = pbService.getVoloByID(v.getIdVoce());
+        Assert.assertEquals(v.getRotta(), v2.getRotta());
+        Assert.assertEquals(v.getCosto(), v2.getCosto());
+        Assert.assertEquals(v.getDataOra(), v2.getDataOra());
     }
     
-    @Test @Ignore
+    @Test
     public void testRetrieveSoggiornoByID(){
+        Albergo a = new Albergo();
+        a.setCitta("Paperopoli");
+        a.setNome("Pensione deposito");
+        a.setUrlFoto(TestUtilities.getRandomImageLink());
+        a.setStelle(4);
+        edbService.salvaAlbergo(a);
         
+        Soggiorno s = new Soggiorno();
+        s.setAbilitato(true);
+        s.setAlbergo(a);
+        s.setCosto(240.0f);
+        s.setGiornoInizio(new Date());
+        s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
+        s.setNumeroPersone(5);
+        s = (Soggiorno)pbService.salvaPB(s);
+        Soggiorno s2 = pbService.getSoggiornoByID(s.getIdVoce());
+        Assert.assertEquals(s.getAlbergo(),s2.getAlbergo());
+        Assert.assertTrue(s.getCosto().equals(s2.getCosto()));
+        Assert.assertEquals(s.getGiornoInizio(),s2.getGiornoInizio());
+        Assert.assertEquals(s.getGiornoFine(),s2.getGiornoFine());
+        Assert.assertEquals(s.getNumeroPersone(),s2.getNumeroPersone());
     }
     
-    @Test @Ignore
+    @Test
     public void testRetrieveVisitaByID(){
+        Museo m = new Museo();
+        m.setNome("testRetrieveVisitaByID");
+        m.setCitta("Parigi");
+        m.setDescrizione("Museo bello. Molto bello.");
+        m.setUrlFoto(TestUtilities.getRandomImageLink());
+        edbService.salvaMuseo(m);
         
+        Visita v = new Visita();
+        v.setAbilitato(true);
+        v.setMuseo(m);
+        v.setDataOra(new Date());
+        v.setCosto(15f);
+        v = (Visita)pbService.salvaPB(v);
+        Visita v2 = pbService.getVisitaByID(v.getIdVoce());
+        Assert.assertEquals(v.getMuseo(), v2.getMuseo());
+        Assert.assertEquals(v.getCosto(), v2.getCosto());
+//        Assert.assertEquals(v.getGiornoVisita(), v2.getGiornoVisita());
+        Assert.assertEquals(v.getDataOra(), v2.getDataOra());
     }
     
     @Test
@@ -157,12 +213,7 @@ public class PBServiceTest {
         List<Voce> pbs = pbService.trovaPB(params);
         assertTrue(pbs.contains(v));
     }
-    
-    @Test @Ignore
-    public void testRetrieveVoloByCosto(){
         
-    }
-    
     @Test
     public void testRetrieveSoggiornoByParams(){
         System.out.println("testRetrieveSoggiornoByParams()");
@@ -176,11 +227,11 @@ public class PBServiceTest {
         Soggiorno s = new Soggiorno();
         s.setAbilitato(true);
         s.setAlbergo(a);
-        s.setCosto(240);
+        s.setCosto(240.0f);
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
         s.setNumeroPersone(5);
-        pbService.saveSoggiorno(s);
+        pbService.salvaPB(s);
         
         ParametriRicercaPB params = new ParametriRicercaPB();
         params.setTipo(TipoPB.Soggiorno);
@@ -205,7 +256,7 @@ public class PBServiceTest {
         Soggiorno s = new Soggiorno();
         s.setAbilitato(true);
         s.setAlbergo(a);
-        s.setCosto(240);
+        s.setCosto(240.0f);
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
         s.setNumeroPersone(5);
@@ -233,7 +284,7 @@ public class PBServiceTest {
         Soggiorno s = new Soggiorno();
         s.setAbilitato(true);
         s.setAlbergo(a);
-        s.setCosto(240);
+        s.setCosto(240.0f);
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3*24*60*60*1000));
         s.setNumeroPersone(5);
@@ -244,11 +295,6 @@ public class PBServiceTest {
         params.setDataInizioSoggiorno(s.getGiornoInizio());
         List<Voce> pbs = pbService.trovaPB(params);
         assertTrue(pbs.contains(s));
-    }
-    
-    @Test @Ignore
-    public void testRetrieveSoggiornoByCosto(){
-        
     }
          
     @Test
@@ -264,7 +310,7 @@ public class PBServiceTest {
         Soggiorno s = new Soggiorno();
         s.setAbilitato(true);
         s.setAlbergo(a);
-        s.setCosto(240);
+        s.setCosto(240.0f);
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
         s.setNumeroPersone(5);
@@ -291,8 +337,7 @@ public class PBServiceTest {
         v.setAbilitato(true);
         v.setMuseo(m);
         v.setDataOra(new Date());
-//        v.setNumeroPersone(4);
-        v.setCosto(15);
+        v.setCosto(15f);
         pbService.saveVisita(v);
         
         ParametriRicercaPB params = new ParametriRicercaPB();
@@ -317,8 +362,7 @@ public class PBServiceTest {
         v.setAbilitato(true);
         v.setMuseo(m);
         v.setDataOra(new Date());
-//        v.setNumeroPersone(4);
-        v.setCosto(15);
+        v.setCosto(15f);
         pbService.saveVisita(v);
         
         ParametriRicercaPB params = new ParametriRicercaPB();
@@ -330,9 +374,54 @@ public class PBServiceTest {
         assertTrue(pbs.contains(v));
     }
     
-    @Test @Ignore
-    public void testRetrieveVisitaByGiorno(){
+    @Test
+    public void testRetrieveVisitaByCittaMuseo(){
+        System.out.println("testRetrieveVisitaByParams()");
+        Museo m = new Museo();
+        m.setNome("Louvre");
+        m.setCitta("Parigi");
+        m.setDescrizione("Museo bello. Molto bello.");
+        m.setUrlFoto(TestUtilities.getRandomImageLink());
+        edbService.salvaMuseo(m);
         
+        Visita v = new Visita();
+        v.setAbilitato(true);
+        v.setMuseo(m);
+        v.setDataOra(new Date());
+        v.setCosto(15f);
+        pbService.salvaPB(v);
+        
+        ParametriRicercaPB params = new ParametriRicercaPB();
+        params.setTipo(TipoPB.Visita);
+        params.setCittaMuseo(m.getCitta());
+        
+        List<Voce> pbs = pbService.trovaPB(params);
+        assertTrue(pbs.contains(v));
+    }
+    
+    
+    @Test
+    public void testRetrieveVisitaByGiorno(){
+        Museo m = new Museo();
+        m.setNome("Louvre");
+        m.setCitta("Parigi");
+        m.setDescrizione("Museo bello. Molto bello.");
+        m.setUrlFoto(TestUtilities.getRandomImageLink());
+        edbService.salvaMuseo(m);
+        
+        Visita v = new Visita();
+        v.setAbilitato(true);
+        v.setMuseo(m);
+        v.setDataOra(new Date());
+        v.setCosto(15f);
+        pbService.salvaPB(v);
+        
+        ParametriRicercaPB params = new ParametriRicercaPB();
+        params.setTipo(TipoPB.Visita);
+        params.setGiornoVisita(v.getDataOra());
+        
+        List<Voce> pbs = pbService.trovaPB(params);
+        assertTrue(pbs.contains(v));
     }
     
     @Test
@@ -372,7 +461,7 @@ public class PBServiceTest {
         Soggiorno s = new Soggiorno();
         s.setAbilitato(true);
         s.setAlbergo(a);
-        s.setCosto(240);
+        s.setCosto(240.0f);
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
         s.setNumeroPersone(5);
@@ -395,9 +484,8 @@ public class PBServiceTest {
         v.setAbilitato(true);
         v.setMuseo(m);
         v.setDataOra(new Date());
-//        v.setNumeroPersone(4);
-        v.setCosto(15);
-        v = pbService.saveVisita(v);
+        v.setCosto(15f);
+        v = (Visita)pbService.salvaPB(v);
         Assert.assertNotNull(v);
     }
     
@@ -440,7 +528,7 @@ public class PBServiceTest {
         Soggiorno s = new Soggiorno();
         s.setAbilitato(true);
         s.setAlbergo(a);
-        s.setCosto(240);
+        s.setCosto(240.0f);
         s.setGiornoInizio(new Date());
         s.setGiornoFine(new Date(s.getGiornoInizio().getTime() + 3 * 24 * 60 * 60 * 1000));
         s.setNumeroPersone(5);
@@ -466,7 +554,7 @@ public class PBServiceTest {
         v.setMuseo(m);
         v.setDataOra(new Date());
 //        v.setNumeroPersone(4);
-        v.setCosto(15);
+        v.setCosto(15f);
         pbService.saveVisita(v);
         
         pbService.disattivaPB(v.getIdVoce());

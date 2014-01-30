@@ -41,7 +41,7 @@ import org.codehaus.jackson.annotate.JsonTypeName;
             + "WHERE "
             + "(:nomeMuseo IS NULL OR m.nome LIKE :nomeMuseo) AND "
             + "(:cittaMuseo IS NULL OR m.citta LIKE :cittaMuseo) AND "
-            + "(:giornoVisita IS NULL OR v.giornoVisita = :giornoVisita) AND "
+            + "(:giornoVisita IS NULL OR (v.dataOra BETWEEN :giornoVisita AND :giornoVisita2)) AND "
             + "(:disabilitatiInclusi = True OR v.abilitato = True)")
 })
 @JsonTypeName("Visita")
@@ -61,13 +61,13 @@ public class Visita extends Voce implements Serializable{
     @Basic(optional = false)
     @NotNull
     @Column(name = "costo")
-    private float costo;
+    private Float costo;
     @JoinColumn(name = "idMuseo", referencedColumnName = "idMuseo")
     @ManyToOne(optional = false)
     private Museo museo;
-    @Temporal(TemporalType.DATE)
-    @Column(name = "giornoVisita")
-    private Date giornoVisita;
+//    @Temporal(TemporalType.DATE)
+//    @Column(name = "giornoVisita")
+//    private Date giornoVisita;
 
     public Visita() {
         this.setTipo("Visita");
@@ -84,29 +84,23 @@ public class Visita extends Voce implements Serializable{
         return dataOra;
     }
     
-    public Date getGiornoVisita(){
-        long time = getDataOra().getTime();
-        time = ((int)time / (60*60*24))*(60*60*24);
-        return new Date(time);
-    }
+//    public Date getGiornoVisita(){
+//        long time = getDataOra().getTime();
+//        time = ((int)time / (60*60*24 * 1000))*(60*60*24 * 1000);
+//        return new Date(time);
+//    }
 
     public void setDataOra(Date dataOra) {
-        this.dataOra = dataOra;
+        long time = dataOra.getTime();
+        time = ((long) ((long) time / (long) (1000))) * (1000);
+        this.dataOra = new Date(time);
     }
 
-//    public int getNumeroPersone() {
-//        return numeroPersone;
-//    }
-//
-//    public void setNumeroPersone(int numeroPersone) {
-//        this.numeroPersone = numeroPersone;
-//    }
-
-    public float getCosto() {
+    public Float getCosto() {
         return costo;
     }
 
-    public void setCosto(float costo) {
+    public void setCosto(Float costo) {
         this.costo = costo;
     }
 

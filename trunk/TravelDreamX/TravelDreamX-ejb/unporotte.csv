@@ -1,0 +1,1001 @@
+aeroportoPartenza;cittàPartenza;nazionePartenza;aeroportoArrivo;cittàArrivo;nazioneArrivo;compagniaAerea
+Astrakhan;Astrakhan;Russia;Pulkovo;"St. Petersburg";Russia;Aerocondor
+Kazan;Kazan;Russia;"Boryspil Intl";Kiev;Ukraine;Aerocondor
+Kazan;Kazan;Russia;Pulkovo;"St. Petersburg";Russia;Aerocondor
+Kazan;Kazan;Russia;"Franz Josef Strauss";Munich;Germany;Aerocondor
+Uytash;Makhachkala;Russia;Domododevo;Moscow;Russia;Aerocondor
+Uytash;Makhachkala;Russia;Pulkovo;"St. Petersburg";Russia;Aerocondor
+Begishevo;Nizhnekamsk;Russia;Domododevo;Moscow;Russia;Aerocondor
+Begishevo;Nizhnekamsk;Russia;"Heydar Aliyev";Baku;Azerbaijan;Aerocondor
+Begishevo;Nizhnekamsk;Russia;Pulkovo;"St. Petersburg";Russia;Aerocondor
+"Bugulma Airport";Bugulma;Russia;Domododevo;Moscow;Russia;Aerocondor
+"Bugulma Airport";Bugulma;Russia;Pulkovo;"St. Petersburg";Russia;Aerocondor
+Ouagadougou;Ouagadougou;"Burkina Faso";"Kotoka Intl";Accra;Ghana;"Air Burkina"
+Antalya;Antalya;Turkey;"Geneve Cointrin";Geneva;Switzerland;"Helvetic Airways"
+Casale;Brindisi;Italy;Zurich;Zurich;Switzerland;"Helvetic Airways"
+Bari;Bari;Italy;Zurich;Zurich;Switzerland;"Helvetic Airways"
+"Bern Belp";Bern;Switzerland;"Catania Fontanarossa";Catania;Italy;"Helvetic Airways"
+"Bern Belp";Bern;Switzerland;"Son Sant Joan";"Palma de Mallorca";Spain;"Helvetic Airways"
+Bristol;Bristol;"United Kingdom";Zurich;Zurich;Switzerland;"Helvetic Airways"
+"Saint Catherine";Calvi;France;Zurich;Zurich;Switzerland;"Helvetic Airways"
+Fuerteventura;Fuerteventura;Spain;"Geneve Cointrin";Geneva;Switzerland;"Helvetic Airways"
+"Geneve Cointrin";Geneva;Switzerland;Lanzarote;"Las Palmas";Spain;"Helvetic Airways"
+"Geneve Cointrin";Geneva;Switzerland;Larnaca;Larnaca;Cyprus;"Helvetic Airways"
+"Heringsdorf Airport";Heringsdorf;Germany;Zurich;Zurich;Switzerland;"Helvetic Airways"
+"Nikos Kazantzakis";Heraklion;Greece;"Geneve Cointrin";Geneva;Switzerland;"Helvetic Airways"
+Inverness;Inverness;"United Kingdom";Zurich;Zurich;Switzerland;"Helvetic Airways"
+Larnaca;Larnaca;Cyprus;"Geneve Cointrin";Geneva;Switzerland;"Helvetic Airways"
+"Rhodes Diagoras";Rhodos;Greece;"Geneve Cointrin";Geneva;Switzerland;"Helvetic Airways"
+Laage;Laage;Germany;Zurich;Zurich;Switzerland;"Helvetic Airways"
+"Lamezia Terme";Lamezia;Italy;Zurich;Zurich;Switzerland;"Helvetic Airways"
+"Tenerife Sur";Tenerife;Spain;"Geneve Cointrin";Geneva;Switzerland;"Helvetic Airways"
+Zurich;Zurich;Switzerland;Bari;Bari;Italy;"Helvetic Airways"
+Zurich;Zurich;Switzerland;Inverness;Inverness;"United Kingdom";"Helvetic Airways"
+Gallivare;Gallivare;Sweden;Arlanda;Stockholm;Sweden;NextJet
+Halmstad;Halmstad;Sweden;Arlanda;Stockholm;Sweden;NextJet
+Lycksele;Lycksele;Sweden;Arlanda;Stockholm;Sweden;NextJet
+Visby;Visby;Sweden;Arlanda;Stockholm;Sweden;NextJet
+Vilhelmina;Vilhelmina;Sweden;Arlanda;Stockholm;Sweden;NextJet
+"Mactan Cebu Intl";Cebu;Philippines;"Hong Kong Intl";"Hong Kong";"Hong Kong";"Air Philippines"
+"Ninoy Aquino Intl";Manila;Philippines;"Changi Intl";Singapore;Singapore;"Air Philippines"
+Pori;Pori;Finland;"Helsinki Vantaa";Helsinki;Finland;JobAir
+"Kotoka Intl";Accra;Ghana;"Monrovia Roberts Intl";Monrovia;Liberia;"Atlant-Soyuz Airlines"
+"Banjul Intl";Banjul;Gambia;"Kotoka Intl";Accra;Ghana;"Atlant-Soyuz Airlines"
+"Banjul Intl";Banjul;Gambia;Barcelona;Barcelona;Spain;"Atlant-Soyuz Airlines"
+"Banjul Intl";Banjul;Gambia;"Freetown Lungi";Freetown;"Sierra Leone";"Atlant-Soyuz Airlines"
+"Banjul Intl";Banjul;Gambia;Gatwick;London;"United Kingdom";"Atlant-Soyuz Airlines"
+"Leopold Sedar Senghor Intl";Dakar;Senegal;"Freetown Lungi";Freetown;"Sierra Leone";"Atlant-Soyuz Airlines"
+"Freetown Lungi";Freetown;"Sierra Leone";Gatwick;London;"United Kingdom";"Atlant-Soyuz Airlines"
+"Freetown Lungi";Freetown;"Sierra Leone";"Monrovia Roberts Intl";Monrovia;Liberia;"Atlant-Soyuz Airlines"
+Gatwick;London;"United Kingdom";"Freetown Lungi";Freetown;"Sierra Leone";"Atlant-Soyuz Airlines"
+"Monrovia Roberts Intl";Monrovia;Liberia;"Kotoka Intl";Accra;Ghana;"Atlant-Soyuz Airlines"
+"Monrovia Roberts Intl";Monrovia;Liberia;"Freetown Lungi";Freetown;"Sierra Leone";"Atlant-Soyuz Airlines"
+"Ambouli International Airport";Djibouti;Djibouti;"Dubai Intl";Dubai;"United Arab Emirates";Zip
+"Ambouli International Airport";Djibouti;Djibouti;"King Abdulaziz Intl";Jeddah;"Saudi Arabia";Zip
+"Aden Adde International Airport";Mogadishu;Somalia;"Jomo Kenyatta International";Nairobi;Kenya;Zip
+"Suvarnabhumi Intl";Bangkok;Thailand;"Changi Intl";Singapore;Singapore;"Jetstar Asia Airways"
+"Baiyun Intl";Guangzhou;China;"Changi Intl";Singapore;Singapore;"Jetstar Asia Airways"
+Meilan;Haikou;China;"Changi Intl";Singapore;Singapore;"Jetstar Asia Airways"
+Xiaoshan;Hangzhou;China;"Changi Intl";Singapore;Singapore;"Jetstar Asia Airways"
+"Hong Kong Intl";"Hong Kong";"Hong Kong";"Changi Intl";Singapore;Singapore;"Jetstar Asia Airways"
+"Phuket Intl";Phuket;Thailand;"Changi Intl";Singapore;Singapore;"Jetstar Asia Airways"
+"Kuala Lumpur Intl";"Kuala Lumpur";Malaysia;"Changi Intl";Singapore;Singapore;"Jetstar Asia Airways"
+"Ninoy Aquino Intl";Manila;Philippines;"Changi Intl";Singapore;Singapore;"Jetstar Asia Airways"
+"Penang Intl";Penang;Malaysia;"Changi Intl";Singapore;Singapore;"Jetstar Asia Airways"
+"Perth Intl";Perth;Australia;"Changi Intl";Singapore;Singapore;"Jetstar Asia Airways"
+"Phnom Penh Intl";Phnom-penh;Cambodia;"Changi Intl";Singapore;Singapore;"Jetstar Asia Airways"
+"Yangon Intl";Yangon;Burma;"Changi Intl";Singapore;Singapore;"Jetstar Asia Airways"
+"Tansonnhat Intl";"Ho Chi Minh City";Vietnam;"Changi Intl";Singapore;Singapore;"Jetstar Asia Airways"
+"Changi Intl";Singapore;Singapore;"Suvarnabhumi Intl";Bangkok;Thailand;"Jetstar Asia Airways"
+"Changi Intl";Singapore;Singapore;"Hong Kong Intl";"Hong Kong";"Hong Kong";"Jetstar Asia Airways"
+"Changi Intl";Singapore;Singapore;"Perth Intl";Perth;Australia;"Jetstar Asia Airways"
+"Wai Sha Airport";Shantou;China;"Changi Intl";Singapore;Singapore;"Jetstar Asia Airways"
+"Taoyuan Intl";Taipei;Taiwan;"Changi Intl";Singapore;Singapore;"Jetstar Asia Airways"
+"Marina Di Campo";"Marina Di Campo";Italy;"Geneve Cointrin";Geneva;Switzerland;Intersky
+"Marina Di Campo";"Marina Di Campo";Italy;"Franz Josef Strauss";Munich;Germany;Intersky
+"Marina Di Campo";"Marina Di Campo";Italy;Zurich;Zurich;Switzerland;Intersky
+Friedrichshafen;Friedrichshafen;Germany;Dusseldorf;Duesseldorf;Germany;Intersky
+Friedrichshafen;Friedrichshafen;Germany;Hamburg;Hamburg;Germany;Intersky
+Friedrichshafen;Friedrichshafen;Germany;"Olbia Costa Smeralda";Olbia;Italy;Intersky
+Friedrichshafen;Friedrichshafen;Germany;Tegel;Berlin;Germany;Intersky
+"Baden Airpark";Karlsruhe/Baden-Baden;Germany;Hamburg;Hamburg;Germany;Intersky
+Graz;Graz;Austria;Zurich;Zurich;Switzerland;Intersky
+Salzburg;Salzburg;Austria;Zurich;Zurich;Switzerland;Intersky
+Zurich;Zurich;Switzerland;Salzburg;Salzburg;Austria;Intersky
+"Mohammed V Intl";Casablanca;Morocco;Schiphol;Amsterdam;Netherlands;"Air Arabia Maroc"
+"Mohammed V Intl";Casablanca;Morocco;Barcelona;Barcelona;Spain;"Air Arabia Maroc"
+"Mohammed V Intl";Casablanca;Morocco;Bologna;Bologna;Italy;"Air Arabia Maroc"
+"Mohammed V Intl";Casablanca;Morocco;"Brussels Natl";Brussels;Belgium;"Air Arabia Maroc"
+"Mohammed V Intl";Casablanca;Morocco;Gatwick;London;"United Kingdom";"Air Arabia Maroc"
+"Mohammed V Intl";Casablanca;Morocco;"Saint Exupery";Lyon;France;"Air Arabia Maroc"
+"Mohammed V Intl";Casablanca;Morocco;"Sabiha Gokcen";Istanbul;Turkey;"Air Arabia Maroc"
+"Mohammed V Intl";Casablanca;Morocco;Blagnac;Toulouse;France;"Air Arabia Maroc"
+"Mohammed V Intl";Casablanca;Morocco;"Venezia Tessera";Venice;Italy;"Air Arabia Maroc"
+"El Aroui Airport";"El Aroui";Morocco;Schiphol;Amsterdam;Netherlands;"Air Arabia Maroc"
+"El Aroui Airport";"El Aroui";Morocco;Barcelona;Barcelona;Spain;"Air Arabia Maroc"
+"El Aroui Airport";"El Aroui";Morocco;"Brussels Natl";Brussels;Belgium;"Air Arabia Maroc"
+"El Aroui Airport";"El Aroui";Morocco;"Son Sant Joan";"Palma de Mallorca";Spain;"Air Arabia Maroc"
+"Ibn Batouta";Tanger;Morocco;Schiphol;Amsterdam;Netherlands;"Air Arabia Maroc"
+"Ibn Batouta";Tanger;Morocco;Barcelona;Barcelona;Spain;"Air Arabia Maroc"
+"Ibn Batouta";Tanger;Morocco;"Brussels Natl";Brussels;Belgium;"Air Arabia Maroc"
+"Ibn Batouta";Tanger;Morocco;Gatwick;London;"United Kingdom";"Air Arabia Maroc"
+Bukhara;Bukhara;Uzbekistan;Domododevo;Moscow;Russia;"Moskovia Airlines"
+"Fergana Airport";Fergana;Uzbekistan;Domododevo;Moscow;Russia;"Moskovia Airlines"
+"Karshi Khanabad Airport";Khanabad;Uzbekistan;Domododevo;Moscow;Russia;"Moskovia Airlines"
+"Namangan Airport";Namangan;Uzbekistan;Domododevo;Moscow;Russia;"Moskovia Airlines"
+"Navoi Airport";Navoi;Uzbekistan;Domododevo;Moscow;Russia;"Moskovia Airlines"
+Samarkand;Samarkand;Uzbekistan;Domododevo;Moscow;Russia;"Moskovia Airlines"
+Tivat;Tivat;Montenegro;Domododevo;Moscow;Russia;"Moskovia Airlines"
+Jiangbei;Chongqing;China;"Capital Intl";Beijing;China;"Sichuan Airlines"
+Jiangbei;Chongqing;China;Pudong;Shanghai;China;"Sichuan Airlines"
+Shuangliu;Chengdu;China;"Hong Kong Intl";"Hong Kong";"Hong Kong";"Sichuan Airlines"
+Shuangliu;Chengdu;China;"Incheon Intl";Seoul;"South Korea";"Sichuan Airlines"
+Shuangliu;Chengdu;China;"Melbourne Intl";Melbourne;Australia;"Sichuan Airlines"
+Shuangliu;Chengdu;China;"Male Intl";Male;Maldives;"Sichuan Airlines"
+Shuangliu;Chengdu;China;"Capital Intl";Beijing;China;"Sichuan Airlines"
+Shuangliu;Chengdu;China;Pudong;Shanghai;China;"Sichuan Airlines"
+Wuxu;Nanning;China;"Changi Intl";Singapore;Singapore;"Sichuan Airlines"
+"Shenyang Taoxian International Airport";Shenyang;China;"Vancouver Intl";Vancouver;Canada;"Sichuan Airlines"
+"Francisco C Ada Saipan Intl";Saipan;"Northern Mariana Islands";Pudong;Shanghai;China;"Sichuan Airlines"
+"Wanxian Airport";Wanxian;China;"Capital Intl";Beijing;China;"Sichuan Airlines"
+"Yichang Airport";Yichang;China;"Hong Kong Intl";"Hong Kong";"Hong Kong";"Sichuan Airlines"
+"Zhongwei Xiangshan Airport";Zhongwei;China;"Capital Intl";Beijing;China;"Sichuan Airlines"
+"Cairo Intl";Cairo;Egypt;"Ben Gurion";Tel-aviv;Israel;"Air Sinai"
+"Ben Gurion";Tel-aviv;Israel;"Cairo Intl";Cairo;Egypt;"Air Sinai"
+Vityazevo;Anapa;Russia;Vnukovo;Moscow;Russia;Gazpromavia
+Barnaul;Barnaul;Russia;Vnukovo;Moscow;Russia;Gazpromavia
+Beloyarsky;Beloyarsky;Russia;Vnukovo;Moscow;Russia;Gazpromavia
+Gelendzik;Gelendzik;Russia;Vnukovo;Moscow;Russia;Gazpromavia
+Pulkovo;"St. Petersburg";Russia;Vnukovo;Moscow;Russia;Gazpromavia
+Uytash;Makhachkala;Russia;Vnukovo;Moscow;Russia;Gazpromavia
+"Nukus Airport";Nukus;Uzbekistan;Vnukovo;Moscow;Russia;Gazpromavia
+"Novyi Urengoy";"Novy Urengoy";Russia;Vnukovo;Moscow;Russia;Gazpromavia
+"Nadym Airport";Nadym;Russia;Vnukovo;Moscow;Russia;Gazpromavia
+"Sovetsky Tyumenskaya Airport";Sovetskiy;Russia;Vnukovo;Moscow;Russia;Gazpromavia
+Roschino;Tyumen;Russia;Vnukovo;Moscow;Russia;Gazpromavia
+Ukhta;Ukhta;Russia;Vnukovo;Moscow;Russia;Gazpromavia
+Vnukovo;Moscow;Russia;Pulkovo;"St. Petersburg";Russia;Gazpromavia
+"Shah Amanat Intl";Chittagong;Bangladesh;"Seeb Intl";Muscat;Oman;"United Airways"
+"Zia Intl";Dhaka;Bangladesh;"Suvarnabhumi Intl";Bangkok;Thailand;"United Airways"
+"Zia Intl";Dhaka;Bangladesh;"Dubai Intl";Dubai;"United Arab Emirates";"United Airways"
+"Zia Intl";Dhaka;Bangladesh;"Seeb Intl";Muscat;Oman;"United Airways"
+"Dubai Intl";Dubai;"United Arab Emirates";"King Abdulaziz Intl";Jeddah;"Saudi Arabia";"United Airways"
+"Kuala Lumpur Intl";"Kuala Lumpur";Malaysia;"Suvarnabhumi Intl";Bangkok;Thailand;"United Airways"
+"Dallas Fort Worth Intl";"Dallas-Fort Worth";"United States";"Ministro Pistarini";"Buenos Aires";Argentina;"LAN Argentina"
+"Ministro Pistarini";"Buenos Aires";Argentina;"Dallas Fort Worth Intl";"Dallas-Fort Worth";"United States";"LAN Argentina"
+"Ministro Pistarini";"Buenos Aires";Argentina;"John F Kennedy Intl";"New York";"United States";"LAN Argentina"
+"Ministro Pistarini";"Buenos Aires";Argentina;"Miami Intl";Miami;"United States";"LAN Argentina"
+"Ministro Pistarini";"Buenos Aires";Argentina;"Punta Cana Intl";"Punta Cana";"Dominican Republic";"LAN Argentina"
+"John F Kennedy Intl";"New York";"United States";"Ministro Pistarini";"Buenos Aires";Argentina;"LAN Argentina"
+"Miami Intl";Miami;"United States";"Ministro Pistarini";"Buenos Aires";Argentina;"LAN Argentina"
+"Miami Intl";Miami;"United States";"Punta Cana Intl";"Punta Cana";"Dominican Republic";"LAN Argentina"
+"Punta Cana Intl";"Punta Cana";"Dominican Republic";"Ministro Pistarini";"Buenos Aires";Argentina;"LAN Argentina"
+"Punta Cana Intl";"Punta Cana";"Dominican Republic";"Miami Intl";Miami;"United States";"LAN Argentina"
+Kelowna;Kelowna;Canada;"Vancouver Intl";Vancouver;Canada;"Air North Charter - Canada"
+"Whitehorse Intl";Whitehorse;Canada;"Vancouver Intl";Vancouver;Canada;"Air North Charter - Canada"
+"Whitehorse Intl";Whitehorse;Canada;"Calgary Intl";Calgary;Canada;"Air North Charter - Canada"
+"General Juan N Alvarez Intl";Acapulco;Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Eldorado Intl";Bogota;Colombia;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Ciudad Obregon Intl";"Ciudad Obregon";Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Abraham Gonzalez Intl";"Ciudad Juarez";Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Ciudad Del Carmen Intl";"Ciudad Del Carmen";Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Chetumal Intl";Chetumal;Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Culiacan Intl";Culiacan;Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Cancun Intl";Cancun;Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"General R Fierro Villalobos Intl";Chihuahua;Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Cozumel Intl";Cozumel;Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Don Miguel Hidalgo Y Costilla Intl";Guadalajara;Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"La Aurora";"Guatemala City";Guatemala;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Jose Marti Intl";Havana;Cuba;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"General Ignacio P Garcia Intl";Hermosillo;Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Bahias De Huatulco Intl";Huatulco;Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"John F Kennedy Intl";"New York";"United States";"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Cancun Intl";Cancun;Mexico;"Interjet (ABC Aerolineas)"
+"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"La Aurora";"Guatemala City";Guatemala;"Interjet (ABC Aerolineas)"
+"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"John F Kennedy Intl";"New York";"United States";"Interjet (ABC Aerolineas)"
+"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Miami Intl";Miami;"United States";"Interjet (ABC Aerolineas)"
+"Miami Intl";Miami;"United States";"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Licenciado Manuel Crescencio Rejon Int";Merida;Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"General Mariano Escobedo Intl";Monterrey;Mexico;"Cancun Intl";Cancun;Mexico;"Interjet (ABC Aerolineas)"
+"General Mariano Escobedo Intl";Monterrey;Mexico;"Mc Carran Intl";"Las Vegas";"United States";"Interjet (ABC Aerolineas)"
+"General Mariano Escobedo Intl";Monterrey;Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Xoxocotlan Intl";Oaxaca;Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Licenciado Gustavo Diaz Ordaz Intl";"Puerto Vallarta";Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"San Antonio Intl";"San Antonio";"United States";"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Los Cabos Intl";"San Jose Del Cabo";Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Juan Santamaria Intl";"San Jose";"Costa Rica";"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"John Wayne Arpt Orange Co";"Santa Ana";"United States";"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"General Francisco Javier Mina Intl";Tampico;Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Angel Albino Corzo";"Tuxtla Gutierrez";Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"General Abelardo L Rodriguez Intl";Tijuana;Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Licenciado Adolfo Lopez Mateos Intl";Toluca;Mexico;"Cancun Intl";Cancun;Mexico;"Interjet (ABC Aerolineas)"
+"Licenciado Adolfo Lopez Mateos Intl";Toluca;Mexico;"Mc Carran Intl";"Las Vegas";"United States";"Interjet (ABC Aerolineas)"
+"General Heriberto Jara Intl";"Vera Cruz";Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"C P A Carlos Rovirosa Intl";Villahermosa;Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Ixtapa Zihuatanejo Intl";Zihuatanejo;Mexico;"Licenciado Benito Juarez Intl";"Mexico City";Mexico;"Interjet (ABC Aerolineas)"
+"Kabul Intl";Kabul;Afghanistan;"Indira Gandhi Intl";Delhi;India;"Safi Airlines"
+"Kabul Intl";Kabul;Afghanistan;"Dubai Intl";Dubai;"United Arab Emirates";"Safi Airlines"
+Antalya;Antalya;Turkey;"EuroAirport Basel-Mulhouse-Freiburg";Basel;Switzerland;"Belair Airlines"
+Antalya;Antalya;Turkey;Zurich;Zurich;Switzerland;"Belair Airlines"
+Zarzis;Djerba;Tunisia;"EuroAirport Basel-Mulhouse-Freiburg";Basel;Switzerland;"Belair Airlines"
+Zarzis;Djerba;Tunisia;Zurich;Zurich;Switzerland;"Belair Airlines"
+"Hurghada Intl";Hurghada;Egypt;"EuroAirport Basel-Mulhouse-Freiburg";Basel;Switzerland;"Belair Airlines"
+"Hurghada Intl";Hurghada;Egypt;Zurich;Zurich;Switzerland;"Belair Airlines"
+"Enfidha - Zine El Abidine Ben Ali International Airport";Enfidha;Tunisia;"EuroAirport Basel-Mulhouse-Freiburg";Basel;Switzerland;"Belair Airlines"
+Pristina;Pristina;Serbia;Zurich;Zurich;Switzerland;"Belair Airlines"
+"Marsa Alam Intl";"Marsa Alam";Egypt;Zurich;Zurich;Switzerland;"Belair Airlines"
+"Adnan Menderes";Izmir;Turkey;Hannover;Hannover;Germany;Germanwings
+"Adnan Menderes";Izmir;Turkey;Stuttgart;Stuttgart;Germany;Germanwings
+Malaga;Malaga;Spain;Stuttgart;Stuttgart;Germany;Germanwings
+"Eleftherios Venizelos Intl";Athens;Greece;Stuttgart;Stuttgart;Germany;Germanwings
+Antalya;Antalya;Turkey;Stuttgart;Stuttgart;Germany;Germanwings
+Barcelona;Barcelona;Spain;Hannover;Hannover;Germany;Germanwings
+Barcelona;Barcelona;Spain;Hamburg;Hamburg;Germany;Germanwings
+Barcelona;Barcelona;Spain;Stuttgart;Stuttgart;Germany;Germanwings
+Casale;Brindisi;Italy;Stuttgart;Stuttgart;Germany;Germanwings
+Beograd;Belgrade;Serbia;Stuttgart;Stuttgart;Germany;Germanwings
+Poretta;Bastia;France;Hamburg;Hamburg;Germany;Germanwings
+Poretta;Bastia;France;Stuttgart;Stuttgart;Germany;Germanwings
+Poretta;Bastia;France;Tegel;Berlin;Germany;Germanwings
+Bilbao;Bilbao;Spain;Stuttgart;Stuttgart;Germany;Germanwings
+Neuenland;Bremen;Germany;Stuttgart;Stuttgart;Germany;Germanwings
+Bari;Bari;Italy;Stuttgart;Stuttgart;Germany;Germanwings
+"Brussels Natl";Brussels;Belgium;Stuttgart;Stuttgart;Germany;Germanwings
+Ferihegy;Budapest;Hungary;Stuttgart;Stuttgart;Germany;Germanwings
+Elmas;Cagliari;Italy;Stuttgart;Stuttgart;Germany;Germanwings
+"Ioannis Kapodistrias Intl";Kerkyra/corfu;Greece;Stuttgart;Stuttgart;Germany;Germanwings
+"Koln Bonn";Cologne;Germany;Arlanda;Stockholm;Sweden;Germanwings
+"Koln Bonn";Cologne;Germany;"Eleftherios Venizelos Intl";Athens;Greece;Germanwings
+"Koln Bonn";Cologne;Germany;Barcelona;Barcelona;Spain;Germanwings
+"Koln Bonn";Cologne;Germany;Bologna;Bologna;Italy;Germanwings
+"Koln Bonn";Cologne;Germany;Bari;Bari;Italy;Germanwings
+"Koln Bonn";Cologne;Germany;Ferihegy;Budapest;Hungary;Germanwings
+"Koln Bonn";Cologne;Germany;"Catania Fontanarossa";Catania;Italy;Germanwings
+"Koln Bonn";Cologne;Germany;Dubrovnik;Dubrovnik;Croatia;Germanwings
+"Koln Bonn";Cologne;Germany;Dublin;Dublin;Ireland;Germanwings
+"Koln Bonn";Cologne;Germany;Edinburgh;Edinburgh;"United Kingdom";Germanwings
+"Koln Bonn";Cologne;Germany;Faro;Faro;Portugal;Germanwings
+"Koln Bonn";Cologne;Germany;Fiumicino;Rome;Italy;Germanwings
+"Koln Bonn";Cologne;Germany;Hamburg;Hamburg;Germany;Germanwings
+"Koln Bonn";Cologne;Germany;Ibiza;Ibiza;Spain;Germanwings
+"Koln Bonn";Cologne;Germany;Heathrow;London;"United Kingdom";Germanwings
+"Koln Bonn";Cologne;Germany;Lisboa;Lisbon;Portugal;Germanwings
+"Koln Bonn";Cologne;Germany;Manchester;Manchester;"United Kingdom";Germanwings
+"Koln Bonn";Cologne;Germany;Malpensa;Milano;Italy;Germanwings
+"Koln Bonn";Cologne;Germany;Capodichino;Naples;Italy;Germanwings
+"Koln Bonn";Cologne;Germany;"Cote D\'Azur";Nice;France;Germanwings
+"Koln Bonn";Cologne;Germany;"Olbia Costa Smeralda";Olbia;Italy;Germanwings
+"Koln Bonn";Cologne;Germany;"Son Sant Joan";"Palma de Mallorca";Spain;Germanwings
+"Koln Bonn";Cologne;Germany;Ruzyne;Prague;"Czech Republic";Germanwings
+"Koln Bonn";Cologne;Germany;Pisa;Pisa;Italy;Germanwings
+"Koln Bonn";Cologne;Germany;"Sabiha Gokcen";Istanbul;Turkey;Germanwings
+"Koln Bonn";Cologne;Germany;Makedonia;Thessaloniki;Greece;Germanwings
+"Koln Bonn";Cologne;Germany;Stansted;London;"United Kingdom";Germanwings
+"Koln Bonn";Cologne;Germany;Salzburg;Salzburg;Austria;Germanwings
+"Koln Bonn";Cologne;Germany;"Tirana Rinas";Tirana;Albania;Germanwings
+"Koln Bonn";Cologne;Germany;"Ben Gurion";Tel-aviv;Israel;Germanwings
+"Koln Bonn";Cologne;Germany;Carthage;Tunis;Tunisia;Germanwings
+"Koln Bonn";Cologne;Germany;Tegel;Berlin;Germany;Germanwings
+"Koln Bonn";Cologne;Germany;"Venezia Tessera";Venice;Italy;Germanwings
+"Koln Bonn";Cologne;Germany;Schwechat;Vienna;Austria;Germanwings
+"Koln Bonn";Cologne;Germany;Vnukovo;Moscow;Russia;Germanwings
+"Koln Bonn";Cologne;Germany;Villafranca;Villafranca;Italy;Germanwings
+"Koln Bonn";Cologne;Germany;Zagreb;Zagreb;Croatia;Germanwings
+"Koln Bonn";Cologne;Germany;Zurich;Zurich;Switzerland;Germanwings
+"Catania Fontanarossa";Catania;Italy;Hannover;Hannover;Germany;Germanwings
+"Catania Fontanarossa";Catania;Italy;Hamburg;Hamburg;Germany;Germanwings
+"Catania Fontanarossa";Catania;Italy;Stuttgart;Stuttgart;Germany;Germanwings
+Dubrovnik;Dubrovnik;Croatia;Hannover;Hannover;Germany;Germanwings
+Dubrovnik;Dubrovnik;Croatia;Hamburg;Hamburg;Germany;Germanwings
+Dubrovnik;Dubrovnik;Croatia;Stuttgart;Stuttgart;Germany;Germanwings
+Dresden;Dresden;Germany;Stuttgart;Stuttgart;Germany;Germanwings
+Dortmund;Dortmund;Germany;"Franz Josef Strauss";Munich;Germany;Germanwings
+Dortmund;Dortmund;Germany;"Son Sant Joan";"Palma de Mallorca";Spain;Germanwings
+Dortmund;Dortmund;Germany;"Sabiha Gokcen";Istanbul;Turkey;Germanwings
+Esenboga;Ankara;Turkey;Stuttgart;Stuttgart;Germany;Germanwings
+Faro;Faro;Portugal;Hamburg;Hamburg;Germany;Germanwings
+Faro;Faro;Portugal;Stuttgart;Stuttgart;Germany;Germanwings
+Fiumicino;Rome;Italy;Hannover;Hannover;Germany;Germanwings
+Fiumicino;Rome;Italy;Stuttgart;Stuttgart;Germany;Germanwings
+Hannover;Hannover;Germany;Barcelona;Barcelona;Spain;Germanwings
+Hannover;Hannover;Germany;"Catania Fontanarossa";Catania;Italy;Germanwings
+Hannover;Hannover;Germany;Dubrovnik;Dubrovnik;Croatia;Germanwings
+Hannover;Hannover;Germany;Fiumicino;Rome;Italy;Germanwings
+Hannover;Hannover;Germany;Malpensa;Milano;Italy;Germanwings
+Hannover;Hannover;Germany;Capodichino;Naples;Italy;Germanwings
+Hannover;Hannover;Germany;"Son Sant Joan";"Palma de Mallorca";Spain;Germanwings
+Hannover;Hannover;Germany;Makedonia;Thessaloniki;Greece;Germanwings
+Hannover;Hannover;Germany;Stansted;London;"United Kingdom";Germanwings
+Hannover;Hannover;Germany;Stuttgart;Stuttgart;Germany;Germanwings
+Hannover;Hannover;Germany;"Venezia Tessera";Venice;Italy;Germanwings
+Hannover;Hannover;Germany;Schwechat;Vienna;Austria;Germanwings
+Hamburg;Hamburg;Germany;Barcelona;Barcelona;Spain;Germanwings
+Hamburg;Hamburg;Germany;"Catania Fontanarossa";Catania;Italy;Germanwings
+Hamburg;Hamburg;Germany;Dubrovnik;Dubrovnik;Croatia;Germanwings
+Hamburg;Hamburg;Germany;Faro;Faro;Portugal;Germanwings
+Hamburg;Hamburg;Germany;"Cote D\'Azur";Nice;France;Germanwings
+Hamburg;Hamburg;Germany;"Olbia Costa Smeralda";Olbia;Italy;Germanwings
+Hamburg;Hamburg;Germany;"Son Sant Joan";"Palma de Mallorca";Spain;Germanwings
+Hamburg;Hamburg;Germany;Stuttgart;Stuttgart;Germany;Germanwings
+Hamburg;Hamburg;Germany;"Venezia Tessera";Venice;Italy;Germanwings
+Hamburg;Hamburg;Germany;Schwechat;Vienna;Austria;Germanwings
+"Nikos Kazantzakis";Heraklion;Greece;Hannover;Hannover;Germany;Germanwings
+"Nikos Kazantzakis";Heraklion;Greece;Hamburg;Hamburg;Germany;Germanwings
+"Nikos Kazantzakis";Heraklion;Greece;Stuttgart;Stuttgart;Germany;Germanwings
+"Nikos Kazantzakis";Heraklion;Greece;Tegel;Berlin;Germany;Germanwings
+Ibiza;Ibiza;Spain;Stuttgart;Stuttgart;Germany;Germanwings
+"Keflavik International Airport";Keflavik;Iceland;Stuttgart;Stuttgart;Germany;Germanwings
+Balice;Krakow;Poland;Stuttgart;Stuttgart;Germany;Germanwings
+"Megas Alexandros Intl";Kavala;Greece;Stuttgart;Stuttgart;Germany;Germanwings
+"Leipzig Halle";Leipzig;Germany;Stuttgart;Stuttgart;Germany;Germanwings
+Heathrow;London;"United Kingdom";Stuttgart;Stuttgart;Germany;Germanwings
+Lisboa;Lisbon;Portugal;Stuttgart;Stuttgart;Germany;Germanwings
+Manchester;Manchester;"United Kingdom";Stuttgart;Stuttgart;Germany;Germanwings
+Malpensa;Milano;Italy;Hannover;Hannover;Germany;Germanwings
+Malpensa;Milano;Italy;Stuttgart;Stuttgart;Germany;Germanwings
+Capodichino;Naples;Italy;Hannover;Hannover;Germany;Germanwings
+"Cote D\'Azur";Nice;France;Hamburg;Hamburg;Germany;Germanwings
+Nurnberg;Nuernberg;Germany;Hamburg;Hamburg;Germany;Germanwings
+"Olbia Costa Smeralda";Olbia;Italy;Hamburg;Hamburg;Germany;Germanwings
+"Olbia Costa Smeralda";Olbia;Italy;Stuttgart;Stuttgart;Germany;Germanwings
+"Son Sant Joan";"Palma de Mallorca";Spain;Hannover;Hannover;Germany;Germanwings
+"Son Sant Joan";"Palma de Mallorca";Spain;Hamburg;Hamburg;Germany;Germanwings
+"Son Sant Joan";"Palma de Mallorca";Spain;Stuttgart;Stuttgart;Germany;Germanwings
+"Son Sant Joan";"Palma de Mallorca";Spain;Tegel;Berlin;Germany;Germanwings
+Pristina;Pristina;Serbia;Dusseldorf;Duesseldorf;Germany;Germanwings
+Pristina;Pristina;Serbia;Hannover;Hannover;Germany;Germanwings
+Pristina;Pristina;Serbia;Hamburg;Hamburg;Germany;Germanwings
+Pristina;Pristina;Serbia;"Franz Josef Strauss";Munich;Germany;Germanwings
+Pristina;Pristina;Serbia;Stuttgart;Stuttgart;Germany;Germanwings
+Pristina;Pristina;Serbia;Tegel;Berlin;Germany;Germanwings
+Pula;Pula;Croatia;Tegel;Berlin;Germany;Germanwings
+Rijeka;Rijeka;Croatia;Stuttgart;Stuttgart;Germany;Germanwings
+Rijeka;Rijeka;Croatia;Tegel;Berlin;Germany;Germanwings
+Laage;Laage;Germany;Stuttgart;Stuttgart;Germany;Germanwings
+"Sabiha Gokcen";Istanbul;Turkey;Stuttgart;Stuttgart;Germany;Germanwings
+Sarajevo;Sarajevo;"Bosnia and Herzegovina";Stuttgart;Stuttgart;Germany;Germanwings
+Makedonia;Thessaloniki;Greece;Hannover;Hannover;Germany;Germanwings
+Makedonia;Thessaloniki;Greece;Stuttgart;Stuttgart;Germany;Germanwings
+Split;Split;Croatia;Dusseldorf;Duesseldorf;Germany;Germanwings
+Split;Split;Croatia;Hannover;Hannover;Germany;Germanwings
+Split;Split;Croatia;Hamburg;Hamburg;Germany;Germanwings
+Split;Split;Croatia;Stuttgart;Stuttgart;Germany;Germanwings
+Stansted;London;"United Kingdom";Hannover;Hannover;Germany;Germanwings
+Stansted;London;"United Kingdom";Stuttgart;Stuttgart;Germany;Germanwings
+Stuttgart;Stuttgart;Germany;Malaga;Malaga;Spain;Germanwings
+Stuttgart;Stuttgart;Germany;"Eleftherios Venizelos Intl";Athens;Greece;Germanwings
+Stuttgart;Stuttgart;Germany;Barcelona;Barcelona;Spain;Germanwings
+Stuttgart;Stuttgart;Germany;Bari;Bari;Italy;Germanwings
+Stuttgart;Stuttgart;Germany;"Brussels Natl";Brussels;Belgium;Germanwings
+Stuttgart;Stuttgart;Germany;Ferihegy;Budapest;Hungary;Germanwings
+Stuttgart;Stuttgart;Germany;"Catania Fontanarossa";Catania;Italy;Germanwings
+Stuttgart;Stuttgart;Germany;Dubrovnik;Dubrovnik;Croatia;Germanwings
+Stuttgart;Stuttgart;Germany;Faro;Faro;Portugal;Germanwings
+Stuttgart;Stuttgart;Germany;Fiumicino;Rome;Italy;Germanwings
+Stuttgart;Stuttgart;Germany;Hannover;Hannover;Germany;Germanwings
+Stuttgart;Stuttgart;Germany;Hamburg;Hamburg;Germany;Germanwings
+Stuttgart;Stuttgart;Germany;Ibiza;Ibiza;Spain;Germanwings
+Stuttgart;Stuttgart;Germany;Heathrow;London;"United Kingdom";Germanwings
+Stuttgart;Stuttgart;Germany;Lisboa;Lisbon;Portugal;Germanwings
+Stuttgart;Stuttgart;Germany;Manchester;Manchester;"United Kingdom";Germanwings
+Stuttgart;Stuttgart;Germany;Malpensa;Milano;Italy;Germanwings
+Stuttgart;Stuttgart;Germany;"Olbia Costa Smeralda";Olbia;Italy;Germanwings
+Stuttgart;Stuttgart;Germany;"Son Sant Joan";"Palma de Mallorca";Spain;Germanwings
+Stuttgart;Stuttgart;Germany;"Sabiha Gokcen";Istanbul;Turkey;Germanwings
+Stuttgart;Stuttgart;Germany;Makedonia;Thessaloniki;Greece;Germanwings
+Stuttgart;Stuttgart;Germany;Stansted;London;"United Kingdom";Germanwings
+Stuttgart;Stuttgart;Germany;Tegel;Berlin;Germany;Germanwings
+Stuttgart;Stuttgart;Germany;Schwechat;Vienna;Austria;Germanwings
+Stuttgart;Stuttgart;Germany;Vnukovo;Moscow;Russia;Germanwings
+Stuttgart;Stuttgart;Germany;Zagreb;Zagreb;Croatia;Germanwings
+"Lamezia Terme";Lamezia;Italy;Hannover;Hannover;Germany;Germanwings
+"Lamezia Terme";Lamezia;Italy;Stuttgart;Stuttgart;Germany;Germanwings
+Tegel;Berlin;Germany;"Son Sant Joan";"Palma de Mallorca";Spain;Germanwings
+Tegel;Berlin;Germany;Stuttgart;Stuttgart;Germany;Germanwings
+"Venezia Tessera";Venice;Italy;Hannover;Hannover;Germany;Germanwings
+"Venezia Tessera";Venice;Italy;Hamburg;Hamburg;Germany;Germanwings
+Schwechat;Vienna;Austria;Hannover;Hannover;Germany;Germanwings
+Schwechat;Vienna;Austria;Hamburg;Hamburg;Germany;Germanwings
+Schwechat;Vienna;Austria;Stuttgart;Stuttgart;Germany;Germanwings
+Vnukovo;Moscow;Russia;Stuttgart;Stuttgart;Germany;Germanwings
+Zadar;Zadar;Croatia;Stuttgart;Stuttgart;Germany;Germanwings
+Zagreb;Zagreb;Croatia;Stuttgart;Stuttgart;Germany;Germanwings
+"Kumasi Airport";Kumasi;Ghana;"Kotoka Intl";Accra;Ghana;"Skyservice Airlines"
+"Eldoret Intl";Eldoret;Kenya;"Jomo Kenyatta International";Nairobi;Kenya;Fly540
+Juba;Juba;"South Sudan";"Jomo Kenyatta International";Nairobi;Kenya;Fly540
+Kisumu;Kisumu;Kenya;"Jomo Kenyatta International";Nairobi;Kenya;Fly540
+"Mombasa Moi Intl";Mombasa;Kenya;"Jomo Kenyatta International";Nairobi;Kenya;Fly540
+"Malindi Airport";Malindi;Kenya;"Jomo Kenyatta International";Nairobi;Kenya;Fly540
+Zanzibar;Zanzibar;Tanzania;"Jomo Kenyatta International";Nairobi;Kenya;Fly540
+"Mactan Cebu Intl";Cebu;Philippines;"Suvarnabhumi Intl";Bangkok;Thailand;"Cebu Pacific"
+"Mactan Cebu Intl";Cebu;Philippines;"Hong Kong Intl";"Hong Kong";"Hong Kong";"Cebu Pacific"
+"Mactan Cebu Intl";Cebu;Philippines;"Incheon Intl";Seoul;"South Korea";"Cebu Pacific"
+"Mactan Cebu Intl";Cebu;Philippines;"Changi Intl";Singapore;Singapore;"Cebu Pacific"
+"Diosdado Macapagal International";"Angeles City";Philippines;"Suvarnabhumi Intl";Bangkok;Thailand;"Cebu Pacific"
+"Diosdado Macapagal International";"Angeles City";Philippines;"Hong Kong Intl";"Hong Kong";"Hong Kong";"Cebu Pacific"
+"Diosdado Macapagal International";"Angeles City";Philippines;"Changi Intl";Singapore;Singapore;"Cebu Pacific"
+Iloilo;Iloilo;Philippines;"Hong Kong Intl";"Hong Kong";"Hong Kong";"Cebu Pacific"
+Iloilo;Iloilo;Philippines;"Changi Intl";Singapore;Singapore;"Cebu Pacific"
+Kalibo;Kalibo;Philippines;"Hong Kong Intl";"Hong Kong";"Hong Kong";"Cebu Pacific"
+"Ninoy Aquino Intl";Manila;Philippines;"Suvarnabhumi Intl";Bangkok;Thailand;"Cebu Pacific"
+"Ninoy Aquino Intl";Manila;Philippines;"Hong Kong Intl";"Hong Kong";"Hong Kong";"Cebu Pacific"
+"Ninoy Aquino Intl";Manila;Philippines;"Incheon Intl";Seoul;"South Korea";"Cebu Pacific"
+"Ninoy Aquino Intl";Manila;Philippines;"Capital Intl";Beijing;China;"Cebu Pacific"
+"Ninoy Aquino Intl";Manila;Philippines;Pudong;Shanghai;China;"Cebu Pacific"
+"Ninoy Aquino Intl";Manila;Philippines;"Changi Intl";Singapore;Singapore;"Cebu Pacific"
+"John A. Osborne Airport";Geralds;Montserrat;"V C Bird Intl";Antigua;"Antigua and Barbuda";Sibaviatrans
+Talagi;Arkhangelsk;Russia;Pulkovo;"St. Petersburg";Russia;Aeroflot-Nord
+Talagi;Arkhangelsk;Russia;Sheremetyevo;Moscow;Russia;Aeroflot-Nord
+Murmansk;Murmansk;Russia;Pulkovo;"St. Petersburg";Russia;Aeroflot-Nord
+Murmansk;Murmansk;Russia;Sheremetyevo;Moscow;Russia;Aeroflot-Nord
+Alykel;Norilsk;Russia;Sheremetyevo;Moscow;Russia;Aeroflot-Nord
+Syktyvkar;Syktyvkar;Russia;Pulkovo;"St. Petersburg";Russia;Aeroflot-Nord
+Syktyvkar;Syktyvkar;Russia;Sheremetyevo;Moscow;Russia;Aeroflot-Nord
+"Carrasco Intl";Montevideo;Uruguay;"Aeroparque Jorge Newbery";"Buenos Aires";Argentina;"BQB Lineas Aereas"
+"Carrasco Intl";Montevideo;Uruguay;"Ministro Pistarini";"Buenos Aires";Argentina;"BQB Lineas Aereas"
+"Capitan Corbeta C A Curbelo International Airport";"Punta del Este";Uruguay;"Aeroparque Jorge Newbery";"Buenos Aires";Argentina;"BQB Lineas Aereas"
+Ahmedabad;Ahmedabad;India;Bangalore;Bangalore;India;"IndiGo Airlines"
+Ahmedabad;Ahmedabad;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+Ahmedabad;Ahmedabad;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+Ahmedabad;Ahmedabad;India;Hyderabad;Hyderabad;India;"IndiGo Airlines"
+Ahmedabad;Ahmedabad;India;"Chennai Intl";Madras;India;"IndiGo Airlines"
+Bhubaneshwar;Bhubaneswar;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+Bhubaneshwar;Bhubaneswar;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+Bhubaneshwar;Bhubaneswar;India;Hyderabad;Hyderabad;India;"IndiGo Airlines"
+Vadodara;Baroda;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+Vadodara;Baroda;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+"Suvarnabhumi Intl";Bangkok;Thailand;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+Bangalore;Bangalore;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+Bangalore;Bangalore;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+Bangalore;Bangalore;India;Hyderabad;Hyderabad;India;"IndiGo Airlines"
+Bangalore;Bangalore;India;"Chennai Intl";Madras;India;"IndiGo Airlines"
+"Chhatrapati Shivaji Intl";Mumbai;India;Bangalore;Bangalore;India;"IndiGo Airlines"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Dubai Intl";Dubai;"United Arab Emirates";"IndiGo Airlines"
+"Chhatrapati Shivaji Intl";Mumbai;India;Hyderabad;Hyderabad;India;"IndiGo Airlines"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Chennai Intl";Madras;India;"IndiGo Airlines"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Seeb Intl";Muscat;Oman;"IndiGo Airlines"
+"Netaji Subhash Chandra Bose Intl";Kolkata;India;"Suvarnabhumi Intl";Bangkok;Thailand;"IndiGo Airlines"
+"Netaji Subhash Chandra Bose Intl";Kolkata;India;Bangalore;Bangalore;India;"IndiGo Airlines"
+"Netaji Subhash Chandra Bose Intl";Kolkata;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+"Netaji Subhash Chandra Bose Intl";Kolkata;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+"Netaji Subhash Chandra Bose Intl";Kolkata;India;Hyderabad;Hyderabad;India;"IndiGo Airlines"
+"Netaji Subhash Chandra Bose Intl";Kolkata;India;"Chennai Intl";Madras;India;"IndiGo Airlines"
+Coimbatore;Coimbatore;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+Coimbatore;Coimbatore;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+Coimbatore;Coimbatore;India;"Chennai Intl";Madras;India;"IndiGo Airlines"
+Cochin;Kochi;India;Bangalore;Bangalore;India;"IndiGo Airlines"
+Cochin;Kochi;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+Cochin;Kochi;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+Cochin;Kochi;India;"Dubai Intl";Dubai;"United Arab Emirates";"IndiGo Airlines"
+Cochin;Kochi;India;Hyderabad;Hyderabad;India;"IndiGo Airlines"
+Cochin;Kochi;India;"Chennai Intl";Madras;India;"IndiGo Airlines"
+"Indira Gandhi Intl";Delhi;India;"Suvarnabhumi Intl";Bangkok;Thailand;"IndiGo Airlines"
+"Indira Gandhi Intl";Delhi;India;Bangalore;Bangalore;India;"IndiGo Airlines"
+"Indira Gandhi Intl";Delhi;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+"Indira Gandhi Intl";Delhi;India;"Dubai Intl";Dubai;"United Arab Emirates";"IndiGo Airlines"
+"Indira Gandhi Intl";Delhi;India;Hyderabad;Hyderabad;India;"IndiGo Airlines"
+"Indira Gandhi Intl";Delhi;India;"Chennai Intl";Madras;India;"IndiGo Airlines"
+"Dubai Intl";Dubai;"United Arab Emirates";"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+"Dubai Intl";Dubai;"United Arab Emirates";"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+"Dubai Intl";Dubai;"United Arab Emirates";Hyderabad;Hyderabad;India;"IndiGo Airlines"
+"Dubai Intl";Dubai;"United Arab Emirates";"Chennai Intl";Madras;India;"IndiGo Airlines"
+"Lokpriya Gopinath Bordoloi International Airport";Guwahati;India;Bangalore;Bangalore;India;"IndiGo Airlines"
+"Lokpriya Gopinath Bordoloi International Airport";Guwahati;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+Goa;Goa;India;Bangalore;Bangalore;India;"IndiGo Airlines"
+Goa;Goa;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+Goa;Goa;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+Hyderabad;Hyderabad;India;Bangalore;Bangalore;India;"IndiGo Airlines"
+Hyderabad;Hyderabad;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+Hyderabad;Hyderabad;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+Hyderabad;Hyderabad;India;"Dubai Intl";Dubai;"United Arab Emirates";"IndiGo Airlines"
+Hyderabad;Hyderabad;India;"Chennai Intl";Madras;India;"IndiGo Airlines"
+"Devi Ahilyabai Holkar";Indore;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+"Devi Ahilyabai Holkar";Indore;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+Chandigarh;Chandigarh;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+Jammu;Jammu;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+Jaipur;Jaipur;India;Bangalore;Bangalore;India;"IndiGo Airlines"
+Jaipur;Jaipur;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+Jaipur;Jaipur;India;Hyderabad;Hyderabad;India;"IndiGo Airlines"
+"Tribhuvan Intl";Kathmandu;Nepal;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+Lucknow;Lucknow;India;Bangalore;Bangalore;India;"IndiGo Airlines"
+Lucknow;Lucknow;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+Lucknow;Lucknow;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+"Chennai Intl";Madras;India;Bangalore;Bangalore;India;"IndiGo Airlines"
+"Chennai Intl";Madras;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+"Chennai Intl";Madras;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+"Chennai Intl";Madras;India;"Dubai Intl";Dubai;"United Arab Emirates";"IndiGo Airlines"
+"Chennai Intl";Madras;India;Hyderabad;Hyderabad;India;"IndiGo Airlines"
+"Chennai Intl";Madras;India;"Changi Intl";Singapore;Singapore;"IndiGo Airlines"
+"Seeb Intl";Muscat;Oman;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+"Dr Ambedkar Intl";Nagpur;India;Bangalore;Bangalore;India;"IndiGo Airlines"
+"Dr Ambedkar Intl";Nagpur;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+"Dr Ambedkar Intl";Nagpur;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+Patna;Patina;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+Pune;Pune;India;Bangalore;Bangalore;India;"IndiGo Airlines"
+Pune;Pune;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+Pune;Pune;India;Hyderabad;Hyderabad;India;"IndiGo Airlines"
+Pune;Pune;India;"Chennai Intl";Madras;India;"IndiGo Airlines"
+Raipur;Raipur;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+Raipur;Raipur;India;Hyderabad;Hyderabad;India;"IndiGo Airlines"
+"Changi Intl";Singapore;Singapore;"Chennai Intl";Madras;India;"IndiGo Airlines"
+Srinagar;Srinagar;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+Srinagar;Srinagar;India;"Indira Gandhi Intl";Delhi;India;"IndiGo Airlines"
+"Thiruvananthapuram Intl";Trivandrum;India;Bangalore;Bangalore;India;"IndiGo Airlines"
+"Thiruvananthapuram Intl";Trivandrum;India;"Chhatrapati Shivaji Intl";Mumbai;India;"IndiGo Airlines"
+"Thiruvananthapuram Intl";Trivandrum;India;"Dubai Intl";Dubai;"United Arab Emirates";"IndiGo Airlines"
+"Thiruvananthapuram Intl";Trivandrum;India;"Chennai Intl";Madras;India;"IndiGo Airlines"
+Vishakhapatnam;Vishakhapatnam;India;Hyderabad;Hyderabad;India;"IndiGo Airlines"
+Vishakhapatnam;Vishakhapatnam;India;"Chennai Intl";Madras;India;"IndiGo Airlines"
+Eilat;Elat;Israel;"Sde Dov";Tel-aviv;Israel;Israir
+Eilat;Elat;Israel;"Ben Gurion";Tel-aviv;Israel;Israir
+Fiumicino;Rome;Italy;"Ben Gurion";Tel-aviv;Israel;Israir
+"Franz Josef Strauss";Munich;Germany;"Ben Gurion";Tel-aviv;Israel;Israir
+"Cote D\'Azur";Nice;France;"Ben Gurion";Tel-aviv;Israel;Israir
+Schonefeld;Berlin;Germany;"Ben Gurion";Tel-aviv;Israel;Israir
+"Ben Gurion";Tel-aviv;Israel;Fiumicino;Rome;Italy;Israir
+"Ben Gurion";Tel-aviv;Israel;"Franz Josef Strauss";Munich;Germany;Israir
+"Ben Gurion";Tel-aviv;Israel;"Cote D\'Azur";Nice;France;Israir
+"Ben Gurion";Tel-aviv;Israel;Schonefeld;Berlin;Germany;Israir
+"Ambouli International Airport";Djibouti;Djibouti;"Dubai Intl";Dubai;"United Arab Emirates";"Skynet Asia Airways"
+Central;Saratov;Russia;Domododevo;Moscow;Russia;"Saratov Aviation Division"
+Central;Saratov;Russia;"Heydar Aliyev";Baku;Azerbaijan;"Saratov Aviation Division"
+"Suvarnabhumi Intl";Bangkok;Thailand;"Incheon Intl";Seoul;"South Korea";"Jeju Air"
+"Mactan Cebu Intl";Cebu;Philippines;"Incheon Intl";Seoul;"South Korea";"Jeju Air"
+"New Chitose";Sapporo;Japan;"Incheon Intl";Seoul;"South Korea";"Jeju Air"
+Fukuoka;Fukuoka;Japan;"Incheon Intl";Seoul;"South Korea";"Jeju Air"
+"Guam Intl";Agana;Guam;"Incheon Intl";Seoul;"South Korea";"Jeju Air"
+"Hong Kong Intl";"Hong Kong";"Hong Kong";"Incheon Intl";Seoul;"South Korea";"Jeju Air"
+"Incheon Intl";Seoul;"South Korea";"Suvarnabhumi Intl";Bangkok;Thailand;"Jeju Air"
+"Incheon Intl";Seoul;"South Korea";"Hong Kong Intl";"Hong Kong";"Hong Kong";"Jeju Air"
+"Incheon Intl";Seoul;"South Korea";"Narita Intl";Tokyo;Japan;"Jeju Air"
+Kansai;Osaka;Japan;Gimpo;Seoul;"South Korea";"Jeju Air"
+Kansai;Osaka;Japan;"Incheon Intl";Seoul;"South Korea";"Jeju Air"
+"Ninoy Aquino Intl";Manila;Philippines;"Incheon Intl";Seoul;"South Korea";"Jeju Air"
+"Chubu Centrair Intl";Nagoya;Japan;Gimpo;Seoul;"South Korea";"Jeju Air"
+"Chubu Centrair Intl";Nagoya;Japan;"Incheon Intl";Seoul;"South Korea";"Jeju Air"
+"Narita Intl";Tokyo;Japan;"Incheon Intl";Seoul;"South Korea";"Jeju Air"
+"Gimhae Intl";Busan;"South Korea";"Suvarnabhumi Intl";Bangkok;Thailand;"Jeju Air"
+"Tansonnhat Intl";"Ho Chi Minh City";Vietnam;"Incheon Intl";Seoul;"South Korea";"Jeju Air"
+Liuting;Qingdao;China;"Incheon Intl";Seoul;"South Korea";"Jeju Air"
+"Westerland Sylt";Westerland;Germany;Hamburg;Hamburg;Germany;"Aeroline GmbH"
+Kuujjuaq;Quujjuaq;Canada;"Pierre Elliott Trudeau Intl";Montreal;Canada;"First Air"
+Fukuoka;Fukuoka;Japan;"Tokyo Intl";Tokyo;Japan;"Star Flyer"
+Kansai;Osaka;Japan;"Tokyo Intl";Tokyo;Japan;"Star Flyer"
+"New Kitakyushu";Kitakyushu;Japan;"Tokyo Intl";Tokyo;Japan;"Star Flyer"
+Flamingo;Kralendijk;"Netherlands Antilles";"Miami Intl";Miami;"United States";"Insel Air (7I/INC) (Priv)"
+Hato;Willemstad;"Netherlands Antilles";"Norman Manley Intl";Kingston;Jamaica;"Insel Air (7I/INC) (Priv)"
+Hato;Willemstad;"Netherlands Antilles";"Miami Intl";Miami;"United States";"Insel Air (7I/INC) (Priv)"
+"Toussaint Louverture Intl";Port-au-prince;Haiti;"Miami Intl";Miami;"United States";"Insel Air (7I/INC) (Priv)"
+"Cozumel Intl";Cozumel;Mexico;"Cancun Intl";Cancun;Mexico;"Mongolian International Air Lines "
+"Licenciado Manuel Crescencio Rejon Int";Merida;Mexico;"Cancun Intl";Cancun;Mexico;"Mongolian International Air Lines "
+Vityazevo;Anapa;Russia;Pulkovo;"St. Petersburg";Russia;"BRA-Transportes Aereos"
+Sochi;Sochi;Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+Aktyubinsk;Aktyubinsk;Kazakhstan;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+"Cheboksary Airport";Cheboksary;Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+Domododevo;Moscow;Russia;Pulkovo;"St. Petersburg";Russia;"BRA-Transportes Aereos"
+"Belgorod International Airport";Belgorod;Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+"Elista Airport";Elista;Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+"Grozny Airport";Grozny;Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+"Grozny Airport";Grozny;Russia;Pulkovo;"St. Petersburg";Russia;"BRA-Transportes Aereos"
+Tunoshna;Yaroslavl;Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+Tunoshna;Yaroslavl;Russia;Pulkovo;"St. Petersburg";Russia;"BRA-Transportes Aereos"
+"Izhevsk Airport";Izhevsk;Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+"Kaunas Intl";Kaunas;Lithuania;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+"Kirovsk-Apatity Airport";Apatity;Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+Pulkovo;"St. Petersburg";Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+Murmansk;Murmansk;Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+"Mineralnyye Vody";"Mineralnye Vody";Russia;"Sabiha Gokcen";Istanbul;Turkey;"BRA-Transportes Aereos"
+"Beslan Airport";Beslan;Russia;Pulkovo;"St. Petersburg";Russia;"BRA-Transportes Aereos"
+"Petrozavodsk Airport";Petrozavodsk;Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+"Saransk Airport";Saransk;Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+Shpakovskoye;Stavropol;Russia;Pulkovo;"St. Petersburg";Russia;"BRA-Transportes Aereos"
+Ufa;Ufa;Russia;Pulkovo;"St. Petersburg";Russia;"BRA-Transportes Aereos"
+"Belbek Sevastopol International Airport";Sevastopol;Ukraine;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+Barataevka;Ulyanovsk;Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+Barataevka;Ulyanovsk;Russia;Pulkovo;"St. Petersburg";Russia;"BRA-Transportes Aereos"
+Uraj;Uraj;Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+"Vorkuta Airport";Vorkuta;Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+Gumrak;Volgograd;Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+Gumrak;Volgograd;Russia;Pulkovo;"St. Petersburg";Russia;"BRA-Transportes Aereos"
+Chertovitskoye;Voronezh;Russia;Domododevo;Moscow;Russia;"BRA-Transportes Aereos"
+Chertovitskoye;Voronezh;Russia;Pulkovo;"St. Petersburg";Russia;"BRA-Transportes Aereos"
+"Suvarnabhumi Intl";Bangkok;Thailand;"Incheon Intl";Seoul;"South Korea";BusinessAir
+"Phuket Intl";Phuket;Thailand;"Suvarnabhumi Intl";Bangkok;Thailand;BusinessAir
+"Phuket Intl";Phuket;Thailand;"Incheon Intl";Seoul;"South Korea";BusinessAir
+"Incheon Intl";Seoul;"South Korea";"Suvarnabhumi Intl";Bangkok;Thailand;BusinessAir
+Wujiaba;Kunming;China;"Capital Intl";Beijing;China;"Cargo Plus Aviation"
+Wujiaba;Kunming;China;Pudong;Shanghai;China;"Cargo Plus Aviation"
+"Mangshi Airport";Luxi;China;"Capital Intl";Beijing;China;"Cargo Plus Aviation"
+"Suvarnabhumi Intl";Bangkok;Thailand;"Changi Intl";Singapore;Singapore;Maxair
+"Yangon Intl";Yangon;Burma;"Suvarnabhumi Intl";Bangkok;Thailand;Maxair
+"Yangon Intl";Yangon;Burma;"Incheon Intl";Seoul;"South Korea";Maxair
+"Yangon Intl";Yangon;Burma;"Changi Intl";Singapore;Singapore;Maxair
+"Changi Intl";Singapore;Singapore;"Suvarnabhumi Intl";Bangkok;Thailand;Maxair
+"Bella Coola Airport";"Bella Coola";Canada;"Vancouver Intl";Vancouver;Canada;"Pacific Coastal Airline"
+"Anahim Lake Airport";"Anahim Lake";Canada;"Vancouver Intl";Vancouver;Canada;"Pacific Coastal Airline"
+"Campbell River";"Campbell River";Canada;"Vancouver Intl";Vancouver;Canada;"Pacific Coastal Airline"
+"Powell River Airport";"Powell River";Canada;"Vancouver Intl";Vancouver;Canada;"Pacific Coastal Airline"
+Comox;Comox;Canada;"Vancouver Intl";Vancouver;Canada;"Pacific Coastal Airline"
+"Williams Lake";"Williams Lake";Canada;"Vancouver Intl";Vancouver;Canada;"Pacific Coastal Airline"
+"Canadian Rockies Intl";Cranbrook;Canada;"Vancouver Intl";Vancouver;Canada;"Pacific Coastal Airline"
+"Victoria Intl";Victoria;Canada;"Vancouver Intl";Vancouver;Canada;"Pacific Coastal Airline"
+"Port Hardy";"Port Hardy";Canada;"Vancouver Intl";Vancouver;Canada;"Pacific Coastal Airline"
+"Trail Airport";Trail;Canada;"Vancouver Intl";Vancouver;Canada;"Pacific Coastal Airline"
+"Masset Airport";Masset;Canada;"Vancouver Intl";Vancouver;Canada;"Pacific Coastal Airline"
+Adana;Adana;Turkey;Ataturk;Istanbul;Turkey;"Onur Air"
+"Adnan Menderes";Izmir;Turkey;Ataturk;Istanbul;Turkey;"Onur Air"
+Antalya;Antalya;Turkey;Ataturk;Istanbul;Turkey;"Onur Air"
+"Bodrum - Milas";Bodrum;Turkey;Ataturk;Istanbul;Turkey;"Onur Air"
+Diyarbakir;Diyabakir;Turkey;Ataturk;Istanbul;Turkey;"Onur Air"
+Dalaman;Dalaman;Turkey;Ataturk;Istanbul;Turkey;"Onur Air"
+"Ercan International Airport";Nicosia;Cyprus;Ataturk;Istanbul;Turkey;"Onur Air"
+Erzurum;Erzurum;Turkey;Ataturk;Istanbul;Turkey;"Onur Air"
+Elazig;Elazig;Turkey;Ataturk;Istanbul;Turkey;"Onur Air"
+"Sanliurfa GAP";Sanliurfa;Turkey;Ataturk;Istanbul;Turkey;"Onur Air"
+Oguzeli;Gaziantep;Turkey;Ataturk;Istanbul;Turkey;"Onur Air"
+"Ganja Airport";Ganja;Azerbaijan;Ataturk;Istanbul;Turkey;"Onur Air"
+Erhac;Malatya;Turkey;Ataturk;Istanbul;Turkey;"Onur Air"
+"Odesa Intl";Odessa;Ukraine;Ataturk;Istanbul;Turkey;"Onur Air"
+"Uromiyeh Airport";Uromiyeh;Iran;Ataturk;Istanbul;Turkey;"Onur Air"
+Trabzon;Trabzon;Turkey;Ataturk;Istanbul;Turkey;"Onur Air"
+"Mar Del Plata";"Mar Del Plata";Argentina;"Aeroparque Jorge Newbery";"Buenos Aires";Argentina;"TRIP Linhas A"
+Rosario;Rosario;Argentina;"Aeroparque Jorge Newbery";"Buenos Aires";Argentina;"TRIP Linhas A"
+"Sauce Viejo";"Santa Fe";Argentina;"Aeroparque Jorge Newbery";"Buenos Aires";Argentina;"TRIP Linhas A"
+"Queen Alia Intl";Amman;Jordan;"Tripoli Intl";Tripoli;Libya;"Afriqiyah Airways"
+Benina;Benghazi;Libya;"Queen Alia Intl";Amman;Jordan;"Afriqiyah Airways"
+Benina;Benghazi;Libya;"Cairo Intl";Cairo;Egypt;"Afriqiyah Airways"
+Benina;Benghazi;Libya;"Dubai Intl";Dubai;"United Arab Emirates";"Afriqiyah Airways"
+Benina;Benghazi;Libya;Ataturk;Istanbul;Turkey;"Afriqiyah Airways"
+Benina;Benghazi;Libya;"Tripoli Intl";Tripoli;Libya;"Afriqiyah Airways"
+Benina;Benghazi;Libya;Carthage;Tunis;Tunisia;"Afriqiyah Airways"
+"Cairo Intl";Cairo;Egypt;"Tripoli Intl";Tripoli;Libya;"Afriqiyah Airways"
+"Mohammed V Intl";Casablanca;Morocco;"Tripoli Intl";Tripoli;Libya;"Afriqiyah Airways"
+Dusseldorf;Duesseldorf;Germany;"Tripoli Intl";Tripoli;Libya;"Afriqiyah Airways"
+"Dubai Intl";Dubai;"United Arab Emirates";"Tripoli Intl";Tripoli;Libya;"Afriqiyah Airways"
+"Borg El Arab Intl";Alexandria;Egypt;"Tripoli Intl";Tripoli;Libya;"Afriqiyah Airways"
+Ataturk;Istanbul;Turkey;"Tripoli Intl";Tripoli;Libya;"Afriqiyah Airways"
+Khartoum;Khartoum;Sudan;"Tripoli Intl";Tripoli;Libya;"Afriqiyah Airways"
+Gatwick;London;"United Kingdom";"Tripoli Intl";Tripoli;Libya;"Afriqiyah Airways"
+"Misratah Airport";Misratah;Libya;"Cairo Intl";Cairo;Egypt;"Afriqiyah Airways"
+"Misratah Airport";Misratah;Libya;Carthage;Tunis;Tunisia;"Afriqiyah Airways"
+"Diori Hamani";Niamey;Niger;"Tripoli Intl";Tripoli;Libya;"Afriqiyah Airways"
+Sebha;Sebha;Libya;"Tripoli Intl";Tripoli;Libya;"Afriqiyah Airways"
+Sebha;Sebha;Libya;Carthage;Tunis;Tunisia;"Afriqiyah Airways"
+Thyna;Sfax;Tunisia;"Tripoli Intl";Tripoli;Libya;"Afriqiyah Airways"
+"Tripoli Intl";Tripoli;Libya;"Queen Alia Intl";Amman;Jordan;"Afriqiyah Airways"
+"Tripoli Intl";Tripoli;Libya;"Cairo Intl";Cairo;Egypt;"Afriqiyah Airways"
+"Tripoli Intl";Tripoli;Libya;Dusseldorf;Duesseldorf;Germany;"Afriqiyah Airways"
+"Tripoli Intl";Tripoli;Libya;"Dubai Intl";Dubai;"United Arab Emirates";"Afriqiyah Airways"
+"Tripoli Intl";Tripoli;Libya;Ataturk;Istanbul;Turkey;"Afriqiyah Airways"
+"Tripoli Intl";Tripoli;Libya;Gatwick;London;"United Kingdom";"Afriqiyah Airways"
+"Tripoli Intl";Tripoli;Libya;Carthage;Tunis;Tunisia;"Afriqiyah Airways"
+Carthage;Tunis;Tunisia;"Tripoli Intl";Tripoli;Libya;"Afriqiyah Airways"
+"Suvarnabhumi Intl";Bangkok;Thailand;Pudong;Shanghai;China;"China SSS"
+"Baiyun Intl";Guangzhou;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+"Changde Airport";Changde;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+Changchun;Changchun;China;Pudong;Shanghai;China;"China SSS"
+Jiangbei;Chongqing;China;"Hong Kong Intl";"Hong Kong";"Hong Kong";"China SSS"
+Jiangbei;Chongqing;China;Pudong;Shanghai;China;"China SSS"
+Jiangbei;Chongqing;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+Huanghua;Changcha;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+Shuangliu;Chengdu;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+Zhoushuizi;Dalian;China;Pudong;Shanghai;China;"China SSS"
+"Dayong Airport";Dayong;China;Pudong;Shanghai;China;"China SSS"
+Xiaoshan;Hangzhou;China;"Hong Kong Intl";"Hong Kong";"Hong Kong";"China SSS"
+"Zhijiang Airport";Zhijiang;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+"Hong Kong Intl";"Hong Kong";"Hong Kong";Pudong;Shanghai;China;"China SSS"
+Taiping;Harbin;China;Pudong;Shanghai;China;"China SSS"
+"Saga Airport";Saga;Japan;Pudong;Shanghai;China;"China SSS"
+Hyakuri;Ibaraki;Japan;Pudong;Shanghai;China;"China SSS"
+Yinchuan;Yinchuan;China;Pudong;Shanghai;China;"China SSS"
+Yinchuan;Yinchuan;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+Zhoubai;Qianjiang;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+"Quanzhou Airport";Quanzhou;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+Wujiaba;Kunming;China;Pudong;Shanghai;China;"China SSS"
+Wujiaba;Kunming;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+Longdongbao;Guiyang;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+Liangjiang;Guilin;China;Pudong;Shanghai;China;"China SSS"
+"Lanzhou Airport";Lanzhou;China;Pudong;Shanghai;China;"China SSS"
+"Macau Intl";Macau;Macau;Pudong;Shanghai;China;"China SSS"
+"Mianyang Airport";Mianyang;China;Pudong;Shanghai;China;"China SSS"
+Lukou;Nanjing;China;"Hong Kong Intl";"Hong Kong";"Hong Kong";"China SSS"
+Wuxu;Nanning;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+Pudong;Shanghai;China;"Suvarnabhumi Intl";Bangkok;Thailand;"China SSS"
+Pudong;Shanghai;China;"Hong Kong Intl";"Hong Kong";"Hong Kong";"China SSS"
+"Siem Reap";Siem-reap;Cambodia;Pudong;Shanghai;China;"China SSS"
+"Shenyang Taoxian International Airport";Shenyang;China;Pudong;Shanghai;China;"China SSS"
+"Shenyang Taoxian International Airport";Shenyang;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+"Shijiazhuang Daguocun International Airport";Shijiazhuang;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+"Wai Sha Airport";Shantou;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+"Phoenix International";Sanya;China;Pudong;Shanghai;China;"China SSS"
+"Phoenix International";Sanya;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+"Baoan Intl";Shenzhen;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+Takamatsu;Takamatsu;Japan;Pudong;Shanghai;China;"China SSS"
+Liuting;Qingdao;China;Pudong;Shanghai;China;"China SSS"
+Liuting;Qingdao;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+Diwopu;Urumqi;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+Gaoqi;Xiamen;China;"Hong Kong Intl";"Hong Kong";"Hong Kong";"China SSS"
+Gaoqi;Xiamen;China;Pudong;Shanghai;China;"China SSS"
+Gaoqi;Xiamen;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+"Zhuhai Airport";Zhuhai;China;Pudong;Shanghai;China;"China SSS"
+"Zhuhai Airport";Zhuhai;China;"Hongqiao Intl";Shanghai;China;"China SSS"
+"Reina Beatrix Intl";Oranjestad;Aruba;"Miami Intl";Miami;"United States";"MDLR Airlines"
+Hato;Willemstad;"Netherlands Antilles";"Orlando Intl";Orlando;"United States";"MDLR Airlines"
+Hato;Willemstad;"Netherlands Antilles";"Miami Intl";Miami;"United States";"MDLR Airlines"
+"Toussaint Louverture Intl";Port-au-prince;Haiti;"Miami Intl";Miami;"United States";"MDLR Airlines"
+"Nantucket Mem";Nantucket;"United States";"General Edward Lawrence Logan Intl";Boston;"United States";"Cape Air"
+"Albany Intl";Albany;"United States";"General Edward Lawrence Logan Intl";Boston;"United States";"Cape Air"
+"Augusta State";Augusta;"United States";"General Edward Lawrence Logan Intl";Boston;"United States";"Cape Air"
+"Hancock County - Bar Harbor";"Bar Harbor";"United States";"General Edward Lawrence Logan Intl";Boston;"United States";"Cape Air"
+"Barnstable Muni Boardman Polando Fld";Barnstable;"United States";"General Edward Lawrence Logan Intl";Boston;"United States";"Cape Air"
+"Lebanon Municipal Airport";Lebanon;"United States";"General Edward Lawrence Logan Intl";Boston;"United States";"Cape Air"
+"Martha\'s Vineyard";"Vineyard Haven MA";"United States";"General Edward Lawrence Logan Intl";Boston;"United States";"Cape Air"
+"Provincetown Muni";Provincetown;"United States";"General Edward Lawrence Logan Intl";Boston;"United States";"Cape Air"
+"Knox County Regional Airport";Rockland;"United States";"General Edward Lawrence Logan Intl";Boston;"United States";"Cape Air"
+"Rutland State Airport";Rutland;"United States";"General Edward Lawrence Logan Intl";Boston;"United States";"Cape Air"
+"Luis Munoz Marin Intl";"San Juan";"Puerto Rico";"Cyril E King";"St. Thomas";"Virgin Islands";"Cape Air"
+"Adirondack Regional Airport";"Saranac Lake";"United States";"General Edward Lawrence Logan Intl";Boston;"United States";"Cape Air"
+"Henry E Rohlsen";"St. Croix Island";"Virgin Islands";"Cyril E King";"St. Thomas";"Virgin Islands";"Cape Air"
+"JAGS McCartney International Airport";"Cockburn Town";"Turks and Caicos Islands";Providenciales;Providenciales;"Turks and Caicos Islands";"PB Air"
+"Salt Cay Airport";"Salt Cay";"Turks and Caicos Islands";Providenciales;Providenciales;"Turks and Caicos Islands";"PB Air"
+"Chisinau Intl";Chisinau;Moldova;Bologna;Bologna;Italy;"Air Moldova"
+"Chisinau Intl";Chisinau;Moldova;Domododevo;Moscow;Russia;"Air Moldova"
+"Chisinau Intl";Chisinau;Moldova;Dublin;Dublin;Ireland;"Air Moldova"
+"Chisinau Intl";Chisinau;Moldova;Fiumicino;Rome;Italy;"Air Moldova"
+"Chisinau Intl";Chisinau;Moldova;"Frankfurt Main";Frankfurt;Germany;"Air Moldova"
+"Chisinau Intl";Chisinau;Moldova;Ataturk;Istanbul;Turkey;"Air Moldova"
+"Chisinau Intl";Chisinau;Moldova;"Boryspil Intl";Kiev;Ukraine;"Air Moldova"
+"Chisinau Intl";Chisinau;Moldova;Larnaca;Larnaca;Cyprus;"Air Moldova"
+"Chisinau Intl";Chisinau;Moldova;Pulkovo;"St. Petersburg";Russia;"Air Moldova"
+"Chisinau Intl";Chisinau;Moldova;Barajas;Madrid;Spain;"Air Moldova"
+"Chisinau Intl";Chisinau;Moldova;Malpensa;Milano;Italy;"Air Moldova"
+"Chisinau Intl";Chisinau;Moldova;"Henri Coanda";Bucharest;Romania;"Air Moldova"
+"Chisinau Intl";Chisinau;Moldova;Stansted;London;"United Kingdom";"Air Moldova"
+"Chisinau Intl";Chisinau;Moldova;Villafranca;Villafranca;Italy;"Air Moldova"
+Larnaca;Larnaca;Cyprus;"Eleftherios Venizelos Intl";Athens;Greece;"Air Moldova"
+Barajas;Madrid;Spain;Lisboa;Lisbon;Portugal;"Air Moldova"
+Ahmedabad;Ahmedabad;India;Bangalore;Bangalore;India;"Jet Airways"
+Ahmedabad;Ahmedabad;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Ahmedabad;Ahmedabad;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Amritsar;Amritsar;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+"Abu Dhabi Intl";"Abu Dhabi";"United Arab Emirates";"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Abu Dhabi Intl";"Abu Dhabi";"United Arab Emirates";"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+"Abu Dhabi Intl";"Abu Dhabi";"United Arab Emirates";Hyderabad;Hyderabad;India;"Jet Airways"
+"Abu Dhabi Intl";"Abu Dhabi";"United Arab Emirates";"Kuwait Intl";Kuwait;Kuwait;"Jet Airways"
+"Abu Dhabi Intl";"Abu Dhabi";"United Arab Emirates";"Chennai Intl";Madras;India;"Jet Airways"
+"Bahrain Intl";Bahrain;Bahrain;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Bhubaneshwar;Bhubaneswar;India;Bangalore;Bangalore;India;"Jet Airways"
+Bhubaneshwar;Bhubaneswar;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Vadodara;Baroda;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Bhuj;Bhuj;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Bhopal;Bhopal;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Bhopal;Bhopal;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Bhavnagar;Bhaunagar;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Suvarnabhumi Intl";Bangkok;Thailand;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Suvarnabhumi Intl";Bangkok;Thailand;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Bangalore;Bangalore;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Bangalore;Bangalore;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Bangalore;Bangalore;India;Hyderabad;Hyderabad;India;"Jet Airways"
+Bangalore;Bangalore;India;"Chennai Intl";Madras;India;"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Abu Dhabi Intl";"Abu Dhabi";"United Arab Emirates";"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Bahrain Intl";Bahrain;Bahrain;"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Suvarnabhumi Intl";Bangkok;Thailand;"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;Bangalore;Bangalore;India;"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Brussels Natl";Brussels;Belgium;"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Bandaranaike Intl Colombo";Colombo;"Sri Lanka";"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Doha Intl";Doha;Qatar;"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Dubai Intl";Dubai;"United Arab Emirates";"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Hong Kong Intl";"Hong Kong";"Hong Kong";"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;Hyderabad;Hyderabad;India;"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"King Abdulaziz Intl";Jeddah;"Saudi Arabia";"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Johannesburg Intl";Johannesburg;"South Africa";"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Kuwait Intl";Kuwait;Kuwait;"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;Heathrow;London;"United Kingdom";"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Chennai Intl";Madras;India;"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Seeb Intl";Muscat;Oman;"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Jomo Kenyatta International";Nairobi;Kenya;"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Narita Intl";Tokyo;Japan;"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"King Khaled Intl";Riyadh;"Saudi Arabia";"Jet Airways"
+"Chhatrapati Shivaji Intl";Mumbai;India;"Changi Intl";Singapore;Singapore;"Jet Airways"
+"Brussels Natl";Brussels;Belgium;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Brussels Natl";Brussels;Belgium;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+"Brussels Natl";Brussels;Belgium;"Newark Liberty Intl";Newark;"United States";"Jet Airways"
+"Brussels Natl";Brussels;Belgium;"Lester B Pearson Intl";Toronto;Canada;"Jet Airways"
+Calicut;Calicut;India;"Abu Dhabi Intl";"Abu Dhabi";"United Arab Emirates";"Jet Airways"
+Calicut;Calicut;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Netaji Subhash Chandra Bose Intl";Kolkata;India;"Suvarnabhumi Intl";Bangkok;Thailand;"Jet Airways"
+"Netaji Subhash Chandra Bose Intl";Kolkata;India;Bangalore;Bangalore;India;"Jet Airways"
+"Netaji Subhash Chandra Bose Intl";Kolkata;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Netaji Subhash Chandra Bose Intl";Kolkata;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+"Netaji Subhash Chandra Bose Intl";Kolkata;India;"Chennai Intl";Madras;India;"Jet Airways"
+Coimbatore;Coimbatore;India;Bangalore;Bangalore;India;"Jet Airways"
+Coimbatore;Coimbatore;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Coimbatore;Coimbatore;India;"Chennai Intl";Madras;India;"Jet Airways"
+"Bandaranaike Intl Colombo";Colombo;"Sri Lanka";"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Bandaranaike Intl Colombo";Colombo;"Sri Lanka";"Chennai Intl";Madras;India;"Jet Airways"
+Cochin;Kochi;India;"Abu Dhabi Intl";"Abu Dhabi";"United Arab Emirates";"Jet Airways"
+Cochin;Kochi;India;Bangalore;Bangalore;India;"Jet Airways"
+Cochin;Kochi;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Cochin;Kochi;India;"Doha Intl";Doha;Qatar;"Jet Airways"
+Cochin;Kochi;India;"Chennai Intl";Madras;India;"Jet Airways"
+Cochin;Kochi;India;"Seeb Intl";Muscat;Oman;"Jet Airways"
+"Zia Intl";Dhaka;Bangladesh;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Zia Intl";Dhaka;Bangladesh;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Dehradun;"Dehra Dun";India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+"Indira Gandhi Intl";Delhi;India;"Abu Dhabi Intl";"Abu Dhabi";"United Arab Emirates";"Jet Airways"
+"Indira Gandhi Intl";Delhi;India;"Suvarnabhumi Intl";Bangkok;Thailand;"Jet Airways"
+"Indira Gandhi Intl";Delhi;India;Bangalore;Bangalore;India;"Jet Airways"
+"Indira Gandhi Intl";Delhi;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Indira Gandhi Intl";Delhi;India;"Brussels Natl";Brussels;Belgium;"Jet Airways"
+"Indira Gandhi Intl";Delhi;India;"Doha Intl";Doha;Qatar;"Jet Airways"
+"Indira Gandhi Intl";Delhi;India;"Dubai Intl";Dubai;"United Arab Emirates";"Jet Airways"
+"Indira Gandhi Intl";Delhi;India;"Hong Kong Intl";"Hong Kong";"Hong Kong";"Jet Airways"
+"Indira Gandhi Intl";Delhi;India;Hyderabad;Hyderabad;India;"Jet Airways"
+"Indira Gandhi Intl";Delhi;India;Heathrow;London;"United Kingdom";"Jet Airways"
+"Indira Gandhi Intl";Delhi;India;"Chennai Intl";Madras;India;"Jet Airways"
+"Indira Gandhi Intl";Delhi;India;"Changi Intl";Singapore;Singapore;"Jet Airways"
+"King Fahd Intl";Dammam;"Saudi Arabia";"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"King Fahd Intl";Dammam;"Saudi Arabia";"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+"Doha Intl";Doha;Qatar;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Doha Intl";Doha;Qatar;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+"Dubai Intl";Dubai;"United Arab Emirates";"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Dubai Intl";Dubai;"United Arab Emirates";"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+"Newark Liberty Intl";Newark;"United States";"Brussels Natl";Brussels;Belgium;"Jet Airways"
+"Lokpriya Gopinath Bordoloi International Airport";Guwahati;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Goa;Goa;India;Bangalore;Bangalore;India;"Jet Airways"
+Goa;Goa;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Goa;Goa;India;"Chennai Intl";Madras;India;"Jet Airways"
+"Gorakhpur Airport";Gorakhpur;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+"Hong Kong Intl";"Hong Kong";"Hong Kong";"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Hong Kong Intl";"Hong Kong";"Hong Kong";"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Hyderabad;Hyderabad;India;"Abu Dhabi Intl";"Abu Dhabi";"United Arab Emirates";"Jet Airways"
+Hyderabad;Hyderabad;India;Bangalore;Bangalore;India;"Jet Airways"
+Hyderabad;Hyderabad;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Hyderabad;Hyderabad;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Hyderabad;Hyderabad;India;"Chennai Intl";Madras;India;"Jet Airways"
+"Devi Ahilyabai Holkar";Indore;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Devi Ahilyabai Holkar";Indore;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Bagdogra;Baghdogra;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Chandigarh;Chandigarh;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Chandigarh;Chandigarh;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Mangalore;Mangalore;India;Bangalore;Bangalore;India;"Jet Airways"
+Mangalore;Mangalore;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Mangalore;Mangalore;India;"Dubai Intl";Dubai;"United Arab Emirates";"Jet Airways"
+Leh;Leh;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Madurai;Madurai;India;"Chennai Intl";Madras;India;"Jet Airways"
+"Birsa Munda";Ranchi;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Aurangabad;Aurangabad;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Port Blair";"Port Blair";India;"Chennai Intl";Madras;India;"Jet Airways"
+Jaipur;Jaipur;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Jaipur;Jaipur;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Jodhpur;Jodhpur;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Jodhpur;Jodhpur;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+"King Abdulaziz Intl";Jeddah;"Saudi Arabia";"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Johannesburg Intl";Johannesburg;"South Africa";"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Tribhuvan Intl";Kathmandu;Nepal;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Tribhuvan Intl";Kathmandu;Nepal;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+"Kuala Lumpur Intl";"Kuala Lumpur";Malaysia;Bangalore;Bangalore;India;"Jet Airways"
+"Kuala Lumpur Intl";"Kuala Lumpur";Malaysia;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Kuala Lumpur Intl";"Kuala Lumpur";Malaysia;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+"Kuala Lumpur Intl";"Kuala Lumpur";Malaysia;Hyderabad;Hyderabad;India;"Jet Airways"
+"Kuala Lumpur Intl";"Kuala Lumpur";Malaysia;"Chennai Intl";Madras;India;"Jet Airways"
+"Kuwait Intl";Kuwait;Kuwait;"Abu Dhabi Intl";"Abu Dhabi";"United Arab Emirates";"Jet Airways"
+"Kuwait Intl";Kuwait;Kuwait;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Heathrow;London;"United Kingdom";"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Heathrow;London;"United Kingdom";"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Lucknow;Lucknow;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Lucknow;Lucknow;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+"Chennai Intl";Madras;India;"Abu Dhabi Intl";"Abu Dhabi";"United Arab Emirates";"Jet Airways"
+"Chennai Intl";Madras;India;Bangalore;Bangalore;India;"Jet Airways"
+"Chennai Intl";Madras;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Chennai Intl";Madras;India;"Bandaranaike Intl Colombo";Colombo;"Sri Lanka";"Jet Airways"
+"Chennai Intl";Madras;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+"Chennai Intl";Madras;India;Hyderabad;Hyderabad;India;"Jet Airways"
+"Chennai Intl";Madras;India;"Changi Intl";Singapore;Singapore;"Jet Airways"
+"Seeb Intl";Muscat;Oman;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Dr Ambedkar Intl";Nagpur;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Jomo Kenyatta International";Nairobi;Kenya;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Narita Intl";Tokyo;Japan;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Patna;Patina;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Porbandar;Porbandar;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Pune;Pune;India;Bangalore;Bangalore;India;"Jet Airways"
+Pune;Pune;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Pune;Pune;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Pune;Pune;India;Hyderabad;Hyderabad;India;"Jet Airways"
+Pune;Pune;India;"Chennai Intl";Madras;India;"Jet Airways"
+Rajkot;Rajkot;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Rajahmundry;Rajahmundry;India;Hyderabad;Hyderabad;India;"Jet Airways"
+Raipur;Raipur;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Raipur;Raipur;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Raipur;Raipur;India;Hyderabad;Hyderabad;India;"Jet Airways"
+"King Khaled Intl";Riyadh;"Saudi Arabia";"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Changi Intl";Singapore;Singapore;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Changi Intl";Singapore;Singapore;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+"Changi Intl";Singapore;Singapore;"Chennai Intl";Madras;India;"Jet Airways"
+Srinagar;Srinagar;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Tirupati;Tirupeti;India;Hyderabad;Hyderabad;India;"Jet Airways"
+"Thiruvananthapuram Intl";Trivandrum;India;"Abu Dhabi Intl";"Abu Dhabi";"United Arab Emirates";"Jet Airways"
+"Thiruvananthapuram Intl";Trivandrum;India;Bangalore;Bangalore;India;"Jet Airways"
+"Thiruvananthapuram Intl";Trivandrum;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+"Thiruvananthapuram Intl";Trivandrum;India;"Seeb Intl";Muscat;Oman;"Jet Airways"
+Trichy;Tiruchirappalli;India;"Chennai Intl";Madras;India;"Jet Airways"
+Udaipur;Udaipur;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Udaipur;Udaipur;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Vijayawada;Vijayawada;India;Hyderabad;Hyderabad;India;"Jet Airways"
+Varanasi;Varanasi;India;"Indira Gandhi Intl";Delhi;India;"Jet Airways"
+Vishakhapatnam;Vishakhapatnam;India;Bangalore;Bangalore;India;"Jet Airways"
+Vishakhapatnam;Vishakhapatnam;India;"Chhatrapati Shivaji Intl";Mumbai;India;"Jet Airways"
+Vishakhapatnam;Vishakhapatnam;India;"Chennai Intl";Madras;India;"Jet Airways"
+"Lester B Pearson Intl";Toronto;Canada;"Brussels Natl";Brussels;Belgium;"Jet Airways"
+Tbilisi;Tbilisi;Georgia;Dusseldorf;Duesseldorf;Germany;"Air Kazakhstan"
+Tbilisi;Tbilisi;Georgia;"Dubai Intl";Dubai;"United Arab Emirates";"Air Kazakhstan"
+"Ioannis Kapodistrias Intl";Kerkyra/corfu;Greece;Makedonia;Thessaloniki;Greece;"Cielos Airlines"
+Chios;Chios;Greece;Makedonia;Thessaloniki;Greece;"Cielos Airlines"
+Kalamata;Kalamata;Greece;Makedonia;Thessaloniki;Greece;"Cielos Airlines"
+Samos;Samos;Greece;Makedonia;Thessaloniki;Greece;"Cielos Airlines"
+Arlanda;Stockholm;Sweden;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+Arlanda;Stockholm;Sweden;Makedonia;Thessaloniki;Greece;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Arlanda;Stockholm;Sweden;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Barcelona;Barcelona;Spain;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;"Brussels Natl";Brussels;Belgium;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Ferihegy;Budapest;Hungary;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;"Charles De Gaulle";Paris;France;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Kastrup;Copenhagen;Denmark;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Domododevo;Moscow;Russia;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Dusseldorf;Duesseldorf;Germany;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Fiumicino;Rome;Italy;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;"Frankfurt Main";Frankfurt;Germany;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;"Geneve Cointrin";Geneva;Switzerland;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;"Heydar Aliyev";Baku;Azerbaijan;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;"Helsinki Vantaa";Helsinki;Finland;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;"Zhuliany Intl";Kiev;Ukraine;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Ataturk;Istanbul;Turkey;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Larnaca;Larnaca;Cyprus;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Pulkovo;"St. Petersburg";Russia;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Heathrow;London;"United Kingdom";"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;"Saint Exupery";Lyon;France;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Barajas;Madrid;Spain;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Manchester;Manchester;"United Kingdom";"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;"Franz Josef Strauss";Munich;Germany;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Malpensa;Milano;Italy;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Gardermoen;Oslo;Norway;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;"Philadelphia Intl";Philadelphia;"United States";"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Ruzyne;Prague;"Czech Republic";"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Makedonia;Thessaloniki;Greece;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Sofia;Sofia;Bulgaria;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Stansted;London;"United Kingdom";"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;"Tirana Rinas";Tirana;Albania;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;"Ben Gurion";Tel-aviv;Israel;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Tegel;Berlin;Germany;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;"Venezia Tessera";Venice;Italy;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Schwechat;Vienna;Austria;"Aegean Airlines"
+"Eleftherios Venizelos Intl";Athens;Greece;Okecie;Warsaw;Poland;"Aegean Airlines"
+Dimokritos;Alexandroupolis;Greece;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+Dimokritos;Alexandroupolis;Greece;Domododevo;Moscow;Russia;"Aegean Airlines"
+Dimokritos;Alexandroupolis;Greece;Pulkovo;"St. Petersburg";Russia;"Aegean Airlines"
+Barcelona;Barcelona;Spain;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+Beograd;Belgrade;Serbia;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+"Brussels Natl";Brussels;Belgium;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+Ferihegy;Budapest;Hungary;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+"Charles De Gaulle";Paris;France;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+"Charles De Gaulle";Paris;France;Makedonia;Thessaloniki;Greece;"Aegean Airlines"
+"Ioannis Kapodistrias Intl";Kerkyra/corfu;Greece;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+"Ioannis Kapodistrias Intl";Kerkyra/corfu;Greece;"Brussels Natl";Brussels;Belgium;"Aegean Airlines"
+"Ioannis Kapodistrias Intl";Kerkyra/corfu;Greece;Domododevo;Moscow;Russia;"Aegean Airlines"
+"Ioannis Kapodistrias Intl";Kerkyra/corfu;Greece;Malpensa;Milano;Italy;"Aegean Airlines"
+Souda;Chania;Greece;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+Souda;Chania;Greece;Makedonia;Thessaloniki;Greece;"Aegean Airlines"
+Kastrup;Copenhagen;Denmark;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+Kastrup;Copenhagen;Denmark;Makedonia;Thessaloniki;Greece;"Aegean Airlines"
+Domododevo;Moscow;Russia;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+Domododevo;Moscow;Russia;Makedonia;Thessaloniki;Greece;"Aegean Airlines"
+Dusseldorf;Duesseldorf;Germany;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+Dusseldorf;Duesseldorf;Germany;Makedonia;Thessaloniki;Greece;"Aegean Airlines"
+Fiumicino;Rome;Italy;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+"Frankfurt Main";Frankfurt;Germany;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+"Frankfurt Main";Frankfurt;Germany;Makedonia;Thessaloniki;Greece;"Aegean Airlines"
+"Geneve Cointrin";Geneva;Switzerland;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+"Heydar Aliyev";Baku;Azerbaijan;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+Hannover;Hannover;Germany;Makedonia;Thessaloniki;Greece;"Aegean Airlines"
+"Helsinki Vantaa";Helsinki;Finland;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+"Nikos Kazantzakis";Heraklion;Greece;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+"Nikos Kazantzakis";Heraklion;Greece;"Brussels Natl";Brussels;Belgium;"Aegean Airlines"
+"Nikos Kazantzakis";Heraklion;Greece;"Charles De Gaulle";Paris;France;"Aegean Airlines"
+"Nikos Kazantzakis";Heraklion;Greece;Domododevo;Moscow;Russia;"Aegean Airlines"
+"Nikos Kazantzakis";Heraklion;Greece;Dusseldorf;Duesseldorf;Germany;"Aegean Airlines"
+"Nikos Kazantzakis";Heraklion;Greece;"Frankfurt Main";Frankfurt;Germany;"Aegean Airlines"
+"Nikos Kazantzakis";Heraklion;Greece;Ataturk;Istanbul;Turkey;"Aegean Airlines"
+"Nikos Kazantzakis";Heraklion;Greece;Pulkovo;"St. Petersburg";Russia;"Aegean Airlines"
+"Nikos Kazantzakis";Heraklion;Greece;"Franz Josef Strauss";Munich;Germany;"Aegean Airlines"
+"Nikos Kazantzakis";Heraklion;Greece;Makedonia;Thessaloniki;Greece;"Aegean Airlines"
+"Nikos Kazantzakis";Heraklion;Greece;"Ben Gurion";Tel-aviv;Israel;"Aegean Airlines"
+"Zhuliany Intl";Kiev;Ukraine;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+"Zhuliany Intl";Kiev;Ukraine;Larnaca;Larnaca;Cyprus;"Aegean Airlines"
+Ataturk;Istanbul;Turkey;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+Mikonos;Mykonos;Greece;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+Mikonos;Mykonos;Greece;Makedonia;Thessaloniki;Greece;"Aegean Airlines"
+Santorini;Thira;Greece;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"
+Santorini;Thira;Greece;Makedonia;Thessaloniki;Greece;"Aegean Airlines"
+Kos;Kos;Greece;"Eleftherios Venizelos Intl";Athens;Greece;"Aegean Airlines"

@@ -11,7 +11,6 @@ import java.util.Date;
 import static junit.framework.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  * @author Dario
  */
-@Ignore
 public class VisitaDAOTest extends DAOUnitTest{
     
     @Autowired
@@ -43,7 +41,7 @@ public class VisitaDAOTest extends DAOUnitTest{
                 
         Visita v = new Visita();
         v.setAbilitato(true);
-        v.setCosto(50);
+        v.setCosto(50f);
         v.setDataOra(new Date());
         v.setMuseo(m);
 //        v.setNumeroPersone(5);
@@ -64,7 +62,7 @@ public class VisitaDAOTest extends DAOUnitTest{
 
         Visita v = new Visita();
         v.setAbilitato(true);
-        v.setCosto(50);
+        v.setCosto(50f);
         v.setDataOra(d);
         v.setMuseo(m);
 //        v.setNumeroPersone(5);

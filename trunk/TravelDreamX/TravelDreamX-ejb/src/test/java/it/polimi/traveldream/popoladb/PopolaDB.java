@@ -2,21 +2,25 @@
  * Politecnico di Milano, Software Engineering 2 (autumn semester)
  * proj codename: TravelDreamX
  */
-
 package it.polimi.traveldream.popoladb;
-
 
 import static it.polimi.traveldream.data.TestUtilities.getRandomImageLink;
 import it.polimi.traveldream.model.Albergo;
+import it.polimi.traveldream.model.Museo;
+import it.polimi.traveldream.model.Pacchetto;
 import it.polimi.traveldream.model.Rotta;
 import it.polimi.traveldream.model.Soggiorno;
+import it.polimi.traveldream.model.TipoPB;
 import it.polimi.traveldream.model.Utente;
+import it.polimi.traveldream.model.Visita;
+import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.model.Volo;
 import it.polimi.traveldream.service.EDBServiceLocal;
 import it.polimi.traveldream.service.EJBServiceTestSuite;
 import static it.polimi.traveldream.service.EJBServiceTestSuite.container;
 import it.polimi.traveldream.service.PBServiceLocal;
 import it.polimi.traveldream.service.PVServiceLocal;
+import it.polimi.traveldream.service.ParametriRicercaPB;
 import it.polimi.traveldream.service.UtenteServiceLocal;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -34,7 +38,7 @@ import org.junit.Test;
  *
  * @author Dario
  */
-public class PopolaDB{
+public class PopolaDB {
 
     private static final String PVServiceJdniName = "java:global/classes/PVService";
     private static final String utenteServiceJdniName = "java:global/classes/UtenteService";
@@ -45,60 +49,151 @@ public class PopolaDB{
     private static PBServiceLocal pbService = null;
     private static EDBServiceLocal edbService = null;
     private static boolean testSuite = false;
-    
+
     @BeforeClass
     public static void setUpClass() throws NamingException {
-        if (container != null) testSuite = true;
-        else EJBServiceTestSuite.setUp();
-        pvService = (PVServiceLocal)container.getContext().lookup(PVServiceJdniName);
-        utenteService = (UtenteServiceLocal)container.getContext().lookup(utenteServiceJdniName);
-        pbService = (PBServiceLocal)container.getContext().lookup(pbServiceJdniName);
-        edbService = (EDBServiceLocal)container.getContext().lookup(edbServiceJdniName);
+        if (container != null) {
+            testSuite = true;
+        } else {
+            EJBServiceTestSuite.setUp();
+        }
+        pvService = (PVServiceLocal) container.getContext().lookup(PVServiceJdniName);
+        utenteService = (UtenteServiceLocal) container.getContext().lookup(utenteServiceJdniName);
+        pbService = (PBServiceLocal) container.getContext().lookup(pbServiceJdniName);
+        edbService = (EDBServiceLocal) container.getContext().lookup(edbServiceJdniName);
         rnd = new Random(new Date().getTime());
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
-        if (!testSuite) EJBServiceTestSuite.tearDown();
+        if (!testSuite) {
+            EJBServiceTestSuite.tearDown();
+        }
     }
-    
+
     static Random rnd = new Random(new Date().getTime());
-        
-    private static final int nroAlberghiDaGenerare = 50;
-    private static final int nroSoggiorniDaGenerare = 50;
-    private static final int nroVoliDaGenerare = 50;
+
+    private static final int nroAlberghiDaGenerare = 500;
+    private static final int nroSoggiorniDaGenerare = 1000;
+    private static final int nroVoliDaGenerare = 1000;
+    private static final int nroMuseiDaGenerare = 500;
+    private static final int nroVisiteDaGenerare = 1000;
+    private static final int nroPacchettiDaGenerare = 1000;
     private final List<Città> cittàNelMondo = new ArrayList<>();
     private final List<Albergo> alberghiGenerati = new ArrayList<>();
+    private final List<Museo> museiGenerati = new ArrayList<>();
     private final List<Rotta> rotteLette = new ArrayList<>();
-    
+    private final List<Pacchetto> pacchettiGenerati = new ArrayList<>();
+
     @Test
-    public void popolaDB() throws Exception{
-        
+    public void popolaDB() throws Exception {
+
         leggiCittàDaFile("città.csv");
         leggiFioriDaFile("fiori.txt");
         leggiColoriDaFile("colori.txt");
-        leggiRotteDaFile("rotte.csv");
+        leggiRotteDaFile("unporotte.csv");
+        leggiCittàDaRotte();
+        leggiScienziatiDaFile("nomi.txt");
 
         generaAlberghi(nroAlberghiDaGenerare);
-        generaSoggiorni(nroSoggiorniDaGenerare,  2, 14, 180, 30, 300);
+        generaSoggiorni(nroSoggiorniDaGenerare, 2, 14, 180, 30, 300);
         salvaRotte();
         generaVoli(nroVoliDaGenerare, 180, 30, 300);
         salvaUtentiImpiegatoEdAdmin();
+        generaMusei(nroMuseiDaGenerare);
+        generaVisite(nroVisiteDaGenerare, 180, 30, 300);
+        generaPacchetti(nroPacchettiDaGenerare);
     }
-    
-    private void salvaUtentiImpiegatoEdAdmin(){
-        Utente impiegato = new Utente("impiegato@traveldream.it", "impiegato");
+
+    private void generaPacchetti(int nroPacchettiDaGenerare) {
+        for (int i = 0; i < nroPacchettiDaGenerare; i++) {
+            
+            Pacchetto p = new Pacchetto();
+            p.setTipo(Pacchetto.PREDEFINITO);
+            p.setAbilitato(true);
+            p.setNome("Pacchetto bello " + pacchettiGenerati.size());
+            p.setDataOraCreazione(new Date());
+            p.setProprietario(impiegato);
+            p.setVoci(new ArrayList<Voce>());
+            Città c = cittàNelMondo.get(rnd.nextInt(cittàNelMondo.size()));
+            System.out.println("PopolaDB.generaPacchetti -> scelta città:" + c.getCittà());
+            ParametriRicercaPB params = new ParametriRicercaPB();
+            params.setCittaAlbergo(c.getCittà());
+
+            params.setCittaArrivoVolo(c.getCittà());
+            params.setTipo(TipoPB.Volo);
+
+            List<Voce> v = pbService.trovaPB(params);
+            if (v == null) {
+                continue;
+            }
+            Volo volo = (Volo) v.get(rnd.nextInt(v.size()));
+            System.out.println("PopolaDB.generaPacchetti -> scelto volo andata:" + volo + " con la compagnia " + volo.getRotta().getCompagniaAerea());
+            p.getVoci().add(volo);
+
+            params = new ParametriRicercaPB();
+            params.setTipo(TipoPB.Volo);
+            params.setCittaPartenzaVolo(c.getCittà());
+
+            v = pbService.trovaPB(params);
+            if (v == null) {
+                continue;
+            }
+            volo = (Volo) v.get(rnd.nextInt(v.size()));
+            System.out.println("PopolaDB.generaPacchetti -> scelto volo ritorno:" + volo + " con la compagnia " + volo.getRotta().getCompagniaAerea());
+            p.getVoci().add(volo);
+
+            params = new ParametriRicercaPB();
+            params.setTipo(TipoPB.Soggiorno);
+            params.setCittaAlbergo(c.getCittà());
+            v = pbService.trovaPB(params);
+            if (v == null) {
+                continue;
+            }
+            Soggiorno soggiorno = (Soggiorno) v.get(rnd.nextInt(v.size()));
+            System.out.println("PopolaDB.generaPacchetti -> scelto soggiorno:" + soggiorno + " in albergo " + soggiorno.getAlbergo().getNome());
+            p.getVoci().add(soggiorno);
+            p.setNumeroPersone(soggiorno.getNumeroPersone());
+
+            params = new ParametriRicercaPB();
+            params.setTipo(TipoPB.Visita);
+            params.setCittaMuseo(c.getCittà());
+            v = pbService.trovaPB(params);
+            if (v == null) {
+                continue;
+            }
+            Visita visita = (Visita) v.get(rnd.nextInt(v.size()));
+            System.out.println("PopolaDB.generaPacchetti -> scelta visita:" + visita + " al " + visita.getMuseo().getNome());
+            p.getVoci().add(visita);
+
+            pacchettiGenerati.add(pvService.salvaPV(p));
+        }
+        
+        System.out.println("PopolaDB.generaPacchetti -> generati " + pacchettiGenerati.size() + " su " + nroPacchettiDaGenerare +  "richiesti");
+    }
+    Utente impiegato;
+    private void salvaUtentiImpiegatoEdAdmin() {
+        impiegato = new Utente("impiegato@traveldream.it", "impiegato");
         impiegato.setLivello(Utente.LIVELLO_IMPIEGATO);
         impiegato.setAbilitato(true);
         Utente admin = new Utente("admin@traveldream.it", "admin");
         admin.setLivello(Utente.LIVELLO_AMMINISTRATORE);
         admin.setAbilitato(true);
-    
+
         utenteService.registrazione(admin);
         utenteService.registrazione(impiegato);
     }
-    
-    private void inserisciVolo(Rotta r, Date dataOra, float costo){
+
+    private void inserisciVisita(Museo m, Date dataOra, float costo) {
+        Visita v = new Visita();
+        v.setAbilitato(true);
+        v.setCosto(costo);
+        v.setMuseo(m);
+        v.setDataOra(dataOra);
+        pbService.salvaPB(v);
+    }
+
+    private void inserisciVolo(Rotta r, Date dataOra, float costo) {
         Volo v = new Volo();
         v.setAbilitato(true);
         v.setCosto(costo);
@@ -107,9 +202,9 @@ public class PopolaDB{
         v.setRotta(r);
         pbService.salvaPB(v);
     }
-    
+
     private void generaVoli(int n, int dataMassimaGiornoInizio, float costoMinimo, float costoMassimo) {
-        for (int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             Rotta r = rotteLette.get(rnd.nextInt(rotteLette.size()));
             float costo = generaCostoRandom(costoMinimo, costoMassimo);
             long dataOraVolo = rnd.nextInt(dataMassimaGiornoInizio * 24 * 60);
@@ -118,43 +213,70 @@ public class PopolaDB{
             inserisciVolo(r, dataOra, costo);
         }
     }
-    
-    private void salvaRotte(){
-        for(Rotta r : rotteLette)
-            inserisciRotta(r);
+
+    private void generaVisite(int n, int dataMassimaGiornoInizio, float costoMinimo, float costoMassimo) {
+        int aperturaMusei = 8, chiusuraMusei = 20;
+        int nMezzOre = (chiusuraMusei - aperturaMusei) / 2;
+        for (int i = 0; i < n; i++) {
+            Museo m = museiGenerati.get(rnd.nextInt(museiGenerati.size()));
+            float costo = generaCostoRandom(costoMinimo, costoMassimo);
+            long giornoDaOggi = rnd.nextInt(dataMassimaGiornoInizio) * 24 * 60 * 60 * 1000;
+            long ora = (rnd.nextInt(nMezzOre) + aperturaMusei) * 30 * 60 * 1000;
+            long oggi = (new Date().getTime() / (24 * 60 * 60 * 1000)) * 24 * 60 * 60 * 1000;
+            long dataOraVisita = oggi + giornoDaOggi + ora;
+            Date dataOra = new Date(dataOraVisita);
+            inserisciVisita(m, dataOra, costo);
+        }
     }
-    
-    private float generaCostoRandom(float min, float max){
+
+    private void salvaRotte() {
+        for (Rotta r : rotteLette) {
+            inserisciRotta(r);
+        }
+    }
+
+    private float generaCostoRandom(float min, float max) {
         float costo;
         float x = rnd.nextFloat();
-        costo = x * (max-min) + min;
-        costo = ((int)(costo * 100)) / 100;
+        costo = x * (max - min) + min;
+        costo = ((int) (costo * 100)) / 100;
         return costo;
     }
-    
-    private Date daOggi(long n){
+
+    private Date daOggi(long n) {
         Date ret = new Date();
-        ret = new Date(((long)(ret.getTime() / (24 * 60 * 60 * 1000))) * 24 * 60 * 60 * 1000);
+        ret = new Date(((long) (ret.getTime() / (24 * 60 * 60 * 1000))) * 24 * 60 * 60 * 1000);
         ret = new Date(ret.getTime() + n * 24 * 60 * 60 * 1000);
         return ret;
     }
-    
+
     private void generaSoggiorni(int n, int nroMinimoGiorni, int nroMassimoGiorni, int dataMassimaGiornoInizio, float costoMinimo, float costoMassimo) {
-        for (int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             Albergo a = alberghiGenerati.get(rnd.nextInt(nroAlberghiDaGenerare));
             float costo = generaCostoRandom(costoMinimo, costoMassimo);
-            int nroGiorni = rnd.nextInt(nroMassimoGiorni-nroMinimoGiorni) + nroMinimoGiorni;
+            int nroGiorni = rnd.nextInt(nroMassimoGiorni - nroMinimoGiorni) + nroMinimoGiorni;
             long nroGiornoInizio = rnd.nextInt(dataMassimaGiornoInizio);
             System.out.println("generaSoggiorni -> nroGiornoInizio:" + nroGiornoInizio);
-            long nroGiornoFine = nroGiornoInizio+nroGiorni;
+            long nroGiornoFine = nroGiornoInizio + nroGiorni;
             System.out.println("generaSoggiorni -> nroGiornoFine:" + nroGiornoFine);
             Date giornoInizio = daOggi(nroGiornoInizio);
             Date giornoFine = daOggi(nroGiornoFine);
             inserisciSoggiorno(a, giornoInizio, giornoFine, costo);
         }
     }
-        
-    private final String iniziAlbergo[] = {"Villa", "Hotel", "Residence", "Ostello"};
+
+    private final String iniziMuseo[] = {"Museo"};
+    private final List<String> scienziati = new ArrayList<>();
+
+    private String generaNomeMuseo() {
+        String ret = "";
+        ret += iniziMuseo[rnd.nextInt(iniziMuseo.length)];
+        ret += " ";
+        ret += scienziati.get(rnd.nextInt(scienziati.size()));
+        return ret;
+    }
+
+    private final String iniziAlbergo[] = {"Villa", "Hotel", "Residence", "Ostello", "Hotel Villa"};
     private final List<String> fiori = new ArrayList<>();
     private final List<String> colori = new ArrayList<>();
 
@@ -168,6 +290,17 @@ public class PopolaDB{
         return ret;
     }
 
+    public void generaMusei(int n) {
+        for (int i = 0; i < n; i++) {
+            Città c = cittàNelMondo.get(rnd.nextInt(cittàNelMondo.size()));
+            String nome = generaNomeMuseo();
+            String descrizione = "Lorem ipsum";
+            String url = getRandomImageLink();
+            System.out.println("Generato museo nro " + i + ":" + nome + " a " + c.getCittà());
+            inserisciMuseo(c, nome, descrizione, url);
+        }
+    }
+
     public void generaAlberghi(int n) {
         for (int i = 0; i < n; i++) {
             Città c = cittàNelMondo.get(rnd.nextInt(cittàNelMondo.size()));
@@ -176,6 +309,14 @@ public class PopolaDB{
             String url = getRandomImageLink();
             System.out.println("Generato albergo nro " + i + ":" + nome + " " + stelle + " stelle a " + c.getCittà());
             inserisciAlbergo(c, nome, stelle, url);
+        }
+    }
+
+    private void leggiCittàDaRotte(){
+        cittàNelMondo.clear();
+        for (Rotta r : rotteLette){
+            Città c = new Città(r.getNazionePartenza(), r.getCittaPartenza());
+            cittàNelMondo.add(c);
         }
     }
     
@@ -229,10 +370,27 @@ public class PopolaDB{
         while ((line = reader.readLine()) != null) {
             colori.add(line);
         }
-    }    
-    
-    private void inserisciRotta(Rotta r){
+    }
+
+    private void leggiScienziatiDaFile(String fileName) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            scienziati.add(line);
+        }
+    }
+
+    private void inserisciRotta(Rotta r) {
         edbService.salvaRotta(r);
+    }
+
+    private void inserisciMuseo(Città c, String nome, String descrizione, String url) {
+        Museo m = new Museo();
+        m.setNome(nome);
+        m.setCitta(c.getCittà());
+        m.setDescrizione(descrizione);
+        m.setUrlFoto(url);
+        museiGenerati.add(edbService.salvaMuseo(m));
     }
 
     private void inserisciAlbergo(Città c, String nome, int stelle, String url) {
