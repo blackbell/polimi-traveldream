@@ -8,15 +8,30 @@ travelDreamApp.controller('pvModalController', function($scope, $rootScope, $loc
     toastr.options = {
         positionClass: "toast-center"
     };
+    $scope.mettiPVinRootScope = function (pv){
+        $rootScope.PV=pv;
+    };
     $scope.setIndexes = function (pv){
+        var numeroVoli = 0;
+        var findVoloAR = function (pv) {
+            numeroVoli++;
+                if(numeroVoli===2 && pv.voci[index].dataOra > pv.voci[$scope.indexVoloAndata].dataOra){
+                    $scope.indexVoloRitorno = index;
+                }else {
+                    $scope.indexVoloRitorno = $scope.indexVoloAndata;
+                    $scope.indexVoloAndata = index;
+                };
+            return pv;
+        };
         console.log(pv);
         for(var index = 0; index < pv.voci.length; ++index){
             if( pv.voci[index].tipo === 'Soggiorno')
                 $scope.indexSoggiorno = index;
-            if( pv.voci[index].tipo === 'Volo')
-                $scope.indexVolo = index;
             if( pv.voci[index].tipo === 'Visita')
                 $scope.indexVisita = index;
+            if( pv.voci[index].tipo === 'Volo'){ 
+                pv = findVoloAR(pv);
+            }
         }   
     };
    

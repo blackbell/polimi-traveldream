@@ -7,35 +7,31 @@ proj codename: TravelDreamX
         <div class="span6">
             <div class="modal-header" align="center">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <br/><p class="lead">Info condivisione</p>
+                <br/><p class="lead">Complimenti! Hai salvato il tuo viaggio</p>
             </div>
             <div class="modal-body">
-                    <br/>
-                    <div class="row">
+                <br/>
+                <div class="row">
                     <p  class="testo-modale-condivisione">Dando questo link ai tuoi amici, essi potranno consultare e acquistare il pacchetto viaggio da te creato.</p>
-                    </div>
-                    <div class="row" align="center">
-                        <input name="link" type="text" class="span4 form-control input-login-registr" ng-readonly="true" ng-model="linkCondivisione" />
-                    </div>
-                    <div class="row" align="center">
-                        <legend></legend>
-                        <p>Condividi su: 
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank">
-                                <img style="height:32px;width:32px" alt="facebook" src="img/facebook.png"/>
-                            </a> &nbsp;
-                            <a href="http://twitter.com/intent/tweet?hashtags=TravelDreamX&text=Il mio prossimo viaggio! Solo grazie a" target="_blank" >
-                                <img style="height:32px;width:32px" alt="twitter" src="img/twitter.png"/>
-                            </a> 
-                        </p>
-                    </div>
-                    <div class="row">
+                </div>
+                <div class="row" align="center">
+                    <input name="link" type="text" class="span4 form-control input-login-registr" ng-readonly="true" ng-model="linkCondivisione" />
+                </div>
+                <div class="row" align="center">
                     <legend></legend>
-                    <p class="testo-modale-condivisione">Oppure scrivi l'indirizzo email delle persone con cui vuoi condividerlo:</p>
-                    </div>
-                    <div class="row" ng-repeat="email in emails" align="center">
-                        <input type="text" class="span2" placeholder="mario.rossi@email.it" ng-model="email.indirizzoEmail"/><button><i class="icon-plus-sign" ng-click="aggiungiCampoEmail()"></i></button>
-                    </div>
-                    <div class="row" align="center"><input type="button" class="btn btn-success span2" ng-disabled="!ceAlmenoUnIndirizzo()" ng-click="condividi()" value="Condividi!"/></div>
+                    <p>Condividi su: 
+                        <a ng-href="http://www.facebook.com/sharer.php?s=100
+                           &p[url]=https://dl.dropboxusercontent.com/u/10879598/traveldreamx.html
+                           &p[images][0]=https://dl.dropboxusercontent.com/u/10879598/palm_tree-512.png
+                           &p[title]=Il mio prossimo viaggio! Solo grazie a TravelDreamX
+                           &p[summary]=Componi anche tu il tuo viaggio!" target="_blank">
+                            <img style="height:32px;width:32px" alt="facebook" src="img/facebook.png"/>
+                        </a> &nbsp;
+                        <a ng-href="http://twitter.com/intent/tweet?hashtags=TravelDreamX&text={{linkCondivisione}} Il mio prossimo viaggio! Solo grazie a" target="_blank" >
+                            <img style="height:32px;width:32px" alt="twitter" src="img/twitter.png"/>
+                        </a> 
+                    </p>
+                </div>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <div class="row ">
     <p class="span2 lead" ng-init="getPVdaRootScope()">Partecipanti: </p>
-    <input type="text" placeholder="2" class="span1" ng-model="PV.numeroPersone"/>
+    <input type="text" ng-pattern="/^([1-9]|[1-9][0-9])$/" ng-required="true" placeholder="2" class="span1" ng-model="PV.numeroPersone"/>
     <br />
 </div>
 <div class="row ">
@@ -19,7 +19,11 @@
             <img ng-src="img/{{voce.tipo}}.png" class="voce-lista-img"/>
         </li>
         <li ng-class="{'pull-right': true, 'voce-item-col': true}" ng-if="!isCompleta(voce)">
-            <text class="voce-item-left" ><strong>Scegli {{voce.tipo}}</strong> </text><i class="voce-item-right icon-chevron-right"></i>
+            <text class="voce-item-left" >
+            <strong>Scegli {{voce.tipo}} 
+                <span ng-if="voce.tipo === 'Volo'"><br/>(Andata/Ritorno)</span>
+            </strong> 
+            </text><i class="voce-item-right icon-chevron-right"></i>
         </li>
         <li class="pull-right voce-item-col" ng-if="isVolo(voce)">
             <p class="voce-item-left" > 

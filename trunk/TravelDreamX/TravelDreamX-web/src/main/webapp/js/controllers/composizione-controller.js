@@ -25,7 +25,11 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         };
     };
 
-
+    $scope.azzeraPV = function (){
+        inizializzaPV();
+        toastr.success("Pacchetto azzerato");
+    };
+    
     $scope.getPVdaRootScope = function() {
         if (typeof $rootScope.PV === 'undefined') {
             inizializzaPV();
@@ -33,8 +37,9 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     };
     var inizializzaPV = function() {
         $rootScope.PV = {
+            numeroPersone: 2,
             nome: null,
-            voci: [{tipo: 'Volo'}, {tipo: 'Soggiorno'}, {tipo: 'Visita'}]
+            voci: [{tipo: 'Volo'}, {tipo: 'Volo'}, {tipo: 'Soggiorno'}, {tipo: 'Visita'}]
         };
         $rootScope.indiceSelezionato = -1;
     };
@@ -45,7 +50,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     //**********************************       
     //***** Lista voci - SELEZIONE *****
     //**********************************       
-
+    
     $scope.isSelezionato = function(data) {
         if (typeof data === 'number')
             return $rootScope.indiceSelezionato === data;
@@ -67,12 +72,13 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         }
         ;
     };
-    $scope.ceAlmenoUnaVoce = function (){
-        if( typeof $rootScope.PV !== 'undefined')
-        for(var i=0; i < $rootScope.PV.voci.length; i++){
-            if($scope.isCompleta($rootScope.PV.voci[i]))
-                return true;
-        };
+    $scope.ceAlmenoUnaVoce = function() {
+        if (typeof $rootScope.PV !== 'undefined')
+            for (var i = 0; i < $rootScope.PV.voci.length; i++) {
+                if ($scope.isCompleta($rootScope.PV.voci[i]))
+                    return true;
+            }
+        ;
         return false;
     };
     $scope.isCompleta = function(voce) {
@@ -99,7 +105,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         if (indice > -1) {
             $scope.deseleziona(indice);
             $rootScope.PV.voci.splice(indice, 1);
-            if($rootScope.PV.voci.length===0){
+            if ($rootScope.PV.voci.length === 0) {
                 delete $rootScope.PV;
                 inizializzaPV();
             }
@@ -181,33 +187,39 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
             backdrop: 'static'
         };
         var popUpModal = function(modal) {
-        // do something
-        $modal(modal);
+            // do something
+            $modal(modal);
         };
         popUpModal(modaleCondivisione);
     };
     $scope.salvaPV = function(isGL) {
-        if (typeof $scope.nomePV !== 'undefined')
-            $rootScope.PV.nome = $scope.nomePV;
-        if (isGL)
-            $rootScope.PV.tipo = 2;
-        else
-            $rootScope.PV.tipo = 1;
-        if (typeof $rootScope.utente !== 'undefined') {
-            $rootScope.PV.proprietario = $rootScope.utente;
-            salvaPVPBservice.salvaPV(escludiVociVuote($rootScope.PV), function(esito) {
-                if (esito.result) {
-                    console.log("ESITO:");
-                    console.log(esito.returnedObj);
-                    $rootScope.PV = esito.returnedObj;
-                    $rootScope.linkCondivisione = "http://localhost:8888/TravelDreamX-web/sharedPVid:" + $rootScope.PV.idPacchetto;
-                    apriModaleCondivisione();
-                    toastr.success("Puoi consultare il PV salvato dal menu utente", esito.message);
-                } else
-                    toastr.error(esito.message, "ERRORE:");
-            });
-        } else {
-            toastr.error("Effettuare il Login o la Registrazione prima di procedere", "ERRORE:");
+        if (typeof $rootScope.PV.numeroPersone !== 'undefined' 
+                && $rootScope.PV.numeroPersone>0 && $rootScope.PV.numeroPersone<100) {
+            if (typeof $scope.nomePV !== 'undefined')
+                $rootScope.PV.nome = $scope.nomePV;
+            if (isGL)
+                $rootScope.PV.tipo = 2;
+            else
+                $rootScope.PV.tipo = 1;
+            if (typeof $rootScope.utente !== 'undefined') {
+                $rootScope.PV.proprietario = $rootScope.utente;
+                salvaPVPBservice.salvaPV(escludiVociVuote($rootScope.PV), function(esito) {
+                    if (esito.result) {
+                        console.log("ESITO:");
+                        console.log(esito.returnedObj);
+                        $rootScope.PV = esito.returnedObj;
+                        $rootScope.linkCondivisione = "http://localhost:8888/TravelDreamX-web/sharedPVid:" + $rootScope.PV.idPacchetto;
+                        apriModaleCondivisione();
+                        toastr.success("Puoi consultare il PV salvato dal menu utente", esito.message);
+                    } else
+                        toastr.error(esito.message, "ERRORE:");
+                });
+            } else {
+                toastr.error("Effettuare il Login o la Registrazione prima di procedere", "ERRORE:");
+            }
+            ;
+        } else { 
+            toastr.error("Il numero dei partecipanti deve essere compreso tra 1 e 99.");
         }
         ;
     };

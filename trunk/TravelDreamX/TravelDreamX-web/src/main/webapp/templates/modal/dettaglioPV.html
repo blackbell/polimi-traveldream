@@ -3,7 +3,7 @@ Politecnico di Milano, Software Engineering 2 (autumn semester)
 proj codename: TravelDreamX
 -->
 <div class="container modal span9" ng-controller="pvModalController">
-    <div class="row" ng-controller="autenticazioneController">
+    <div class="row" ng-controller="autenticazioneController" ng-init="mettiPVinRootScope(pv)">
         <div class="span9">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -29,15 +29,16 @@ proj codename: TravelDreamX
                     <div class="span4">
                         <div class="well well-small well-dettaglio-PV" ng-if="isPresente(pv, 'Volo')">
                             <img class="pull-left" src="img/Volo.png" width="40"/>
-                            <div class="span3">Andata: {{pv.voci[indexVolo].dataOra|date:'dd/MM/yyyy hh:mm'}}<br/>Ritorno: {{pv.voci[indexVolo].dataOra|date:'dd/MM/yyyy hh:mm'}}</div>
+                            <div class="span3"><span>Andata: {{pv.voci[indexVoloAndata].dataOra|date:'dd/MM/yyyy hh:mm'}}<br/></span>
+                                <span ng-if="indexVoloRitorno !== null">Ritorno: {{pv.voci[indexVoloRitorno].dataOra|date:'dd/MM/yyyy hh:mm'}}</span></div>
                         </div>
                         <div class="well well-small well-dettaglio-PV" ng-if="isPresente(pv, 'Visita')">
                             <img class="pull-left" src="img/Visita.png" width="40"/>
-                            <div class="span3">Nome: {{pv.voci[indexVisita].museo.nome}}<br/>Data: {{pv.voci[indexVisita].dataOra}}</div>
+                            <div class="span3">Nome: {{pv.voci[indexVisita].museo.nome}}<br/>Data: {{pv.voci[indexVisita].dataOra|date:'dd/MM/yyyy hh:mm'}}</div>
                         </div>
                         <div class="span1">solo<p class="lead"> &euro;{{calcolaPrezzo(pv)}}</p></div>
                         <div class="span2" ng-if='!isImpiegato()'>
-                            <button class="btn span2 btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Acquista</button> <br/>
+                            <button class="btn span2 btn-success" ng-controller="acquistaController" ng-click="acquistaPV()"><i class="icon-shopping-cart icon-white"></i> Acquista</button> <br/>
                         </div>
                         <div class="span2" ng-if='isImpiegato() && isAbilitato(pv)'>
                             <button class="btn span2 btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Disabilita</button> <br/>
