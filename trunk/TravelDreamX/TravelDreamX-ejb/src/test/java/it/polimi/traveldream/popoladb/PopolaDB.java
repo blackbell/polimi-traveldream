@@ -107,7 +107,7 @@ public class PopolaDB {
 
     private void generaPacchetti(int nroPacchettiDaGenerare) {
         for (int i = 0; i < nroPacchettiDaGenerare; i++) {
-            
+
             Pacchetto p = new Pacchetto();
             p.setTipo(Pacchetto.PREDEFINITO);
             p.setAbilitato(true);
@@ -127,9 +127,9 @@ public class PopolaDB {
             if (v == null) {
                 continue;
             }
-            Volo volo = (Volo) v.get(rnd.nextInt(v.size()));
-            System.out.println("PopolaDB.generaPacchetti -> scelto volo andata:" + volo + " con la compagnia " + volo.getRotta().getCompagniaAerea());
-            p.getVoci().add(volo);
+            Volo andata = (Volo) v.get(rnd.nextInt(v.size()));
+            System.out.println("PopolaDB.generaPacchetti -> scelto volo andata:" + andata + " con la compagnia " + andata.getRotta().getCompagniaAerea());
+            p.getVoci().add(andata);
 
             params = new ParametriRicercaPB();
             params.setTipo(TipoPB.Volo);
@@ -139,9 +139,15 @@ public class PopolaDB {
             if (v == null) {
                 continue;
             }
-            volo = (Volo) v.get(rnd.nextInt(v.size()));
-            System.out.println("PopolaDB.generaPacchetti -> scelto volo ritorno:" + volo + " con la compagnia " + volo.getRotta().getCompagniaAerea());
-            p.getVoci().add(volo);
+            Volo ritorno = (Volo) v.get(rnd.nextInt(v.size()));
+            System.out.println("PopolaDB.generaPacchetti -> scelto volo ritorno:" + ritorno + " con la compagnia " + ritorno.getRotta().getCompagniaAerea());
+            p.getVoci().add(ritorno);
+
+            if (andata.getDataOra().after(ritorno.getDataOra())) {
+                Volo x = andata;
+                andata = ritorno;
+                ritorno = x;
+            }
 
             params = new ParametriRicercaPB();
             params.setTipo(TipoPB.Soggiorno);
@@ -152,6 +158,9 @@ public class PopolaDB {
             }
             Soggiorno soggiorno = (Soggiorno) v.get(rnd.nextInt(v.size()));
             System.out.println("PopolaDB.generaPacchetti -> scelto soggiorno:" + soggiorno + " in albergo " + soggiorno.getAlbergo().getNome());
+            soggiorno.setGiornoInizio(andata.getDataOra());
+            soggiorno.setGiornoFine(ritorno.getDataOra());
+            pbService.salvaPB(soggiorno);
             p.getVoci().add(soggiorno);
             p.setNumeroPersone(soggiorno.getNumeroPersone());
 
@@ -168,10 +177,11 @@ public class PopolaDB {
 
             pacchettiGenerati.add(pvService.salvaPV(p));
         }
-        
-        System.out.println("PopolaDB.generaPacchetti -> generati " + pacchettiGenerati.size() + " su " + nroPacchettiDaGenerare +  "richiesti");
+
+        System.out.println("PopolaDB.generaPacchetti -> generati " + pacchettiGenerati.size() + " su " + nroPacchettiDaGenerare + "richiesti");
     }
     Utente impiegato;
+
     private void salvaUtentiImpiegatoEdAdmin() {
         impiegato = new Utente("impiegato@traveldream.it", "impiegato");
         impiegato.setLivello(Utente.LIVELLO_IMPIEGATO);
@@ -294,7 +304,11 @@ public class PopolaDB {
         for (int i = 0; i < n; i++) {
             Città c = cittàNelMondo.get(rnd.nextInt(cittàNelMondo.size()));
             String nome = generaNomeMuseo();
-            String descrizione = "Lorem ipsum";
+            String descrizione = "Lorem ipsum dolor sit amet, "
+                + "consectetur adipisicing elit, "
+                + "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+                + "Ut enim ad minim veniam, "
+                + "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ";
             String url = getRandomImageLink();
             System.out.println("Generato museo nro " + i + ":" + nome + " a " + c.getCittà());
             inserisciMuseo(c, nome, descrizione, url);
@@ -312,14 +326,14 @@ public class PopolaDB {
         }
     }
 
-    private void leggiCittàDaRotte(){
+    private void leggiCittàDaRotte() {
         cittàNelMondo.clear();
-        for (Rotta r : rotteLette){
+        for (Rotta r : rotteLette) {
             Città c = new Città(r.getNazionePartenza(), r.getCittaPartenza());
             cittàNelMondo.add(c);
         }
     }
-    
+
     public void leggiRotteDaFile(String fileName) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(fileName));
         String line;
@@ -396,6 +410,11 @@ public class PopolaDB {
     private void inserisciAlbergo(Città c, String nome, int stelle, String url) {
         Albergo albergo = new Albergo();
         albergo.setNome(nome);
+        albergo.setDescrizione("Lorem ipsum dolor sit amet, "
+                + "consectetur adipisicing elit, "
+                + "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+                + "Ut enim ad minim veniam, "
+                + "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ");
         albergo.setCitta(c.getCittà());
         albergo.setStelle(stelle);
         albergo.setUrlFoto(url);

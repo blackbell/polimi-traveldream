@@ -9,7 +9,6 @@ import it.polimi.traveldream.model.Pacchetto;
 import it.polimi.traveldream.model.Pagamento;
 import it.polimi.traveldream.model.Utente;
 import it.polimi.traveldream.model.Voce;
-import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -41,13 +40,10 @@ public interface PagamentoServiceLocal {
     
     /**
      * Restituisce tutti i pagamenti conformi ai criteri indicati
-     * @param da data di inizio del periodo da considerare. Se <i>null</i> viene considerata tutta la storia del sistema.
-     * @param a data di fine del periodo da considerare. Se <i>null</i> viene considerata la storia del sistema fino al momento della chiamata.
-     * @param u l'utente di cui si vuole consultare i pagamenti associati
-     * @param pv il pv di cui si vuole consultare i pagamenti associati
+     * @param params i paarametri per la ricerca di un pagamento (da, a, utente e pv)
      * @return una lista di oggetti Pagamento conformi ai parametri indicati in ingresso 
      * o <i>null</i> nel caso in cui l'utente u non esista o il pacchetto pv non esista.
      */
-    public List<Pagamento> recuperaPagamenti(Date da, Date a, Utente u, Pacchetto pv);
+    public List<Pagamento> recuperaPagamenti(ParametriRicercaPagamenti params);
     
 }

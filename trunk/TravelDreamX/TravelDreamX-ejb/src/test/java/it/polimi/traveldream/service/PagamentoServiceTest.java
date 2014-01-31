@@ -19,6 +19,7 @@ import java.util.Random;
 import javax.naming.NamingException;
 import org.junit.AfterClass;
 import org.junit.Assert;
+import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -193,6 +194,46 @@ public class PagamentoServiceTest {
         Assert.assertTrue(trovato);
     }
     
-    
+    @Test
+    public void recuperaPagamentoByParams(){
+        Rotta r = new Rotta();
+        r.setAeroportoPartenza("recuperaPagamentoByParams");
+        r.setAeroportoArrivo("Aeroporto di Arrivo");
+        r.setCittaPartenza("Citta di Partenza");
+        r.setCittaArrivo("Citta di Arrivo");
+        r.setNazionePartenza("Nazione di Partenza");
+        r.setNazioneArrivo("Nazione di Arrivo");
+        r.setCompagniaAerea("Aereo in compagnia");
+        r = edbService.salvaRotta(r);
+        
+        Volo v = new Volo();
+        v.setCosto(100f);
+        v.setRotta(r);
+        v.setDataOra(new Date());
+//        v.setNumPasseggeri(3);
+        v.setAbilitato(true);
+        v = pbService.saveVolo(v);
+        v = pbService.getVoloByID(v.getIdVoce());
+        
+        Utente u = new Utente(rnd.nextInt() + "@ServiceTest.polimi.it","polimi");
+        u = utenteService.registrazione(u);
+        
+        Pacchetto p = new Pacchetto();
+        p.setAbilitato(true);
+        p.setProprietario(u);
+        p.setDataOraCreazione(new Date());
+        p.setTipo(Pacchetto.PREDEFINITO);
+        p.setNumeroPersone(3);
+        p.setVoci(new ArrayList<Voce>());
+        p.getVoci().add(v);
+        Pacchetto p2 = pvService.salvaPV(p);
+        
+        List<Pagamento> pagamenti = pagamentoService.pagamentoPV(p2, u);
+        ParametriRicercaPagamenti params = new ParametriRicercaPagamenti();
+        params.setUtente(u);
+        params.setPacchetto(p2);
+        List<Pagamento> pagamenti2 = pagamentoService.recuperaPagamenti(params);
+        assertTrue(pagamenti2.containsAll(pagamenti));
+    }
     
 }

@@ -34,7 +34,16 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Pagamento.findAll", query = "SELECT p FROM Pagamento p"),
     @NamedQuery(name = "Pagamento.findByIdPagamento", query = "SELECT p FROM Pagamento p WHERE p.idPagamento = :idPagamento"),
     @NamedQuery(name = "Pagamento.findByVoce", query = "SELECT p FROM Pagamento p WHERE p.voce = :voce"),
-    @NamedQuery(name = "Pagamento.findByUtente", query = "SELECT p FROM Pagamento p WHERE p.utente = :utente")})
+    @NamedQuery(name = "Pagamento.findByUtente", query = "SELECT p FROM Pagamento p WHERE p.utente = :utente"),
+    @NamedQuery(name = "Pagamento.findByParams", query = ""
+            + "SELECT p "
+            + "FROM "
+            + "Pagamento p "
+            + "WHERE "
+            + "(:u IS NULL OR p.utente = :u) AND "
+            + "(:pv IS NULL OR p.pacchetto = :pv) AND "
+            + "(p.dataOraPagamento BETWEEN :da AND :a)")
+})
 public class Pagamento implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

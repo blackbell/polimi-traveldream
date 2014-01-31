@@ -68,6 +68,7 @@ public class Albergo extends EDB implements Serializable {
     private String urlFoto;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "albergo")
     private Collection<Soggiorno> soggiorniCollection;
+    private String descrizione;
 
     public Albergo() {
     }
@@ -114,6 +115,14 @@ public class Albergo extends EDB implements Serializable {
 
     public void setStelle(Integer stelle) {
         this.stelle = stelle;
+    }
+
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
     }
 
     public String getUrlFoto() {

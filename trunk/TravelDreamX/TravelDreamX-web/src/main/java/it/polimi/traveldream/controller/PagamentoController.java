@@ -10,6 +10,7 @@ import it.polimi.traveldream.model.Pagamento;
 import it.polimi.traveldream.model.Utente;
 import it.polimi.traveldream.model.Voce;
 import it.polimi.traveldream.service.PagamentoServiceLocal;
+import it.polimi.traveldream.service.ParametriRicercaPagamenti;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
@@ -59,6 +60,29 @@ public class PagamentoController {
             Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
             if (utenteLoggato != null && utenteLoggato.getLivello() >= Utente.LIVELLO_REGISTRATO) {
                 List<Pagamento> p = pagamentoService.pagamentoPV(pv, utenteLoggato);
+                e.setResult(!p.isEmpty());
+                e.setMessage(p.isEmpty() ? Esito.OPERATION_FAILED : null);
+                e.setReturnedObj(p);
+            }else{
+                e.setResult(false);
+                e.setMessage(Esito.USER_NOT_AUTHORIZED);
+                e.setReturnedObj(null);
+            }
+        }catch(Exception ex){
+            e.setResult(false);
+            e.setMessage(Esito.EXCEPTION_RAISED);
+            e.setReturnedObj(ex.getMessage());
+        }
+        return e;
+    }
+    
+    @RequestMapping(value = "recuperaPagamenti", method = RequestMethod.POST)
+    public @ResponseBody Esito recuperaPagamenti(@RequestBody ParametriRicercaPagamenti params, HttpServletRequest request) {
+        Esito e = new Esito();  
+        try{
+            Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
+            if (utenteLoggato != null && utenteLoggato.getLivello() >= Utente.LIVELLO_AMMINISTRATORE) {
+                List<Pagamento> p = pagamentoService.recuperaPagamenti(params);
                 e.setResult(!p.isEmpty());
                 e.setMessage(p.isEmpty() ? Esito.OPERATION_FAILED : null);
                 e.setReturnedObj(p);
