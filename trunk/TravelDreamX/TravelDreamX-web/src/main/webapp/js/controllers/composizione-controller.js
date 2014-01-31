@@ -1,3 +1,7 @@
+/* 
+ * Politecnico di Milano, Software Engineering 2 (autumn semester)
+ * proj codename: TravelDreamX
+ */
 'use strict';
 travelDreamApp.controller('composizioneController', function($scope, $rootScope, $route, $routeParams, $location, $modal, searchService, salvaPVPBservice) {
     //****************************

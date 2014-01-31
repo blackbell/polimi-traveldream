@@ -1,3 +1,7 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
 <p class="lead" ng-if="!(isSelezionato('Volo')||isSelezionato('Soggiorno')||isSelezionato('Visita'))" ng-init="inizializzaRicerca()">Scegli una voce dall'elenco a sinistra</p>
 <p class="lead" ng-if="isSelezionato('Volo')">Cerca un volo</p>
 <div class="row" ng-if="isSelezionato('Volo')" ng-init="initRicercaVolo()">
