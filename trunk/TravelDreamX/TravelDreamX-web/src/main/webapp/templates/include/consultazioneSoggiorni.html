@@ -7,14 +7,14 @@ proj codename: TravelDreamX
         <div class="span2 offset1">
             <form>
                 <label class="control-label">
-                    Che va dal giorno
+                    Dal giorno
                 </label>
                 <div class="input-append">
                     <input class="input-small" type="text" ng-model="parametriRicercaPB.dataInizioSoggiorno" data-date-format="dd/mm/yyyy" bs-datepicker>
                     <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
                 </div>
                 <label class="control-label">
-                    Ad almeno il giorno
+                    Ad almeno
                 </label>
                 <div class="input-append">
                     <input class="input-small" type="text" ng-model="parametriRicercaPB.dataFineSoggiorno" data-date-format="dd/mm/yyyy" bs-datepicker>
@@ -22,33 +22,16 @@ proj codename: TravelDreamX
                 </div>
             </form>
         </div>
-        <div class="span2">
+        <div class="span3 offset1">
             <form>
                 <label class="control-label">
                     Nell'albergo
                 </label>
-                <input type="text" placeholder="Hotel Pina" class="span2" ng-model="parametriRicercaPB.nomeAlbergo"/>
+                <input type="text" placeholder="Hotel Pina" class="span3" ng-model="parametriRicercaPB.nomeAlbergo"/>
                 <label class="control-label">
                     A
                 </label>
-                <input type="text" class="span2" placeholder="Milano" ng-model="parametriRicercaPB.cittaAlbergo"/>
-            </form>
-        </div>
-        <div class="span2">
-            <form>
-                <label class="control-label">
-                    Stelle
-                </label>
-                <i ng-click="diminuisciStelle($index)" class="icon-star pointer" ng-repeat="i in getNumStelle(numStelle) track by $index"></i>
-                <i ng-click="aumentaStelle($index)" class="icon-star-empty pointer" ng-repeat="i in getNumStelle(numStelleVuote) track by $index"></i>
-                <br/><br/>
-                <label class="control-label">
-                    Prezzo massimo
-                </label>
-                <div class="input-append">
-                    <input class="input-small" type="number">
-                    <span class="btn add-on">€</span>
-                </div>
+                <input type="text" class="span3" placeholder="Milano" ng-model="parametriRicercaPB.cittaAlbergo"/>
             </form>
         </div>
     </div>

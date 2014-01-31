@@ -19,9 +19,12 @@ proj codename: TravelDreamX
                     </div>
                     <div class="span4" ng-if="(PBdaSalvare.tipo === 'Soggiorno')">
                         <p class="lead">
-                            Dettagli
+                            Dettagli <br/><br/>
                         </p>
-                        Albergo: <strong>{{EDB.nome}} {{EDB.stelle}}</strong><br/>
+                        Albergo: <strong>{{EDB.nome}} 
+                            <i class="icon-star" ng-repeat="i in getNumStelle(EDB.stelle)  track by $index"></i>
+                            <i class="icon-star-empty" ng-repeat="i in getNumStelle(numStelleVuote)  track by $index"></i>
+                        </strong><br/>
                         Citt&agrave;: <strong>{{EDB.citta}}</strong> <br/>
                         <legend></legend>
                         <form>
@@ -54,7 +57,7 @@ proj codename: TravelDreamX
                     </div>
                     <div class="span4" ng-if="(PBdaSalvare.tipo === 'Visita')">
                         <p class="lead">
-                            Dettagli
+                            Dettagli <br/><br/>
                         </p>
                         Museo: <strong>{{EDB.nome}}</strong><br/>
                         Citt&agrave;: <strong>{{EDB.citta}}</strong> <br/>
@@ -85,7 +88,7 @@ proj codename: TravelDreamX
                     </div>
                     <div class="span8" ng-if="(PBdaSalvare.tipo === 'Volo')">
                         <p class="lead">
-                            Dettagli
+                            Dettagli <br/><br/>
                         </p>
                         Nazione partenza: <strong>{{EDB.nazionePartenza}}</strong><br/>
                         Nazione arrivo: <strong>{{EDB.nazioneArrivo}}</strong><br/>

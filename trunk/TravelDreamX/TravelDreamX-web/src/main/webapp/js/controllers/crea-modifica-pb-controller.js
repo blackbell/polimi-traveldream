@@ -8,6 +8,10 @@ travelDreamApp.controller('creaModificaPBController', function($scope, $rootScop
     toastr.options = {
         positionClass: "toast-center"
     };
+    $scope.getNumStelle = function(num) {
+        $scope.numStelleVuote = 5 - num;
+        return new Array(num);
+    };
     $scope.initCreaModificaPB = function() {
         console.log($rootScope.EDBperPB);
         $scope.EDB = $rootScope.EDBperPB;

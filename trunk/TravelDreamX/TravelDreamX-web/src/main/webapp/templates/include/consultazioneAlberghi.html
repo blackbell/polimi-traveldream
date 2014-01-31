@@ -5,34 +5,24 @@ proj codename: TravelDreamX
 <p class="lead">Scegli un albergo</p><br/><br/>
 <div class="well">
     <div class="row">
-        <div class="span2 offset1">
+        <div class="span3 offset1">
             <form>
                 <label class="control-label">
                     Nome albergo
                 </label>
-                <input type="text" placeholder="Hotel Pina" class="span2" ng-model="parametriRicercaEDB.nome"/>
+                <input type="text" placeholder="Hotel Pina" class="span3" ng-model="parametriRicercaEDB.nome"/>
             </form>
         </div>
-        <div class="span2">
+        <div class="span3 offset1">
             <form>
                 <label class="control-label">
                    Citta
                 </label>
-                <input type="text" placeholder="Milano" class="span2" ng-model="parametriRicercaEDB.citta"/>
-            </form>
-        </div>
-        <div class="span2">
-            <form>
-                <label class="control-label">
-                    Stelle
-                </label>
-                <i ng-click="diminuisciStelle($index)" class="icon-star pointer" ng-repeat="i in getNumStelle(numStelle) track by $index"></i>
-                <i ng-click="aumentaStelle($index)" class="icon-star-empty pointer" ng-repeat="i in getNumStelle(numStelleVuote) track by $index"></i>
-                <br/><br/>
+                <input type="text" placeholder="Milano" class="span3" ng-model="parametriRicercaEDB.citta"/>
             </form>
         </div>
     </div>
-    <div class="row"><div class="span6 offset1"><button class="btn btn-block btn-primary" ng-click="trovaEDB()">Cerca</button></div></div>
+    <div class="row"><div class="span7 offset1"><button class="btn btn-block btn-primary" ng-click="trovaEDB()">Cerca</button></div></div>
 </div>
 <div class="row" ng-show="waiting">
     <div class="span9" >Sto cercando... &nbsp;&nbsp;
