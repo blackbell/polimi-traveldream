@@ -35,7 +35,11 @@ proj codename: TravelDreamX
                         <div class="span4">
                         <span>Citt&agrave;: <strong>{{voce.albergo.citta}}</strong></span><br/>
                         <span>Albergo: <strong>{{voce.albergo.nome}} STELLE</strong></span><br/>
-                        <span>Camera: <strong></strong></span>
+                        <span>Tipologia: <strong>
+                            <span ng-if="voce.numeroPersone === 1">Camera singola</span>
+                            <span ng-if="voce.numeroPersone === 2">Camera doppia</span>
+                            <span ng-if="voce.numeroPersone === 3">Camera tripla</span>
+                            <span ng-if="voce.numeroPersone === 4">Camera quadrupla</span></strong> <br/></span>
                         </div>
                         <div class="span3">
                         <span>Dal: <strong>{{voce.giornoInizio|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>

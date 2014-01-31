@@ -31,9 +31,29 @@ travelDreamApp.factory('gestioneOffertaService', function($http) {
                     toastr.error("Errore " + status);
                 });
     };
+    var __abilitaPB = function( id, callback){
+        $http({method: 'POST', data:id, url: 'attivaPB.json'}).
+                success(function (data, status, headers, config){
+                    callback(data);
+                }).
+                 error(function (data, status, headers, config){
+                    toastr.error("Errore " + status);
+                });
+    };
+    var __disabilitaPB = function( id, callback){
+        $http({method: 'POST', data:id, url: 'disattivaPB.json'}).
+                success(function (data, status, headers, config){
+                    callback(data);
+                }).
+                 error(function (data, status, headers, config){
+                    toastr.error("Errore " + status);
+                });
+    };
     return {
         abilitaPV: __abilitaPV,
         disabilitaPV: __disabilitaPV,
+        abilitaPB: __abilitaPB,
+        disabilitaPB: __disabilitaPB,
         modifica: __salva
     };
 }); 
