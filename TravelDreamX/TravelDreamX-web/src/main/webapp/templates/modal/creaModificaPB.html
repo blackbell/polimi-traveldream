@@ -14,10 +14,10 @@ proj codename: TravelDreamX
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="span4" ng-if="(EDB.tipo === 'Museo') || (EDB.tipo === 'Albergo')">    
+                    <div class="span4" ng-if="PBdaSalvare.tipo. === 'Visita' || PBdaSalvare.tipo === 'Soggiorno'">    
                         <img class="img-polaroid" ng-src="{{EDB.urlFoto}}"/>
                     </div>
-                    <div class="span4" ng-if="(EDB.tipo === 'Albergo')">
+                    <div class="span4" ng-if="(PBdaSalvare.tipo === 'Soggiorno')">
                         <p class="lead">
                             Dettagli
                         </p>
@@ -52,7 +52,7 @@ proj codename: TravelDreamX
                             </div>
                         </form>
                     </div>
-                    <div class="span4" ng-if="(EDB.tipo === 'Museo')">
+                    <div class="span4" ng-if="(PBdaSalvare.tipo === 'Visita')">
                         <p class="lead">
                             Dettagli
                         </p>
@@ -83,7 +83,7 @@ proj codename: TravelDreamX
                             </div>
                         </form>
                     </div>
-                    <div class="span8" ng-if="(EDB.tipo === 'Rotta')">
+                    <div class="span8" ng-if="(PBdaSalvare.tipo === 'Volo')">
                         <p class="lead">
                             Dettagli
                         </p>
