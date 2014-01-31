@@ -13,6 +13,15 @@ travelDreamApp.factory('gestioneOffertaService', function($http) {
                     toastr.error("Errore " + status);
                 });
     };
+    var __salvaPB = function( pb, callback){
+        $http({method: 'POST', data:pb, url: 'salvaPB.json'}).
+                success(function (data, status, headers, config){
+                    callback(data);
+                }).
+                 error(function (data, status, headers, config){
+                    toastr.error("Errore " + status);
+                });
+    };
     var __abilitaPV = function( id, callback){
         $http({method: 'POST', data:id, url: 'attivaPV.json'}).
                 success(function (data, status, headers, config){
@@ -54,7 +63,8 @@ travelDreamApp.factory('gestioneOffertaService', function($http) {
         disabilitaPV: __disabilitaPV,
         abilitaPB: __abilitaPB,
         disabilitaPB: __disabilitaPB,
-        modifica: __salva
+        modifica: __salva,
+        salvaPB: __salvaPB
     };
 }); 
 
