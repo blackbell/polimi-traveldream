@@ -51,6 +51,7 @@ import javax.xml.bind.annotation.XmlRootElement;
             + "(:dataFine IS NULL OR p.giornoFine >= :dataFine) AND "
             + "(:nazionePartenza IS NULL OR p.nazionePartenza LIKE :nazionePartenza) AND "
             + "(:nazioneArrivo IS NULL OR p.nazioneArrivo LIKE :nazioneArrivo) AND "
+            + "(p.tipo = 0) AND "
             + "(:disabilitatiInclusi = True OR p.abilitato = True) "
             + ""),
 })
