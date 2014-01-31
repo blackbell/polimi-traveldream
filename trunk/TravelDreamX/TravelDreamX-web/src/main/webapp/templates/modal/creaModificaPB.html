@@ -1,0 +1,130 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<div class="container modal span9" ng-controller="creaModificaPBController">
+    <div class="row" ng-init="initCreaModificaPB()">
+        <div class="span9">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <br/>
+                <p class="lead">
+                    Creazione PB di tipo "{{PBdaSalvare.tipo}}"
+                </p>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="span4" ng-if="(EDB.tipo === 'Museo') || (EDB.tipo === 'Albergo')">    
+                        <img class="img-polaroid" ng-src="{{EDB.urlFoto}}"/>
+                    </div>
+                    <div class="span4" ng-if="(EDB.tipo === 'Albergo')">
+                        <p class="lead">
+                            Dettagli
+                        </p>
+                        Albergo: <strong>{{EDB.nome}} {{EDB.stelle}}</strong><br/>
+                        Citt&agrave;: <strong>{{EDB.citta}}</strong> <br/>
+                        <legend></legend>
+                        <form>
+                            <label class="control-label">
+                                Giorno inizio
+                            </label>
+                            <div class="input-append">
+                                <input class="input-small" type="text" ng-model="PBdaSalvare.giornoInizio" data-date-format="dd/mm/yyyy" bs-datepicker>
+                                <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
+                            </div>
+                            <label class="control-label">
+                                Giorno fine
+                            </label>
+                            <div class="input-append">
+                                <input class="input-small" type="text" ng-model="PBdaSalvare.giornoFine" data-date-format="dd/mm/yyyy" bs-datepicker>
+                                <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
+                            </div>
+                            <label class="control-label">
+                                Numero persone
+                            </label>
+                            <input class="input-small" type="number" ng-model="PBdaSalvare.numeroPersone">
+                            <label class="control-label">
+                                Costo
+                            </label>
+                            <div class="input-append">
+                                <input class="input-small" type="number" ng-model="PBdaSalvare.costo">
+                                <span class="btn add-on">€</span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="span4" ng-if="(EDB.tipo === 'Museo')">
+                        <p class="lead">
+                            Dettagli
+                        </p>
+                        Museo: <strong>{{EDB.nome}}</strong><br/>
+                        Citt&agrave;: <strong>{{EDB.citta}}</strong> <br/>
+                        <legend></legend>
+                        <form>
+                            <label class="control-label">
+                                Data
+                            </label>
+                            <div class="input-append">
+                                <input class="input-small" type="text" ng-model="PBdaSalvare.dataOra" data-date-format="dd/mm/yyyy" bs-datepicker>
+                                <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
+                            </div>
+                            <label class="control-label">
+                                Ora
+                            </label>
+                            <div class="input-append">
+                                <input type="text" ng-model="time" bs-timepicker>
+                                <button type="button" class="btn" data-toggle="timepicker"><i class="icon-time"></i></button>
+                            </div>
+                            <label class="control-label">
+                                Costo
+                            </label>
+                            <div class="input-append">
+                                <input class="input-small" type="number" ng-model="PBdaSalvare.costo">
+                                <span class="btn add-on">€</span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="span8" ng-if="(EDB.tipo === 'Rotta')">
+                        <p class="lead">
+                            Dettagli
+                        </p>
+                        Nazione partenza: <strong>{{EDB.nazionePartenza}}</strong><br/>
+                        Nazione arrivo: <strong>{{EDB.nazioneArrivo}}</strong><br/>
+                        Aeroporto partenza: <strong>{{EDB.aeroportoPartenza}} ({{EDB.cittaPartenza}})</strong><br/>
+                        Aeroporto arrivo: <strong>{{EDB.aeroportoArrivo}} ({{EDB.cittaArrivo}})</strong><br/>
+                        Compagnia aerea:<strong>{{EDB.compagniaAerea}}</strong><br/>
+                        <legend></legend>
+                        <form>
+                            <label class="control-label">
+                                Data
+                            </label>
+                            <div class="input-append">
+                                <input class="input-small" type="text" ng-model="PBdaSalvare.dataOra" data-date-format="dd/mm/yyyy" bs-datepicker>
+                                <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
+                            </div>
+                            <label class="control-label">
+                                Ora
+                            </label>
+                            <div class="input-append">
+                                <input type="text" ng-model="time" bs-timepicker>
+                                <button type="button" class="btn" data-toggle="timepicker"><i class="icon-time"></i></button>
+                            </div>
+                            <label class="control-label">
+                                Costo
+                            </label>
+                            <div class="input-append">
+                                <input class="input-small" type="number" ng-model="PBdaSalvare.costo">
+                                <span class="btn add-on">€</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="span8">
+                    <button class="btn" ng-click="dismiss()">Chiudi</button>
+                    <button class="btn btn-success" ng-click="aggiungiPBaPV(visita)"><i class="icon-plus-sign icon-white"></i> Salva PB</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

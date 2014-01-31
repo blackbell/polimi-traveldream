@@ -101,4 +101,8 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
             $scope.waiting = false;
         });
     };
+    $scope.scegliEDB = function(edb){
+        $rootScope.EDBperPB = edb;
+        $rootScope.tipoPBdaCreare = $scope.PBdaCreare;
+    };
 });
