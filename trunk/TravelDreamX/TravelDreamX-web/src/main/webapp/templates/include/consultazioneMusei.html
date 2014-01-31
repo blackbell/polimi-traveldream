@@ -5,24 +5,24 @@ proj codename: TravelDreamX
 <p class="lead">Scegli un museo</p><br/><br/>
 <div class="well">
     <div class="row">
-        <div class="span2 offset1">
+        <div class="span3 offset1">
             <form>
                 <label class="control-label">
                     Nome museo
                 </label>
-                <input type="text" placeholder="Museo della Scienza e della Tecnica" class="span2" ng-model="parametriRicercaEDB.nome"/>
+                <input type="text" placeholder="Museo della Scienza e della Tecnica" class="span3" ng-model="parametriRicercaEDB.nome"/>
             </form>
         </div>
-        <div class="span2 offset1">
+        <div class="span3 offset1">
             <form>
                 <label class="control-label">
                    Citta
                 </label>
-                <input type="text" placeholder="Milano" class="span2" ng-model="parametriRicercaEDB.citta"/>
+                <input type="text" placeholder="Milano" class="span3" ng-model="parametriRicercaEDB.citta"/>
             </form>
         </div>
     </div>
-    <div class="row"><div class="span5 offset1"><button class="btn btn-block btn-primary" ng-click="trovaEDB()">Cerca</button></div></div>
+    <div class="row"><div class="span7 offset1"><button class="btn btn-block btn-primary" ng-click="trovaEDB()">Cerca</button></div></div>
 </div>
 <div class="row" ng-show="waiting">
     <div class="span9" >Sto cercando... &nbsp;&nbsp;

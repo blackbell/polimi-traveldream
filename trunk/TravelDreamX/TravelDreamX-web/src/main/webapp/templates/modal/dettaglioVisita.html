@@ -33,14 +33,16 @@ proj codename: TravelDreamX
                 </div>
             </div>
             <div class="modal-footer">
-                <div class="span8">
+                <div class="span8" ng-controller="autenticazioneController">
                     <button class="btn" ng-click="dismiss()">Chiudi</button>
                     <span ng-controller="gestioneOffertaController">
-                        <span ng-controller="autenticazioneController">
-                            <button class="btn btn-warning" ng-if="isImpiegato() && visita.abilitato && isLocation('/trovaPB')" ng-click="disabilitaPB(visita) ; dismiss()"><i class="icon-shopping-cart icon-white"></i> Disabilita</button>
-                            <button class="btn btn-success" ng-if="isImpiegato() && (!visita.abilitato) && isLocation('/trovaPB')" ng-click="abilitaPB(visita) ; dismiss()"><i class="icon-shopping-cart icon-white"></i> Abilita</button> 
-                        </span>
+                        <button class="btn btn-warning" ng-if="isImpiegato() && visita.abilitato && isLocation('/trovaPB')" ng-click="disabilitaPB(visita);
+                                    dismiss()"><i class="icon-shopping-cart icon-white"></i> Disabilita</button>
+                        <button class="btn btn-success" ng-if="isImpiegato() && (!visita.abilitato) && isLocation('/trovaPB')" ng-click="abilitaPB(visita);
+                                    dismiss()"><i class="icon-shopping-cart icon-white"></i> Abilita</button> 
                     </span>
+                    <button ng-controller="gestioneOffertaController" class="btn" ng-if="isImpiegato()" ng-click="modificaPB(visita);
+                                dismiss()"><i class="icon-edit"></i> Modifica PB</button>
                     <button class="btn btn-success" ng-if="isLocation('/composizionePV')" ng-click="aggiungiPBaPV(visita)"><i class="icon-plus-sign icon-white"></i> Aggiungi al pacchetto</button>
                 </div>
             </div>

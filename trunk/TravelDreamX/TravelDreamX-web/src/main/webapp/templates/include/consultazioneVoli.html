@@ -4,12 +4,16 @@ proj codename: TravelDreamX
 -->
 <div class="well">
     <div class="row">
-        <div class="span2 offset2">
+        <div class="span2 offset1">
             <form>
                 <label class="control-label">
                     Dalla citt&agrave; di
                 </label>
                 <input type="text" class="span2" placeholder="Bologna" ng-model="parametriRicercaPB.cittaPartenzaVolo"/>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
                 <label class="control-label">
                     Alla citt&agrave; di
                 </label>
@@ -25,17 +29,10 @@ proj codename: TravelDreamX
                     <input class="input-small" type="text" ng-model="parametriRicercaPB.dataOraVolo" data-date-format="dd/mm/yyyy" bs-datepicker>
                     <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
                 </div>
-                <label class="control-label">
-                    Prezzo massimo
-                </label>
-                <div class="input-append">
-                    <input class="input-small" type="number" ng-model="parametriRicercaPB.costo">
-                    <span class="btn add-on">€</span>
-                </div>
             </form>
         </div>
     </div>
-    <div class="row"><div class="span4 offset2"><button class="btn btn-block btn-primary" ng-click="trovaPB()">Cerca</button></div></div>
+    <div class="row"><div class="span6 offset1"><button class="btn btn-block btn-primary" ng-click="trovaPB()">Cerca</button></div></div>
 </div>
 <div class="row" ng-show="waiting">
     <div class="span9">
@@ -46,7 +43,7 @@ proj codename: TravelDreamX
 <div class="row" ng-if="PB.Volo !== 'undefined'">
     <div class="span9">
         <br/>
-        <table class="table table-condensed table-hover table-striped" ng-if="PB.Volo.length>0" ng-controller="autenticazioneController">
+        <table class="table table-condensed table-hover table-striped" ng-if="PB.Volo.length > 0" ng-controller="autenticazioneController">
             <legend>Risultati</legend>
             <thead>
                 <tr>
@@ -55,6 +52,7 @@ proj codename: TravelDreamX
                     <th>Compagnia aerea</th>
                     <th>Data-Ora</th>
                     <th>Costo</th>
+                    <th>Modifica PB</th>
                     <th ng-if="isLocation('/composizionePV')">Aggiungi <br/> al pacchetto</th>
                     <th ng-if="isImpiegato() && isLocation('/trovaPB')">Abilita/Disabilita</th>
                 </tr>
@@ -72,6 +70,6 @@ proj codename: TravelDreamX
                 </tr>
             </tbody>
         </table>
-        <p class="lead" ng-if="PB.Volo.length===0">Non ci sono risultati per questa ricerca</p>
+        <p class="lead" ng-if="PB.Volo.length === 0">Non ci sono risultati per questa ricerca</p>
     </div>
 </div>
