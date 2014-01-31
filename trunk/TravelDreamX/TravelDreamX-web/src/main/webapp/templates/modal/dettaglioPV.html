@@ -40,12 +40,14 @@ proj codename: TravelDreamX
                         <div class="span2" ng-if='!isImpiegato()'>
                             <button class="btn span2 btn-success" ng-controller="acquistaController" ng-click="acquistaPV()"><i class="icon-shopping-cart icon-white"></i> Acquista</button> <br/>
                         </div>
+                        <span ng-controller="gestioneOffertaController">
                         <div class="span2" ng-if='isImpiegato() && isAbilitato(pv)'>
-                            <button class="btn span2 btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Disabilita</button> <br/>
+                            <button class="btn span2 btn-success" ng-click="disabilitaPV(pv)"><i class="icon-shopping-cart icon-white"></i> Disabilita</button> <br/>
                         </div>
                         <div class="span2" ng-if='isImpiegato() && !isAbilitato(pv)'>
-                            <button class="btn span2 btn-success" ng-click=""><i class="icon-shopping-cart icon-white"></i> Abilita</button> <br/>
+                            <button class="btn span2 btn-success" ng-click="abilitaPV(pv)"><i class="icon-shopping-cart icon-white"></i> Abilita</button> <br/>
                         </div>
+                        </span>
                         <button class="btn btn-link pull-right" ng-if='isImpiegato()' ng-click="fwdToComposizione(pv)">oppure modifica il pacchetto</button>
                         <button class="btn btn-link pull-right btn-personalizza-PV" ng-if='!isImpiegato()' ng-click="fwdToComposizione(pv)">oppure personalizza il pacchetto</button>
                     </div>
@@ -76,8 +78,10 @@ proj codename: TravelDreamX
                     <button class="btn" ng-click="dismiss()">Close</button>
                     <button class="btn" ng-click="fwdToComposizione(pv)" ng-if="!isImpiegato()"><i class="icon-edit"></i> Personalizza pacchetto</button>
                     <button class="btn" ng-click="fwdToComposizione(pv)" ng-if="isImpiegato()"><i class="icon-edit"></i> Modifica pacchetto</button>
-                    <button class="btn btn-success" ng-if="isImpiegato() && isAbilitato(pv)" ng-click="disabilita(pv)"><i class="icon-shopping-cart icon-white"></i> Disabilita</button>
-                    <button class="btn btn-success" ng-if="isImpiegato() && !isAbilitato(pv)" ng-click="abilita(pv)"><i class="icon-shopping-cart icon-white"></i> Abilita</button> 
+                    <span ng-controller="gestioneOffertaController">
+                    <button class="btn btn-success" ng-if="isImpiegato() && isAbilitato(pv)" ng-click="disabilitaPV(pv)"><i class="icon-shopping-cart icon-white"></i> Disabilita</button>
+                    <button class="btn btn-success" ng-if="isImpiegato() && !isAbilitato(pv)" ng-click="abilitaPV(pv)"><i class="icon-shopping-cart icon-white"></i> Abilita</button> 
+                    </span>
                     <button class="btn btn-success" ng-click=""ng-if="!isImpiegato()"><i class="icon-shopping-cart icon-white"></i> Acquista</button>
                 </div>
             </div>
