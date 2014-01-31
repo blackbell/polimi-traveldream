@@ -21,7 +21,7 @@ proj codename: TravelDreamX
                         Citt&agrave;: <strong>{{visita.museo.citta}}</strong> <br/>
                         Giorno: <strong>{{visita.dataOra|date:'dd/MM/yyyy'}} </strong> <br/>
                         <p class="lead">solo &euro; {{visita.costo}}</p> 
-                        <button class="btn btn-large btn-success" ng-click="aggiungiPBaPV(visita)"><i class="icon-plus-sign icon-white"></i> Aggiungi al pacchetto</button>
+                        <button class="btn btn-large btn-success" ng-if="isLocation('/composizionePV')" ng-click="aggiungiPBaPV(visita)"><i class="icon-plus-sign icon-white"></i> Aggiungi al pacchetto</button>
                     </div>
                 </div>
                 <br/>
@@ -36,10 +36,12 @@ proj codename: TravelDreamX
                 <div class="span8">
                     <button class="btn" ng-click="dismiss()">Chiudi</button>
                     <span ng-controller="gestioneOffertaController">
-                    <button class="btn btn-warning" ng-if="isImpiegato() && isAbilitato(visita)" ng-click="disabilitaPB(visita)"><i class="icon-shopping-cart icon-white"></i> Disabilita</button>
-                    <button class="btn btn-success" ng-if="isImpiegato() && !isAbilitato(visita)" ng-click="abilitaPB(visita)"><i class="icon-shopping-cart icon-white"></i> Abilita</button> 
+                        <span ng-controller="autenticazioneController">
+                            <button class="btn btn-warning" ng-if="isImpiegato() && visita.abilitato && isLocation('/trovaPB')" ng-click="disabilitaPB(visita)"><i class="icon-shopping-cart icon-white"></i> Disabilita</button>
+                            <button class="btn btn-success" ng-if="isImpiegato() && (!visita.abilitato) && isLocation('/trovaPB')" ng-click="abilitaPB(visita)"><i class="icon-shopping-cart icon-white"></i> Abilita</button> 
+                        </span>
                     </span>
-                    <button class="btn btn-success" ng-click="aggiungiPBaPV(visita)"><i class="icon-plus-sign icon-white"></i> Aggiungi al pacchetto</button>
+                    <button class="btn btn-success" ng-if="isLocation('/composizionePV')" ng-click="aggiungiPBaPV(visita)"><i class="icon-plus-sign icon-white"></i> Aggiungi al pacchetto</button>
                 </div>
             </div>
         </div>

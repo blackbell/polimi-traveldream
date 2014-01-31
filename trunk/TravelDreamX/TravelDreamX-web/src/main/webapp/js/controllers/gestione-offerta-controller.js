@@ -13,14 +13,18 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
         $rootScope.PV.abilitato = isAbilitato;
     };
     
-    $scope.isAbilitato = function(p) {
-        return p.abilitato;
+    $scope.tooltipDisattiva = {
+        title: "Clicca per disabilitare il PB"
     };
+    $scope.tooltipAbilita = {
+        title: "Clicca per attivare il PB"
+    };
+    
     $scope.abilitaPV = function(pv) {
         gestioneOffertaService.abilitaPV(pv.idPacchetto, function(esito) {
             if (esito.result) {
                 mettiPVinRootScope(esito.returnedObj);
-                toastr.succ("pacchetto " + pv.idPacchetto + " abilitato.", esito.message);
+                toastr.success("pacchetto " + pv.idPacchetto + " abilitato.", esito.message);
             } else {
                 toastr.error(esito.message, "ERRORE:");
             }
@@ -31,7 +35,7 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
         gestioneOffertaService.disabilitaPV(pv.idPacchetto, function(esito) {
             if (esito.result) {
                 mettiPVinRootScope(esito.returnedObj);
-                toastr.succ("pacchetto " + pv.idPacchetto + " disabilitato.", esito.message);
+                toastr.success("pacchetto " + pv.idPacchetto + " disabilitato.", esito.message);
             } else {
                 toastr.error(esito.message, "ERRORE:");
             }
@@ -41,7 +45,7 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
     $scope.abilitaPB = function(pb) {
         gestioneOffertaService.abilitaPB(pb.idVoce, function(esito) {
             if (esito.result) {
-                toastr.succ("pb " + pb.idVoce + " abilitato.", esito.message);
+                toastr.success("pb " + pb.idVoce + " abilitato.", esito.message);
             } else {
                 toastr.error(esito.message, "ERRORE:");
             }
@@ -49,9 +53,9 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
         });
     };
     $scope.disabilitaPB = function(pb) {
-        gestioneOffertaService.disabilitaPV(pb.idVoce, function(esito) {
+        gestioneOffertaService.disabilitaPB(pb.idVoce, function(esito) {
             if (esito.result) {
-                toastr.succ("pb " + pb.idVoce + " disabilitato.", esito.message);
+                toastr.success("pb " + pb.idVoce + " disabilitato.", esito.message);
             } else {
                 toastr.error(esito.message, "ERRORE:");
             }
