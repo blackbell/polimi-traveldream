@@ -1,0 +1,14 @@
+start-database
+stop-domain TravelDreamXdomain
+delete-domain TravelDreamXdomain
+create-domain --adminport 12345 --user TravelDreamXadmin --nopassword --instanceport 8888 TravelDreamXdomain
+start-domain TravelDreamXdomain
+
+delete-jdbc-resource jdbc/TravelDreamX
+delete-jdbc-connection-pool TravelDreamXcp
+
+create-jdbc-connection-pool --datasourceclassname com.mysql.jdbc.jdbc2.optional.MysqlDataSource --restype javax.sql.DataSource --property portNumber=3306:password=admin:user=root:serverName=localhost:databaseName=traveldreamdb TravelDreamXcp
+
+create-jdbc-resource --connectionpoolid TravelDreamXcp jdbc/TravelDreamX
+
+deploy traveldream.war
