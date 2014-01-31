@@ -30,7 +30,7 @@ proj codename: TravelDreamX
         </li> 
         <li ng-if='isAdmin()' ng-class="{active: getActive('/amministrazione'), 'pull-right': true}"><a href="#/amministrazione">Amministrazione</a></li>
         <li class="pull-right"><a>&nbsp;</a></li><li class="pull-right"><a>&nbsp;</a></li><li class="pull-right"><a>&nbsp;</a></li>
-        <li ng-class="{active: getActive('/composizionePV'), 'pull-right': true}" ng-if="isUtenteRegistrato() || !isLogged()"><a href="#/composizionePV">Crea viaggio</a></li>
+        <li ng-class="{active: getActive('/composizionePV'), 'pull-right': true}" ng-if="isUtenteRegistrato() || !isLogged()" ng-click="beforeCreaViaggio()"><a href="#/composizionePV">Crea viaggio</a></li>
         <li ng-class="{active: getActive('/proposteViaggio'), 'pull-right': true}" ng-if="isUtenteRegistrato() || !isLogged()"><a href="#/proposteViaggio">Proposte viaggio</a></li>
     </ul>
 </div>

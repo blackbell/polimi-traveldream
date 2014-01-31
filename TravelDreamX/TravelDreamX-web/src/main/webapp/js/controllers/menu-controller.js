@@ -3,8 +3,14 @@
  * proj codename: TravelDreamX
  */
 'use strict';
-
-travelDreamApp.controller('menuController', function($scope, $location) {
+var miavar;
+travelDreamApp.controller('menuController', function($scope, $rootScope, $location) {
+    $scope.beforeCreaViaggio = function(){
+        console.log('menuController.beforeCreaViaggio()');
+        miavar = $rootScope;
+        delete $rootScope.PV;
+    }
+    
     $scope.getActive = function(viewLocation) {
         return $location.path() === viewLocation;
     };
