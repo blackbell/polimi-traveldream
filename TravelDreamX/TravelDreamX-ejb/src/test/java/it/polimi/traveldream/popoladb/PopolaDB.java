@@ -195,10 +195,10 @@ public class PopolaDB {
     Utente impiegato;
 
     private void salvaUtentiImpiegatoEdAdmin() {
-        impiegato = new Utente("impiegato@traveldream.it", "impiegato");
+        impiegato = new Utente("impiegato@traveldreamx.it", "impiegato");
         impiegato.setLivello(Utente.LIVELLO_IMPIEGATO);
         impiegato.setAbilitato(true);
-        Utente admin = new Utente("admin@traveldream.it", "admin");
+        Utente admin = new Utente("admin@traveldreamx.it", "admin");
         admin.setLivello(Utente.LIVELLO_AMMINISTRATORE);
         admin.setAbilitato(true);
 

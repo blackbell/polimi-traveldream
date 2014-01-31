@@ -1,3 +1,7 @@
+/* 
+ * Politecnico di Milano, Software Engineering 2 (autumn semester)
+ * proj codename: TravelDreamX
+ */
 'use strict';
 var travelDreamApp = angular.module('travelDreamApp', ['ngRoute', '$strap.directives'])
         .config(function($routeProvider) {
