@@ -8,11 +8,13 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
     toastr.options = {
         positionClass: "toast-center"
     };
+    
     var mettiPVinRootScope = function (isAbilitato){
         $rootScope.PV.abilitato = isAbilitato;
     };
-    $scope.isAbilitato = function(pv) {
-        return pv.abilitato;
+    
+    $scope.isAbilitato = function(p) {
+        return p.abilitato;
     };
     $scope.abilitaPV = function(pv) {
         gestioneOffertaService.abilitaPV(pv.idPacchetto, function(esito) {
@@ -36,5 +38,25 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
 
         });
     };
+    $scope.abilitaPB = function(pb) {
+        gestioneOffertaService.abilitaPB(pb.idVoce, function(esito) {
+            if (esito.result) {
+                toastr.succ("pb " + pb.idVoce + " abilitato.", esito.message);
+            } else {
+                toastr.error(esito.message, "ERRORE:");
+            }
 
+        });
+    };
+    $scope.disabilitaPB = function(pb) {
+        gestioneOffertaService.disabilitaPV(pb.idVoce, function(esito) {
+            if (esito.result) {
+                toastr.succ("pb " + pb.idVoce + " disabilitato.", esito.message);
+            } else {
+                toastr.error(esito.message, "ERRORE:");
+            }
+
+        });
+    };
+    
 });

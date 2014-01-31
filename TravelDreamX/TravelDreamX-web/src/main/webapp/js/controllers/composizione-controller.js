@@ -142,8 +142,9 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         toastr.success("Hai aggiunto la voce: " + tipo + ".");
         console.log($rootScope.PV.voci);
     };
-
-    //***** RICERCA *****
+    //**************************************
+    //************* RICERCA ****************
+    //**************************************
     $scope.trovaPB = function() {
         $scope.waiting = true;
         searchService.trovaPB($scope.parametriRicercaPB, function(esito) {
@@ -155,7 +156,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
             $scope.waiting = false;
         });
     };
-
+    
     $scope.aggiungiPBaPV = function(PB) {
         $rootScope.aggiungiPBaPV(PB);
     };

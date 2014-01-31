@@ -6,6 +6,10 @@ var travelDreamApp = angular.module('travelDreamApp', ['ngRoute', '$strap.direct
                         templateUrl: 'templates/composizionePV.html',
                         controller: 'composizioneController'
                     }).
+                    when('/composizionePV/shared/:sharedID', {
+                        templateUrl: 'templates/composizionePV.html',
+                        controller: 'composizioneController'
+                    }).
                     when('/proposteViaggio', {
                         templateUrl: 'templates/proposteViaggio.html',
                         controller: 'proposteViaggioController'
@@ -16,11 +20,11 @@ var travelDreamApp = angular.module('travelDreamApp', ['ngRoute', '$strap.direct
                     }).
                     when('/amministrazione', {
                         templateUrl: 'templates/amministrazione.html',
-                        controller: 'amministrazioneController',
+                        controller: 'amministrazioneController'
                     }).
-                    when('/composizionePV/shared/:sharedID', {
-                        templateUrl: 'templates/composizionePV.html',
-                        controller: 'composizioneController'
+                    when('/trovaPB', {
+                        templateUrl: 'templates/trovaPB.html',
+                        controller: 'gestioneOffertaController'
                     }).        
                     otherwise({
                         redirectTo: '/proposteViaggio'

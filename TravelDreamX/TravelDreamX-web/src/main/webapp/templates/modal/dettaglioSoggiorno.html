@@ -40,8 +40,12 @@ proj codename: TravelDreamX
                 </div>
             </div>
             <div class="modal-footer">
-                <div class="span8">
-                    <button class="btn" ng-click="dismiss()">Close</button>
+                <div class="span8" ng-controller="autenticazioneController">
+                    <button class="btn" ng-click="dismiss()">Chiudi</button>
+                    <span ng-controller="gestioneOffertaController">
+                    <button class="btn btn-warning" ng-if="isImpiegato() && isAbilitato(soggiorno)" ng-click="disabilitaPB(soggiorno)"><i class="icon-shopping-cart icon-white"></i> Disabilita</button>
+                    <button class="btn btn-success" ng-if="isImpiegato() && !isAbilitato(soggiorno)" ng-click="abilitaPB(soggiorno)"><i class="icon-shopping-cart icon-white"></i> Abilita</button> 
+                    </span>
                     <button class="btn btn-success" ng-click="aggiungiPBaPV(soggiorno)"><i class="icon-plus-sign icon-white"></i> Aggiungi al pacchetto</button>
                 </div>
             </div>
