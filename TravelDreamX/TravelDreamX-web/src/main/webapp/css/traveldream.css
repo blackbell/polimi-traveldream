@@ -18,7 +18,9 @@ input-login-registr.ng-invalid {
 input-login-registr.ng-valid {
     border: 1px solid green;
 }
-
+.img-margin-left{
+    margin-left: 20px;
+}
 .glyphicon {
     margin-left: 3px;
 }
