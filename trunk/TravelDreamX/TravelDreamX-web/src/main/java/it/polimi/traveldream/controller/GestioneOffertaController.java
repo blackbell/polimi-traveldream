@@ -86,7 +86,7 @@ public class GestioneOffertaController {
             Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
             if (utenteLoggato != null && utenteLoggato.getLivello() == Utente.LIVELLO_IMPIEGATO) {
                 Boolean newState = pbService.disattivaPB(idPB);
-                e.setResult(newState == Boolean.TRUE);
+                e.setResult(newState == Boolean.FALSE);
                 e.setMessage(newState != null ? null : Esito.OPERATION_FAILED);
                 e.setReturnedObj(newState);
             }else{
@@ -201,7 +201,7 @@ public class GestioneOffertaController {
             Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
             if (utenteLoggato != null && utenteLoggato.getLivello() == Utente.LIVELLO_IMPIEGATO) {
                 Boolean newState = pvService.disattivaPV(idPV);
-                e.setResult(newState == Boolean.TRUE);
+                e.setResult(newState == Boolean.FALSE);
                 e.setMessage(newState != null ? null : Esito.OPERATION_FAILED);
                 e.setReturnedObj(newState);
             }else{
