@@ -6,6 +6,9 @@
 'use strict';
 
 travelDreamApp.factory('acquistaService', function($http) {
+    var eliminaProprietàNullePagamento = function (p){
+        
+    };
     var __acquistaPV = function(pv, callback){
         $http({method: 'POST', data:pv, url: 'acquistaPV.json'}).
                 success(function (data, status, headers, config){

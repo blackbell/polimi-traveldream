@@ -4,7 +4,7 @@
  */
 'use strict';
 
-travelDreamApp.controller('pvModalController', function($scope, $rootScope, $location, gestioneOffertaService) {
+travelDreamApp.controller('pvModalController', function($scope, $rootScope, $location) {
     toastr.options = {
         positionClass: "toast-center"
     };
@@ -51,29 +51,6 @@ travelDreamApp.controller('pvModalController', function($scope, $rootScope, $loc
         return false;
     };
     
-    $scope.isAbilitato = function (pv){
-        return pv.abilitato;
-    };
-    $scope.abilita = function( pv ){
-        gestioneOffertaService.abilita(pv ,function (esito){
-            if(esito.result){
-                toastr.succ(esito.message, "SUCCESSO:");
-            }else {
-                toastr.error(esito.message, "ERRORE:");
-            }
-            
-        });
-    }; 
-    $scope.disabilita = function( pv ){
-        gestioneOffertaService.abilita(pv ,function (esito){
-            if(esito.result){
-                toastr.succ(esito.message, "SUCCESSO:");
-            }else {
-                toastr.error(esito.message, "ERRORE:");
-            }
-            
-        });
-    };
     $scope.calcolaPrezzo = function(pv) {
         var prezzoTotale = 0;
         for (var index = 0; index < pv.voci.length; ++index) {

@@ -14,14 +14,14 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
             tipo: null,
             cittaPartenzaVolo: null,
             cittaArrivoVolo: null,
-            dataOraVolo: null,
+            dataOraVolo: new Date(),
             nomeAlbergo: null,
             cittaAlbergo: null,
-            dataInizioSoggiorno: null,
-            dataFineSoggiorno: null,
+            dataInizioSoggiorno: new Date(),
+            dataFineSoggiorno: new Date(new Date().getTime() + (24 * 60 * 60 * 1000 * 7)),
             nomeMuseo: null,
             cittaMuseo: null,
-            giornoVisita: null
+            giornoVisita: new Date()
         };
     };
 

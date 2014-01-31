@@ -31,6 +31,7 @@ travelDreamApp.controller('autenticazioneController', function($scope, $rootScop
                 console.log("Esito login: " + JSON.stringify(esito));
                 if (esito.result) {
                     $rootScope.utente = esito.returnedObj;
+                    delete $rootScope.utente.password;
                     $scope.utente = $rootScope.utente;
                     console.log('Utente loggato: ' + $rootScope.utente);
                     toastr.success("l'utente " + utente.email + " è ora loggato", "Login avvenuto con successo");
