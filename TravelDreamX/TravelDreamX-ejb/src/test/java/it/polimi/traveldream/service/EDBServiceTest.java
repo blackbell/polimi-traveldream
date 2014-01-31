@@ -167,7 +167,7 @@ public class EDBServiceTest {
 
         ParametriRicercaEDB p = new ParametriRicercaEDB();
         p.setTipo(TipoEDB.Rotta);
-        p.setCittàPartenza(r.getCittaPartenza());
+        p.setCittaPartenza(r.getCittaPartenza());
 
         List<EDB> list = service.trovaEntità(p);
         for (EDB l : list) {
@@ -191,7 +191,7 @@ public class EDBServiceTest {
 
         ParametriRicercaEDB p = new ParametriRicercaEDB();
         p.setTipo(TipoEDB.Rotta);
-        p.setCittàArrivo(r.getCittaArrivo());
+        p.setCittaArrivo(r.getCittaArrivo());
 
         List<EDB> list = service.trovaEntità(p);
         for (EDB l : list) {

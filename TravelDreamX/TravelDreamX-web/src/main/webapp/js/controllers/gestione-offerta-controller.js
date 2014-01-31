@@ -16,16 +16,17 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
         $scope.PBdaCreare = {
             tipo:''
         };
+        $scope.EDB = new Object();
         $scope.waiting = false;
         $scope.parametriRicercaEDB = {
             nome: null,
             citta: null,
             stelle: null,
             aeroportoPartenza: null,
-            cittàPartenza: null,
+            cittaPartenza: null,
             nazionePartenza: null,
             aeroportoArrivo: null,
-            cittàArrivo: null,
+            cittaArrivo: null,
             nazioneArrivo: null,
             compagniaAerea: null,
             tipo: null

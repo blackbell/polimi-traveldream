@@ -2,3 +2,54 @@
 Politecnico di Milano, Software Engineering 2 (autumn semester)
 proj codename: TravelDreamX
 -->
+<div class="well">
+    <div class="row">
+        <div class="span2 offset1">
+            <form>
+                <label class="control-label">
+                    Nome museo
+                </label>
+                <input type="text" placeholder="Museo della Scienza e della Tecnica" class="span2" ng-model="parametriRicercaEDB.nome"/>
+            </form>
+        </div>
+        <div class="span2 offset1">
+            <form>
+                <label class="control-label">
+                   Citta
+                </label>
+                <input type="text" placeholder="Milano" class="span2" ng-model="parametriRicercaEDB.citta"/>
+            </form>
+        </div>
+    </div>
+    <div class="row"><div class="span5 offset1"><button class="btn btn-block btn-primary" ng-click="trovaEDB()">Cerca</button></div></div>
+</div>
+<div class="row" ng-show="waiting">
+    <div class="span9" >Sto cercando... &nbsp;&nbsp;
+        <img src="img/loading.gif" width="20"/>
+        <br/><br/>
+    </div>
+</div>
+<div class="row" ng-if="EDB.Museo.length>0">
+    <div class="span9">
+        <legend>Risultati</legend>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Citta</th>
+                    <th>Scegli</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="museo in EDB.Museo">
+                    <td>{{museo.idMuseo}}</td>
+                    <td>{{museo.nome}}</td>
+                    <td>{{museo.citta}}</td>
+                    <td><button></button></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="lead" ng-if="EDB.Museo.length===0">Non ci sono risultati per questa ricerca</p>
+    </div>
+</div>
