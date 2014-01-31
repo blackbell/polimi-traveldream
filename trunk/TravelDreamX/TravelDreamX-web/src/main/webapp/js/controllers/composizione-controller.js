@@ -1,12 +1,45 @@
 'use strict';
-travelDreamApp.controller('composizioneController', function($scope, $rootScope, $route, $location, $modal, searchService, salvaPVPBservice) {
+travelDreamApp.controller('composizioneController', function($scope, $rootScope, $route, $routeParams, $modal, searchService, salvaPVPBservice) {
     //****************************
     //***** Inizializzazione *****
     //****************************
     toastr.options = {
         positionClass: "toast-center"
     };
-
+    
+    var getSharedPV = function (){
+        $scope.waiting = true;
+            searchService.trovaPV( {idPacchetto: $routeParams.sharedID}, function(esito) {
+            if (esito.result && (typeof esito.returnedObj !== 'undefined')) {
+                $rootScope.PV = esito.returnedObj[0];
+            } else {
+                toastr.error(esito.message, "ERRORE:");
+            }
+            $scope.waiting = false;
+        });
+    };
+    var getPVdaRootScope = function() {
+        if (typeof $rootScope.PV === 'undefined') {
+            inizializzaPV();
+        }
+    };
+    var inizializzaPV = function() {
+        $rootScope.PV = {
+            numeroPersone: 2,
+            nome: null,
+            voci: [{tipo: 'Volo'}, {tipo: 'Volo'}, {tipo: 'Soggiorno'}, {tipo: 'Visita'}]
+        };
+        $rootScope.indiceSelezionato = -1;
+    };
+    $scope.initComposizione = function() {
+        if( typeof $routeParams.sharedID !== 'undefined' ){
+            getSharedPV();
+        };
+        getPVdaRootScope();
+    };
+    $scope.getVociPV = function() {
+        return $rootScope.PV.voci;
+    };
     $scope.inizializzaRicerca = function() {
         $scope.PB = new Object();
         $scope.waiting = false;
@@ -30,23 +63,6 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         toastr.success("Pacchetto azzerato");
     };
     
-    $scope.getPVdaRootScope = function() {
-        if (typeof $rootScope.PV === 'undefined') {
-            inizializzaPV();
-        }
-    };
-    var inizializzaPV = function() {
-        $rootScope.PV = {
-            numeroPersone: 2,
-            nome: null,
-            voci: [{tipo: 'Volo'}, {tipo: 'Volo'}, {tipo: 'Soggiorno'}, {tipo: 'Visita'}]
-        };
-        $rootScope.indiceSelezionato = -1;
-    };
-
-    $scope.getVociPV = function() {
-        return $rootScope.PV.voci;
-    };
     //**********************************       
     //***** Lista voci - SELEZIONE *****
     //**********************************       
@@ -195,8 +211,6 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     $scope.salvaPV = function(isGL) {
         if (typeof $rootScope.PV.numeroPersone !== 'undefined' 
                 && $rootScope.PV.numeroPersone>0 && $rootScope.PV.numeroPersone<100) {
-            if (typeof $scope.nomePV !== 'undefined')
-                $rootScope.PV.nome = $scope.nomePV;
             if (isGL)
                 $rootScope.PV.tipo = 2;
             else
@@ -208,7 +222,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
                         console.log("ESITO:");
                         console.log(esito.returnedObj);
                         $rootScope.PV = esito.returnedObj;
-                        $rootScope.linkCondivisione = "http://localhost:8888/TravelDreamX-web/sharedPVid:" + $rootScope.PV.idPacchetto;
+                        $rootScope.linkCondivisione = "http://localhost:8888/TravelDreamX-web/#/composizionePV/shared/" + $rootScope.PV.idPacchetto;
                         apriModaleCondivisione();
                         toastr.success("Puoi consultare il PV salvato dal menu utente", esito.message);
                     } else

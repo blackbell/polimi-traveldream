@@ -27,7 +27,7 @@ proj codename: TravelDreamX
                         </div>
                         <div class="span3">
                         <span>Data: <strong>{{voce.dataOra|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
-                        <span>Costo: <strong>{{voce.costo}}</strong></span>
+                        <span>Costo: <strong>&euro; {{voce.costo}}</strong></span>
                         </div>
                     </div>
                     <div class="well well-small span8" ng-if='isSoggiorno(voce)'>
@@ -40,7 +40,7 @@ proj codename: TravelDreamX
                         <div class="span3">
                         <span>Dal: <strong>{{voce.giornoInizio|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
                         <span>Al: <strong>{{voce.giornoFine|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
-                        <span>Costo: <strong>{{voce.costo}}</strong></span>
+                        <span>Costo: <strong>&euro; {{voce.costo}}</strong></span>
                         </div>
                     </div>
                     <div class="well well-small span8" ng-if='isVisita(voce)'>
@@ -51,7 +51,7 @@ proj codename: TravelDreamX
                         </div>
                         <div class="span3">
                         <span>Data: <strong>{{voce.dataOra|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
-                        <span>Costo: <strong>{{voce.costo}}</strong></span>
+                        <span>Costo: <strong>&euro; {{voce.costo}}</strong></span>
                         </div>
                     </div>
                 </div>
