@@ -62,6 +62,7 @@ public class PBService implements PBServiceLocal {
     @Override
     public Voce salvaPB(Voce voce) {
         Voce ret = null;
+        voce.setAbilitato(true);
         System.out.println("PBService.salvaPB");
         System.out.println("PBService.salvaPB -> id: " + voce.getIdVoce());
         System.out.println("PBService.salvaPB -> tipo: " + voce.getTipo());
