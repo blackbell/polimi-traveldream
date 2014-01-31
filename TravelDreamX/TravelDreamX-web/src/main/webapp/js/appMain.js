@@ -17,10 +17,11 @@ var travelDreamApp = angular.module('travelDreamApp', ['ngRoute', '$strap.direct
                     when('/amministrazione', {
                         templateUrl: 'templates/amministrazione.html',
                         controller: 'amministrazioneController',
-                        access: {
-                            livelloAbilitazione: 2
-                        }
                     }).
+                    when('/composizionePV/shared/:sharedID', {
+                        templateUrl: 'templates/composizionePV.html',
+                        controller: 'composizioneController'
+                    }).        
                     otherwise({
                         redirectTo: '/proposteViaggio'
                     });
