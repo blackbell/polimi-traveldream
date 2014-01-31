@@ -46,7 +46,7 @@ public class EDBService implements EDBServiceLocal {
                 System.out.println("trovaEntità() -> nome:" + nome);
                 System.out.println("trovaEntità() -> città:" + città);
                 System.out.println("trovaEntità() -> stelle:" + stelle);
-                ret = albergoDAO.findByParams(nome!=null?nome:"%", città!=null?città:"%", stelle);
+                ret = albergoDAO.findByParams(nome!=null?"%" + nome + "%" : "%", città!=null?"%" + città + "%" : "%", stelle);
                 break;
             case Rotta:
                 String aeroportoPartenza = param.getAeroportoPartenza();
@@ -56,16 +56,18 @@ public class EDBService implements EDBServiceLocal {
                 String nazionePartenza = param.getNazionePartenza();
                 String nazioneArrivo = param.getNazioneArrivo();
                 String compagniaAerea = param.getCompagniaAerea();
-                ret = rottaDAO.findByParams(aeroportoPartenza !=null ? aeroportoPartenza :"%",
-                                            aeroportoArrivo   !=null ? aeroportoArrivo   :"%",
-                                            cittàPartenza     !=null ? cittàPartenza     :"%",
-                                            cittàArrivo       !=null ? cittàArrivo       :"%",
-                                            nazionePartenza   !=null ? nazionePartenza   :"%",
-                                            nazioneArrivo     !=null ? nazioneArrivo     :"%",
-                                            compagniaAerea    !=null ? compagniaAerea    :"%");
+                ret = rottaDAO.findByParams(aeroportoPartenza !=null ? "%" + aeroportoPartenza + "%" : "%",
+                                            aeroportoArrivo   !=null ? "%" + aeroportoArrivo   + "%" :"%",
+                                            cittàPartenza     !=null ? "%" + cittàPartenza     + "%" :"%",
+                                            cittàArrivo       !=null ? "%" + cittàArrivo       + "%" :"%",
+                                            nazionePartenza   !=null ? "%" + nazionePartenza   + "%" :"%",
+                                            nazioneArrivo     !=null ? "%" + nazioneArrivo     + "%" :"%",
+                                            compagniaAerea    !=null ? "%" + compagniaAerea    + "%" :"%");
                 break;
             case Museo:
-                //TODO finire di implementare il metodo!
+                String nomeMuseo = param.getNome();
+                String cittàMuseo = param.getCitta();
+                ret = museoDAO.findByParams(nomeMuseo != null ?  "%" + nomeMuseo + "%" : "%", cittàMuseo != null ? "%" + cittàMuseo + "%" : "%" );
                 break;
             default:
                 break;
