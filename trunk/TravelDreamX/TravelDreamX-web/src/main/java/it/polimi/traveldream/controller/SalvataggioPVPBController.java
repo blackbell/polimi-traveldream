@@ -91,7 +91,7 @@ public class SalvataggioPVPBController {
             if (utenteLoggato.getLivello() >= Utente.LIVELLO_IMPIEGATO) {
                 Voce nuovoPB = null;
                 Boolean statoVecchioPB = pbService.disattivaPB(pb.getIdVoce());
-                if (statoVecchioPB == Boolean.FALSE) {
+                if (statoVecchioPB == Boolean.FALSE || statoVecchioPB == null) {
                     pb.setIdVoce(null);
                     nuovoPB = pbService.salvaPB(pb);
                 }
