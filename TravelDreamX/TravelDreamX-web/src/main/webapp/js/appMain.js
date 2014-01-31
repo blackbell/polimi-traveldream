@@ -29,7 +29,11 @@ var travelDreamApp = angular.module('travelDreamApp', ['ngRoute', '$strap.direct
                     when('/trovaPB', {
                         templateUrl: 'templates/trovaPB.html',
                         controller: 'gestioneOffertaController'
-                    }).        
+                    }).
+                    when('/creazionePB', {
+                        templateUrl: 'templates/creaPB.html',
+                        controller: 'gestioneOffertaController'
+                    }).         
                     otherwise({
                         redirectTo: '/proposteViaggio'
                     });

@@ -5,7 +5,7 @@
 
 'use strict';
 
-travelDreamApp.directive('soggiorno', function(){
+travelDreamApp.directive('soggiorno', function( $rootScope){
     return {
         restrict : 'E', 
         templateUrl :  'templates/directive/soggiorno.html',
