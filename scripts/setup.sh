@@ -39,7 +39,7 @@ echo "== Creating the schema =="
 "$mySql_dir$mySql_exe" -u $TravelDreamDBUSER -p$TravelDreamDBPASSWORD -e "$createDBquery"
 
 echo
-echo "            SETP 2, GLASSFISH CONFIGURATION"
+echo "            STEP 2, GLASSFISH CONFIGURATION"
 echo
 
 echo "== Starting the JAVADB database =="
@@ -67,7 +67,14 @@ echo
 echo "== Creating the TravelDream JDBC resource =="
 $asadmin create-jdbc-resource --connectionpoolid $TravelDreamCONNPOOL $TravelDreamJDBC
 echo
+echo "            STEP 3, DEPLOY"
+echo
 echo "== Deploying TravelDream application =="
-$asadmin deploy res/traveldream.war
+$asadmin deploy res/TravelDreamX-ear.ear
+echo
+echo "            STEP 4, DATA IMPORT"
+echo
+echo "== Executing TravelDreamX sql script =="
+"$mySql_dir$mySql_exe" -u $TravelDreamDBUSER -p$TravelDreamDBPASSWORD $TravelDreamDBNAME < res/TravelDreamXdata.sql
 echo
 echo Done!

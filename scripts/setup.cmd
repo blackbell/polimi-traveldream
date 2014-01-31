@@ -39,8 +39,9 @@ echo == Creating the schema ==
 "%mySql_dir%%mySql_exe%" -u %TravelDreamDBUSER% -p%TravelDreamDBPASSWORD% -e "%createDBquery%"
 
 echo.
-echo             SETP 2, GLASSFISH CONFIGURATION
+echo             STEP 2, GLASSFISH CONFIGURATION
 echo.
+
 REM "%asadmin_dir%%asadmin_exe%" multimode --file res/4glassfish.txt --echo=true --port 12345
 echo == Starting the JAVADB database == 
 call %asadmin% start-database
@@ -68,8 +69,15 @@ echo.
 echo == Creating the TravelDream JDBC resource == 
 call %asadmin% create-jdbc-resource --connectionpoolid %TravelDreamCONNPOOL% %TravelDreamJDBC%
 echo.
-echo == Deploying TravelDream application == 
-call %asadmin% deploy res/traveldream.war
+echo             STEP 3, DEPLOY
 echo.
+echo == Deploying TravelDream application == 
+call %asadmin% deploy res/TravelDreamX-ear.ear
+echo.
+echo             STEP 4, DATA IMPORT
+echo.
+echo == Executing TravelDreamX sql script == 
+call "%mySql_dir%%mySql_exe%" -u %TravelDreamDBUSER% -p%TravelDreamDBPASSWORD% %TravelDreamDBNAME% < res/TravelDreamXdata.sql
+
 echo Done!
 PAUSE
