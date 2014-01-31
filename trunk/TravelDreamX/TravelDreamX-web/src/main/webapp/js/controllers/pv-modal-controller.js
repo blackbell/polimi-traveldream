@@ -4,7 +4,7 @@
  */
 'use strict';
 
-travelDreamApp.controller('pvModalController', function($scope, $rootScope, $location) {
+travelDreamApp.controller('pvModalController', function($scope, $rootScope, $location, $modal) {
     toastr.options = {
         positionClass: "toast-center"
     };
@@ -57,6 +57,26 @@ travelDreamApp.controller('pvModalController', function($scope, $rootScope, $loc
             prezzoTotale += pv.voci[index].costo;
         }
         return prezzoTotale;
+    };
+    var apriModaleAcquista = function() {
+        var modaleAcquista = {
+            template: 'templates/modal/acquista.html',
+            show: true,
+            backdrop: 'static'
+        };
+        var popUpModal = function(modal) {
+            // do something
+            $modal(modal);
+        };
+        popUpModal(modaleAcquista);
+    };
+    $scope.vaiAdAcquista = function (){
+        if(typeof $rootScope.utente !== 'undefined'){
+            $scope.dismiss();
+            apriModaleAcquista();
+        }
+        else 
+            toastr.warning("è necessario effettuare il login per procedere all'acquisto", "ATTENZIONE:");
     };
     
 });

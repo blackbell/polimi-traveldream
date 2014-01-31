@@ -2,3 +2,64 @@
 Politecnico di Milano, Software Engineering 2 (autumn semester)
 proj codename: TravelDreamX
 -->
+<div class="container modal span9" ng-controller="acquistaController">
+    <div class="row" ng-init="getPVdaRootScope()">
+        <div class="span9">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <br/>
+                <p class="lead">
+                    Conferma di acquisto per {{pv.nome}}
+                </p>
+                <br/>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="span8">Numero partecipanti: <strong>{{pv.numeroPersone}}</strong></div>
+                </div>
+                <div class="row" ng-repeat="voce in pv.voci" ng-controller="pvModalController">
+                    <div class="well well-small span8" ng-if='isVolo(voce)'>
+                        <img class="pull-left img-margin-left" src="img/Volo.png" width="40"/>
+                        <div class="span4">
+                        <span>Compagnia aerea: <strong>{{voce.rotta.compagniaAerea}}</strong></span><br/>
+                        <span>Da: <strong>{{voce.rotta.cittaPartenza}}</strong></span><br/>
+                        <span>A: <strong>{{voce.rotta.cittaArrivo}}</strong></span><br/>
+                        </div>
+                        <div class="span3">
+                        <span>Data: <strong>{{voce.dataOra|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
+                        <span>Costo: <strong>{{voce.costo}}</strong></span>
+                        </div>
+                    </div>
+                    <div class="well well-small span8" ng-if='isSoggiorno(voce)'>
+                        <img class="pull-left img-margin-left" src="img/Soggiorno.png" width="40"/>
+                        <div class="span4">
+                        <span>Citt&agrave;: <strong>{{voce.albergo.citta}}</strong></span><br/>
+                        <span>Albergo: <strong>{{voce.albergo.nome}} STELLE</strong></span><br/>
+                        <span>Camera: <strong></strong></span>
+                        </div>
+                        <div class="span3">
+                        <span>Dal: <strong>{{voce.giornoInizio|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
+                        <span>Al: <strong>{{voce.giornoFine|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
+                        <span>Costo: <strong>{{voce.costo}}</strong></span>
+                        </div>
+                    </div>
+                    <div class="well well-small span8" ng-if='isVisita(voce)'>
+                        <img class="pull-left img-margin-left" src="img/Visita.png" width="40"/>
+                        <div class="span4">
+                        <span>Museo: <strong>{{voce.museo.nome}}</strong></span><br/>
+                        <span>Citt&agrave;: <strong>{{voce.museo.citta}}</strong></span><br/>
+                        </div>
+                        <div class="span3">
+                        <span>Data: <strong>{{voce.dataOra|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
+                        <span>Costo: <strong>{{voce.costo}}</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" ng-click="dismiss()">
+                <button class="btn span3 btn-success pull-right" ng-click="acquistaPV()">Conferma e acquista</button>
+                <button class="btn pull-right">Annulla</button>
+            </div>
+        </div>
+    </div>
+</div>
