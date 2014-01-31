@@ -76,7 +76,16 @@ public class PagamentoService implements PagamentoServiceLocal {
     }
 
     @Override
-    public List<Pagamento> recuperaPagamenti(Date da, Date a, Utente u, Pacchetto pv) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Pagamento> recuperaPagamenti(ParametriRicercaPagamenti params) {
+        Date da = params.getDataInizio() != null ? params.getDataInizio() : new Date(0);
+        Date a = params.getDataFine() != null ? params.getDataFine() : new Date(); 
+        Utente u = params.getUtente();
+        Pacchetto pv = params.getPacchetto();
+        System.out.println("PagamentoService.recuperaPagamenti -> da:"+da);
+        System.out.println("PagamentoService.recuperaPagamenti -> a:"+a);
+        System.out.println("PagamentoService.recuperaPagamenti -> utente:"+u);
+        System.out.println("PagamentoService.recuperaPagamenti -> pv:"+pv);
+        List<Pagamento> ret = pagamentoDAO.findByParams(da, a, u, pv);
+        return ret.isEmpty() ? null : ret;
     }
 }

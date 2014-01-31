@@ -56,8 +56,8 @@ public class PVService implements PVServiceLocal {
         }
         System.out.println("PVService.salvaPV -> volo di andata: " + andata);
         System.out.println("PVService.salvaPV -> nome: " + pv.getNome());
-        pv.setNazionePartenza(andata.getRotta().getNazionePartenza());
-        pv.setNazioneArrivo(andata.getRotta().getNazioneArrivo());
+        if (andata != null) pv.setNazionePartenza(andata.getRotta().getNazionePartenza());
+        if (andata != null) pv.setNazioneArrivo(andata.getRotta().getNazioneArrivo());
         if (soggiorno != null) pv.setGiornoInizio(soggiorno.getGiornoInizio());
         if (soggiorno != null) pv.setGiornoFine(soggiorno.getGiornoFine());
         if (soggiorno != null) pv.setCittaAlbergo(soggiorno.getAlbergo().getCitta());
