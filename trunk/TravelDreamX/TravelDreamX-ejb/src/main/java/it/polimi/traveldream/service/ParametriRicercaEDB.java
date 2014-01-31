@@ -17,10 +17,10 @@ public class ParametriRicercaEDB {
     private String citta;
     private Integer stelle; 
     private String aeroportoPartenza;
-    private String cittàPartenza;
+    private String cittaPartenza;
     private String nazionePartenza;
     private String aeroportoArrivo;
-    private String cittàArrivo;
+    private String cittaArrivo;
     private String nazioneArrivo;
     private String compagniaAerea;
     private TipoEDB tipo;
@@ -57,12 +57,12 @@ public class ParametriRicercaEDB {
         this.aeroportoPartenza = aeroportoPartenza;
     }
 
-    public String getCittàPartenza() {
-        return cittàPartenza;
+    public String getCittaPartenza() {
+        return cittaPartenza;
     }
 
-    public void setCittàPartenza(String cittàPartenza) {
-        this.cittàPartenza = cittàPartenza;
+    public void setCittaPartenza(String cittaPartenza) {
+        this.cittaPartenza = cittaPartenza;
     }
 
     public String getNazionePartenza() {
@@ -81,12 +81,12 @@ public class ParametriRicercaEDB {
         this.aeroportoArrivo = aeroportoArrivo;
     }
 
-    public String getCittàArrivo() {
-        return cittàArrivo;
+    public String getCittaArrivo() {
+        return cittaArrivo;
     }
 
-    public void setCittàArrivo(String cittàArrivo) {
-        this.cittàArrivo = cittàArrivo;
+    public void setCittaArrivo(String cittaArrivo) {
+        this.cittaArrivo = cittaArrivo;
     }
 
     public String getNazioneArrivo() {

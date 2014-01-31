@@ -52,10 +52,10 @@ travelDreamApp.factory('searchService', function($http) {
             delete parEDB.nome;
         if (!parEDB.citta)
             delete parEDB.citta;
-        if (!parEDB.cittàPartenza)
-            delete parEDB.cittàPartenza;
-        if (!parEDB.cittàArrivo)
-            delete parEDB.cittàArrivo;
+        if (!parEDB.cittaPartenza)
+            delete parEDB.cittaPartenza;
+        if (!parEDB.cittaArrivo)
+            delete parEDB.cittaArrivo;
         if (!parEDB.nazionePartenza)
             delete parEDB.nazionePartenza;
         if (!parEDB.nazioneArrivo)

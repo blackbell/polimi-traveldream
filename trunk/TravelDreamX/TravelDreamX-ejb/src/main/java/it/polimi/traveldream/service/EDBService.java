@@ -51,8 +51,8 @@ public class EDBService implements EDBServiceLocal {
             case Rotta:
                 String aeroportoPartenza = param.getAeroportoPartenza();
                 String aeroportoArrivo = param.getAeroportoArrivo();
-                String cittàPartenza = param.getCittàPartenza();
-                String cittàArrivo = param.getCittàArrivo();
+                String cittàPartenza = param.getCittaPartenza();
+                String cittàArrivo = param.getCittaArrivo();
                 String nazionePartenza = param.getNazionePartenza();
                 String nazioneArrivo = param.getNazioneArrivo();
                 String compagniaAerea = param.getCompagniaAerea();

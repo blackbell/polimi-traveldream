@@ -39,14 +39,29 @@ proj codename: TravelDreamX
         <br/><br/>
     </div>
 </div>
-<div class="row">
+<div class="row" ng-if="EDB.Albergo.length>0">
     <div class="span9">
         <legend>Risultati</legend>
-        <ul class="thumbnails" ng-if="PB.Albergo.length>0">
-            <li class="span3" ng-repeat="albergo in PB.albergo">
-            <soggiorno soggiorno="soggiorno"/>
-            </li>
-        </ul>
-        <p class="lead" ng-if="PB.Albergo.length===0">Non ci sono risultati per questa ricerca</p>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Citta</th>
+                    <th>Stelle</th>
+                    <th>Scegli</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="albergo in EDB.Albergo">
+                    <td>{{albergo.idAlbergo}}</td>
+                    <td>{{albergo.nome}}</td>
+                    <td>{{albergo.citta}}</td>
+                    <td>{{albergo.stelle}}</td>
+                    <td><button></button></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="lead" ng-if="EDB.Albergo.length===0">Non ci sono risultati per questa ricerca</p>
     </div>
 </div>
