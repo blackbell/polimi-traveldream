@@ -44,7 +44,7 @@ public class ParametriRicercaPagamenti {
     }
 
     public void setDataFine(Date dataFine) {
-        long time = dataInizio.getTime();
+        long time = dataFine.getTime();
         time = (((long)time / (24*60*60*1000))+1)*24*60*60*1000;
         this.dataFine = new Date(time);
     }

@@ -78,7 +78,9 @@ public class PagamentoService implements PagamentoServiceLocal {
     @Override
     public List<Pagamento> recuperaPagamenti(ParametriRicercaPagamenti params) {
         Date da = params.getDataInizio() != null ? params.getDataInizio() : new Date(0);
-        Date a = params.getDataFine() != null ? params.getDataFine() : new Date(); 
+        if (params.getDataFine() == null)
+            params.setDataFine(new Date()); 
+        Date a = params.getDataFine();
         Utente u = params.getUtente();
         Pacchetto pv = params.getPacchetto();
         System.out.println("PagamentoService.recuperaPagamenti -> da:"+da);
@@ -86,6 +88,7 @@ public class PagamentoService implements PagamentoServiceLocal {
         System.out.println("PagamentoService.recuperaPagamenti -> utente:"+u);
         System.out.println("PagamentoService.recuperaPagamenti -> pv:"+pv);
         List<Pagamento> ret = pagamentoDAO.findByParams(da, a, u, pv);
+        System.out.println("PagamentoService.recuperaPagamenti -> ret:"+ret + " size: " + ret.size());
         return ret.isEmpty() ? null : ret;
     }
 }
