@@ -114,6 +114,10 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
         };
         popUpModal(modaleCreaModificaPB);
     };
+    $scope.modificaPB = function (pb){
+        $rootScope.PBdaModif = pb;
+        apriModaleCreaModificaPB();
+    };
     $scope.scegliEDB = function(edb){
         console.log(edb);
         $rootScope.EDBperPB = edb;

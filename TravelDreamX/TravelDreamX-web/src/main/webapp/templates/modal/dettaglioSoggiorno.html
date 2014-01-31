@@ -28,7 +28,7 @@ proj codename: TravelDreamX
                             <span ng-if="soggiorno.numeroPersone === 3">Camera tripla</span>
                             <span ng-if="soggiorno.numeroPersone === 4">Camera quadrupla</span></strong> <br/>
                         <p class="lead">solo &euro; {{soggiorno.costo}}</p> 
-                        <button class="btn btn-large btn-success" ng-if="isLocation('composizionePV')" ng-click="aggiungiPBaPV(soggiorno)"><i class="icon-plus-sign icon-white"></i> Aggiungi al pacchetto</button>
+                        <button class="btn btn-large btn-success" ng-if="isLocation('/composizionePV')" ng-click="aggiungiPBaPV(soggiorno)"><i class="icon-plus-sign icon-white"></i> Aggiungi al pacchetto</button>
                     </div>
                 </div>
                 <br/>
@@ -43,12 +43,11 @@ proj codename: TravelDreamX
                 <div class="span8" ng-controller="autenticazioneController">
                     <button class="btn" ng-click="dismiss()">Chiudi</button>
                     <span ng-controller="gestioneOffertaController">
-                        <span ng-controller="autenticazioneController">
                             <button class="btn btn-warning" ng-if="isImpiegato() && soggiorno.abilitato && isLocation('/trovaPB')" ng-click="disabilitaPB(soggiorno) ; dismiss()"><i class="icon-shopping-cart icon-white"></i> Disabilita</button>
                             <button class="btn btn-success" ng-if="isImpiegato() && (!soggiorno.abilitato) && isLocation('/trovaPB')" ng-click="abilitaPB(soggiorno) ; dismiss()"><i class="icon-shopping-cart icon-white"></i> Abilita</button> 
-                        </span>
                     </span>
-                    <button class="btn btn-success" ng-if="isLocation('composizionePV')" ng-click="aggiungiPBaPV(soggiorno)"><i class="icon-plus-sign icon-white"></i> Aggiungi al pacchetto</button>
+                    <button ng-controller="gestioneOffertaController" class="btn" ng-if="isImpiegato()" ng-click="modificaPB(soggiorno); dismiss()"><i class="icon-edit"></i> Modifica PB</button>
+                    <button class="btn btn-success" ng-if="isLocation('/composizionePV')" ng-click="aggiungiPBaPV(soggiorno)"><i class="icon-plus-sign icon-white"></i> Aggiungi al pacchetto</button>
                 </div>
             </div>
         </div>
