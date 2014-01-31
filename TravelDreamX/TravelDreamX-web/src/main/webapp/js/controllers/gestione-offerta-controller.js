@@ -4,7 +4,7 @@
  */
 'use strict';
 
-travelDreamApp.controller('gestioneOffertaController', function($scope, $rootScope, gestioneOffertaService, searchService) {
+travelDreamApp.controller('gestioneOffertaController', function($scope, $rootScope,$modal, gestioneOffertaService, searchService) {
     toastr.options = {
         positionClass: "toast-center"
     };
@@ -101,8 +101,22 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
             $scope.waiting = false;
         });
     };
+    var apriModaleCreaModificaPB = function() {
+        var modaleCreaModificaPB = {
+            template: 'templates/modal/creaModificaPB.html',
+            show: true,
+            backdrop: 'static'
+        };
+        var popUpModal = function(modal) {
+            // do something
+            $modal(modal);
+        };
+        popUpModal(modaleCreaModificaPB);
+    };
     $scope.scegliEDB = function(edb){
+        console.log(edb);
         $rootScope.EDBperPB = edb;
         $rootScope.tipoPBdaCreare = $scope.PBdaCreare;
+        apriModaleCreaModificaPB();
     };
 });
