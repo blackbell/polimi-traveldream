@@ -63,7 +63,8 @@ public class PBService implements PBServiceLocal {
     public Voce salvaPB(Voce voce) {
         Voce ret = null;
         System.out.println("PBService.salvaPB");
-        System.out.println("PBService.salvaPB -> params.tipo: " + voce.getTipo());
+        System.out.println("PBService.salvaPB -> id: " + voce.getIdVoce());
+        System.out.println("PBService.salvaPB -> tipo: " + voce.getTipo());
         switch (voce.getTipo()) {
             case "Volo":
                 Volo v = (Volo)voce;

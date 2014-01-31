@@ -45,7 +45,7 @@ public class PVService implements PVServiceLocal {
     public Pacchetto salvaPV(Pacchetto pv) {
         if (pv.getVoci() == null
                 || pv.getVoci().isEmpty()
-                || pv.getVoci().size() >= Pacchetto.MAX_NRO_VOCI) {
+                || pv.getVoci().size() > Pacchetto.MAX_NRO_VOCI) {
             return null;
         }
         

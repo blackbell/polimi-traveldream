@@ -14,7 +14,7 @@ import it.polimi.traveldream.model.TipoPB;
 import it.polimi.traveldream.model.Utente;
 import it.polimi.traveldream.model.Visita;
 import it.polimi.traveldream.model.Voce;
-import it.polimi.traveldream.model.Volo;
+import it.polimi.traveldream.model.Volo;    
 import it.polimi.traveldream.service.EDBServiceLocal;
 import it.polimi.traveldream.service.EJBServiceTestSuite;
 import static it.polimi.traveldream.service.EJBServiceTestSuite.container;
@@ -158,9 +158,12 @@ public class PopolaDB {
             }
             Soggiorno soggiorno = (Soggiorno) v.get(rnd.nextInt(v.size()));
             System.out.println("PopolaDB.generaPacchetti -> scelto soggiorno:" + soggiorno + " in albergo " + soggiorno.getAlbergo().getNome());
-            soggiorno.setGiornoInizio(andata.getDataOra());
-            soggiorno.setGiornoFine(ritorno.getDataOra());
-            pbService.salvaPB(soggiorno);
+            
+            andata.setDataOra(new Date(soggiorno.getGiornoInizio().getTime() + (andata.getDataOra().getTime() % (24 * 60 * 60 * 1000))));
+            ritorno.setDataOra(new Date(soggiorno.getGiornoFine().getTime() + (ritorno.getDataOra().getTime() % (24 * 60 * 60 * 1000))));
+//            soggiorno.setGiornoFine(ritorno.getDataOra());
+            pbService.salvaPB(andata);
+            pbService.salvaPB(ritorno);
             p.getVoci().add(soggiorno);
             p.setNumeroPersone(soggiorno.getNumeroPersone());
 
@@ -173,9 +176,18 @@ public class PopolaDB {
             }
             Visita visita = (Visita) v.get(rnd.nextInt(v.size()));
             System.out.println("PopolaDB.generaPacchetti -> scelta visita:" + visita + " al " + visita.getMuseo().getNome());
+//            long giornoInizio = soggiorno.getGiornoFine().getTime()/(24*60*60*1000);
+//            long giornoFine = soggiorno.getGiornoInizio().getTime()/(24*60*60*1000);
+//            long dataVisita = giornoInizio + rnd.nextInt((int)((giornoFine-1)-giornoInizio));
+//            dataVisita *= 24*60*60*1000;
+//            visita.setDataOra(new Date(dataVisita + (visita.getDataOra().getTime() % (24 * 60 * 60 * 1000))));
+            pbService.salvaPB(visita);
             p.getVoci().add(visita);
 
             pacchettiGenerati.add(pvService.salvaPV(p));
+            System.out.println("PopolaDB.generaPacchetti -> p:"+ p);
+            System.out.println("PopolaDB.generaPacchetti -> nome:"+ p.getNome());
+            System.out.println("PopolaDB.generaPacchetti ===================================================:"+ p.getNome());
         }
 
         System.out.println("PopolaDB.generaPacchetti -> generati " + pacchettiGenerati.size() + " su " + nroPacchettiDaGenerare + "richiesti");

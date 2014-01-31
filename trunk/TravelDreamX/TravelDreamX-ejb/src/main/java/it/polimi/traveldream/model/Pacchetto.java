@@ -196,7 +196,7 @@ public class Pacchetto implements Serializable {
     }
  
     public static boolean nroVociNonConfome(Pacchetto pv){
-        return (pv.getVoci().size() > 0 && pv.getVoci().size() <= Pacchetto.MAX_NRO_VOCI);
+        return (pv.getVoci().size() <= 0 || pv.getVoci().size() > Pacchetto.MAX_NRO_VOCI);
     }
     
     private String nazionePartenza;
