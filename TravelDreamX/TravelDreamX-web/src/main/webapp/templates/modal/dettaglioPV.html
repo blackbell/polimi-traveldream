@@ -37,7 +37,7 @@ proj codename: TravelDreamX
                             <div class="span3">Nome: {{pv.voci[indexVisita].museo.nome}}<br/>Data: {{pv.voci[indexVisita].dataOra|date:'dd/MM/yyyy hh:mm'}}</div>
                         </div>
                         <div class="span1">solo<p class="lead"> &euro;{{calcolaPrezzo(pv)}}</p></div>
-                        <div class="span2" ng-if='!isImpiegato()'>
+                        <div class="span2" ng-if="(!isImpiegato()) && isLocation('/proposteViaggio')">
                             <button class="btn span2 btn-success" ng-click="vaiAdAcquista()"><i class="icon-shopping-cart icon-white"></i> Acquista</button> <br/>
                         </div>
                         <span ng-controller="gestioneOffertaController">
@@ -82,7 +82,7 @@ proj codename: TravelDreamX
                     <button class="btn btn-warning" ng-if="isImpiegato() && isAbilitato(pv)" ng-click="disabilitaPV(pv)"><i class="icon-shopping-cart icon-white"></i> Disabilita</button>
                     <button class="btn btn-success" ng-if="isImpiegato() && !isAbilitato(pv)" ng-click="abilitaPV(pv)"><i class="icon-shopping-cart icon-white"></i> Abilita</button> 
                     </span>
-                    <button class="btn btn-success" ng-click="vaiAdAcquista()" ng-if="!isImpiegato()"><i class="icon-shopping-cart icon-white"></i> Acquista</button>
+                    <button class="btn btn-success" ng-click="vaiAdAcquista()" ng-if="(!isImpiegato()) && isLocation('/proposteViaggio')"><i class="icon-shopping-cart icon-white"></i> Acquista</button>
                 </div>
             </div>
         </div>

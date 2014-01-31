@@ -38,7 +38,6 @@ travelDreamApp.controller('pvModalController', function($scope, $rootScope, $loc
     $scope.fwdToComposizione = function (pv){
         $scope.dismiss();
         $rootScope.PV=pv;
-        console.log("[BUG] mancano i dati di volo e visita perchè il pv non è completo");
         console.log(pv);
         $location.path('/composizionePV');
     };

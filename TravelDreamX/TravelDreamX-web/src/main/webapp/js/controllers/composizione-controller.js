@@ -1,5 +1,5 @@
 'use strict';
-travelDreamApp.controller('composizioneController', function($scope, $rootScope, $route, $routeParams, $modal, searchService, salvaPVPBservice) {
+travelDreamApp.controller('composizioneController', function($scope, $rootScope, $route, $routeParams, $location, $modal, searchService, salvaPVPBservice) {
     //****************************
     //***** Inizializzazione *****
     //****************************
@@ -237,6 +237,9 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
             toastr.error("Il numero dei partecipanti deve essere compreso tra 1 e 99.");
         }
         ;
+    };
+    $scope.isLocation = function (view){
+        return $location.path() === view;
     };
     
 });
