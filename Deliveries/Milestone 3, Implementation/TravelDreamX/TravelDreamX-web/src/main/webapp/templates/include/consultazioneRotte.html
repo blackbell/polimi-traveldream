@@ -1,0 +1,89 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<p class="lead">Scegli una rotta</p><br/><br/>
+<div class="well">
+    <div class="row">
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Dalla nazione di
+                </label>
+                <input type="text" class="span2" placeholder="Italia" ng-model="parametriRicercaEDB.nazionePartenza"/>
+                <label class="control-label">
+                    Alla nazione di
+                </label>
+                <input type="text" class="span2" placeholder="Francia" ng-model="parametriRicercaEDB.nazioneArrivo"/>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Dalla citt&agrave; di
+                </label>
+                <input type="text" class="span2" placeholder="Bologna" ng-model="parametriRicercaEDB.cittaPartenza"/>
+                <label class="control-label">
+                    Alla citt&agrave; di
+                </label>
+                <input type="text" class="span2" placeholder="Milano" ng-model="parametriRicercaEDB.cittaArrivo"/>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Dall'aeroporto di
+                </label>
+                <input type="text" class="span2" placeholder="Italia" ng-model="parametriRicercaEDB.aeroportoPartenza"/>
+                <label class="control-label">
+                    All'aeroporto di
+                </label>
+                <input type="text" class="span2" placeholder="Francia" ng-model="parametriRicercaEDB.aeroportoArrivo"/>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Compagnia
+                </label>
+                <input type="text" class="span2" placeholder="Alitalia" ng-model="parametriRicercaEDB.compagniaAerea"/>
+            </form>
+        </div>
+    </div>
+    <div class="row"><div class="span4 offset2"><button class="btn btn-block btn-primary" ng-click="trovaEDB()">Cerca</button></div></div>
+</div>
+<div class="row" ng-show="waiting">
+    <div class="span9">
+        Sto cercando... &nbsp;&nbsp;<img src="img/loading.gif" width="20"/>
+        <br/><br/>
+    </div>
+</div>
+<div class="row" ng-if="EDB.Rotta !== 'undefined'">
+    <div class="span9">
+        <br/>
+        <table class="table table-condensed table-hover table-striped" ng-if="EDB.Rotta.length>0">
+            <legend>Risultati</legend>
+            <thead>
+                <tr>
+                    <th>Nazione partenza</th>
+                    <th>Nazione arrivo</th>
+                    <th>Aeroporto partenza</th>
+                    <th>Aeroporto Arrivo</th>
+                    <th>Compagnia aerea</th>
+                    <th>Scegli</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="rotta in EDB.Rotta">
+                    <td>{{rotta.nazionePartenza}}</td>
+                    <td>{{rotta.nazioneArrivo}}</td>
+                    <td>{{rotta.aeroportoPartenza}} ({{rotta.cittaPartenza}})</td>
+                    <td>{{rotta.aeroportoArrivo}} ({{rotta.cittaArrivo}})</td>
+                    <td>{{rotta.compagniaAerea}}</td>
+                    <td><button class="btn btn-mini btn-success" ng-click="scegliEDB(rotta)"><i class="icon-plus-sign icon-white"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="lead" ng-if="EDB.Rotta.length===0">Non ci sono risultati per questa ricerca</p>
+    </div>
+</div>

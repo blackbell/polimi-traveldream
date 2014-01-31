@@ -1,0 +1,26 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<div class="thumbnail pointer" bs-modal="'templates/modal/dettaglioSoggiorno.html'">
+    <img ng-src="{{soggiorno.albergo.urlFoto}}"/>
+    <div class="caption">
+        <div class="row intestazione">
+            <strong class="span2 zero-margin-left pull-left">{{soggiorno.albergo.nome}}</strong>
+            <i class="icon-star-empty pull-right" ng-repeat="n in []| range:(5 - soggiorno.albergo.stelle)"></i>
+            <i class="icon-star pull-right" ng-repeat="n in []| range:soggiorno.albergo.stelle"></i>
+        </div>
+        <p class="pb-descrizione">
+            {{soggiorno.giornoInizio| date:'dd/MM/yyyy'}} - {{soggiorno.giornoFine| date:'dd/MM/yyyy'}}
+            <br/>
+            Citt&agrave;: {{soggiorno.albergo.citta}}
+        </p>
+        <legend class="pb-footer"></legend>
+        <p class="pb-descrizione">
+            <font size="5px">&euro;{{soggiorno.costo}}<font>
+            <button class="btn btn-primary btn-small pull-right">Dettagli</button>
+        </p>
+    </div>
+</div>
+
+

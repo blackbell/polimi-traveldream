@@ -1,0 +1,77 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<div class="well">
+    <div class="row">
+        <div class="span2 offset1">
+            <form>
+                <label class="control-label">
+                    Dalla citt&agrave; di
+                </label>
+                <input type="text" class="span2" placeholder="Bologna" ng-model="parametriRicercaPB.cittaPartenzaVolo"/>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Alla citt&agrave; di
+                </label>
+                <input type="text" class="span2" placeholder="Milano" ng-model="parametriRicercaPB.cittaArrivoVolo"/>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Il giorno
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="text" ng-model="parametriRicercaPB.dataOraVolo" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row"><div class="span6 offset1"><button class="btn btn-block btn-primary" ng-click="trovaPB()">Cerca</button></div></div>
+</div>
+<div class="row" ng-show="waiting">
+    <div class="span9">
+        Sto cercando... &nbsp;&nbsp;<img src="img/loading.gif" width="20"/>
+        <br/><br/>
+    </div>
+</div>
+<div class="row" ng-if="PB.Volo !== 'undefined'">
+    <div class="span9">
+        <br/>
+        <table class="table table-condensed table-hover table-striped" ng-if="PB.Volo.length > 0" ng-controller="autenticazioneController">
+            <legend>Risultati</legend>
+            <thead>
+                <tr>
+                    <th>Partenza</th>
+                    <th>Arrivo</th>
+                    <th>Compagnia aerea</th>
+                    <th>Data-Ora</th>
+                    <th>Costo</th>
+                    <th ng-if="isImpiegato()">Modifica PB</th>
+                    <th ng-if="isLocation('/composizionePV')">Aggiungi <br/> al pacchetto</th>
+                    <th ng-if="isImpiegato() && isLocation('/trovaPB')">Abilita/Disabilita</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="volo in PB.Volo">
+                    <td>{{volo.rotta.aeroportoPartenza}} <br/> {{volo.rotta.cittaPartenza}} ({{volo.rotta.nazionePartenza}}) </td>
+                    <td>{{volo.rotta.aeroportoArrivo}} <br/> {{volo.rotta.cittaArrivo}} ({{volo.rotta.nazioneArrivo}}) </td>
+                    <td>{{volo.rotta.compagniaAerea}}</td>
+                    <td>{{volo.dataOra| date:'dd/MM/yyyy hh:mm'}}</td>
+                    <td>{{volo.costo}}</td>
+                    <td ng-if="isImpiegato()"><button ng-controller="gestioneOffertaController" class="btn btn-small" ng-if="isImpiegato()" ng-click="modificaPB(volo)"><i class="icon-edit"></i></button>
+                    </td>
+                    <td ng-if="isLocation('/composizionePV')"><button class="btn btn-mini btn-success" ng-click="aggiungiPBaPV(volo)"><i class="icon-plus-sign icon-white"></i></button></td>
+                    <td ng-if="volo.abilitato && isImpiegato() && isLocation('/trovaPB')"><span class="badge badge-utente-attivo pointer" ng-click="disabilitaPB(volo)" bs-tooltip='tooltipDisattiva.title'><i class="icon-ok-circle"></i></span></td>
+                    <td ng-if="(!volo.abilitato) && isImpiegato() && isLocation('/trovaPB')"><span class="badge badge-important pointer" ng-click="abilitaPB(volo)" bs-tooltip='tooltipDisattiva.title'><i class="icon-ban-circle icon-white"></i></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="lead" ng-if="PB.Volo.length === 0">Non ci sono risultati per questa ricerca</p>
+    </div>
+</div>

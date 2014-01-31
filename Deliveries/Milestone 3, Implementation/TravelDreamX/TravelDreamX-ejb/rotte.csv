@@ -1,0 +1,101 @@
+aeroportoPartenza;cittàPartenza;nazionePartenza;aeroportoArrivo;cittàArrivo;nazioneArrivo;compagniaAerea
+Sochi;Sochi;Russia;Astrakhan;Astrakhan;Russia;Aerocondor
+Sochi;Sochi;Russia;"Nizhny Novgorod";"Nizhniy Novgorod";Russia;Aerocondor
+Sochi;Sochi;Russia;Pashkovskiy;Krasnodar;Russia;Aerocondor
+Sochi;Sochi;Russia;Kazan;Kazan;Russia;Aerocondor
+Sochi;Sochi;Russia;Uytash;Makhachkala;Russia;Aerocondor
+Sochi;Sochi;Russia;"Mineralnyye Vody";"Mineralnye Vody";Russia;Aerocondor
+Sochi;Sochi;Russia;Begishevo;Nizhnekamsk;Russia;Aerocondor
+Sochi;Sochi;Russia;"Rostov Na Donu";Rostov;Russia;Aerocondor
+Sochi;Sochi;Russia;"Bugulma Airport";Bugulma;Russia;Aerocondor
+Astrakhan;Astrakhan;Russia;Sochi;Sochi;Russia;Aerocondor
+Astrakhan;Astrakhan;Russia;Kazan;Kazan;Russia;Aerocondor
+Astrakhan;Astrakhan;Russia;Pulkovo;"St. Petersburg";Russia;Aerocondor
+Balandino;Chelyabinsk;Russia;Kazan;Kazan;Russia;Aerocondor
+Balandino;Chelyabinsk;Russia;Tolmachevo;Novosibirsk;Russia;Aerocondor
+Domododevo;Moscow;Russia;Uytash;Makhachkala;Russia;Aerocondor
+Domododevo;Moscow;Russia;Begishevo;Nizhnekamsk;Russia;Aerocondor
+Domododevo;Moscow;Russia;"Bugulma Airport";Bugulma;Russia;Aerocondor
+Gelendzik;Gelendzik;Russia;Kazan;Kazan;Russia;Aerocondor
+"Nizhny Novgorod";"Nizhniy Novgorod";Russia;Sochi;Sochi;Russia;Aerocondor
+"Heydar Aliyev";Baku;Azerbaijan;Sochi;Sochi;Russia;Aerocondor
+"Heydar Aliyev";Baku;Azerbaijan;Begishevo;Nizhnekamsk;Russia;Aerocondor
+"Boryspil Intl";Kiev;Ukraine;Kazan;Kazan;Russia;Aerocondor
+Pashkovskiy;Krasnodar;Russia;Sochi;Sochi;Russia;Aerocondor
+Pashkovskiy;Krasnodar;Russia;Kazan;Kazan;Russia;Aerocondor
+Kurumoch;Samara;Russia;"Mineralnyye Vody";"Mineralnye Vody";Russia;Aerocondor
+Kazan;Kazan;Russia;Sochi;Sochi;Russia;Aerocondor
+Kazan;Kazan;Russia;Astrakhan;Astrakhan;Russia;Aerocondor
+Kazan;Kazan;Russia;Balandino;Chelyabinsk;Russia;Aerocondor
+Kazan;Kazan;Russia;Gelendzik;Gelendzik;Russia;Aerocondor
+Kazan;Kazan;Russia;"Boryspil Intl";Kiev;Ukraine;Aerocondor
+Kazan;Kazan;Russia;Pashkovskiy;Krasnodar;Russia;Aerocondor
+Kazan;Kazan;Russia;Pulkovo;"St. Petersburg";Russia;Aerocondor
+Kazan;Kazan;Russia;"Mineralnyye Vody";"Mineralnye Vody";Russia;Aerocondor
+Kazan;Kazan;Russia;"Franz Josef Strauss";Munich;Germany;Aerocondor
+Kazan;Kazan;Russia;"Bolshoye Savino";Perm;Russia;Aerocondor
+Kazan;Kazan;Russia;"Simferopol Intl";Simferopol;Ukraine;Aerocondor
+Pulkovo;"St. Petersburg";Russia;Astrakhan;Astrakhan;Russia;Aerocondor
+Pulkovo;"St. Petersburg";Russia;Kazan;Kazan;Russia;Aerocondor
+Pulkovo;"St. Petersburg";Russia;Uytash;Makhachkala;Russia;Aerocondor
+Pulkovo;"St. Petersburg";Russia;Begishevo;Nizhnekamsk;Russia;Aerocondor
+Pulkovo;"St. Petersburg";Russia;"Bugulma Airport";Bugulma;Russia;Aerocondor
+Uytash;Makhachkala;Russia;Sochi;Sochi;Russia;Aerocondor
+Uytash;Makhachkala;Russia;Domododevo;Moscow;Russia;Aerocondor
+Uytash;Makhachkala;Russia;Pulkovo;"St. Petersburg";Russia;Aerocondor
+Uytash;Makhachkala;Russia;"Mineralnyye Vody";"Mineralnye Vody";Russia;Aerocondor
+"Mineralnyye Vody";"Mineralnye Vody";Russia;Sochi;Sochi;Russia;Aerocondor
+"Mineralnyye Vody";"Mineralnye Vody";Russia;Kurumoch;Samara;Russia;Aerocondor
+"Mineralnyye Vody";"Mineralnye Vody";Russia;Kazan;Kazan;Russia;Aerocondor
+"Mineralnyye Vody";"Mineralnye Vody";Russia;Uytash;Makhachkala;Russia;Aerocondor
+"Franz Josef Strauss";Munich;Germany;Kazan;Kazan;Russia;Aerocondor
+Begishevo;Nizhnekamsk;Russia;Sochi;Sochi;Russia;Aerocondor
+Begishevo;Nizhnekamsk;Russia;Domododevo;Moscow;Russia;Aerocondor
+Begishevo;Nizhnekamsk;Russia;"Heydar Aliyev";Baku;Azerbaijan;Aerocondor
+Begishevo;Nizhnekamsk;Russia;Pulkovo;"St. Petersburg";Russia;Aerocondor
+Begishevo;Nizhnekamsk;Russia;"Simferopol Intl";Simferopol;Ukraine;Aerocondor
+Nizhnevartovsk;Nizhnevartovsk;Russia;"Bugulma Airport";Bugulma;Russia;Aerocondor
+Tolmachevo;Novosibirsk;Russia;Balandino;Chelyabinsk;Russia;Aerocondor
+"Bolshoye Savino";Perm;Russia;Kazan;Kazan;Russia;Aerocondor
+"Rostov Na Donu";Rostov;Russia;Sochi;Sochi;Russia;Aerocondor
+Surgut;Surgut;Russia;"Bugulma Airport";Bugulma;Russia;Aerocondor
+"Simferopol Intl";Simferopol;Ukraine;Kazan;Kazan;Russia;Aerocondor
+"Simferopol Intl";Simferopol;Ukraine;Begishevo;Nizhnekamsk;Russia;Aerocondor
+"Bugulma Airport";Bugulma;Russia;Sochi;Sochi;Russia;Aerocondor
+"Bugulma Airport";Bugulma;Russia;Domododevo;Moscow;Russia;Aerocondor
+"Bugulma Airport";Bugulma;Russia;Pulkovo;"St. Petersburg";Russia;Aerocondor
+"Bugulma Airport";Bugulma;Russia;Nizhnevartovsk;Nizhnevartovsk;Russia;Aerocondor
+"Bugulma Airport";Bugulma;Russia;Surgut;Surgut;Russia;Aerocondor
+Andahuaylas;Andahuaylas;Peru;"Jorge Chavez Intl";Lima;Peru;"Star Peru (2I)"
+"Coronel Fap Alfredo Mendivil Duarte";Ayacucho;Peru;"Jorge Chavez Intl";Lima;Peru;"Star Peru (2I)"
+"Teniente Alejandro Velasco Astete Intl";Cuzco;Peru;"Jorge Chavez Intl";Lima;Peru;"Star Peru (2I)"
+"Teniente Alejandro Velasco Astete Intl";Cuzco;Peru;"Padre Aldamiz";"Puerto Maldonado";Peru;"Star Peru (2I)"
+"Alferez Fap David Figueroa Fernandini Airport";Huánuco;Peru;"Jorge Chavez Intl";Lima;Peru;"Star Peru (2I)"
+"Coronel Francisco Secada Vignetta Intl";Iquitos;Peru;"Cap Fap David Abenzur Rengifo Intl";Pucallpa;Peru;"Star Peru (2I)"
+"Coronel Francisco Secada Vignetta Intl";Iquitos;Peru;"Cadete Guillermo Del Castillo Paredes";Tarapoto;Peru;"Star Peru (2I)"
+"Jorge Chavez Intl";Lima;Peru;Andahuaylas;Andahuaylas;Peru;"Star Peru (2I)"
+"Jorge Chavez Intl";Lima;Peru;"Coronel Fap Alfredo Mendivil Duarte";Ayacucho;Peru;"Star Peru (2I)"
+"Jorge Chavez Intl";Lima;Peru;"Teniente Alejandro Velasco Astete Intl";Cuzco;Peru;"Star Peru (2I)"
+"Jorge Chavez Intl";Lima;Peru;"Alferez Fap David Figueroa Fernandini Airport";Huánuco;Peru;"Star Peru (2I)"
+"Jorge Chavez Intl";Lima;Peru;"Cap Fap David Abenzur Rengifo Intl";Pucallpa;Peru;"Star Peru (2I)"
+"Jorge Chavez Intl";Lima;Peru;"Cadete Guillermo Del Castillo Paredes";Tarapoto;Peru;"Star Peru (2I)"
+"Cap Fap David Abenzur Rengifo Intl";Pucallpa;Peru;"Coronel Francisco Secada Vignetta Intl";Iquitos;Peru;"Star Peru (2I)"
+"Cap Fap David Abenzur Rengifo Intl";Pucallpa;Peru;"Jorge Chavez Intl";Lima;Peru;"Star Peru (2I)"
+"Cap Fap David Abenzur Rengifo Intl";Pucallpa;Peru;"Cadete Guillermo Del Castillo Paredes";Tarapoto;Peru;"Star Peru (2I)"
+"Padre Aldamiz";"Puerto Maldonado";Peru;"Teniente Alejandro Velasco Astete Intl";Cuzco;Peru;"Star Peru (2I)"
+"Cadete Guillermo Del Castillo Paredes";Tarapoto;Peru;"Coronel Francisco Secada Vignetta Intl";Iquitos;Peru;"Star Peru (2I)"
+"Cadete Guillermo Del Castillo Paredes";Tarapoto;Peru;"Jorge Chavez Intl";Lima;Peru;"Star Peru (2I)"
+"Cadete Guillermo Del Castillo Paredes";Tarapoto;Peru;"Cap Fap David Abenzur Rengifo Intl";Pucallpa;Peru;"Star Peru (2I)"
+"Abidjan Felix Houphouet Boigny Intl";Abidjan;"Cote d'Ivoire";"Bobo Dioulasso";Bobo-dioulasso;"Burkina Faso";"Air Burkina"
+"Abidjan Felix Houphouet Boigny Intl";Abidjan;"Cote d'Ivoire";Ouagadougou;Ouagadougou;"Burkina Faso";"Air Burkina"
+"Kotoka Intl";Accra;Ghana;Ouagadougou;Ouagadougou;"Burkina Faso";"Air Burkina"
+Senou;Bamako;Mali;Ouagadougou;Ouagadougou;"Burkina Faso";"Air Burkina"
+"Bobo Dioulasso";Bobo-dioulasso;"Burkina Faso";"Abidjan Felix Houphouet Boigny Intl";Abidjan;"Cote d'Ivoire";"Air Burkina"
+"Bobo Dioulasso";Bobo-dioulasso;"Burkina Faso";Ouagadougou;Ouagadougou;"Burkina Faso";"Air Burkina"
+Cadjehoun;Cotonou;Benin;"Gnassingbe Eyadema Intl";Lome;Togo;"Air Burkina"
+Cadjehoun;Cotonou;Benin;Ouagadougou;Ouagadougou;"Burkina Faso";"Air Burkina"
+"Leopold Sedar Senghor Intl";Dakar;Senegal;Ouagadougou;Ouagadougou;"Burkina Faso";"Air Burkina"
+"Gnassingbe Eyadema Intl";Lome;Togo;Cadjehoun;Cotonou;Benin;"Air Burkina"
+"Gnassingbe Eyadema Intl";Lome;Togo;Ouagadougou;Ouagadougou;"Burkina Faso";"Air Burkina"
+"Diori Hamani";Niamey;Niger;Ouagadougou;Ouagadougou;"Burkina Faso";"Air Burkina"
+Ouagadougou;Ouagadougou;"Burkina Faso";"Abidjan Felix Houphouet Boigny Intl";Abidjan;"Cote d'Ivoire";"Air Burkina"

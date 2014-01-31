@@ -1,0 +1,36 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<div ng-controller="menuController" >
+    <ul class="nav nav-pills" ng-controller="autenticazioneController" ng-init="checkLogged()">
+        <li><a class="brand" href="#"><h1>TravelDream</h1></a></li>
+        <li class="pull-right"><a>&nbsp;</a></li>
+        <li class="pull-right pointer"ng-if="!isLogged()"><a bs-modal="'templates/modal/registrazione.html'">Registrati</a></li>
+        <li class="dropdown pull-right pointer"  ng-if="!isLogged()">
+            <a class="dropdown-toggle" data-toggle="dropdown" data-unique="1" bs-popover="'templates/popover/login.html'" data-placement="bottom" data-title="<button class='close' ng-click='hide()' aria-hidden='true' style='right: 0px;'>×</button><p class='lead'>Accedi</p>"data-unique="1">
+                <i><img src="img/icon-login.png" width="16"/></i> Login <b class="caret"></b></a>
+        </li>
+        <li class="dropdown pull-right pointer" ng-if="isLogged()">
+            <a class="dropdown-toggle" id="drop4" role="button" data-toggle="dropdown"><i class="icon-user"></i> {{utente.email}} <b class="caret"></b></a>
+            <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                <li role="presentation" class="divider"></li>
+                <li role="presentation" ng-click="logout()"><a role="menuitem" tabindex="-1" href="#"><i><img src="img/icon-logout.png" width="16"/></i> Logout</a></li>
+            </ul>              
+        </li>    
+        <li class="dropdown pull-right pointer" ng-if='isImpiegato()'>
+            <a class="dropdown-toggle" id="drop4" role="button" data-toggle="dropdown"><i class="icon-th-list"></i> Gestione offerta <b class="caret"></b></a>
+            <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#/composizionePV">Aggiungi PV all'offerta</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#/creazionePB">Aggiungi PB all'offerta</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#/proposteViaggio">Trova PV</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#/trovaPB">Trova PB</a></li>
+            </ul>              
+        </li> 
+        <li ng-if='isAdmin()' ng-class="{active: getActive('/amministrazione'), 'pull-right': true}"><a href="#/amministrazione">Amministrazione</a></li>
+        <li class="pull-right"><a>&nbsp;</a></li><li class="pull-right"><a>&nbsp;</a></li><li class="pull-right"><a>&nbsp;</a></li>
+        <li ng-class="{active: getActive('/composizionePV'), 'pull-right': true}" ng-if="isUtenteRegistrato() || !isLogged()" ng-click="beforeCreaViaggio()"><a href="#/composizionePV">Crea viaggio</a></li>
+        <li ng-class="{active: getActive('/proposteViaggio'), 'pull-right': true}" ng-if="isUtenteRegistrato() || !isLogged()"><a href="#/proposteViaggio">Proposte viaggio</a></li>
+    </ul>
+</div>

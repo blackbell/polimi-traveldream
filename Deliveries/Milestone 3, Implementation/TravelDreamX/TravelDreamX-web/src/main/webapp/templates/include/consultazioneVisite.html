@@ -1,0 +1,51 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<div class="well">
+    <div class="row">
+        <div class="span3">
+            <form>
+                <label class="control-label">
+                    A
+                </label>
+                <input type="text" placeholder="Milano" class="span3" ng-model="parametriRicercaPB.cittaMuseo"/>
+            </form>
+        </div>
+        <div class="span3">
+        <label class="control-label">
+                    Nel museo
+                </label>
+                <input type="text" class="span3" placeholder="Museo della Scienza e della Tecnica" ng-model="parametriRicercaPB.nomeMuseo"/>
+        </div>    
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Nel giorno
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="text" ng-model="parametriRicercaPB.giornoVisita" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row"><div class="span8"><button class="btn btn-block btn-primary" ng-click="trovaPB()">Cerca</button></div></div>
+</div>
+<div class="row" ng-show="waiting">
+    <div class="span9" >Sto cercando... &nbsp;&nbsp;
+        <img src="img/loading.gif" width="20"/>
+        <br/><br/>
+    </div>
+</div>
+<div class="row">
+    <div class="span9">
+        <legend>Risultati</legend>
+        <ul class="thumbnails" ng-if='PB.Visita.length > 0'>
+            <li class="span3" ng-repeat="visita in PB.Visita">
+            <visita visita="visita"/>
+            </li>
+        </ul>
+        <p class="lead" ng-if="PB.Visita.length === 0">Non ci sono risultati per questa ricerca</p>
+    </div>
+</div>

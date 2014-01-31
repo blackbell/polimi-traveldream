@@ -1,0 +1,58 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<p class="lead">Scegli un albergo</p><br/><br/>
+<div class="well">
+    <div class="row">
+        <div class="span3 offset1">
+            <form>
+                <label class="control-label">
+                    Nome albergo
+                </label>
+                <input type="text" placeholder="Hotel Pina" class="span3" ng-model="parametriRicercaEDB.nome"/>
+            </form>
+        </div>
+        <div class="span3 offset1">
+            <form>
+                <label class="control-label">
+                   Citta
+                </label>
+                <input type="text" placeholder="Milano" class="span3" ng-model="parametriRicercaEDB.citta"/>
+            </form>
+        </div>
+    </div>
+    <div class="row"><div class="span7 offset1"><button class="btn btn-block btn-primary" ng-click="trovaEDB()">Cerca</button></div></div>
+</div>
+<div class="row" ng-show="waiting">
+    <div class="span9" >Sto cercando... &nbsp;&nbsp;
+        <img src="img/loading.gif" width="20"/>
+        <br/><br/>
+    </div>
+</div>
+<div class="row" ng-if="EDB.Albergo.length>0">
+    <div class="span9">
+        <legend>Risultati</legend>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Citta</th>
+                    <th>Stelle</th>
+                    <th>Scegli</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="albergo in EDB.Albergo">
+                    <td>{{albergo.idAlbergo}}</td>
+                    <td>{{albergo.nome}}</td>
+                    <td>{{albergo.citta}}</td>
+                    <td>{{albergo.stelle}}</td>
+                    <td><button class="btn btn-mini btn-success" ng-click="scegliEDB(albergo)"><i class="icon-plus-sign icon-white"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="lead" ng-if="EDB.Albergo.length===0">Non ci sono risultati per questa ricerca</p>
+    </div>
+</div>

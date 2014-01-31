@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="travelDreamApp">
+
+    <head>
+        <title>TravelDream</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="favicon.ico" >
+        <link href="css/bootstrap.css" rel="stylesheet" />
+        <link href="css/bootstrap-responsive.css" rel="stylesheet" />
+        <link href="css/bootstrap-datepicker.css" rel="stylesheet" />
+        <link href="css/bootstrap-timepicker.css" rel="stylesheet" />
+        <link href="css/toastr.min.css" rel="stylesheet" />
+        <link href="css/traveldream.css" rel="stylesheet" />
+
+        <!-- CDN jquery -->
+        <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+
+        <script src="js/lib/bootstrap/bootstrap.min.js"></script>
+        <script src="js/lib/bootstrap/bootstrap-datepicker.js"></script>
+        <script src="js/lib/bootstrap/bootstrap-timepicker.js"></script>
+
+        <!--script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script-->
+        <script src="js/lib/angular-1.2.7/angular.min.js"></script>
+        <script src="js/lib/angular-1.2.7/angular-route.min.js"></script>
+
+        <script src="js/lib/angularStrap/angular-strap_0.7.5.js"></script>
+        <script src="js/lib/toast/toastr.min.js"></script>
+
+        <!--app-->
+        <script type="text/javascript" src="js/appMain.js"></script>  
+
+        <!-- directives -->
+        <script type="text/javascript" src="js/directives/soggiorno-directive.js"></script>
+        <script type="text/javascript" src="js/directives/visita-directive.js"></script>
+        <script type="text/javascript" src="js/directives/pv-directive.js"></script>
+
+        <!-- filters -->
+        <script type="text/javascript" src="js/filters/range-filter.js"></script>
+
+        <!-- controllers -->
+        <script type="text/javascript" src="js/controllers/menu-controller.js"></script>
+        <script type="text/javascript" src="js/controllers/autenticazione-controller.js"></script>
+        <script type="text/javascript" src="js/controllers/proposte-viaggio-controller.js"></script>
+        <script type="text/javascript" src="js/controllers/composizione-controller.js"></script>
+        <script type="text/javascript" src="js/controllers/pb-modal-controller.js"></script>
+        <script type="text/javascript" src="js/controllers/pv-modal-controller.js"></script>
+        <script type="text/javascript" src="js/controllers/condivisione-controller.js"></script>
+        <script type="text/javascript" src="js/controllers/amministrazione-controller.js"></script>
+        <script type="text/javascript" src="js/controllers/acquista-controller.js"></script>
+        <script type="text/javascript" src="js/controllers/gestione-offerta-controller.js"></script>
+        <script type="text/javascript" src="js/controllers/crea-modifica-pb-controller.js"></script>
+        
+        <!-- services -->
+        <script type="text/javascript" src="js/services/registrazione-service.js"></script>
+        <script type="text/javascript" src="js/services/login-service.js"></script>
+        <script type="text/javascript" src="js/services/search-service.js"></script>
+        <script type="text/javascript" src="js/services/salva-pv-service.js"></script>
+        <script type="text/javascript" src="js/services/amministrazione-service.js"></script>
+        <script type="text/javascript" src="js/services/gestione-offerta-service.js"></script>
+        <script type="text/javascript" src="js/services/acquista-service.js"></script>
+    </head>
+    <body ng-cloak>
+        <!-- Include: MENU -->
+        <div name="menu" ng-include="'templates/include/menu.html'"></div>
+
+        <div class="container">
+            <div ng-view> </div>
+        </div>
+    </body>
+</html>

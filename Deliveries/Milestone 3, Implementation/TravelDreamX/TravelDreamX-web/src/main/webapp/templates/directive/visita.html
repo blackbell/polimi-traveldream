@@ -1,0 +1,24 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<div class="thumbnail pointer" bs-modal="'templates/modal/dettaglioVisita.html'">
+    <img ng-src="{{visita.museo.urlFoto}}"/>
+    <div class="caption">
+        <div class="row intestazione">
+            <strong class="span2 zero-margin-left pull-left">{{visita.museo.nome}}</strong>
+            </div>
+        <p class="pb-descrizione">
+            {{visita.dataOra| date:'dd/MM/yyyy hh:mm'}}
+            <br/>
+            Citt&agrave;: {{visita.museo.citta}}
+        </p>
+        <legend class="pb-footer"></legend>
+        <p class="pb-descrizione">
+            <font size="5px">&euro;{{visita.costo}}<font>
+            <button class="btn btn-primary btn-small pull-right">Dettagli</button>
+        </p>
+    </div>
+</div>
+
+

@@ -1,0 +1,70 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<div class="row ">
+    <p class="span2 lead">Partecipanti: </p>
+    <input type="text" ng-pattern="/^([1-9]|[1-9][0-9])$/" ng-required="true" placeholder="2" class="span1" ng-model="PV.numeroPersone"/>
+    <br />
+</div>
+<div class="row ">
+    <p class="span1 lead">Voci: </p>
+    <div class="span1 btn-group">
+        <button class="btn" ng-click="creaVoce('Volo')"><img src="img/Volo.png" width="15"/></button>
+        <button class="btn" ng-click="creaVoce('Soggiorno')"><img src="img/Soggiorno.png" width="15"/></button>
+        <button class="btn" ng-click="creaVoce('Visita')"><img src="img/Visita.png" width="15"/></button>
+    </div>
+</div>
+<div class="row" ng-repeat="voce in getVociPV()">
+    <br>
+    <ul ng-class="{'voce-item-btn-selected': isSelezionato($index), 'voce-item':true, 'voce-item-btn':true,'span3':true, 'pointer':true}" ng-click="seleziona(voce.tipo, $index)">
+        <button class='close voce-close' ng-click='eliminaVoce($index)' aria-hidden='true' >×</button><br/>
+        <li class="pull-left voce-item-col">
+            <img ng-src="img/{{voce.tipo}}.png" class="voce-lista-img"/>
+        </li>
+        <li ng-class="{'pull-right': true, 'voce-item-col': true}" ng-if="!isCompleta(voce)">
+            <text class="voce-item-left" >
+            <strong>Scegli {{voce.tipo}} 
+                <span ng-if="voce.tipo === 'Volo'"><br/>(Andata/Ritorno)</span>
+            </strong> 
+            </text><i class="voce-item-right icon-chevron-right"></i>
+        </li>
+        <li class="pull-right voce-item-col" ng-if="isVolo(voce)">
+            <p class="voce-item-left" > 
+                Da: {{voce.rotta.cittaPartenza}} 
+                <br/>
+                A: {{voce.rotta.cittaArrivo}}
+                <br/>
+                {{voce.dataOra| date:'dd/MM/yyyy hh:mm'}}
+                <br/>
+                &euro;{{voce.costo}} c.u.
+            </p>
+            <i class="voce-item-right icon-chevron-right"></i>
+        </li>
+        <li class="pull-right voce-item-col" ng-if="isSoggiorno(voce)">
+            <p class="voce-item-left" > 
+                {{voce.albergo.nome}} 
+                <br/>
+                {{voce.albergo.citta}} - {{voce.albergo.stelle}} <i class="icon-star"/>
+                <br/>
+                Dal {{voce.giornoInizio| date:'dd/MM/yyyy'}} 
+                <br/>
+                Al {{voce.giornoFine| date:'dd/MM/yyyy'}}
+                <br/>
+                &euro;{{voce.costo}} 
+            </p>
+            <i class="voce-item-right icon-chevron-right"></i>
+        </li>
+        <li class="pull-right voce-item-col" ng-if="isVisita(voce)">
+            <p class="voce-item-left" > 
+                {{voce.museo.nome}} - {{voce.museo.citta}}
+                <br/>
+                {{voce.dataOra| date:'dd/MM/yyyy hh:mm'}}
+                <br/>
+                &euro;{{voce.costo}} 
+            </p>
+            <i class="voce-item-right icon-chevron-right"></i>
+        </li>
+    </ul>
+</div>
+

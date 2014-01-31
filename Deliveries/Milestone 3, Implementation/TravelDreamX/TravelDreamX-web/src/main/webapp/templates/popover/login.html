@@ -1,0 +1,24 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<div class="container">
+    <div class="row">
+        <div class="span2">
+            <form name ='formRegistrazione' class="popover-content" ng-init="inizializzaUtente()">
+                    <input class="input-login-registr" name="email" type="text" ng-model="utente.email" ng-required="true" ng-pattern='/^([_a-z0-9-])+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/' placeholder="Inserisci la tua email"></input>
+                    <br/>
+                    <input class="input-login-registr" name="pwd" type="password" ng-model="utente.password" ng-required="true" ng-pattern="/^.{5,15}$/" placeholder="Inserisci la tua password"></input>
+                    <br/>
+                    <div class="row" ng-show="waiting">
+                        <div class="span2">
+                        &nbsp;&nbsp;Aspetta... &nbsp;&nbsp;<img src="img/loading.gif" width="20"/>
+                        <br/><br/>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-info btn-login" ng-click="login(utente, formRegistrazione)" >Effettua l'accesso</button>
+            </form>
+        </div>
+    </div>
+</div>

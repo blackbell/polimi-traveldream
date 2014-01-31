@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<div class="row">
+    <div class="span3">
+        <button ng-class="{'btn':true, 'btn-large':true, 'span2':true, 'btn-info': gestisci==='utenti'}"  ng-click="gestisci = 'utenti'; recuperaUtenti()">Gestione utenti</button>
+<!--        <button class="btn btn-block btn-large" ng-click="gestisci = 'pagamenti'">Gestione pagamenti</button>-->
+    </div>
+    <div class="span9">
+        <div class="row" ng-show="waiting">
+            <div class="span3 offset3">&nbsp;&nbsp;Aspetta... &nbsp;&nbsp;<img src="img/loading.gif" width="20"/></div>
+        </div>
+        <p class="lead" ng-if="gestisci === 'utenti'">Lista utenti traveldream</p>
+        <table class="table table-condensed table-hover table-striped" ng-if="gestisci === 'utenti'">
+            <thead>
+                <tr>
+                    <th>Abilitato/Disabilitato</th>
+                    <th>Email</th>
+                    <th>Livello</th>
+                    <th>Vedi pagamenti</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="utente in listaUtenti">
+                    <td ng-if="utente.abilitato"><span class="badge badge-utente-attivo pointer" ng-click="disattivaUtente(utente)" bs-tooltip='tooltipDisattiva.title'><i class="icon-ok-circle"></i></span></td>
+                    <td ng-if="!utente.abilitato"><span class="badge badge-important pointer" ng-click="abilitaUtente(utente)" bs-tooltip='tooltipAbilita.title'><i class="icon-ban-circle icon-white"></i></span></td>
+                    <td>{{utente.email}}</td>
+                    <td ng-if="utente.livello === 2"><img src="img/admin.png" class="pointer" width="20" bs-tooltip='tooltipAmministratore.title' data-unique="1" bs-popover="'templates/popover/modificaLivelloUtente.html'"/></td>
+                    <td ng-if="utente.livello === 1"><img src="img/impiegato.png" class="pointer" width="20" bs-tooltip='tooltipImpiegato.title' data-unique="1" bs-popover="'templates/popover/modificaLivelloUtente.html'"/></td>
+                    <td ng-if="utente.livello === 0"><img src="img/utente.png" class="pointer" width="20" bs-tooltip='tooltipUtenteRegistrato.title' data-unique="1" bs-popover="'templates/popover/modificaLivelloUtente.html'"/></td>
+                    <td><span class="badge badge-inverse pointer" ng-click="recuperaPagamentiUtente(utente)"><i class="icon-shopping-cart icon-white"></i></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

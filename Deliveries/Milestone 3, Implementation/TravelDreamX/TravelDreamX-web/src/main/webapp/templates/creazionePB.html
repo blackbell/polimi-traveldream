@@ -1,0 +1,19 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<div class="container" ng-controller="gestioneOffertaController">
+    <div class="row" ng-init="inizializzaRicercaEDB()">
+        <div class="span3">
+            <p class="lead">Scegli il tipo desiderato:</p><br/><br/>
+            <button ng-class="{'btn':true, 'btn-large':true, 'span2':true, 'btn-info': PBdaCreare.tipo==='Volo'}" ng-click="selezionaTipoNuovoPB('Volo')">Crea Volo</button><br/>
+            <button ng-class="{'btn':true, 'btn-large':true, 'span2':true, 'btn-info': PBdaCreare.tipo==='Soggiorno'}" ng-click="selezionaTipoNuovoPB('Soggiorno')">Crea Soggiorno</button><br/>
+            <button ng-class="{'btn':true, 'btn-large':true, 'span2':true, 'btn-info': PBdaCreare.tipo==='Visita'}" ng-click="selezionaTipoNuovoPB('Visita')">Crea Visita</button>
+        </div>
+        <div class="span9">
+            <ng-include ng-if="PBdaCreare.tipo==='Volo'" src="'templates/include/consultazioneRotte.html'"></ng-include>
+            <ng-include ng-if="PBdaCreare.tipo==='Soggiorno'" src="'templates/include/consultazioneAlberghi.html'"></ng-include>
+            <ng-include ng-if="PBdaCreare.tipo==='Visita'" src="'templates/include/consultazioneMusei.html'"></ng-include>
+        </div>
+    </div>
+</div>

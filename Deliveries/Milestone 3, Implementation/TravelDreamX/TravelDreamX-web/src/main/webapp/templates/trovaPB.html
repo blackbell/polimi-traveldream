@@ -1,0 +1,19 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<!-- Serve all'impiegato per cercare un qualsiasi PB -->
+
+<div class="container">
+    <div class="row" ng-controller="composizioneController">
+        <div class="span3"  ng-init="inizializzaRicerca()">
+            <p class="lead">Scegli il tipo desiderato:</p><br/><br/>
+            <button class="btn btn-large span2" ng-click="seleziona('Volo',0)">Cerca Voli</button><br/>
+            <button class="btn btn-large span2" ng-click="seleziona('Soggiorno',0)">Cerca Soggiorni</button><br/>
+            <button class="btn btn-large span2" ng-click="seleziona('Visita',0)">Cerca Visite</button>
+        </div>
+        <div class="span9">
+            <ng-include src="'templates/include/consultazione.html'"></ng-include>
+        </div>
+    </div>
+</div>

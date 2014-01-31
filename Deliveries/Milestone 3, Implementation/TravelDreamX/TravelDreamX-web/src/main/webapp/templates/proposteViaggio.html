@@ -1,0 +1,101 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<div class="well" ng-controller="autenticazioneController">
+    <div class="row">
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Dal giorno
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="text" ng-model="parametriRicercaPV.giornoInizio" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
+                </div>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Ad almeno il giorno
+                </label>
+                <div class="input-append">
+                    <input class="input-small" type="text" ng-model="parametriRicercaPV.giornoFine" data-date-format="dd/mm/yyyy" bs-datepicker>
+                    <button type="button" class="btn datepicker" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
+                </div>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Nazione di partenza
+                </label>
+                <input type="text" class="span2" placeholder="Milano" ng-model="parametriRicercaPV.nazionePartenza"/>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Nazione di arrivo
+                </label>
+                <input type="text" class="span2" placeholder="Olanda" ng-model="parametriRicercaPV.nazioneArrivo"/>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Citt&agrave;
+                </label>
+                <input type="text" placeholder="Amsterdam" class="span2" ng-model="parametriRicercaPV.cittaAlbergo"/>
+            </form>
+        </div>
+        <div class="span1">
+            <form>
+                <label class="control-label">
+                    &nbsp;
+                </label>
+                <button class="btn span1 btn-primary" ng-click="trovaPV()">Cerca</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span2" ng-if="isImpiegato()">
+            <form>
+                <label class="control-label" >
+                    ID
+                </label>
+                <input type="number" class="span2" ng-model="parametriRicercaPV.idPacchetto" placeholder="0">
+            </form>
+        </div>
+        <div class="span2" ng-if="isImpiegato()">
+            <form>
+                <label class="control-label" >
+                    Nome
+                </label>
+                <input type="text" class="span2" ng-model="parametriRicercaPV.nome" placeholder="Splendida avventura">
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row" ng-show="waiting">
+    <div class="span9" >Sto cercando... &nbsp;&nbsp;
+        <img src="img/loading.gif" width="20"  align="center"/>
+        <br/><br/>
+    </div>
+</div>
+<div class="row">
+    <div class="span12">
+        <legend>Le nostre proposte</legend>
+        <ul class="thumbnails">
+            <li class="span3" ng-repeat="pv in PVs">
+            <pv pv="pv"/>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row" ng-if='!PVs || !PVs.size>0'>
+    <div class="span12">
+        <p class="lead">Non ci sono risultati con questi parametri</p>
+    </div>
+</div>

@@ -1,0 +1,3 @@
+Controller Spring controllare utente abilitato
+Controller Spring Amministrazione eliminare dalla lista l'utente loggato che poi è l'admin perchè non deve potersi disabilitare
+Controllare lato Javascript accesso all'aministrazione
