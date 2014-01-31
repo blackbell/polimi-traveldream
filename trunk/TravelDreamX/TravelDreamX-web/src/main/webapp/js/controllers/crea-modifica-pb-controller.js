@@ -4,22 +4,29 @@
  */
 'use strict';
 
-travelDreamApp.controller('creaModificaPBController', function($scope, $rootScope) {
+travelDreamApp.controller('creaModificaPBController', function($scope, $rootScope, gestioneOffertaService) {
     toastr.options = {
         positionClass: "toast-center"
     };
-    $scope.initCreaModificaPB = function(){
+    $scope.initCreaModificaPB = function() {
         console.log($rootScope.EDBperPB);
         $scope.EDB = $rootScope.EDBperPB;
         $scope.PBdaSalvare = $rootScope.tipoPBdaCreare;
-        if($scope.PBdaSalvare.tipo === 'Volo')
+        if ($scope.PBdaSalvare.tipo === 'Volo')
             $scope.PBdaSalvare['Rotta'] = $scope.EDB;
-        if($scope.PBdaSalvare.tipo === 'Soggiorno')
+        if ($scope.PBdaSalvare.tipo === 'Soggiorno')
             $scope.PBdaSalvare['Albergo'] = $scope.EDB;
-        if($scope.PBdaSalvare.tipo === 'Visita')
+        if ($scope.PBdaSalvare.tipo === 'Visita')
             $scope.PBdaSalvare['Museo'] = $scope.EDB;
-        delete $rootScope.EDBperPB;
-        delete $rootScope.tipoPBdaCreare;
+    };
+    $scope.salvaPB = function() {
+        gestioneOffertaService.salvaPB($scope.PBdaSalvare, function(esito) {
+            if (esito.result) {
+                toastr.success("pb salvato correttamente", esito.message);
+            } else
+                toastr.error(esito.message, "ERRORE:");
+            delete $scope.PBdaSalvare;
+        });
     };
 });
 
