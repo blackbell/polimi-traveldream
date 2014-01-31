@@ -10,10 +10,9 @@ travelDreamApp.controller('creaModificaPBController', function($scope, $rootScop
     };
     
     $scope.initCreaModificaPB = function(){
+        console.log($rootScope.EDBperPB);
         $scope.EDB = $rootScope.EDBperPB;
-        $scope.PBdaSalvare = {
-            tipo: $rootScope.tipoPBdaCreare
-        };
+        $scope.PBdaSalvare = $rootScope.tipoPBdaCreare;
         if($scope.PBdaSalvare.tipo === 'Volo')
             $scope.PBdaSalvare['Rotta'] = $scope.EDB;
         if($scope.PBdaSalvare.tipo === 'Soggiorno')
