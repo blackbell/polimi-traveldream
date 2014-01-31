@@ -2,8 +2,8 @@
 Politecnico di Milano, Software Engineering 2 (autumn semester)
 proj codename: TravelDreamX
 -->
-<div ng-controller="menuController">
-    <ul class="nav nav-pills" ng-controller="autenticazioneController">
+<div ng-controller="menuController" >
+    <ul class="nav nav-pills" ng-controller="autenticazioneController" ng-init="checkLogged()">
         <li><a class="brand" href="#"><h1>TravelDream</h1></a></li>
         <li class="pull-right"><a>&nbsp;</a></li>
         <li class="pull-right pointer"ng-if="!isLogged()"><a bs-modal="'templates/modal/registrazione.html'">Registrati</a></li>

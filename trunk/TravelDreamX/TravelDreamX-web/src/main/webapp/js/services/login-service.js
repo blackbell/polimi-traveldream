@@ -5,6 +5,17 @@
 'use strict';
 
 travelDreamApp.factory('loginService', function($http) {
+    var __checkLogged = function(callback){
+        $http({method: 'POST', url: 'isLogged.json'}).
+                success(function (data, status, headers, config){
+                    callback(data);
+                }).
+                 error(function (data, status, headers, config){
+                    toastr.error("Errore " + status);
+                });
+    };
+    
+    
     var __login = function(utente, callback){
         $http({method: 'POST', data:utente, url: 'login.json'}).
                 success(function (data, status, headers, config){
@@ -29,6 +40,7 @@ travelDreamApp.factory('loginService', function($http) {
     
     return {
       login: __login,  
-      logout: __logout 
+      logout: __logout ,
+      checkLogged : __checkLogged
     };
 });
