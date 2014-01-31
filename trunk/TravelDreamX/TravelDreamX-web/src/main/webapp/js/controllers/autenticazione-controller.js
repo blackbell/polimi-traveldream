@@ -5,6 +5,7 @@
 'use strict';
 
 travelDreamApp.controller('autenticazioneController', function($scope, $rootScope, registrazioneService, loginService) {
+    
     toastr.options = {
         positionClass: "toast-center"
     };

@@ -3,7 +3,7 @@
  * proj codename: TravelDreamX
  */
 'use strict';
-
+var fattaPrimaRicerca = false;
 travelDreamApp.controller('proposteViaggioController', function($scope, searchService) {
     
     $scope.waiting = false;
@@ -49,6 +49,7 @@ travelDreamApp.controller('proposteViaggioController', function($scope, searchSe
             }
         };
     };
+        
     $scope.trovaPV = function() {
         $scope.waiting=true;
         searchService.trovaPV($scope.parametriRicercaPV, function(esito) {
@@ -61,6 +62,12 @@ travelDreamApp.controller('proposteViaggioController', function($scope, searchSe
         });
     };
     
+    if ($scope.trovaPV != 'undefined' && !fattaPrimaRicerca){
+        $scope.trovaPV();
+        fattaPrimaRicerca = true;
+    }
 });
+
+
 
 
