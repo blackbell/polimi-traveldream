@@ -3,7 +3,7 @@
  * proj codename: TravelDreamX
  */
 'use strict';
-
+var miavar;
 travelDreamApp.controller('gestioneOffertaController', function($scope, $rootScope,$modal, gestioneOffertaService, searchService) {
     toastr.options = {
         positionClass: "toast-center"
@@ -114,7 +114,18 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
         };
         popUpModal(modaleCreaModificaPB);
     };
+    
     $scope.modificaPB = function (pb){
+        if (pb.tipo === 'Soggiorno'){
+            pb.giornoInizio = new Date(pb.giornoInizio);
+            pb.giornoFine = new Date(pb.giornoFine);
+        }
+        if (pb.tipo === 'Volo'){
+            pb.dataOra = new Date(pb.dataOra);
+        }
+        if (pb.tipo === 'Visita'){
+            pb.dataOra = new Date(pb.dataOra);
+        }
         $rootScope.PBdaModif = pb;
         apriModaleCreaModificaPB();
     };
