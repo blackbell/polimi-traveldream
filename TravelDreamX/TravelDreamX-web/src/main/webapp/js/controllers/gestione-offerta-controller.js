@@ -39,6 +39,7 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
         title: "Clicca per attivare il PB"
     };
     $scope.selezionaTipoNuovoPB = function(tipo) {
+        $scope.PBdaCreare = new Object();
         $scope.PBdaCreare.tipo = tipo;
         if(tipo==='Soggiorno')
             $scope.parametriRicercaEDB.tipo = 'Albergo';
