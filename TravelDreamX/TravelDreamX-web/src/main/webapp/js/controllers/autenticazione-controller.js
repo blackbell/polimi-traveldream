@@ -5,11 +5,25 @@
 'use strict';
 
 travelDreamApp.controller('autenticazioneController', function($scope, $rootScope, registrazioneService, loginService) {
-    
+
     toastr.options = {
         positionClass: "toast-center"
     };
     $scope.waiting = false;
+
+    $scope.checkLogged = function() {
+        console.log("checkLogged");
+        loginService.checkLogged(function(esito) {
+            console.log("Esito autologin: " + JSON.stringify(esito));
+            console.log('esito.result');
+            console.log(esito.result);
+            if (esito.result){
+                $rootScope.utente = esito.returnedObj;
+                delete $rootScope.utente.password;
+                $scope.utente = $rootScope.utente;
+            }
+        });
+    };
 
     $scope.registrazione = function(utente, form) {
         if (form.$valid) {
@@ -51,8 +65,8 @@ travelDreamApp.controller('autenticazioneController', function($scope, $rootScop
     };
 
     $scope.logout = function() {
-        loginService.logout( function(esito) {
-            if(esito.result){
+        loginService.logout(function(esito) {
+            if (esito.result) {
                 delete($scope.utente);
                 delete($rootScope.utente);
                 toastr.success("Logout effettuato, arrivederci!", esito.message);
@@ -60,10 +74,10 @@ travelDreamApp.controller('autenticazioneController', function($scope, $rootScop
                 toastr.error(esito.message, "ERRORE");
             }
         });
-        
+
     };
-    
-    
+
+
     $scope.checkEmail = function(formEmail) {
         if (formEmail.$valid) {
             toastr.success("Il campo è stato compilato correttamente", "OK");
