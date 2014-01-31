@@ -4,25 +4,49 @@
  */
 'use strict';
 
-travelDreamApp.controller('gestioneOffertaController', function($scope, $rootScope, gestioneOffertaService) {
+travelDreamApp.controller('gestioneOffertaController', function($scope, $rootScope, gestioneOffertaService, searchService) {
     toastr.options = {
         positionClass: "toast-center"
     };
-    
-    var mettiPVinRootScope = function (isAbilitato){
+
+    var mettiPVinRootScope = function(isAbilitato) {
         $rootScope.PV.abilitato = isAbilitato;
     };
-    
+    $scope.inizializzaRicercaEDB = function() {
+        $scope.PBdaCreare = {
+            tipo:''
+        };
+        $scope.waiting = false;
+        $scope.parametriRicercaEDB = {
+            nome: null,
+            citta: null,
+            stelle: null,
+            aeroportoPartenza: null,
+            cittàPartenza: null,
+            nazionePartenza: null,
+            aeroportoArrivo: null,
+            cittàArrivo: null,
+            nazioneArrivo: null,
+            compagniaAerea: null,
+            tipo: null
+        };
+    };
     $scope.tooltipDisattiva = {
         title: "Clicca per disabilitare il PB"
     };
     $scope.tooltipAbilita = {
         title: "Clicca per attivare il PB"
     };
-    $scope.selezionaTipoNuovoPB = function(tipo){
+    $scope.selezionaTipoNuovoPB = function(tipo) {
         $scope.PBdaCreare.tipo = tipo;
+        if(tipo==='Soggiorno')
+            $scope.parametriRicercaEDB.tipo = 'Albergo';
+        if(tipo==='Volo')
+            $scope.parametriRicercaEDB.tipo = 'Rotta';
+        if(tipo==='Visita')
+            $scope.parametriRicercaEDB.tipo = 'Museo';
     };
-    
+
     $scope.abilitaPV = function(pv) {
         gestioneOffertaService.abilitaPV(pv.idPacchetto, function(esito) {
             if (esito.result) {
@@ -65,5 +89,15 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
 
         });
     };
-    
+    $scope.trovaEDB = function() {
+        $scope.waiting = true;
+        searchService.trovaEDB($scope.parametriRicercaEDB, function(esito) {
+            if (esito.result) {
+                $scope.EDB[$scope.parametriRicercaEDB.tipo] = esito.returnedObj;
+            } else {
+                toastr.error(esito.message, "ERRORE:");
+            }
+            $scope.waiting = false;
+        });
+    };
 });

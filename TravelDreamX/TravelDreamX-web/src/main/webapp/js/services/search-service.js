@@ -45,6 +45,39 @@ travelDreamApp.factory('searchService', function($http) {
         
         return parPV;
     };
+    var eliminaParametriRicercaEDBInutilizzati = function(parEDB) {
+        if (!parEDB.stelle)
+            delete parEDB.stelle;
+        if (!parEDB.nome)
+            delete parEDB.nome;
+        if (!parEDB.citta)
+            delete parEDB.citta;
+        if (!parEDB.cittàPartenza)
+            delete parEDB.cittàPartenza;
+        if (!parEDB.cittàArrivo)
+            delete parEDB.cittàArrivo;
+        if (!parEDB.nazionePartenza)
+            delete parEDB.nazionePartenza;
+        if (!parEDB.nazioneArrivo)
+            delete parEDB.nazioneArrivo;
+        if (!parEDB.compagniaAerea)
+            delete parEDB.compagniaAerea;
+        if (!parEDB.aeroportoPartenza)
+            delete parEDB.aeroportoPartenza;
+        if (!parEDB.aeroportoArrivo)
+            delete parEDB.aeroportoArrivo;
+        return parEDB;
+    };
+    var __trovaEDB = function(trovaEDBParams, callback) {
+        trovaEDBParams = eliminaParametriRicercaEDBInutilizzati(trovaEDBParams);
+        $http({method: 'POST', data: trovaEDBParams, url: 'trovaEntita.json'}).
+                success(function(data, status, headers, config) {
+                    callback(data);
+                }).
+                error(function(data, status, headers, config) {
+                    toastr.error("Errore " + status);
+                });
+    };
     var __trovaPB = function(trovaPBParams, callback) {
         trovaPBParams = eliminaParametriRicercaPBInutilizzati(trovaPBParams);
         $http({method: 'POST', data: trovaPBParams, url: 'trovaPB.json'}).
@@ -66,6 +99,7 @@ travelDreamApp.factory('searchService', function($http) {
                 });
     };
     return {
+        trovaEDB: __trovaEDB,
         trovaPB: __trovaPB,
         trovaPV: __trovaPV
     };

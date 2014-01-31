@@ -31,7 +31,7 @@ var travelDreamApp = angular.module('travelDreamApp', ['ngRoute', '$strap.direct
                         controller: 'gestioneOffertaController'
                     }).
                     when('/creazionePB', {
-                        templateUrl: 'templates/creaPB.html',
+                        templateUrl: 'templates/creazionePB.html',
                         controller: 'gestioneOffertaController'
                     }).         
                     otherwise({
