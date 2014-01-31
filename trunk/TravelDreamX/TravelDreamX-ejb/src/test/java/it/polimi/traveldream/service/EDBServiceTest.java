@@ -386,4 +386,49 @@ public class EDBServiceTest {
         assertEquals(m.getUrlFoto(), m2.getUrlFoto());
     }
 
+    @Test
+    public void testTrovaMuseoByNome() {
+        Museo m = new Museo();
+        m.setNome("testTrovaMuseoByNome");
+        m.setCitta("Città del museo");
+        m.setDescrizione("Descrizione del museo.");
+        m.setUrlFoto(TestUtilities.getRandomImageLink());
+        Museo m2 = service.salvaMuseo(m);
+
+        ParametriRicercaEDB p = new ParametriRicercaEDB();
+        p.setTipo(TipoEDB.Museo);
+        p.setNome(m.getNome());
+
+        List<EDB> list = service.trovaEntità(p);
+        for (EDB l : list) {
+            System.out.println("testTrovaMuseoByNome() -> l:" + ((Museo) l).getNome() + "[" + l + "]");
+            assertTrue(l instanceof Museo);
+        }
+        System.out.println("testTrovaMuseoByNome() -> list.size:" + list.size() + "[" + list + "]");
+        assertTrue(list.size() > 0);
+        assertTrue(list.contains(m));
+    }
+
+    @Test
+    public void testTrovaMuseoByCittà() {
+        Museo m = new Museo();
+        m.setNome("testTrovaMuseoByCittà");
+        m.setCitta("Città del museo");
+        m.setDescrizione("Descrizione del museo.");
+        m.setUrlFoto(TestUtilities.getRandomImageLink());
+        Museo m2 = service.salvaMuseo(m);
+
+        ParametriRicercaEDB p = new ParametriRicercaEDB();
+        p.setTipo(TipoEDB.Museo);
+        p.setCitta(m.getCitta());
+
+        List<EDB> list = service.trovaEntità(p);
+        for (EDB l : list) {
+            System.out.println("testTrovaMuseoByCittà() -> l:" + ((Museo) l).getNome() + "[" + l + "]");
+            assertTrue(l instanceof Museo);
+        }
+        System.out.println("testTrovaMuseoByCittà() -> list.size:" + list.size() + "[" + list + "]");
+        assertTrue(list.size() > 0);
+        assertTrue(list.contains(m));
+    }
 }
