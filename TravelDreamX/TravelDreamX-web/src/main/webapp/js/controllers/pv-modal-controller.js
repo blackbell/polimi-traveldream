@@ -11,6 +11,9 @@ travelDreamApp.controller('pvModalController', function($scope, $rootScope, $loc
     $scope.mettiPVinRootScope = function (pv){
         $rootScope.PV=pv;
     };
+    $scope.isLocation = function (view){
+        return $location.path() === view;
+    };
     $scope.setIndexes = function (pv){
         var numeroVoli = 0;
         var findVoloAR = function (pv) {
