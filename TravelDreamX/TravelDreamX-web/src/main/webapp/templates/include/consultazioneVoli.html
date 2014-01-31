@@ -52,7 +52,7 @@ proj codename: TravelDreamX
                     <th>Compagnia aerea</th>
                     <th>Data-Ora</th>
                     <th>Costo</th>
-                    <th>Modifica PB</th>
+                    <th ng-if="isImpiegato()">Modifica PB</th>
                     <th ng-if="isLocation('/composizionePV')">Aggiungi <br/> al pacchetto</th>
                     <th ng-if="isImpiegato() && isLocation('/trovaPB')">Abilita/Disabilita</th>
                 </tr>
@@ -64,6 +64,8 @@ proj codename: TravelDreamX
                     <td>{{volo.rotta.compagniaAerea}}</td>
                     <td>{{volo.dataOra| date:'dd/MM/yyyy hh:mm'}}</td>
                     <td>{{volo.costo}}</td>
+                    <td ng-if="isImpiegato()"><button ng-controller="gestioneOffertaController" class="btn btn-small" ng-if="isImpiegato()" ng-click="modificaPB(volo)"><i class="icon-edit"></i></button>
+                    </td>
                     <td ng-if="isLocation('/composizionePV')"><button class="btn btn-mini btn-success" ng-click="aggiungiPBaPV(volo)"><i class="icon-plus-sign icon-white"></i></button></td>
                     <td ng-if="volo.abilitato && isImpiegato() && isLocation('/trovaPB')"><span class="badge badge-utente-attivo pointer" ng-click="disabilitaPB(volo)" bs-tooltip='tooltipDisattiva.title'><i class="icon-ok-circle"></i></span></td>
                     <td ng-if="(!volo.abilitato) && isImpiegato() && isLocation('/trovaPB')"><span class="badge badge-important pointer" ng-click="abilitaPB(volo)" bs-tooltip='tooltipDisattiva.title'><i class="icon-ban-circle icon-white"></i></span></td>
