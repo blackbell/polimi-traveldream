@@ -13,11 +13,11 @@ travelDreamApp.controller('creaModificaPBController', function($scope, $rootScop
         $scope.EDB = $rootScope.EDBperPB;
         $scope.PBdaSalvare = $rootScope.tipoPBdaCreare;
         if ($scope.PBdaSalvare.tipo === 'Volo')
-            $scope.PBdaSalvare['Rotta'] = $scope.EDB;
+            $scope.PBdaSalvare['rotta'] = $scope.EDB;
         if ($scope.PBdaSalvare.tipo === 'Soggiorno')
-            $scope.PBdaSalvare['Albergo'] = $scope.EDB;
+            $scope.PBdaSalvare['albergo'] = $scope.EDB;
         if ($scope.PBdaSalvare.tipo === 'Visita')
-            $scope.PBdaSalvare['Museo'] = $scope.EDB;
+            $scope.PBdaSalvare['museo'] = $scope.EDB;
     };
     $scope.salvaPB = function() {
         gestioneOffertaService.salvaPB($scope.PBdaSalvare, function(esito) {
@@ -25,7 +25,9 @@ travelDreamApp.controller('creaModificaPBController', function($scope, $rootScop
                 toastr.success("pb salvato correttamente", esito.message);
             } else
                 toastr.error(esito.message, "ERRORE:");
-            delete $scope.PBdaSalvare;
+            delete $rootScope.tipoPBdaCreare;
+            delete $rootScope.EDBperPB;
+            console.log("EDBperPB eliminato? "+$rootScope.EDBperPB);
         });
     };
 });
