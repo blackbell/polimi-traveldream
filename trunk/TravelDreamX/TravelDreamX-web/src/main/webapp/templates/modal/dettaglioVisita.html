@@ -37,8 +37,8 @@ proj codename: TravelDreamX
                     <button class="btn" ng-click="dismiss()">Chiudi</button>
                     <span ng-controller="gestioneOffertaController">
                         <span ng-controller="autenticazioneController">
-                            <button class="btn btn-warning" ng-if="isImpiegato() && visita.abilitato && isLocation('/trovaPB')" ng-click="disabilitaPB(visita)"><i class="icon-shopping-cart icon-white"></i> Disabilita</button>
-                            <button class="btn btn-success" ng-if="isImpiegato() && (!visita.abilitato) && isLocation('/trovaPB')" ng-click="abilitaPB(visita)"><i class="icon-shopping-cart icon-white"></i> Abilita</button> 
+                            <button class="btn btn-warning" ng-if="isImpiegato() && visita.abilitato && isLocation('/trovaPB')" ng-click="disabilitaPB(visita) ; dismiss()"><i class="icon-shopping-cart icon-white"></i> Disabilita</button>
+                            <button class="btn btn-success" ng-if="isImpiegato() && (!visita.abilitato) && isLocation('/trovaPB')" ng-click="abilitaPB(visita) ; dismiss()"><i class="icon-shopping-cart icon-white"></i> Abilita</button> 
                         </span>
                     </span>
                     <button class="btn btn-success" ng-if="isLocation('/composizionePV')" ng-click="aggiungiPBaPV(visita)"><i class="icon-plus-sign icon-white"></i> Aggiungi al pacchetto</button>

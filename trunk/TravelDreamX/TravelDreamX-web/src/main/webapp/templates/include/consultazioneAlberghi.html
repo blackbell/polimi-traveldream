@@ -1,0 +1,60 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<div class="well">
+    <div class="row">
+        <div class="span1">
+            <form>
+                <label class="control-label" >
+                    ID
+                </label>
+                <input type="number" class="span2" ng-model="parametriRicercaPV.idPacchetto" placeholder="0">
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Nome albergo
+                </label>
+                <input type="text" placeholder="Hotel Pina" class="span2" ng-model="parametriRicercaPB.nomeAlbergo"/>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                   Citta
+                </label>
+                <input type="text" placeholder="Hotel Pina" class="span2" ng-model="parametriRicercaPB.nomeAlbergo"/>
+            </form>
+        </div>
+        <div class="span2">
+            <form>
+                <label class="control-label">
+                    Stelle
+                </label>
+                <i ng-click="diminuisciStelle($index)" class="icon-star pointer" ng-repeat="i in getNumStelle(numStelle) track by $index"></i>
+                <i ng-click="aumentaStelle($index)" class="icon-star-empty pointer" ng-repeat="i in getNumStelle(numStelleVuote) track by $index"></i>
+                <br/><br/>
+            </form>
+        </div>
+    </div>
+    <div class="row"><div class="span6 offset1"><button class="btn btn-block btn-primary" ng-click="trovaEDB()">Cerca</button></div></div>
+</div>
+<div class="row" ng-show="waiting">
+    <div class="span9" >Sto cercando... &nbsp;&nbsp;
+        <img src="img/loading.gif" width="20"/>
+        <br/><br/>
+    </div>
+</div>
+<div class="row">
+    <div class="span9">
+        <legend>Risultati</legend>
+        <ul class="thumbnails" ng-if="PB.Soggiorno.length>0">
+            <li class="span3" ng-repeat="soggiorno in PB.Soggiorno">
+            <soggiorno soggiorno="soggiorno"/>
+            </li>
+        </ul>
+        <p class="lead" ng-if="PB.Soggiorno.length===0">Non ci sono risultati per questa ricerca</p>
+    </div>
+</div>

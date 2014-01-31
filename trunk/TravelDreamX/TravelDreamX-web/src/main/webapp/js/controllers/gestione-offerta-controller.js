@@ -19,6 +19,9 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
     $scope.tooltipAbilita = {
         title: "Clicca per attivare il PB"
     };
+    $scope.selezionaTipoNuovoPB = function(tipo){
+        $scope.PBdaCreare.tipo = tipo;
+    };
     
     $scope.abilitaPV = function(pv) {
         gestioneOffertaService.abilitaPV(pv.idPacchetto, function(esito) {

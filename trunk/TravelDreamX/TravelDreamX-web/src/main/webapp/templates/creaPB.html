@@ -2,3 +2,18 @@
 Politecnico di Milano, Software Engineering 2 (autumn semester)
 proj codename: TravelDreamX
 -->
+<div class="container">
+    <div class="row" ng-controller="gestioneOffertaController">
+        <div class="span3"  ng-init="inizializzaRicercaEDB()">
+            <p class="lead">Scegli il tipo desiderato:</p><br/><br/>
+            <button class="btn btn-large span2" ng-click="selezionaTipoNuovoPB('Volo')">Crea Volo</button><br/>
+            <button class="btn btn-large span2" ng-click="selezionaTipoNuovoPB('Soggiorno')">Crea Soggiorno</button><br/>
+            <button class="btn btn-large span2" ng-click="selezionaTipoNuovoPB('Visita')">Crea Visita</button>
+        </div>
+        <div class="span9">
+            <ng-include ng-if="PBdaCreare.tipo==='Volo'" src="'templates/include/consultazioneRotte.html'"></ng-include>
+            <ng-include ng-if="PBdaCreare.tipo==='Visita'" src="'templates/include/consultazioneMusei.html'"></ng-include>
+            <ng-include ng-if="PBdaCreare.tipo==='Soggiorno'" src="'templates/include/consultazioneAlberghi.html'"></ng-include>
+        </div>
+    </div>
+</div>
