@@ -1,0 +1,14 @@
+[BUG] Noti:
+
+- i bottoni abilita/disabilita PB non vengono visualizzati a causa di un problema nel controllo
+	di autenticazione come impiegato.
+
+- se viene aperto il dettaglio di un PV (modale) per poi passare alla creazione di un nuovo PV, 
+	il PV precedentemente visualizzato rimane in memoria nel $rootScope dell'applicazione.
+	---> è necessario ripulire il rootScope quando il modale viene chiuso.
+ 
+- se un impiegato aggiunge un nuovo PB all'offerta e in seguito tenta di creare un nuovo PV, 
+	il controller della composizionePV non riconosce l'oggetto ParametriRicercaPB 
+	rendendo impossibile la composizione del PV. Per procedere alla composizione è
+	necessario ricaricare l'intera pagina.
+	
