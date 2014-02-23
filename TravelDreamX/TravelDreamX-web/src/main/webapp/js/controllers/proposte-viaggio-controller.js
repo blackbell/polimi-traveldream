@@ -4,7 +4,7 @@
  */
 'use strict';
 var fattaPrimaRicerca = false;
-travelDreamApp.controller('proposteViaggioController', function($scope, searchService) {
+travelDreamApp.controller('proposteViaggioController', function($scope, $rootScope, searchService) {
     
     $scope.waiting = false;
     $scope.parametriRicercaPV = {
@@ -52,6 +52,8 @@ travelDreamApp.controller('proposteViaggioController', function($scope, searchSe
         
     $scope.trovaPV = function() {
         $scope.waiting=true;
+        if(typeof $rootScope.utente !== "undefined" && $rootScope.utente.livello===1 )
+            $scope.parametriRicercaPV.disabilitatiInclusi = 'true';
         searchService.trovaPV($scope.parametriRicercaPV, function(esito) {
             if (esito.result) {
                 $scope.PVs = esito.returnedObj;
@@ -62,10 +64,10 @@ travelDreamApp.controller('proposteViaggioController', function($scope, searchSe
         });
     };
     
-    if ($scope.trovaPV != 'undefined' && !fattaPrimaRicerca){
-        $scope.trovaPV();
-        fattaPrimaRicerca = true;
-    }
+//    if ($scope.trovaPV !== 'undefined' && !fattaPrimaRicerca){
+//        $scope.trovaPV();
+//        fattaPrimaRicerca = true;
+//    }
 });
 
 
