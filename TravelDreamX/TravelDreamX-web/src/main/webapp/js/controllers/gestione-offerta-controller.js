@@ -9,9 +9,6 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
         positionClass: "toast-center"
     };
 
-    var mettiPVinRootScope = function(isAbilitato) {
-        $rootScope.PV.abilitato = isAbilitato;
-    };
     $scope.inizializzaRicercaEDB = function() {
         $scope.PBdaCreare = {
             tipo:''
@@ -52,7 +49,7 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
     $scope.abilitaPV = function(pv) {
         gestioneOffertaService.abilitaPV(pv.idPacchetto, function(esito) {
             if (esito.result) {
-                mettiPVinRootScope(esito.returnedObj);
+                $scope.pv.abilitato=esito.returnedObj;
                 toastr.success("pacchetto " + pv.idPacchetto + " abilitato.", esito.message);
             } else {
                 toastr.error(esito.message, "ERRORE:");
@@ -63,7 +60,7 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
     $scope.disabilitaPV = function(pv) {
         gestioneOffertaService.disabilitaPV(pv.idPacchetto, function(esito) {
             if (esito.result) {
-                mettiPVinRootScope(esito.returnedObj);
+                $scope.pv.abilitato=esito.returnedObj;
                 toastr.success("pacchetto " + pv.idPacchetto + " disabilitato.", esito.message);
             } else {
                 toastr.error(esito.message, "ERRORE:");
@@ -74,6 +71,7 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
     $scope.abilitaPB = function(pb) {
         gestioneOffertaService.abilitaPB(pb.idVoce, function(esito) {
             if (esito.result) {
+                pb.abilitato = esito.returnedObj;
                 toastr.success("pb " + pb.idVoce + " abilitato.", esito.message);
             } else {
                 toastr.error(esito.message, "ERRORE:");
@@ -84,6 +82,7 @@ travelDreamApp.controller('gestioneOffertaController', function($scope, $rootSco
     $scope.disabilitaPB = function(pb) {
         gestioneOffertaService.disabilitaPB(pb.idVoce, function(esito) {
             if (esito.result) {
+                pb.abilitato = esito.returnedObj;
                 toastr.success("pb " + pb.idVoce + " disabilitato.", esito.message);
             } else {
                 toastr.error(esito.message, "ERRORE:");
