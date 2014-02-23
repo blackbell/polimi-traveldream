@@ -152,6 +152,8 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     //**************************************
     $scope.trovaPB = function() {
         $scope.waiting = true;
+        if(typeof $rootScope.utente !== "undefined" && $rootScope.utente.livello===1 )
+            $scope.parametriRicercaPB.disabilitatiInclusi = 'true';
         searchService.trovaPB($scope.parametriRicercaPB, function(esito) {
             if (esito.result) {
                 $scope.PB[$scope.parametriRicercaPB.tipo] = esito.returnedObj;
