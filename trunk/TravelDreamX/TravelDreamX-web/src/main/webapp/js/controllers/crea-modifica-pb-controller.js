@@ -38,6 +38,7 @@ travelDreamApp.controller('creaModificaPBController', function($scope, $rootScop
         }
     };
     $scope.salvaPB = function() {
+        if (true) {
         gestioneOffertaService.salvaPB($scope.PBdaSalvare, function(esito) {
             if (esito.result) {
                 toastr.success("pb salvato correttamente", esito.message);
@@ -45,8 +46,12 @@ travelDreamApp.controller('creaModificaPBController', function($scope, $rootScop
                 toastr.error(esito.message, "ERRORE:");
             delete $rootScope.tipoPBdaCreare;
             delete $rootScope.EDBperPB;
+            $scope.dismiss();
             console.log("EDBperPB eliminato? " + $rootScope.EDBperPB);
         });
+    }else{
+        toastr.warning("Compila tutti i campi correttamente");
+    };
     };
 });
 

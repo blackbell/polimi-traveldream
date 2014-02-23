@@ -40,6 +40,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
             getSharedPV();
         };
         getPVdaRootScope();
+        $scope.inizializzaRicerca();
     };
     $scope.getVociPV = function() {
         return $rootScope.PV.voci;
