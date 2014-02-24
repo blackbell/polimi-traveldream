@@ -26,8 +26,12 @@ proj codename: TravelDreamX
                             <i class="icon-star-empty" ng-repeat="i in getNumStelle(numStelleVuote)  track by $index"></i>
                         </strong><br/>
                         Citt&agrave;: <strong>{{EDB.citta}}</strong> <br/>
+                        Descrizione: <br/>
+                        <textarea rows="4" class="span4" ng-readonly="true">
+                            {{EDB.descrizione}}
+                        </textarea>
                         <legend></legend>
-                        <form>
+                        <form class="span2 zero-margin-left">
                             <label class="control-label">
                                 Giorno inizio
                             </label>
@@ -42,6 +46,8 @@ proj codename: TravelDreamX
                                 <input class="input-small" type="text" ng-model="PBdaSalvare.giornoFine" data-date-format="dd/mm/yyyy" bs-datepicker>
                                 <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i><b class="caret"></b></button>
                             </div>
+                        </form>
+                        <form class="span2 zero-margin-left">
                             <label class="control-label">
                                 Numero persone
                             </label>
@@ -61,6 +67,10 @@ proj codename: TravelDreamX
                         </p>
                         Museo: <strong>{{EDB.nome}}</strong><br/>
                         Citt&agrave;: <strong>{{EDB.citta}}</strong> <br/>
+                        Descrizione: <br/>
+                        <textarea rows="4" class="span4" ng-readonly="true">
+                            {{EDB.descrizione}}
+                        </textarea> 
                         <legend></legend>
                         <form>
                             <label class="control-label">
@@ -74,7 +84,7 @@ proj codename: TravelDreamX
                                 Ora
                             </label>
                             <div class="input-append">
-                                <input type="text" ng-model="time" bs-timepicker>
+                                <input type="text" class="span1" ng-model="time" bs-timepicker>
                                 <button type="button" class="btn" data-toggle="timepicker"><i class="icon-time"></i></button>
                             </div>
                             <label class="control-label">

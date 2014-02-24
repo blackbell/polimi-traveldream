@@ -72,8 +72,9 @@ travelDreamApp.controller('pvModalController', function($scope, $rootScope, $loc
         };
         popUpModal(modaleAcquista);
     };
-    $scope.vaiAdAcquista = function (){
+    $scope.vaiAdAcquista = function (pv){
         if(typeof $rootScope.utente !== 'undefined'){
+            $scope.mettiPVinRootScope(pv);
             $scope.dismiss();
             apriModaleAcquista();
         }

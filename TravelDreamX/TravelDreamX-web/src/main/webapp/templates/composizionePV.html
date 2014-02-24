@@ -6,7 +6,7 @@ proj codename: TravelDreamX
     <div class="span12">
         <legend>Crea il tuo viaggio 
             <button class="btn btn-small" ng-click="azzeraPV()"><i class="icon-briefcase"></i>Nuovo</button>
-            <button class="btn span2 btn-success pull-right" ng-disabled="!ceAlmenoUnaVoce()"><i class="icon-shopping-cart icon-white"></i>Acquista</button>
+            <button ng-controller="autenticazioneController" class="btn span2 btn-success pull-right" ng-disabled="!ceAlmenoUnaVoce() || !isUtenteRegistrato()" ng-click="vaiAdAcquista(PV)"><i class="icon-shopping-cart icon-white"></i>Acquista</button>
             <button class="btn btn-small pull-right" ng-click="salvaPV(false)" ng-disabled="!ceAlmenoUnaVoce()"><i><img src="img/icon-share2.png" width="16"/></i> Salva e condividi</button>
 <!--            <button class="btn btn-small pull-right" ng-click="salvaPV(true)" ng-disabled="!ceAlmenoUnaVoce()"><i class="icon-gift"></i>Crea GiftList</button>-->
             <span class="pull-right">&nbsp;&nbsp;&nbsp;&nbsp;</span>
