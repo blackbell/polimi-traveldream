@@ -81,10 +81,10 @@ public class PagamentoController {
         Esito e = new Esito();  
         try{
             Utente utenteLoggato = (Utente) request.getSession().getAttribute(AutenticazioneController.TAG_UTENTE_SESSIONE);
-            if (utenteLoggato != null && utenteLoggato.getLivello() >= Utente.LIVELLO_AMMINISTRATORE) {
+            if (utenteLoggato != null && (utenteLoggato.getLivello() >= Utente.LIVELLO_AMMINISTRATORE || utenteLoggato.getEmail().equals(params.getUtente().getEmail()))) {
                 List<Pagamento> p = pagamentoService.recuperaPagamenti(params);
-                e.setResult(!p.isEmpty());
-                e.setMessage(p.isEmpty() ? Esito.OPERATION_FAILED : null);
+                e.setResult(p != null);
+                e.setMessage(p == null ? Esito.OPERATION_FAILED : null);
                 e.setReturnedObj(p);
             }else{
                 e.setResult(false);

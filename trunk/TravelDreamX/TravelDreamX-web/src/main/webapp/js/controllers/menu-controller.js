@@ -9,9 +9,10 @@ travelDreamApp.controller('menuController', function($scope, $rootScope, $locati
         console.log('menuController.beforeCreaViaggio()');
         miavar = $rootScope;
         delete $rootScope.PV;
-    }
+    };
     
     $scope.getActive = function(viewLocation) {
         return $location.path() === viewLocation;
     };
+    
 });

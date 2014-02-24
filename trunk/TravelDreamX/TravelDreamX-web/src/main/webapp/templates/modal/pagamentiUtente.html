@@ -1,0 +1,79 @@
+<!--
+Politecnico di Milano, Software Engineering 2 (autumn semester)
+proj codename: TravelDreamX
+-->
+<div class="container modal span9" ng-controller="pagamentiUtenteController">
+    <div class="row" ng-init="getPagamentidaRootScope()">
+        <div class="span9">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <br/>
+                <p class="lead">
+                    Pagamenti effettuati da {{pagamenti.utente}}
+                </p>
+                <br/>
+            </div>
+            <div class="modal-body">
+                <div class="row" ng-repeat="pag in pagamenti.listaPagamenti">
+                    <div class="well well-small span8">
+                        <div class="row">
+                            <div class="span8">
+                                <span>ID pagamento: <strong>{{pag.idPagamento}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
+                                <span>ID pacchetto: <strong>{{pag.pacchetto.idPacchetto}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
+                                <span>Pagato in data: <strong>{{pag.dataOraPagamento|date:'dd/MM/yyyy hh:mm'}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></span>
+                                <span>Partecipanti: <strong>{{pag.molteplicitaVoce}}</strong></span><br/>
+                                <span>Dettaglio voce:</span><br/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span8" ng-if='isVolo(pag.voce)'>
+                                <img class="pull-left img-margin-left" src="img/Volo.png" width="40"/>
+                                <div class="span4">
+                                    <span>Compagnia aerea: <strong>{{pag.voce.rotta.compagniaAerea}}</strong></span><br/>
+                                    <span>Da: <strong>{{pag.voce.rotta.cittaPartenza}}</strong></span><br/>
+                                    <span>A: <strong>{{pag.voce.rotta.cittaArrivo}}</strong></span><br/>
+                                </div>
+                                <div class="span3">
+                                    <span>Data: <strong>{{pag.voce.dataOra|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
+                                    <span>Costo: <strong>&euro; {{pag.voce.costo}}</strong></span>
+                                </div>
+                            </div>
+                            <div class="span8" ng-if='isSoggiorno(pag.voce)'>
+                                <img class="pull-left img-margin-left" src="img/Soggiorno.png" width="40"/>
+                                <div class="span4">
+                                    <span>Citt&agrave;: <strong>{{pag.voce.albergo.citta}}</strong></span><br/>
+                                    <span>Albergo: <strong>{{pag.voce.albergo.nome}} </strong> &nbsp;&nbsp;
+                                        <i class="icon-star" ng-repeat="n in []| range:pag.voce.albergo.stelle"></i>
+                                        <i class="icon-star-empty" ng-repeat="n in []| range:(5 - pag.voce.albergo.stelle)"></i></span><br/>
+                                    <span>Tipologia: <strong>
+                                            <span ng-if="pag.voce.numeroPersone === 1">Camera singola</span>
+                                            <span ng-if="pag.voce.numeroPersone === 2">Camera doppia</span>
+                                            <span ng-if="pag.voce.numeroPersone === 3">Camera tripla</span>
+                                            <span ng-if="pag.voce.numeroPersone === 4">Camera quadrupla</span></strong> <br/></span>
+                                </div>
+                                <div class="span3">
+                                    <span>Dal: <strong>{{pag.voce.giornoInizio|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
+                                    <span>Al: <strong>{{pag.voce.giornoFine|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
+                                    <span>Costo: <strong>&euro; {{pag.voce.costo}}</strong></span>
+                                </div>
+                            </div>
+                            <div class="span8" ng-if='isVisita(pag.voce)'>
+                                <img class="pull-left img-margin-left" src="img/Visita.png" width="40"/>
+                                <div class="span4">
+                                    <span>Museo: <strong>{{pag.voce.museo.nome}}</strong></span><br/>
+                                    <span>Citt&agrave;: <strong>{{pag.voce.museo.citta}}</strong></span><br/>
+                                </div>
+                                <div class="span3">
+                                    <span>Data: <strong>{{pag.voce.dataOra|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
+                                    <span>Costo: <strong>&euro; {{pag.voce.costo}}</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" ng-click="dismiss()">
+                <button class="btn pull-right">Chiudi</button>
+            </div>
+        </div>
+    </div>

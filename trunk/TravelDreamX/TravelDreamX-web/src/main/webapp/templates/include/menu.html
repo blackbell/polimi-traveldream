@@ -14,6 +14,7 @@ proj codename: TravelDreamX
         <li class="dropdown pull-right pointer" ng-if="isLogged()">
             <a class="dropdown-toggle" id="drop4" role="button" data-toggle="dropdown"><i class="icon-user"></i> {{utente.email}} <b class="caret"></b></a>
             <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                <li role="presentation" ng-controller="pagamentiUtenteController" ng-click="recuperaPagamenti()"><a role="menuitem" tabindex="-1"><i class="icon-shopping-cart"></i> I miei pagamenti</a></li>
                 <li role="presentation" class="divider"></li>
                 <li role="presentation" ng-click="logout()"><a role="menuitem" tabindex="-1" href="#"><i><img src="img/icon-logout.png" width="16"/></i> Logout</a></li>
             </ul>              

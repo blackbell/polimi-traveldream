@@ -4,7 +4,7 @@
  */
 'use strict';
 
-travelDreamApp.controller('amministrazioneController', function($scope, amministrazioneService) {
+travelDreamApp.controller('amministrazioneController', function($scope, $rootScope, $modal, amministrazioneService) {
     toastr.options = {
         positionClass: "toast-center"
     };
@@ -49,18 +49,22 @@ travelDreamApp.controller('amministrazioneController', function($scope, amminist
             }
         });
     };
-    $scope.recuperaPagamentiUtente = function (utente){
-        $scope.parametriRicercaPagamenti.utente = utente;
-        $scope.recuperaPagamenti();
-    };
+       
     $scope.recuperaPagamenti = function() {
         $scope.waiting = true;
         amministrazioneService.recuperaPagamenti($scope.parametriRicercaPagamenti, function(esito) {
             if (esito.result) {
-                $scope.listaPagamenti = esito.returnedObject;
+                $rootScope.pagamenti = { 
+                    listaPagamenti: esito.returnedObj,
+                    utente: $scope.parametriRicercaPagamenti.utente.email
+                };
+                apriModalePagamentiUtente();
                 $scope.waiting = false;
             } else {
-                toastr.error(esito.message, "ERRORE:");
+                if(esito.message === "OPERATION_FAILED")
+                    toastr.warning("Non ci sono pagamenti per l'utente " + $scope.parametriRicercaPagamenti.utente.email);
+                else
+                    toastr.error(esito.message, "ERRORE:");
                 $scope.waiting = false;
             }
         });
