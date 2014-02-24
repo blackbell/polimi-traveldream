@@ -17,10 +17,10 @@ travelDreamApp.controller('amministrazioneController', function($scope, amminist
         idPagamento: -1
     };
     $scope.parametriRicercaPagamenti = {
-        pagatoDa: new String(),
-        pagatoA: new String(),
-        utente: new Object(),
-        PV: new Object()
+        pagatoDa: null,
+        pagatoA: null,
+        utente: null,
+        PV: null
     };
     $scope.tooltipDisattiva = {
         title: "Clicca per disabilitare l'utente"
@@ -55,7 +55,7 @@ travelDreamApp.controller('amministrazioneController', function($scope, amminist
     };
     $scope.recuperaPagamenti = function() {
         $scope.waiting = true;
-        amministrazioneService.recuperaPagamenti($scope.parametriRicercaUtente, function(esito) {
+        amministrazioneService.recuperaPagamenti($scope.parametriRicercaPagamenti, function(esito) {
             if (esito.result) {
                 $scope.listaPagamenti = esito.returnedObject;
                 $scope.waiting = false;
