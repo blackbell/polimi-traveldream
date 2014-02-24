@@ -21,41 +21,43 @@ proj codename: TravelDreamX
                     <div class="well well-small span8" ng-if='isVolo(voce)'>
                         <img class="pull-left img-margin-left" src="img/Volo.png" width="40"/>
                         <div class="span4">
-                        <span>Compagnia aerea: <strong>{{voce.rotta.compagniaAerea}}</strong></span><br/>
-                        <span>Da: <strong>{{voce.rotta.cittaPartenza}}</strong></span><br/>
-                        <span>A: <strong>{{voce.rotta.cittaArrivo}}</strong></span><br/>
+                            <span>Compagnia aerea: <strong>{{voce.rotta.compagniaAerea}}</strong></span><br/>
+                            <span>Da: <strong>{{voce.rotta.cittaPartenza}}</strong></span><br/>
+                            <span>A: <strong>{{voce.rotta.cittaArrivo}}</strong></span><br/>
                         </div>
                         <div class="span3">
-                        <span>Data: <strong>{{voce.dataOra|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
-                        <span>Costo: <strong>&euro; {{voce.costo}}</strong></span>
+                            <span>Data: <strong>{{voce.dataOra|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
+                            <span>Costo: <strong>&euro; {{voce.costo}}</strong></span>
                         </div>
                     </div>
                     <div class="well well-small span8" ng-if='isSoggiorno(voce)'>
                         <img class="pull-left img-margin-left" src="img/Soggiorno.png" width="40"/>
                         <div class="span4">
-                        <span>Citt&agrave;: <strong>{{voce.albergo.citta}}</strong></span><br/>
-                        <span>Albergo: <strong>{{voce.albergo.nome}} STELLE</strong></span><br/>
-                        <span>Tipologia: <strong>
-                            <span ng-if="voce.numeroPersone === 1">Camera singola</span>
-                            <span ng-if="voce.numeroPersone === 2">Camera doppia</span>
-                            <span ng-if="voce.numeroPersone === 3">Camera tripla</span>
-                            <span ng-if="voce.numeroPersone === 4">Camera quadrupla</span></strong> <br/></span>
+                            <span>Citt&agrave;: <strong>{{voce.albergo.citta}}</strong></span><br/>
+                            <span>Albergo: <strong>{{voce.albergo.nome}} </strong> &nbsp;&nbsp;
+                                    <i class="icon-star" ng-repeat="n in []| range:voce.albergo.stelle"></i>
+                                    <i class="icon-star-empty" ng-repeat="n in []| range:(5 - voce.albergo.stelle)"></i></span><br/>
+                            <span>Tipologia: <strong>
+                                    <span ng-if="voce.numeroPersone === 1">Camera singola</span>
+                                    <span ng-if="voce.numeroPersone === 2">Camera doppia</span>
+                                    <span ng-if="voce.numeroPersone === 3">Camera tripla</span>
+                                    <span ng-if="voce.numeroPersone === 4">Camera quadrupla</span></strong> <br/></span>
                         </div>
                         <div class="span3">
-                        <span>Dal: <strong>{{voce.giornoInizio|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
-                        <span>Al: <strong>{{voce.giornoFine|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
-                        <span>Costo: <strong>&euro; {{voce.costo}}</strong></span>
+                            <span>Dal: <strong>{{voce.giornoInizio|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
+                            <span>Al: <strong>{{voce.giornoFine|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
+                            <span>Costo: <strong>&euro; {{voce.costo}}</strong></span>
                         </div>
                     </div>
                     <div class="well well-small span8" ng-if='isVisita(voce)'>
                         <img class="pull-left img-margin-left" src="img/Visita.png" width="40"/>
                         <div class="span4">
-                        <span>Museo: <strong>{{voce.museo.nome}}</strong></span><br/>
-                        <span>Citt&agrave;: <strong>{{voce.museo.citta}}</strong></span><br/>
+                            <span>Museo: <strong>{{voce.museo.nome}}</strong></span><br/>
+                            <span>Citt&agrave;: <strong>{{voce.museo.citta}}</strong></span><br/>
                         </div>
                         <div class="span3">
-                        <span>Data: <strong>{{voce.dataOra|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
-                        <span>Costo: <strong>&euro; {{voce.costo}}</strong></span>
+                            <span>Data: <strong>{{voce.dataOra|date:'dd/MM/yyyy hh:mm'}}</strong></span><br/>
+                            <span>Costo: <strong>&euro; {{voce.costo}}</strong></span>
                         </div>
                     </div>
                 </div>

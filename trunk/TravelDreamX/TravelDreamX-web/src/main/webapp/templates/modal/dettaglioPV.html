@@ -39,7 +39,7 @@ proj codename: TravelDreamX
                         </div>
                         <div class="span1">solo<p class="lead"> &euro;{{calcolaPrezzo(pv)}}</p></div>
                         <div class="span2" ng-if="(!isImpiegato()) && isLocation('/proposteViaggio')">
-                            <button class="btn span2 btn-success" ng-click="vaiAdAcquista()"><i class="icon-shopping-cart icon-white"></i> Acquista</button> <br/>
+                            <button class="btn span2 btn-success" ng-click="vaiAdAcquista(pv)"><i class="icon-shopping-cart icon-white"></i> Acquista</button> <br/>
                         </div>
                         <span ng-controller="gestioneOffertaController">
                         <div class="span2" ng-if='isImpiegato() && pv.abilitato'>

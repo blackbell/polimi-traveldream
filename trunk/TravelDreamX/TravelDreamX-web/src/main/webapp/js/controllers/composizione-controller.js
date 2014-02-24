@@ -248,5 +248,27 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     $scope.isLocation = function (view){
         return $location.path() === view;
     };
-    
+    //********************
+    //***** ACQUISTA *****
+    //********************
+    var apriModaleAcquista = function() {
+        var modaleAcquista = {
+            template: 'templates/modal/acquista.html',
+            show: true,
+            backdrop: 'static'
+        };
+        var popUpModal = function(modal) {
+            // do something
+            $modal(modal);
+        };
+        popUpModal(modaleAcquista);
+    };
+    $scope.vaiAdAcquista = function (pv){
+        if(typeof $rootScope.utente !== 'undefined'){
+            $rootScope.PV = pv;
+            apriModaleAcquista();
+        }
+        else 
+            toastr.warning("è necessario effettuare il login per procedere all'acquisto", "ATTENZIONE:");
+    };
 });
