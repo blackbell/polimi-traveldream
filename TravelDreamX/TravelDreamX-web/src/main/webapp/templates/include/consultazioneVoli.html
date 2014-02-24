@@ -2,7 +2,7 @@
 Politecnico di Milano, Software Engineering 2 (autumn semester)
 proj codename: TravelDreamX
 -->
-<div class="well">
+<div class="well"  ng-init="controllaPB()">
     <div class="row">
         <div class="span2 offset1">
             <form>
@@ -40,7 +40,7 @@ proj codename: TravelDreamX
         <br/><br/>
     </div>
 </div>
-<div class="row" ng-if="PB.Volo !== 'undefined'">
+<div class="row" ng-show="PB.Volo !== 'undefined'">
     <div class="span9">
         <br/>
         <table class="table table-condensed table-hover table-striped" ng-if="PB.Volo.length > 0" ng-controller="autenticazioneController">

@@ -3,10 +3,10 @@
  * proj codename: TravelDreamX
  */
 'use strict';
-var fattaPrimaRicerca = false;
 travelDreamApp.controller('proposteViaggioController', function($scope, $rootScope, searchService) {
-    
+
     $scope.waiting = false;
+    
     $scope.parametriRicercaPV = {
         idPacchetto: null,
         nome: null,
@@ -31,7 +31,7 @@ travelDreamApp.controller('proposteViaggioController', function($scope, $rootSco
         }
         return prezzoTotale;
     };
-    
+
     $scope.tooltipVolo = {
         title: 'Volo'
     };
@@ -41,33 +41,41 @@ travelDreamApp.controller('proposteViaggioController', function($scope, $rootSco
     $scope.tooltipVisita = {
         title: 'Visita'
     };
-    $scope.getFotoPV = function (pv) {
-        for(var i=0; i< pv.voci.length; i++){
-            if(pv.voci[i].tipo === 'Soggiorno'){
+    $scope.getFotoPV = function(pv) {
+        for (var i = 0; i < pv.voci.length; i++) {
+            if (pv.voci[i].tipo === 'Soggiorno') {
                 $scope.fotoPV = pv.voci[i].albergo.urlFoto;
                 break;
             }
-        };
+        }
+        ;
     };
-        
+
     $scope.trovaPV = function() {
-        $scope.waiting=true;
-        if(typeof $rootScope.utente !== "undefined" && $rootScope.utente.livello===1 )
+        $scope.waiting = true;
+        if (typeof $rootScope.utente !== "undefined" && $rootScope.utente.livello === 1)
             $scope.parametriRicercaPV.disabilitatiInclusi = 'true';
         searchService.trovaPV($scope.parametriRicercaPV, function(esito) {
             if (esito.result) {
-                $scope.PVs = esito.returnedObj;
+                $rootScope.PVs = esito.returnedObj;
+                $scope.PVs = $rootScope.PVs;
             } else {
                 toastr.error(esito.message, "ERRORE:");
             }
             $scope.waiting = false;
         });
     };
-    
-//    if ($scope.trovaPV !== 'undefined' && !fattaPrimaRicerca){
-//        $scope.trovaPV();
-//        fattaPrimaRicerca = true;
-//    }
+    // ####INIT
+    $scope.initProposteViaggio = function() {
+        if (typeof $rootScope.PVs !== 'undefined') {
+            $scope.PVs = $rootScope.PVs;
+
+        } else {
+            $scope.trovaPV();
+        }
+        ;
+    }();
+
 });
 
 

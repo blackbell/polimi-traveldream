@@ -8,7 +8,9 @@ travelDreamApp.controller('menuController', function($scope, $rootScope, $locati
     $scope.beforeCreaViaggio = function(){
         console.log('menuController.beforeCreaViaggio()');
         miavar = $rootScope;
-        delete $rootScope.PV;
+        //delete $rootScope.PV;
+        console.log("$rootScope.PV");
+        console.log($rootScope.PV);
     };
     
     $scope.getActive = function(viewLocation) {

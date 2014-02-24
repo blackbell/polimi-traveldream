@@ -10,10 +10,10 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     toastr.options = {
         positionClass: "toast-center"
     };
-    
-    var getSharedPV = function (){
+
+    var getSharedPV = function() {
         $scope.waiting = true;
-            searchService.trovaPV( {idPacchetto: $routeParams.sharedID}, function(esito) {
+        searchService.trovaPV({idPacchetto: $routeParams.sharedID}, function(esito) {
             if (esito.result && (typeof esito.returnedObj !== 'undefined')) {
                 $rootScope.PV = esito.returnedObj[0];
             } else {
@@ -36,12 +36,14 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         $rootScope.indiceSelezionato = -1;
     };
     $scope.initComposizione = function() {
-        if( typeof $routeParams.sharedID !== 'undefined' ){
+        if (typeof $routeParams.sharedID !== 'undefined') {
             getSharedPV();
-        };
+        }
+        ;
         getPVdaRootScope();
         $scope.inizializzaRicerca();
     };
+
     $scope.getVociPV = function() {
         return $rootScope.PV.voci;
     };
@@ -61,17 +63,44 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
             cittaMuseo: null,
             giornoVisita: new Date()
         };
+
+        $scope.initVisualizzazionePBsDaPV();
+
     };
 
-    $scope.azzeraPV = function (){
+    $scope.initVisualizzazionePBsDaPV = function() {
+        if (typeof $rootScope.PV !== 'undefined')
+            for (var i = 0; i < $rootScope.PV.voci.length; i++) {
+                if (typeof $scope.PB[$rootScope.PV.voci[i].tipo] === 'undefined') {
+                    $scope.PB[$rootScope.PV.voci[i].tipo] = new Array($rootScope.PV.voci[i]);
+                } else {
+                    $scope.PB[$rootScope.PV.voci[i].tipo].push($rootScope.PV.voci[i]);
+                }
+                ;
+
+                console.log("composizione-controller: initVisualizzazionePBsDaPV()");
+                console.log($rootScope.PV.voci[i].tipo);
+                console.log("aggiunto a PB");
+                console.log("PB." + $rootScope.PV.voci[i].tipo + " = ");
+                console.log($scope.PB[$rootScope.PV.voci[i].tipo]);
+                console.log("_____________________________________________________");
+
+            }
+        ;
+    };
+    $scope.controllaPB = function() {
+        console.log("composzione-controller --> controllaPB()");
+        console.log($scope.PB[$scope.parametriRicercaPB.tipo]);
+    };
+    $scope.azzeraPV = function() {
         inizializzaPV();
         toastr.success("Pacchetto azzerato");
     };
-    
+
     //**********************************       
     //***** Lista voci - SELEZIONE *****
     //**********************************       
-    
+
     $scope.isSelezionato = function(data) {
         if (typeof data === 'number')
             return $rootScope.indiceSelezionato === data;
@@ -152,7 +181,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     //**************************************
     $scope.trovaPB = function() {
         $scope.waiting = true;
-        if(typeof $rootScope.utente !== "undefined" && $rootScope.utente.livello===1 )
+        if (typeof $rootScope.utente !== "undefined" && $rootScope.utente.livello === 1)
             $scope.parametriRicercaPB.disabilitatiInclusi = 'true';
         searchService.trovaPB($scope.parametriRicercaPB, function(esito) {
             if (esito.result) {
@@ -163,7 +192,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
             $scope.waiting = false;
         });
     };
-    
+
     $scope.aggiungiPBaPV = function(PB) {
         $rootScope.aggiungiPBaPV(PB);
     };
@@ -217,8 +246,8 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         popUpModal(modaleCondivisione);
     };
     $scope.salvaPV = function(isGL) {
-        if (typeof $rootScope.PV.numeroPersone !== 'undefined' 
-                && $rootScope.PV.numeroPersone>0 && $rootScope.PV.numeroPersone<100) {
+        if (typeof $rootScope.PV.numeroPersone !== 'undefined'
+                && $rootScope.PV.numeroPersone > 0 && $rootScope.PV.numeroPersone < 100) {
             if (isGL)
                 $rootScope.PV.tipo = 2;
             else
@@ -240,12 +269,12 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
                 toastr.error("Effettuare il Login o la Registrazione prima di procedere", "ERRORE:");
             }
             ;
-        } else { 
+        } else {
             toastr.error("Il numero dei partecipanti deve essere compreso tra 1 e 99.");
         }
         ;
     };
-    $scope.isLocation = function (view){
+    $scope.isLocation = function(view) {
         return $location.path() === view;
     };
     //********************
@@ -263,12 +292,12 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         };
         popUpModal(modaleAcquista);
     };
-    $scope.vaiAdAcquista = function (pv){
-        if(typeof $rootScope.utente !== 'undefined'){
+    $scope.vaiAdAcquista = function(pv) {
+        if (typeof $rootScope.utente !== 'undefined') {
             $rootScope.PV = pv;
             apriModaleAcquista();
         }
-        else 
+        else
             toastr.warning("è necessario effettuare il login per procedere all'acquisto", "ATTENZIONE:");
     };
 });
