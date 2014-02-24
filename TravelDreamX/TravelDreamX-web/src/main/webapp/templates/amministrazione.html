@@ -30,7 +30,7 @@ proj codename: TravelDreamX
                     <td ng-if="utente.livello === 2"><img src="img/admin.png" class="pointer" width="20" bs-tooltip='tooltipAmministratore.title' data-unique="1" bs-popover="'templates/popover/modificaLivelloUtente.html'"/></td>
                     <td ng-if="utente.livello === 1"><img src="img/impiegato.png" class="pointer" width="20" bs-tooltip='tooltipImpiegato.title' data-unique="1" bs-popover="'templates/popover/modificaLivelloUtente.html'"/></td>
                     <td ng-if="utente.livello === 0"><img src="img/utente.png" class="pointer" width="20" bs-tooltip='tooltipUtenteRegistrato.title' data-unique="1" bs-popover="'templates/popover/modificaLivelloUtente.html'"/></td>
-                    <td><span class="badge badge-inverse pointer" ng-click="recuperaPagamentiUtente(utente)"><i class="icon-shopping-cart icon-white"></i></span></td>
+                    <td><span ng-controller="pagamentiUtenteController" class="badge badge-inverse pointer" ng-click="recuperaPagamentiUtente(utente)"><i class="icon-shopping-cart icon-white"></i></span></td>
                 </tr>
             </tbody>
         </table>
