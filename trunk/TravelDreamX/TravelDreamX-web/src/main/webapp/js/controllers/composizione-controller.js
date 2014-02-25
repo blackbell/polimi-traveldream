@@ -283,7 +283,11 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         ;
     };
     $scope.isLocation = function(view) {
-        return $location.path() === view;
+        console.log('$location.path()');
+        console.log($location.path());
+        console.log('view');
+        console.log(view);
+        return $location.path().indexOf(view) !== -1;
     };
     //********************
     //***** ACQUISTA *****

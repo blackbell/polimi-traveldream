@@ -10,6 +10,10 @@ travelDreamApp.controller('pbModalController', function($scope, $rootScope, $loc
         $scope.dismiss();
     };
     $scope.isLocation = function (view){
-        return $location.path() === view;
+         console.log('$location.path()');
+        console.log($location.path());
+        console.log('view');
+        console.log(view);
+        return $location.path().indexOf(view) !== -1;
     };
 });

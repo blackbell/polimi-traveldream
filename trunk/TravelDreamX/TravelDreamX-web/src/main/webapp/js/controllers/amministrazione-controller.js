@@ -50,13 +50,15 @@ travelDreamApp.controller('amministrazioneController', function($scope, $rootSco
         });
     };
        
-    $scope.recuperaPagamenti = function() {
+    $scope.recuperaPagamentiUtente = function(utenteXX) {
         $scope.waiting = true;
+        $scope.parametriRicercaPagamenti.utente = utenteXX;
         amministrazioneService.recuperaPagamenti($scope.parametriRicercaPagamenti, function(esito) {
             if (esito.result) {
                 $rootScope.pagamenti = { 
                     listaPagamenti: esito.returnedObj,
-                    utente: $scope.parametriRicercaPagamenti.utente.email
+                    utente:  utenteXX.email
+                    //utente: $scope.parametriRicercaPagamenti.utente.email
                 };
                 apriModalePagamentiUtente();
                 $scope.waiting = false;
@@ -68,6 +70,18 @@ travelDreamApp.controller('amministrazioneController', function($scope, $rootSco
                 $scope.waiting = false;
             }
         });
+    };
+    
+    var apriModalePagamentiUtente = function() {
+        var modalePagamentiUtente = {
+            template: 'templates/modal/pagamentiUtente.html',
+            show: true,
+            backdrop: 'static'
+        };
+        var popUpModal = function(modal) {
+            $modal(modal);
+        };
+        popUpModal(modalePagamentiUtente);
     };
     $scope.disattivaUtente = function(utente) {
         $scope.waiting = true;
