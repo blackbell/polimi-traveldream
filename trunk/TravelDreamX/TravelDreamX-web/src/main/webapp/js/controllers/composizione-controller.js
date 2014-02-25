@@ -69,7 +69,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
             cittaMuseo: null,
             giornoVisita: new Date()
         };
-
+        delete $rootScope.tipoVoceSelezionata;
         $scope.initVisualizzazionePBsDaPV();
 
     };
