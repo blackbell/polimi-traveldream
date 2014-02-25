@@ -35,6 +35,12 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
         };
         $rootScope.indiceSelezionato = -1;
     };
+    var inizializzaPB = function(){
+        delete $rootScope.PB;
+        delete $scope.PB;
+        $rootScope.PB = new Object();
+        $scope.PB= new Object();
+    };
     $scope.initComposizione = function() {
         if (typeof $routeParams.sharedID !== 'undefined') {
             getSharedPV();
@@ -71,12 +77,13 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     $scope.initVisualizzazionePBsDaPV = function() {
         if (typeof $rootScope.PV !== 'undefined')
             for (var i = 0; i < $rootScope.PV.voci.length; i++) {
-                if (typeof $scope.PB[$rootScope.PV.voci[i].tipo] === 'undefined') {
-                    $scope.PB[$rootScope.PV.voci[i].tipo] = new Array($rootScope.PV.voci[i]);
-                } else {
-                    $scope.PB[$rootScope.PV.voci[i].tipo].push($rootScope.PV.voci[i]);
-                }
-                ;
+                if (typeof $rootScope.PV.voci[i].costo !== 'undefined' ){
+                    if (typeof $scope.PB[$rootScope.PV.voci[i].tipo] === 'undefined') {
+                        $scope.PB[$rootScope.PV.voci[i].tipo] = new Array($rootScope.PV.voci[i]);
+                    } else {
+                        $scope.PB[$rootScope.PV.voci[i].tipo].push($rootScope.PV.voci[i]);
+                    }
+                ;};
 
                 console.log("composizione-controller: initVisualizzazionePBsDaPV()");
                 console.log($rootScope.PV.voci[i].tipo);
@@ -94,6 +101,7 @@ travelDreamApp.controller('composizioneController', function($scope, $rootScope,
     };
     $scope.azzeraPV = function() {
         inizializzaPV();
+        inizializzaPB();
         toastr.success("Pacchetto azzerato");
     };
 
