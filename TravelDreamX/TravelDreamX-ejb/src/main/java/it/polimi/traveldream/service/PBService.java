@@ -108,8 +108,15 @@ public class PBService implements PBServiceLocal {
             case Volo:
                 String cittàPartenzaVolo = param.getCittaPartenzaVolo();
                 String cittàArrivoVolo = param.getCittaArrivoVolo();
+                Date dataOraVolo2 = null;
+                if (param.getDataOraVolo() != null){
+                    long nextDay = param.getDataOraVolo().getTime();
+                    nextDay = ((nextDay / ((long)(24 * 60 * 60 * 1000)))+1) * ((long)(24 * 60 * 60 * 1000));
+                    dataOraVolo2 = new Date(nextDay);
+                }
                 System.out.println("PBService.trovaPB -> params.tipo = volo");
                 System.out.println("PBService.trovaPB -> params.dataOraVolo :" + param.getDataOraVolo());
+                System.out.println("PBService.trovaPB -> dataOraVolo2 :" + dataOraVolo2);
                 System.out.println("PBService.trovaPB -> params.cittàPartenzaVolo :" + param.getCittaPartenzaVolo());
                 System.out.println("PBService.trovaPB -> params.cittàArrivoVolo :" + param.getCittaArrivoVolo());
                 Collection<Volo> voli;
@@ -117,6 +124,7 @@ public class PBService implements PBServiceLocal {
                         cittàPartenzaVolo != null ? "%" + cittàPartenzaVolo + "%" : null,
                         cittàArrivoVolo != null ? "%" + cittàArrivoVolo + "%" : null,
                         param.getDataOraVolo(),
+                        dataOraVolo2,
                         param.isDisabilitatiInclusi());
                 System.out.println("PBService.trovaPB -> voli.size: " + voli.size());
                 if (!voli.isEmpty()){

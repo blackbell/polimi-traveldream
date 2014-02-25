@@ -25,6 +25,7 @@ public interface VoceDAO extends JpaRepository<Voce, Integer>{
             @Param("cittaPartenzaVolo") String cittaPartenzaVolo, 
             @Param("cittaArrivoVolo") String cittàArrivoVolo, 
             @Param("dataOraVolo") Date dataOraVolo, 
+            @Param("dataOraVolo2") Date dataOraVolo2,
             @Param("disabilitatiInclusi") boolean disabilitatiInclusi);
     
     public Collection<Soggiorno> findByParams(
